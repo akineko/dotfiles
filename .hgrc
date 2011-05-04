@@ -1,12 +1,11 @@
 [ui]
-username = ashimizu
-merge = winmerge
-# merge = diff3
-ssh = D:\tools\putty\plinkw.exe -ssh -i D:\tools\putty\worker.ppk
+username = ashimizu <ashimizu@oneup-inc.com>
+merge = diff3
+#ssh =
 editor = vim
 
-# [merge-tools]
-# diff3.args = -m -L local -L base -L other $local $base $other > $output
+[merge-tools]
+diff3.args = -m -L local -L base -L other $local $base $other > $output
 
 [extensions]
 color=
@@ -14,6 +13,6 @@ convert=
 graphlog=
 mq=
 rebase=
-# win32mbcs=
-# svn=D:\tools\hgext\hgsubversion
+#win32mbcs=
+#svn=D:\tools\hgext\hgsubversion
 

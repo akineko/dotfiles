@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/ashimizu/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 # 補完機能の有効化
 autoload -U compinit
@@ -96,7 +96,7 @@ setopt aliases
 # リダイレクトによる上書きを禁止
 unsetopt clobber
 # コマンド名のスペル訂正
-setopt correct
+setopt nocorrect
 # 引数のスペル訂正
 # setopt correct_all
 # スペル訂正時にDVORAK配列を前提に
@@ -186,8 +186,49 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # svnの設定
-export SVN_EDITOR=/usr/bin/vim
+export SVN_EDITOR=vim
 
 # mercurialの設定
 export HGENCODING=utf8
+
+# 端末を256色に
+export TERM=xterm-256color
+
+export PATH=$PATH:$HOME/opt/bin
+
+export PATH=$HOME/bin:$PATH
+
+# rvmの設定
+if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
+
+# function svndiff3() {
+  # vimdiff $1.working $1.merge-left* $1.merge-right*;
+# }
+
+alias svndiff="svn diff --diff-cmd ~/.vim/scripts/svndiff"
+# alias svndiff3="svn diff --diff3-cmd ~/.vim/scripts/svndiff3"
+
+export LD_LIBRARY_PATH=$HOME/opt/lib
+
+# -------------------------------------------------------------------------------
+# Python
+# -------------------------------------------------------------------------------
+
+# virtualenvwrapperをインポート
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+	source /usr/bin/virtualenvwrapper.sh
+fi
+# virtualenvwrapperの仮想環境用ディレクトリ
+export WORKON_HOME=$HOME/.virtualenvs
+
+# pipのダウンロードファイルのキャッシュディレクトリ
+export PIP_DOWNLOAD_CACHE=$HOME/.pip_cache
+# パッケージをvirtualenv環境下にインストール
+export PIP_RESPECT_VIRTUALENV=true
+# pipの実行にvirtualenv環境下である事を必須に
+# export PIP_REQUIRE_VIRTUALENV=true
+
+if [ -f $HOME/.pythonbrew/etc/bashrc ]; then
+	source $HOME/.pythonbrew/etc/bashrc
+fi
 

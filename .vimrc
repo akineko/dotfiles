@@ -32,15 +32,19 @@ endif
 " colorscheme h2u_black
 colorscheme DarkDefault
 
+" カラースキーマのカスタマイズ
+command! MyHi call MyColor()
+
+function! MyColor()
+    highlight TabLineSel term=bold cterm=bold,underline ctermfg=3
+    highlight Visual term=reverse ctermbg=60
+endfunction
+
 " ヘルプファイルの優先度
 set helplang& helplang=ja,en
 
 " ビープ音消去
 set visualbell t_vb=
-
-" スワップの設定
-set swapfile
-set directory=$HOME/vimbackup
 
 " コマンドをステータス行に表示
 set showcmd
@@ -62,7 +66,11 @@ set mouse=a
 " set ttymouse=xterm2
 set ttymouse=xterm
 
-" ***** バックアップの設定 *****
+" ***** バックアップ関連の設定 *****
+" スワップの設定
+set swapfile
+set directory=$HOME/vimbackup
+
 " バックアップを作らない
 set nobackup
 " 保存時のみバックアップを作成
@@ -92,7 +100,8 @@ set wrapscan
 " 補完の際の大文字小文字の区別しない ignorecaseとsmartcaseに依存
 set infercase
 
-set pumheight=20
+" ポップアップで表示される補完候補の最大表示数
+set pumheight=10
 
 " 行番号や色分けなど
 set number
@@ -129,10 +138,10 @@ set ttyfast
 set complete+=k
 
 " コマンドラインの行数
-set cmdheight=2
+set cmdheight=3
 
 " スクリプト実行中に画面を描画しない
-set lazyredraw
+" set lazyredraw
 
 " ***** statuslineの設定 *****
 " ステータスラインを常に表示
@@ -207,13 +216,21 @@ set backspace=indent,eol,start
 
 " 外部でのファイル更新を自動読み込み
 set autoread
+" ウィンドウを移動する度にファイルの更新をチェックする自動コマンド
+augroup vimrc-checktime
+  autocmd!
+  autocmd WinEnter * checktime
+augroup END
 
 " 編集中の内容を保ったまま別画面に切り替え
 set hidden
 
 " 改行コードの自動認識
+" set fileformat=unix
+" set fileformats=unix,dos,mac
+" 会社用
 set fileformat=unix
-set fileformats=unix,dos,mac
+set fileformats=dos,unix,mac
 
 " テキスト整形のオプション
 set formatoptions=tcqlM1
@@ -233,9 +250,10 @@ augroup MyXML
 augroup END
 
 " コマンドライン補完の候補を表示
-set wildmenu
+set nowildmenu
 set wildchar=<tab>
-set wildmode=list:full
+set wildmode=list:longest,full
+" set wildmode=longest:full,full
 
 " グローバルなマークを使用可にする
 set viminfo+=f1
@@ -245,10 +263,15 @@ set viminfo+=f1
 set foldenable
 " fold情報を表示する幅
 " set foldcolumn=2
+" 自動で閉じるレベル
+set foldlevel=1
+" 自動で閉じる基準となる行数の下限値
+set foldminlines=1
 " foldの自動閉じ
 " set foldclose=all
 " foldの動作
 " set foldmethod=marker
+set foldmethod=syntax
 " foldの最小行数
 set foldminlines=2
 
@@ -256,6 +279,12 @@ set foldminlines=2
 
 " UTF-8で開き直すコマンド
 command! -bang -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
+
+" 保存時に行末の空白を除去
+autocmd BufWritePre * :%s/\s\+$//ge
+
+" 保存時にtabをスペースに変換
+" autocmd BufWritePre * :%s/\t/    /ge
 
 " シンタックスハイライトの予約語を補完へ流用
 autocmd FileType *
@@ -265,13 +294,14 @@ autocmd FileType *
 
 " Vim戦闘力測定コマンド
 function! Scouter(file, ...)
-  " let pat = '^\s*$\|^\s*"'
-  " let lines = readfile(a:file)
-  " if !a:0 || !a:1
-      " let lines = split(substitute(join(lines, "\n"), '\n\s*\\', '', 'g'), "\n")
-  " endif
-  " return len(filter(lines, 'v:val !~ pat'))
+  let pat = '^\s*$\|^\s*"'
+  let lines = readfile(a:file)
+  if !a:0 || !a:1
+    let lines = split(substitute(join(lines, "\n"), '\n\s*\\', '', 'g'), "\n")
+  endif
+  return len(filter(lines, 'v:val !~ pat'))
 endfunction
+
 command! -bar -bang -nargs=? -complete=file Scouter
 \       echo Scouter(empty(<q-args>) ? $MYVIMRC : expand(<q-args>), <bang>0)
 command! -bar -bang -nargs=? -complete=file GScouter
@@ -306,12 +336,12 @@ nnoremap <C-h>  :<C-u>vertical belowright help<Space>
 " 選択した文字列で検索
 vnoremap <silent> // y/<C-r>=escape(@", '\\/.*$^~[]')<CR><CR>
 " 選択した文字列で置換
-vnoremap /r "xy;%s/<C-r>=escape(@", '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
+vnoremap /r y:%S/<C-r>=escape(@", '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 
 " 最後に変更されたテキストを選択
 nnoremap    gc          `[v`]
 
-" ***** タブ操作の設定 ***** 
+" ***** タブ操作の設定 *****
 nnoremap    [Tab]               <Nop>
 nmap        <C-t>               [Tab]
 nnoremap    <silent> [Tab]n     :<C-u>tabnew<CR>
@@ -324,7 +354,7 @@ nnoremap    <C-Tab>     gt
 nnoremap    <C-S-Tab>   gT
 nnoremap    <Tab>       gt
 
-" ***** タグジャンプ操作の設定 ***** 
+" ***** タグジャンプ操作の設定 *****
 nnoremap    [Tag]               <Nop>
 nmap        t                   [Tag]
 nnoremap    [Tag]t              <C-]>
@@ -365,6 +395,9 @@ function! s:ChangeCurrentDir(directory, bang)
 endfunction
 " コマンドをマッピング
 nnoremap    <silent> <Space>cd      :<C-u>CD<CR>
+
+" 年月日の自動入力
+inoremap <expr> ,dt strftime('%Y.%m.%d')
 
 " -*-*-*-*-*- ↑ Key-mappings ↑ -*-*-*-*-*-
 
@@ -444,6 +477,9 @@ let NERDTreeWinSize = 30
 " nnoremap    <F3>    :BufExplorerVerticalSplit<CR>
 nnoremap    <F3>    :BufExplorer<CR>
 
+" ***** DumbBuf *****
+let g:dumbbuf_hotkey='<F4>'
+
 " ***** NERD Commenter *****
 " コメント間のスペース幅
 let NERDSpaceDelims = 1
@@ -458,6 +494,17 @@ let g:neocomplcache_enable_quick_match = 1
 
 " ユーザ定義スニペット補完ファイルのあるディレクトリ,区切りで複数可
 "let g:neocomplcache_snippets_dir =
+
+" ***** TwitVim *****
+nnoremap <silent> <F8> :TlistToggle<CR>
+" タグを選択した際にウィンドウを閉じるかどうか 0:そのまま 1:閉じる
+let Tlist_Close_On_Select = 1
+" タグツリーを自動的に閉じるかどうか 0:そのまま 1:閉じる
+let Tlist_File_Fold_Auto_Close = 1
+" タグウィンドウをオープン時のフォーカス移動 0:そのまま 1:移動する
+let Tlist_GainFocus_On_ToggleOpen = 1
+" タグウィンドウの幅
+let Tlist_WinWidth = 40
 
 " ***** TwitVim *****
 nnoremap <Space>po  :<C-u>PosttoTwitter<CR>

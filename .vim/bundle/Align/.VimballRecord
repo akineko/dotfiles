@@ -1,2 +1,0 @@
-Align.vba: call delete('/home/ashimizu/.vim/plugin/AlignPlugin.vim')|call delete('/home/ashimizu/.vim/plugin/AlignMapsPlugin.vim')|call delete('/home/ashimizu/.vim/plugin/cecutil.vim')|call delete('/home/ashimizu/.vim/doc/Align.txt')|call delete('/home/ashimizu/.vim/autoload/Align.vim')|call delete('/home/ashimizu/.vim/autoload/AlignMaps.vim')
-twitvim-0.5.6.vba: call delete('/home/ashimizu/.vim/plugin/twitvim.vim	[[[1')|call delete('/home/ashimizu/.vim/doc/twitvim.txt	[[[1')
