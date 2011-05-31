@@ -1,0 +1,2 @@
+#!/bin/bash
+shift 5;/home/ashimizu/opt/bin/vimdiff -f "$@"

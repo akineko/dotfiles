@@ -157,9 +157,20 @@ typeset -U path cdpath fpath manpath
 
 # プロンプトの設定
 # PROMPT="[%n@%m]%# "
-PROMPT="[%n@%m]%{${fg[green]}%} %~ %{${fg[white]}%}%# "
+# PROMPT="[%n@%m] %{${fg[blue]}${bg[blue]}%}%~${reset_color} %{${fg[white]}%}%# "
+PROMPT="[%n@%m] %{${fg[cyan]}%}%~${reset_color} %{${fg[white]}%}%# "
 # RPROMPT=' %~'
 # RPROMPT="%{${fg[green]}%} %~%{${fg[white]}%}"
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '(%s)-[%b]'
+zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
+precmd () {
+	psvar=()
+	LANG=en_US.UTF-8 vcs_info
+	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT="%1(v|%F{green}%1v%f|)"
 
 # キーバインドの設定
 # bindkey -v
@@ -197,6 +208,7 @@ export TERM=xterm-256color
 export PATH=$PATH:$HOME/opt/bin
 
 export PATH=$HOME/bin:$PATH
+export CCACHE_DIR='/tmp/ashimizu/ccache/'
 
 # rvmの設定
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
@@ -208,7 +220,14 @@ if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 alias svndiff="svn diff --diff-cmd ~/.vim/scripts/svndiff"
 # alias svndiff3="svn diff --diff3-cmd ~/.vim/scripts/svndiff3"
 
-export LD_LIBRARY_PATH=$HOME/opt/lib
+alias paco='paco -L /home/ashimizu/log'
+export LD_LIBRARY_PATH=$HOME/opt/lib:/usr/local/boost_1_46_1/lib
+
+if [ -f $HOME/opt/bin/src-hilite-lesspipe.sh ]; then
+	export LESSOPEN="| $HOME/opt/bin/src-hilite-lesspipe.sh %s"
+	export LESS=' -R '
+fi
+
 
 # -------------------------------------------------------------------------------
 # Python
@@ -231,4 +250,5 @@ export PIP_RESPECT_VIRTUALENV=true
 if [ -f $HOME/.pythonbrew/etc/bashrc ]; then
 	source $HOME/.pythonbrew/etc/bashrc
 fi
+
 

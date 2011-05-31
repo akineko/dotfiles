@@ -33,6 +33,7 @@ quickrun-key-mappings	quickrun.jax	/*quickrun-key-mappings*
 quickrun-operator	quickrun.jax	/*quickrun-operator*
 quickrun-option-append	quickrun.jax	/*quickrun-option-append*
 quickrun-option-args	quickrun.jax	/*quickrun-option-args*
+quickrun-option-cmdopt	quickrun.jax	/*quickrun-option-cmdopt*
 quickrun-option-command	quickrun.jax	/*quickrun-option-command*
 quickrun-option-eval	quickrun.jax	/*quickrun-option-eval*
 quickrun-option-eval_template	quickrun.jax	/*quickrun-option-eval_template*

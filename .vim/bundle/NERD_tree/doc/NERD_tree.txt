@@ -1086,7 +1086,7 @@ The latest dev versions are on github
       see |NERDTreeFind|. This effectively merges the FindInNERDTree plugin (by
       Doug McInnes) into the script.
     - make NERDTreeQuitOnOpen apply to the t/T keymaps too. Thanks to Stefan
-      Ritter and Rémi Prévost.
+      Ritter and R辿mi Pr辿vost.
     - truncate the root node if wider than the tree window. Thanks to Victor
       Gonzalez.
 
@@ -1208,7 +1208,7 @@ just downloaded pr0n instead.
     Richard Hart (hates)
     Doug McInnes
     Stefan Ritter
-    Rémi Prévost
+    R辿mi Pr辿vost
     Victor Gonzalez
     Stephan Baumeister
     Ricky

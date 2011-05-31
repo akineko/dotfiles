@@ -245,8 +245,8 @@ let g:netrw_liststyle=3
 
 " XMLの閉じタグ補完
 augroup MyXML
-  " autocmd!
-  " autocmd Filetype xml,html inoremap <buffer> </ </<C-x><C-o>
+  autocmd!
+  autocmd Filetype xml,html inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
 " コマンドライン補完の候補を表示
@@ -327,7 +327,7 @@ nmap <ESC><ESC> ;nohlsearch<CR><ESC>
 ".vimrcの編集・リロード
 nnoremap <Space>.
 \   :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>l.
+nnoremap <Space>L
 \   :<C-u>source $MYVIMRC<CR>
 
 " ヘルプファイルを右分割で開くコマンド
@@ -367,6 +367,10 @@ nnoremap    <S-Up>      <C-w>k
 nnoremap    <S-Down>    <C-w>j
 nnoremap    <S-Left>    <C-w>h
 nnoremap    <S-Right>   <C-w>l
+nnoremap    <Space>k    <C-w>k
+nnoremap    <Space>j    <C-w>j
+nnoremap    <Space>h    <C-w>h
+nnoremap    <Space>l    <C-w>l
 
 " ***** insert mode でのカーソル移動 *****
 inoremap    <M-k>       <Up>
@@ -494,6 +498,12 @@ let g:neocomplcache_enable_quick_match = 1
 
 " ユーザ定義スニペット補完ファイルのあるディレクトリ,区切りで複数可
 "let g:neocomplcache_snippets_dir =
+
+" ***** filtering.vim *****
+nnoremap ,F :call Gather(input("Filter on term: "), 0)<CR>
+nnoremap ,f :call Gather(@/, 0)<CR>:echo<CR>
+nnoremap ,g :call GotoOpenSearchBuffer()<CR>
+nnoremap ,d :call CloseAllSearchWindows()<CR>
 
 " ***** TwitVim *****
 nnoremap <silent> <F8> :TlistToggle<CR>

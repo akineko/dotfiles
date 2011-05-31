@@ -1,6 +1,6 @@
 *quickrun.txt*	コマンドを素早く実行します。
 
-Version: 0.4.2
+Version: 0.4.6
 Author : thinca <thinca+vim@gmail.com>
 License: クリエイティブ・コモンズの表示 2.1 日本ライセンス
          <http://creativecommons.org/licenses/by/2.1/jp/>
@@ -140,8 +140,8 @@ g:quickrun_no_default_key_mappings に 1 が設定されていると定義され
 
 type					*quickrun-option-type*
 			設定の雛形を指定します。デフォルトで 'filetype' の値が
-			使用されます。詳細は |g:quickrun_config| を参照してくだ
-			さい。
+			使用されます。詳細は |g:quickrun_config| を参照してく
+			ださい。
 
 exec (*)				*quickrun-option-exec*
 			実行するコマンドの書式を指定します。詳細は
@@ -152,19 +152,20 @@ command					*quickrun-option-command*
 			exec 内の %c に展開される文字列です。指定されなかった
 			場合は、type と同じ値が使用されます。
 
+cmdopt (*)				*quickrun-option-cmdopt*
+			exec 内の %o に展開される文字列です。
+
 src					*quickrun-option-src*
 			実行するプログラムのソースとなる文字列を指定します。デ
 			フォルトでは編集中のファイル全体ですが、指定することで
 			変更が可能です。
 
-args					*quickrun-option-args*
+args (*)				*quickrun-option-args*
 			exec の %a に展開される文字列です。
 
 input (*)				*quickrun-option-input*
 			標準入力に流し込むファイルを指定します。先頭が = で始
 			まっていた場合、それ以降の文字列を入力として扱います。
-			この場合のみ文字列は |quickrun-syntax-option| で展開さ
-			れます。
 
 output (*)				*quickrun-option-output*
 			結果の出力方法を指定します。
@@ -233,7 +234,7 @@ split (*)				*quickrun-option-split*
 			|:tab| も指定できますが、タブページ内に出力専用バッフ
 			ァが存在しない場合常に新しく開くのでおすすめしません。
 			デフォルトは
-			'{winwidth(0) * 2 < winheight(0) * 5 ? "" : "vertical"}'
+		'{winwidth(0) * 2 < winheight(0) * 5 ? "" : "vertical"}'
 			です。
 
 into					*quickrun-option-into*
@@ -253,12 +254,14 @@ mode					*quickrun-option-mode*
 output_encode (*)			*quickrun-option-output_encode*
 			出力の文字コードを変換したい場合に、"from:to" の形式
 			で指定します。":to" は省略できます。その場合、
-			"from:&enc" と解釈されます。
-			デフォルトは "&fenc:&enc" です。
+			"from:&encoding" と解釈されます。
+			デフォルトは "&fileencoding" です。
 
 shebang					*quickrun-option-shebang*
 			0 以外を指定すると、 src の最初の行が #! で始まってた
-			場合にその後続の文字列を command として扱います。
+			場合にその後続の文字列を command として扱います。この
+			場合、%c はエスケープ処理(|quickrun-exec-format|)され
+			ません。
 			デフォルトは 1 です。
 
 tempfile (*)				*quickrun-option-tempfile*
@@ -314,16 +317,17 @@ exec オプションの書式				*quickrun-exec-format*
 シンボル	展開値 ~
 --------        ------
 %%		%自身
-%c		コマンド
-%s		ソースファイル
-%S		ソースファイル(エスケープなし)
-%a		スクリプトの引数
+%c		コマンド (|quickrun-option-command|)
+%o		コマンドラインオプション (|quickrun-option-cmdopt|)
+%s		ソースファイル (|quickrun-option-src|)
+%a		スクリプトの引数 (|quickrun-option-args|)
 
-ファイルを指定するシンボルには、|filename-modifiers| が使えます。
+%c と %s はファイルを指定するシンボルです。これらは |shellescape()| でエスケー
+プされます。シンボルに大文字(%C %S)を使うことでこれを回避できます。
+また、これらには |filename-modifiers| が使えます。
 >
 	java %S:r:gs?[/\\]?.?
 <
-また、ファイルを指定するシンボルは |shellescape()| でエスケープされます。
 コマンドに改行文字が含まれている場合は空白文字に置き換えられます。
 
 Vim のコマンドを実行する
@@ -349,16 +353,12 @@ exec を展開した結果先頭の文字が ":" だった場合、Vim のコマ
 デフォルト値はオプション名をキーとした辞書で指定します。|g:quickrun_config| に
 は {type} をキー、デフォルト値を値にした辞書を指定します。つまり、この変数には
 二層構造の辞書を指定します。
-{type} はコマンドラインから |quickrun-option-type| で指定される値です。未指定の
-場合は 'filetype' が使用されます。
-特殊なタイプ名 "_" と "*" には全ての {type} のデフォルト値を指定できます。
+{type} はコマンドラインから |quickrun-option-type| で指定される値です。未指定
+の場合は 'filetype' が使用されます。
+特殊なタイプ名 "_" には全ての {type} のデフォルト値を指定できます。
 
 全体共通の設定よりタイプ毎の設定が、タイプ毎の設定よりコマンドで指定された引数
 が優先されます。
-
-|g:quickrun_config| のデフォルト値はプラグインのロード時に自動的に構築されま
-す。その際に (.vimrc などで) すでに定義されていた場合は、デフォルト値に既存値
-を上書きする形で初期化されます。
 
 標準の設定					*g:quickrun#default_config*
 ----------
@@ -381,10 +381,12 @@ exec を展開した結果先頭の文字が ":" だった場合、Vim のコマ
 3. |g:quickrun_config| の {type}
 4. |g:quickrun#default_config| の {type}
 5. |g:quickrun_config| の '_'
-6. |g:quickrun_config| の '*'
-7. |g:quickrun#default_config| の '_'
+6. |g:quickrun#default_config| の '_'
 
 1 や 2 で {type} を設定しておくことで 3 で通常とは別の {type} を参照できます。
+また、3 か 4 で {type} の指定があった場合、新しい {type} の値を同じ変数から
+ロードし直します。これにより、無限ループが発生する可能性もあるので注意してくだ
+さい。
 
 
 
@@ -392,8 +394,37 @@ exec を展開した結果先頭の文字が ":" だった場合、Vim のコマ
 更新履歴					*quickrun-changelog*
 
 x.x.x	xxxx-xx-xx
+	- デフォルトの設定に markdown を追加。
+	- デフォルトの設定に wsh を追加。
+	- デフォルトの設定の scheme の値を改善。
+
+0.4.6	2011-03-25
+	- |g:quickrun_config| に {type} の指定があった場合、更にその {type} を
+	  読み直すようにした。
+	- 標準設定を改善。
+
+0.4.5	2011-02-03
+	- |g:quickrun#default_config| の go の値を改善。
+	- |g:quickrun#default_config| の javascript の値を改善。
+	- |quickrun-option-shebang| によるコマンドはエスケープを行わないように
+	  した。
+	- |quickrun-option-shebang| が常に有効になっていたのを修正。
+
+0.4.4	2011-01-11
+	- |quickrun-option-input| を常に展開するように変更。
+	- |quickrun-option-runmode| が "async:python" の時に結果が出ないことが
+	  あるのを修正。
+	- Windows で 'shell' が "cmd.exe" 以外だった場合の挙動を改善。
+	- "%c" をファイルを指定するシンボルに変更。
+
+0.4.3	2010-12-14
+	- デフォルトの設定に erlang を追加。
+	- |quickrun-option-cmdopt| オプションを追加。
+	- |quickrun-option-args| を展開するようにした。
 	- コマンドラインの補完を改善。
 	- |quickrun-option-output_encode| の ":to" を省略できるようにした。
+	- |quickrun-syntax-option| が適用されるオプションの末尾が "$" や "&"
+	  だったり "{" が閉じられていなかった場合、無限ループするバグを修正。
 
 0.4.2	2010-10-12
 	- デフォルトのタイプ名に "_" を追加。
@@ -465,7 +496,8 @@ x.x.x	xxxx-xx-xx
 	- プラグイン名を小文字に変更。
 	- eval 機能を実験的に追加。
 	  - eval オプション (|quickrun-option-eval|) を追加。
-	  - eval_template オプション (|quickrun-option-eval_template|) を追加。
+	  - eval_template オプション (|quickrun-option-eval_template|) を追
+	    加。
 
 0.0.4	2009-07-30
 	- 引数なしで実行した場合、filetype が認識されないバグを修正。
@@ -482,7 +514,8 @@ x.x.x	xxxx-xx-xx
 	- <{input} が動かないバグを修正。
 	- オプションの展開処理を改善。
 	- 出力専用バッファの開き方を制御する "split" オプションを追加。
-	- "type" オプションの値が |g:quickrun_config| になくても動くように修正。
+	- "type" オプションの値が |g:quickrun_config| になくても動くように修
+	  正。
 
 0.0.1	2009-06-01
 	- 初版。

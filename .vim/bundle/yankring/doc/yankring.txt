@@ -1179,7 +1179,7 @@ mapping: >
              (David Barsam).
          NF: Added a warning indicating a stored value has been truncated 
              based on g:yankring_max_element_length and a new option to
-             suppress this warning, g:yankring_warn_on_truncate (Hans-Günter).
+             suppress this warning, g:yankring_warn_on_truncate (Hans-Gter).
          BF: The YRAfterMaps() function (if it exists) was not re-run if 
              YRToggle was used to disable and enable the YankRing.
          BF: Multibyte strings may not have been pasted correctly (Dr. Chip).

@@ -1,0 +1,8 @@
+#!/bin/bash
+shift 8;/home/ashimizu/opt/bin/vimdiff -f "$@"
+# MINE = ${9}
+# OLDER = ${10}
+# NEWER = ${11}
+
+# /home/ashimizu/opt/bin/vimdiff $OLDER $MINE $NEWER
+

@@ -1,13 +1,13 @@
 *quickrun.txt*	Run a command and show its result quickly.
 
-Version: 0.4.2
+Version: 0.4.6
 Author : thinca <thinca+vim@gmail.com>
 Eng[rl]ish document by: tyru <tyru.exe@gmail.com>
 License: Creative Commons 2.1 Japanese
          <http://creativecommons.org/licenses/by/2.1/jp/>
 
 ==============================================================================
-CONTENTS						*quickrun-contents*
+CONTENTS					*quickrun-contents*
 
 INTRODUCTION			|quickrun-introduction|
 INTERFACE			|quickrun-interface|
@@ -22,7 +22,7 @@ CHANGELOG			|quickrun-changelog|
 
 
 ==============================================================================
-INTRODUCTION						*quickrun-introduction*
+INTRODUCTION					*quickrun-introduction*
 
 *quickrun* is Vim plugin to execute whole/part of editing file.
 It provides |:QuickRun| for it.
@@ -34,7 +34,7 @@ Latest Version:
 http://github.com/thinca/vim-quickrun
 
 
-							*quickrun-synopsis*
+						*quickrun-synopsis*
 >
 	" Execute current buffer.
 	:QuickRun
@@ -94,10 +94,11 @@ COMMANDS					*quickrun-commands*
 
 	|:Quickrun| can take |:range|.
 	if it was not given, |:QuickRun| treats whole lines.
-	If you specify '<,'> and do not specify -mode (|quickrun-option-mode|),
-	target is selected text in visual mode. And |blockwise-visual| also works.
-	But when |:QuickRun| is executed from key mapping, you need to specify -mode
-	because |:QuickRun| can't detect current mode.
+	If you specify '<,'> and do not specify -mode
+	(|quickrun-option-mode|), target is selected text in visual mode. And
+	|blockwise-visual| also works.  But when |:QuickRun| is executed from
+	key mapping, you need to specify -mode because |:QuickRun| can't
+	detect current mode.
 
 
 ------------------------------------------------------------------------------
@@ -152,22 +153,23 @@ exec (*)				*quickrun-option-exec*
 			See |g:quickrun_config| for more details.
 
 command					*quickrun-option-command*
-			String expanded to %c in exec,
+			String expanded to %c in exec.
 			If not specified, same value as type is used.
+
+cmdopt (*)				*quickrun-option-cmdopt*
+			String expanded to %o in exec.
 
 src					*quickrun-option-src*
 			Executed program.
 			Default value is whole lines of editing file.
 
-args					*quickrun-option-args*
+args (*)				*quickrun-option-args*
 			String expanded to %a in exec.
 
 input (*)				*quickrun-option-input*
 			Filename to be stdin of program.
 			If first character starts with =,
 			quickrun treats continued string as input.
-			In this case, continued string is expanded
-			by |quickrun-syntax-option|
 
 output (*)					*quickrun-option-output*
 			Output format.
@@ -199,10 +201,10 @@ runmode					*quickrun-option-runmode*
 			- "async:vimproc[:{updatetime}]"
 			  {You need |vimproc| and |vimshell|}
 			  Run command asynchronously using |vimproc|.
-			  Polling the process exit with |CursorHold| and |CursorHoldI|.
-			  If optional argument {updatetime} is given,
-			  change 'updatetime' value while the process lives.
-			  If the process exits within 50 milliseconds,
+			  Polling the process exit with |CursorHold| and
+			  |CursorHoldI|.  If optional argument {updatetime} is
+			  given, change 'updatetime' value while the process
+			  lives.  If the process exits within 50 milliseconds,
 			  shows the result instantly.
 			- "async:remote"
 			  {You need Vim compiled with |+clientserver|}
@@ -237,7 +239,7 @@ split (*)				*quickrun-option-split*
 			Because if there is no buffer in opened tabpage,
 			quickrun opens new output buffer.
 			Default value is
-			'{winwidth(0) * 2 < winheight(0) * 5 ? "" : "vertical"}'.
+		'{winwidth(0) * 2 < winheight(0) * 5 ? "" : "vertical"}'.
 
 into					*quickrun-option-into*
 			If this value is not 0, Move cursor to output buffer
@@ -254,12 +256,16 @@ mode					*quickrun-option-mode*
 				vnoremap <silent> <F5> :QuickRun -mode v<CR>
 
 output_encode (*)			*quickrun-option-output_encode*
-			Encoding conversion filter like "from:to".
-			Default value is "&fenc:&enc".
+			Encoding conversion filter like "from:to".  ":to" is
+			omitable.  In that case, it is interpreted like
+			"from:&encoding".
+			Default value is "&fileencoding".
 
 shebang					*quickrun-option-shebang*
-			If this value is not 0, and if src 's first line
-			started with #! , quickrun ignores first line.
+			If this value is not 0, and if "src"'s first line
+			started with "#!", the following string is treated as
+			"command".  In this case, "%c" is not escaped.
+			See |quickrun-exec-format| about escaping.
 			Default value is 1.
 
 tempfile (*)				*quickrun-option-tempfile*
@@ -274,8 +280,8 @@ shellcmd				*quickrun-option-shellcmd*
 			if output is ! .
 			quickrun substitutes %s with commands generated
 			by exec option.
-			On MS Windows, Default value is 'silent !"%s" & pause'.
-			Otherwise '!%s'.
+			On MS Windows, default value is
+			'silent !"%s" & pause'.  Otherwise '!%s'.
 
 eval					*quickrun-option-eval*
 			If this value is not 0, quickrun substitutes src
@@ -320,17 +326,19 @@ You can also use same symbols altogether.
 Symbol			Result ~
 --------        ------
 %%		%
-%c		Command
-%s		Source
-%S		Source (not escaped)
-%a		Script's arguments
+%c		Command (|quickrun-option-command|)
+%o		Command line option (|quickrun-option-cmdopt|)
+%s		Source (|quickrun-option-src|)
+%a		Script's arguments (|quickrun-option-args|)
 
-You can use |filename-modifiers| for the symbols to specify file.
+%c and %s are symbols that specifies file.  These are escaped by
+|shellescape()|.  This can be evaded by using capital letter(%C %S) for the
+symbol.
+You can use |filename-modifiers| for the symbols.
 >
 	java %S:r:gs?[/\\]?.?
 <
-Symbols to specify file are escaped by |shellescape()|.
-And newline(s) are replaced by whitespace(s).
+And newline(s) are replaced by a whitespace.
 
 Execute Vim ex command
 ------------------------
@@ -357,28 +365,22 @@ And |g:quickrun_config| is |Dictionary| whose key is {type},
 and its value is "Default Value".
 {type} is option value given as |quickrun-option-type| from command-line.
 If it is not specified, current 'filetype' is used instead.
-Special {type} '_' and '*' has default values for all unspecified keys by each
+Special {type} '_' has default values for all unspecified keys by each
 "Default value".
 
 Options given by command-line has higher priority than {type} specific
 settings.
-And {type} specific settings has higher priority than {type} '*' settings,
-
-|g:quickrun_config|'s default value (it is |g:quickrun#default_config|)
-is initialized when quickrun is loaded.
-At that time, (for e.g., in  your .vimrc) If it is defined,
-quickrun overwrites default value with your value.
-
+And {type} specific settings has higher priority than {type} '_' settings.
 
 Default settings				*g:quickrun#default_config*
-----------
+----------------
 |g:quickrun#default_config| has default settings
 which has same structure as |g:quickrun_config|.
 Default values on |quickrun-options| are actually this value.
 Usually you don't have to care this variable.
 
 Buffer-local settings				*b:quickrun_config*
-----------------------
+---------------------
 You can specify buffer-local settings using |b:quickrun_config|.
 You need to specify "Default Value" different from |g:quickrun_config|.
 This has higher priority any other settings
@@ -392,8 +394,11 @@ Here is the order to have higher priorities.
 3. |g:quickrun_config|'s {type}
 4. |g:quickrun#default_config|'s {type}
 5. |g:quickrun_config|'s '_'
-5. |g:quickrun_config|'s '*'
-6. |g:quickrun#default_config|'s '*'
+6. |g:quickrun#default_config|'s '_'
+
+If you set {type} with 1 or 2, it will be loaded by 3 and 4.
+In addition, if you set {type} with 3 or 4, {type} is overwrote and reload the
+current (3 or 4) config.  Note infinite loop.
 
 
 

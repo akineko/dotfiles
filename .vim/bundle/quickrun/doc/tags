@@ -18,6 +18,7 @@ quickrun-key-mappings	quickrun.txt	/*quickrun-key-mappings*
 quickrun-operator	quickrun.txt	/*quickrun-operator*
 quickrun-option-append	quickrun.txt	/*quickrun-option-append*
 quickrun-option-args	quickrun.txt	/*quickrun-option-args*
+quickrun-option-cmdopt	quickrun.txt	/*quickrun-option-cmdopt*
 quickrun-option-command	quickrun.txt	/*quickrun-option-command*
 quickrun-option-eval	quickrun.txt	/*quickrun-option-eval*
 quickrun-option-eval_template	quickrun.txt	/*quickrun-option-eval_template*

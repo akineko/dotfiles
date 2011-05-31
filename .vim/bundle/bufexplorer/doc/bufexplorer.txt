@@ -357,7 +357,7 @@ CHANGE LOG                                              *bufexplorer-changelog*
          Dave Eggum has made some 'significant' updates to this latest
          version:
            - Added BufExplorerGetAltBuf() global function to be used in the
-             user’s rulerformat.
+             userç—´ rulerformat.
            - Added g:bufExplorerSplitRight option.
            - Added g:bufExplorerShowRelativePath option with mapping.
            - Added current line highlighting.

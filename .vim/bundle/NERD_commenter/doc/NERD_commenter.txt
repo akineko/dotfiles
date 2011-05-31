@@ -833,7 +833,7 @@ The latest dev versions are on github
     - remove "prepend comments" and "right aligned comments".
     - add support for applescript, calbire, man, SVNcommit, potwiki, txt2tags and SVNinfo.
       Thanks to nicothakis, timberke, sgronblo, mntnoe, Bernhard Grotz, John
-      O'Shea, François and Giacomo Mariani respectively.
+      O'Shea, Fran巽ois and Giacomo Mariani respectively.
     - bugfix for haskell delimiters. Thanks to mntnoe.
 2.1.18
     - add support for llvm. Thanks to nicothakis.
@@ -841,7 +841,7 @@ The latest dev versions are on github
 2.1.17
     - fixed haskell delimiters (hackily). Thanks to Elias Pipping.
     - add support for mailcap. Thanks to Pascal Brueckner.
-    - add support for stata. Thanks to Jerónimo Carballo.
+    - add support for stata. Thanks to Jer坦nimo Carballo.
     - applied a patch from ewfalor to fix an error in the help file with the
       NERDMapleader doc
     - disable the insert mode ctrl-c mapping by default, see :help
@@ -915,13 +915,13 @@ fREW                                gentoo-package-mask,
                                     gentoo-package-use, and vo_base
 Alexey                              verilog_systemverilog, systemverilog
 Lizendir                            fstab
-Michael Böhler                      autoit, autohotkey and docbk
+Michael Bhler                      autoit, autohotkey and docbk
 Aaron Small                         cmake
 Ramiro                              htmldjango and django
 Stefano Zacchiroli                  debcontrol, debchangelog, mkd
 Alex Tarkovsky                      ebuild and eclass
 Jorge Rodrigues                     gams
-Rainer Müller                       Objective C
+Rainer Mller                       Objective C
 Jason Mills                         Groovy, ps1
 Normandie Azucena                   vera
 Florian Apolloner                   ldif
@@ -929,7 +929,7 @@ David Fishburn                      lookupfile
 Niels Aan de Brugh                  rst
 Don Hatlestad                       ahk
 Christophe Benz                     Desktop and xsd
-Eyolf Østrem                        lilypond, bbx and lytex
+Eyolf strem                        lilypond, bbx and lytex
 Ingo Karkat                         dosbatch
 Nicolas Weber                       markdown, objcpp
 tinoucas                            gentoo-conf-d
@@ -957,15 +957,15 @@ Christophe Benz                     services, gitcommit
 A Pontus                            vimperator
 Stromnov                            slice, bzr
 Martin Kustermann                   pamconf
-Indriði Einarsson                   mason
+Indrii Einarsson                   mason
 Chris                               map
 Krzysztof A. Adamski                group
 Pascal Brueckner                    mailcap
-Jerónimo Carballo                   stata
+Jernimo Carballo                   stata
 Phillip Kovalev                     xquery
 Bernhard Grotz                      potwiki
 sgronblo                            man
-François                            txt2tags
+Franois                            txt2tags
 Giacomo Mariani                     SVNinfo
 Matthew Lee Hinman                  newlisp, clojure
 Elias Pipping                       automake

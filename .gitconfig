@@ -1,0 +1,18 @@
+[user]
+  name = akineko
+  email = akineko.mail@gmail.com
+[color]
+  ui = auto
+[core]
+  editor = vim
+  autocrlf = # CRLFをLFに変換して記録し、出力する際にはCRLFに戻す
+#  autocrlf = input # CRLFをLFに変換して記録し出力する際もそのまま
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  # logをtree表示
+  glog = log --graph --date=short --pretty=format:'%Cgreen%h %cd %Cblue%cn %Creset%s'
+  glog-all = log --graph --all --color --pretty='%x09%h %cn%x09%s %Cred%d%Creset'
+
+# vim: set expandtab sw=2 ts=2:
