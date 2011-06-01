@@ -158,7 +158,7 @@ typeset -U path cdpath fpath manpath
 # プロンプトの設定
 # PROMPT="[%n@%m]%# "
 # PROMPT="[%n@%m] %{${fg[blue]}${bg[blue]}%}%~${reset_color} %{${fg[white]}%}%# "
-PROMPT="[%n@%m] %{${fg[cyan]}%}%~${reset_color} %{${fg[white]}%}%# "
+PROMPT="[%n@%m] %{${fg[cyan]}%}%~ %{${fg[white]}%}%# "
 # RPROMPT=' %~'
 # RPROMPT="%{${fg[green]}%} %~%{${fg[white]}%}"
 
