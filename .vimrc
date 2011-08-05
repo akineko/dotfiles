@@ -1,6 +1,61 @@
 " Vi互換オフ
 set nocompatible
 
+" Setup Vundle
+filetype off
+
+set rtp+=$HOME/.vim/bundle/vundle/
+call vundle#rc()
+
+" Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+" Vundle Tips
+" :BundleInstall                      プラグインのインストール
+" :BundleInstall!                     プラグインのアップデート
+" :Bundles script_name                プラグインの検索
+" :helptags ~/.vim/bundle/vundle/doc  ヘルプの生成
+
+" github repos
+" Bundle 'user_name/repository_name'
+
+" vim-scripts repos
+" Bundle 'script_name'
+
+" non github repos
+" Bundle 'git://repository_url'
+
+Bundle 'h1mesuke/vim-alignta'
+Bundle 'tyru/DumbBuf.vim'
+Bundle 'sjl/gundo.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'thinca/vim-quickrun'
+Bundle 'kana/vim-smartchr'
+Bundle 'tpope/vim-surround'
+Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/vimproc'
+Bundle 'Shougo/vimshell'
+Bundle 'mattn/zencoding-vim'
+
+Bundle 'bufexplorer.zip'
+Bundle 'SQLUtilities'
+Bundle 'dbext.vim'
+Bundle 'SQLComplete.vim'
+Bundle 'taglist.vim'
+Bundle 'Source-Explorer-srcexpl.vim'
+Bundle 'YankRing.vim'
+Bundle 'capslock.vim'
+Bundle 'Quich-Filter'
+Bundle 'grep.vim'
+Bundle 'mru.vim'
+Bundle 'renamer.vim'
+Bundle 'sudo.vim'
+Bundle 'eregex.vim'
+
+filetype plugin indent on
+
 "RUNTIMEPATHの共通化
 set runtimepath+=$HOME/.vim,$HOME/.vim/after
 
@@ -148,45 +203,45 @@ set cmdheight=3
 set laststatus=2
 " ステータスラインに文字コードと改行文字を表示
 if winwidth(0) >= 120
-	set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetByte()}]\ %l
+    set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetByte()}]\ %l
 else
-	set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetByte()}]\ %l
+    set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetByte()}]\ %l
 endif
 
 " カーソルの下の文字コード取得の為の関数群
 function! GetByte()
-	let c = matchstr(getline('.'), '.', col('.') - 1)
-	let c = iconv(c, &enc, &fenc)
-	return String2Hex(c)
+    let c = matchstr(getline('.'), '.', col('.') - 1)
+    let c = iconv(c, &enc, &fenc)
+    return String2Hex(c)
 endfunction
 
 function! String2Hex(str)
-	let out = ''
-	let ix = 0
-	while ix < strlen(a:str)
-		let out = out . Nr2Hex(char2nr(a:str[ix]))
-		let ix = ix + 1
-	endwhile
-	return out
+    let out = ''
+    let ix = 0
+    while ix < strlen(a:str)
+        let out = out . Nr2Hex(char2nr(a:str[ix]))
+        let ix = ix + 1
+    endwhile
+    return out
 endfunction
 
 function! Nr2Hex(nr)
-	let n = a:nr
-	let r = ""
-	while n
-		let r = '0123456789ABCDEF'[n % 16] . r
-		let n = n / 16
-	endwhile
-	return r
+    let n = a:nr
+    let r = ""
+    while n
+        let r = '0123456789ABCDEF'[n % 16] . r
+        let n = n / 16
+    endwhile
+    return r
 endfunction
 
 " インサートモードでステータスラインのカラーを変更
 augroup InsertHock
-	autocmd!
-	autocmd InsertEnter * highlight StatusLine term=bold cterm=bold ctermfg=7 ctermbg=4
-	autocmd InsertLeave * highlight StatusLine term=bold cterm=bold ctermfg=4 ctermbg=7
-	" autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
-	" autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
+    autocmd!
+    autocmd InsertEnter * highlight StatusLine term=bold cterm=bold ctermfg=7 ctermbg=4
+    autocmd InsertLeave * highlight StatusLine term=bold cterm=bold ctermfg=4 ctermbg=7
+    " autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
+    " autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
 augroup END
 
 " ***** タブ関係の設定 *****
@@ -371,6 +426,7 @@ nnoremap    <Space>k    <C-w>k
 nnoremap    <Space>j    <C-w>j
 nnoremap    <Space>h    <C-w>h
 nnoremap    <Space>l    <C-w>l
+nnoremap    <C-w>o      <C-w>_
 
 " ***** insert mode でのカーソル移動 *****
 inoremap    <M-k>       <Up>
@@ -407,12 +463,6 @@ inoremap <expr> ,dt strftime('%Y.%m.%d')
 
 
 " -*-*-*-*-*- ↓ Pluginの設定 ↓ -*-*-*-*-*-
-
-" ***** pathogen *****
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype plugin on
 
 " ***** Vimでの表示をHTML出力コマンド→ :TOhtml の設定 *****
 " 1=true 0=false
@@ -505,6 +555,9 @@ nnoremap ,f :call Gather(@/, 0)<CR>:echo<CR>
 nnoremap ,g :call GotoOpenSearchBuffer()<CR>
 nnoremap ,d :call CloseAllSearchWindows()<CR>
 
+" ***** gundo.vim *****
+nnoremap <F7> :GundoToggle<CR>
+nnoremap U :GundoToggle<CR>
 " ***** TwitVim *****
 nnoremap <silent> <F8> :TlistToggle<CR>
 " タグを選択した際にウィンドウを閉じるかどうか 0:そのまま 1:閉じる
@@ -523,3 +576,4 @@ nnoremap <Space>re  :<C-u>RepliesTwitter<CR>
 
 " -*-*-*-*-*- ↑ Pluginの設定 ↑ -*-*-*-*-*-
 
+" vim: set expandtab:
