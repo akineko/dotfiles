@@ -32,12 +32,15 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'thinca/vim-quickrun'
+Bundle 'thinca/vim-ref'
 Bundle 'kana/vim-smartchr'
 Bundle 'tpope/vim-surround'
 Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
 Bundle 'mattn/zencoding-vim'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-rails'
 
 Bundle 'bufexplorer.zip'
 Bundle 'SQLUtilities'
@@ -53,6 +56,7 @@ Bundle 'mru.vim'
 Bundle 'renamer.vim'
 Bundle 'sudo.vim'
 Bundle 'eregex.vim'
+" Bundle 'project.tar.gz'
 
 filetype plugin indent on
 
@@ -426,7 +430,7 @@ nnoremap    <Space>k    <C-w>k
 nnoremap    <Space>j    <C-w>j
 nnoremap    <Space>h    <C-w>h
 nnoremap    <Space>l    <C-w>l
-nnoremap    <C-w>o      <C-w>_
+" nnoremap    <C-w>o      <C-w>_
 
 " ***** insert mode でのカーソル移動 *****
 inoremap    <M-k>       <Up>
@@ -558,8 +562,16 @@ nnoremap ,d :call CloseAllSearchWindows()<CR>
 " ***** gundo.vim *****
 nnoremap <F7> :GundoToggle<CR>
 nnoremap U :GundoToggle<CR>
-" ***** TwitVim *****
+
+" ***** taglist *****
 nnoremap <silent> <F8> :TlistToggle<CR>
+
+" ***** SourceExplorer *****
+nnoremap <F9> :SrcExplToggle<CR>
+" let g:SrcExpl_UpdateTags = 1
+" let g:SrcExpl_RefreshMapKey = "<Space>"
+" let g:SrcExpl_GoBackMapKey = "<C-b>"
+
 " タグを選択した際にウィンドウを閉じるかどうか 0:そのまま 1:閉じる
 let Tlist_Close_On_Select = 1
 " タグツリーを自動的に閉じるかどうか 0:そのまま 1:閉じる
