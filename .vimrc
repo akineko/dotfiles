@@ -39,6 +39,8 @@ Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc'
 Bundle 'Shougo/vimshell'
 Bundle 'mattn/zencoding-vim'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/vimplenote-vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
 
@@ -548,7 +550,7 @@ let g:neocomplcache_manual_completion_start_length = 3
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_enable_quick_match = 1
+"let g:neocomplcache_enable_quick_match = 1
 
 " ユーザ定義スニペット補完ファイルのあるディレクトリ,区切りで複数可
 "let g:neocomplcache_snippets_dir =
