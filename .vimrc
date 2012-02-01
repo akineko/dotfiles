@@ -58,6 +58,7 @@ Bundle 'mru.vim'
 Bundle 'renamer.vim'
 Bundle 'sudo.vim'
 Bundle 'eregex.vim'
+Bundle 'trinity.vim'
 " Bundle 'project.tar.gz'
 
 filetype plugin indent on
@@ -550,7 +551,7 @@ let g:neocomplcache_manual_completion_start_length = 3
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_enable_quick_match = 1
+" let g:neocomplcache_enable_quick_match = 1
 
 " ユーザ定義スニペット補完ファイルのあるディレクトリ,区切りで複数可
 "let g:neocomplcache_snippets_dir =
