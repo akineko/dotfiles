@@ -10,3 +10,4 @@ cp    .hgrc      $HOME/
 cp    .gdbinit   $HOME/
 cp    .bashrc    $HOME/
 
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle

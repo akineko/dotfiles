@@ -43,6 +43,7 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/vimplenote-vim'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-rails'
+Bundle 'othree/eregex.vim'
 
 Bundle 'bufexplorer.zip'
 Bundle 'SQLUtilities'
@@ -57,7 +58,6 @@ Bundle 'grep.vim'
 Bundle 'mru.vim'
 Bundle 'renamer.vim'
 Bundle 'sudo.vim'
-Bundle 'eregex.vim'
 Bundle 'trinity.vim'
 " Bundle 'project.tar.gz'
 
@@ -255,13 +255,13 @@ augroup END
 " タブのラベル表示の設定 0:なし 1:2以上で表示 2:常に表示
 set showtabline=2
 " タブ幅の設定
-set tabstop=4
+set tabstop=2
 " タブで挿入されるスペース数
-set softtabstop=4
+set softtabstop=2
 " autoindentのスペース数
-set shiftwidth=4
+set shiftwidth=2
 " タブをスペースに置換
-" set expandtab
+set expandtab
 " 行頭でのタブをshiftwidthの幅に
 set smarttab
 " オートインデント
@@ -292,7 +292,7 @@ set hidden
 " set fileformats=unix,dos,mac
 " 会社用
 set fileformat=unix
-set fileformats=dos,unix,mac
+set fileformats=unix,dos,mac
 
 " テキスト整形のオプション
 set formatoptions=tcqlM1
