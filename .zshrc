@@ -205,28 +205,8 @@ export HGENCODING=utf8
 # 端末を256色に
 export TERM=xterm-256color
 
-export PATH=$PATH:$HOME/opt/bin
-
-export PATH=$HOME/bin:$PATH
-export CCACHE_DIR='/tmp/ashimizu/ccache/'
-
 # rvmの設定
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
-
-# function svndiff3() {
-  # vimdiff $1.working $1.merge-left* $1.merge-right*;
-# }
-
-alias svndiff="svn diff --diff-cmd ~/.vim/scripts/svndiff"
-# alias svndiff3="svn diff --diff3-cmd ~/.vim/scripts/svndiff3"
-
-alias paco='paco -L /home/ashimizu/log'
-export LD_LIBRARY_PATH=$HOME/opt/lib:/usr/local/boost_1_46_1/lib
-
-if [ -f $HOME/opt/bin/src-hilite-lesspipe.sh ]; then
-	export LESSOPEN="| $HOME/opt/bin/src-hilite-lesspipe.sh %s"
-	export LESS=' -R '
-fi
 
 
 # -------------------------------------------------------------------------------
