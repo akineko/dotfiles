@@ -63,6 +63,9 @@ Bundle 'sudo.vim'
 Bundle 'trinity.vim'
 " Bundle 'project.tar.gz'
 
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tomasr/molokai'
+
 filetype plugin indent on
 
 "RUNTIMEPATHの共通化
@@ -92,6 +95,7 @@ if &term == 'screen'
 endif
 
 " カラースキーマの設定
+set t_Co=256
 " colorscheme desert
 " colorscheme h2u_black
 colorscheme DarkDefault
