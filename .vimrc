@@ -41,8 +41,11 @@ Bundle 'Shougo/vimshell'
 Bundle 'mattn/zencoding-vim'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/vimplenote-vim'
+Bundle 'vim-jp/vimdoc-ja'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-scripts/YankRing.vim'
 Bundle 'tpope/vim-rails'
+Bundle 't9md/vim-textmanip'
 Bundle 'othree/eregex.vim'
 
 Bundle 'bufexplorer.zip'
@@ -51,7 +54,6 @@ Bundle 'dbext.vim'
 Bundle 'SQLComplete.vim'
 Bundle 'taglist.vim'
 Bundle 'Source-Explorer-srcexpl.vim'
-Bundle 'YankRing.vim'
 Bundle 'capslock.vim'
 Bundle 'Quich-Filter'
 Bundle 'grep.vim'
@@ -447,6 +449,18 @@ nnoremap    zh      [z
 " foldの末尾へ
 nnoremap    zl      ]z
 
+" ***** text-manip *****
+xmap <Space>d <Plug>(textmanip-duplicate-down)
+" nmap <Space>d <Plug>(textmanip-duplicate-down)
+xmap <Space>D <Plug>(textmanip-duplicate-up)
+" nmap <Space>D <Plug>(textmanip-duplicate-up)
+
+xmap <C-j> <Plug>(textmanip-move-down)
+xmap <C-k> <Plug>(textmanip-move-up)
+xmap <C-h> <Plug>(textmanip-move-left)
+xmap <C-l> <Plug>(textmanip-move-right)
+
+
 " カレントディレクトリ移動用のコマンドの定義
 command! -nargs=? -complete=dir -bang CD call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
@@ -502,6 +516,8 @@ source $VIMRUNTIME/macros/matchit.vim
 let g:yankring_max_history = 30
 " YRShowの最大桁数
 let g:yankring_max_sidplay = 80
+
+let g:yankring_manual_clipboard_check = 0
 
 " ***** MRU(ファイル履歴)の設定 *****
 " :MRU でリスト表示i
