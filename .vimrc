@@ -101,6 +101,9 @@ set t_Co=256
 " colorscheme h2u_black
 colorscheme DarkDefault
 
+" C++11用syntaxの有効化
+let g:c_no_curly_error = 1
+
 " カラースキーマのカスタマイズ
 command! MyHi call MyColor()
 
