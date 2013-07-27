@@ -488,6 +488,10 @@ nnoremap    <silent> <Space>cd      :<C-u>CD<CR>
 " 年月日の自動入力
 inoremap <expr> ,dt strftime('%Y.%m.%d')
 
+" C++用
+nnoremap <silent> sh :<C-u>hide edit %<.h<CR>
+nnoremap <silent> ss :<C-u>hide edit %<.cpp<CR>
+
 " -*-*-*-*-*- ↑ Key-mappings ↑ -*-*-*-*-*-
 
 
