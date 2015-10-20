@@ -11,4 +11,4 @@ cp    .gdbinit   $HOME/
 cp    .bashrc    $HOME/
 
 mkdir $HOME/vimbackup
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim

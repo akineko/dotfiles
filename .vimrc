@@ -1,73 +1,63 @@
 " Vi互換オフ
 set nocompatible
 
-" Setup Vundle
-filetype off
+" Setup NeoBundle -----------------------------
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-set rtp+=$HOME/.vim/bundle/vundle/
-call vundle#rc()
+call neobundle#begin(expand('~/.vim/bundle'))
 
-" Vundle manage Vundle
-Bundle 'gmarik/vundle'
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Vundle Tips
-" :BundleInstall                      プラグインのインストール
-" :BundleInstall!                     プラグインのアップデート
-" :Bundles script_name                プラグインの検索
-" :helptags ~/.vim/bundle/vundle/doc  ヘルプの生成
+" Bundles
+NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'tyru/DumbBuf.vim'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'kana/vim-smartchr'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'osyo-manga/vim-cpp11-syntax'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/vimplenote-vim'
+NeoBundle 'vim-jp/vimdoc-ja'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-scripts/YankRing.vim'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 't9md/vim-textmanip'
+NeoBundle 'othree/eregex.vim'
 
-" github repos
-" Bundle 'user_name/repository_name'
+NeoBundle 'bufexplorer.zip'
+NeoBundle 'SQLUtilities'
+NeoBundle 'dbext.vim'
+NeoBundle 'SQLComplete.vim'
+NeoBundle 'taglist.vim'
+NeoBundle 'Source-Explorer-srcexpl.vim'
+NeoBundle 'capslock.vim'
+NeoBundle 'Quich-Filter'
+NeoBundle 'grep.vim'
+NeoBundle 'mru.vim'
+NeoBundle 'renamer.vim'
+NeoBundle 'sudo.vim'
+NeoBundle 'trinity.vim'
+" NeoBundle 'project.tar.gz'
 
-" vim-scripts repos
-" Bundle 'script_name'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'tomasr/molokai'
 
-" non github repos
-" Bundle 'git://repository_url'
-
-Bundle 'h1mesuke/vim-alignta'
-Bundle 'tyru/DumbBuf.vim'
-Bundle 'sjl/gundo.vim'
-Bundle 'Shougo/neocomplcache'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'thinca/vim-quickrun'
-Bundle 'thinca/vim-ref'
-Bundle 'kana/vim-smartchr'
-Bundle 'tpope/vim-surround'
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc'
-Bundle 'Shougo/vimshell'
-Bundle 'osyo-manga/vim-cpp11-syntax'
-Bundle 'mattn/emmet-vim'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/vimplenote-vim'
-Bundle 'vim-jp/vimdoc-ja'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'vim-scripts/YankRing.vim'
-Bundle 'tpope/vim-rails'
-Bundle 't9md/vim-textmanip'
-Bundle 'othree/eregex.vim'
-
-Bundle 'bufexplorer.zip'
-Bundle 'SQLUtilities'
-Bundle 'dbext.vim'
-Bundle 'SQLComplete.vim'
-Bundle 'taglist.vim'
-Bundle 'Source-Explorer-srcexpl.vim'
-Bundle 'capslock.vim'
-Bundle 'Quich-Filter'
-Bundle 'grep.vim'
-Bundle 'mru.vim'
-Bundle 'renamer.vim'
-Bundle 'sudo.vim'
-Bundle 'trinity.vim'
-" Bundle 'project.tar.gz'
-
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tomasr/molokai'
-
+call neobundle#end()
 filetype plugin indent on
+
+NeoBundleCheck
 
 "RUNTIMEPATHの共通化
 set runtimepath+=$HOME/.vim,$HOME/.vim/after
@@ -140,7 +130,7 @@ set ttymouse=xterm
 
 " ***** バックアップ関連の設定 *****
 " スワップの設定
-set swapfile
+set noswapfile
 set directory=$HOME/vimbackup
 
 " バックアップを作らない
