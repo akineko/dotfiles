@@ -11,7 +11,9 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
   let s:toml = expand('$XDG_CONFIG_HOME/nvim/dein.toml')
+  let s:lazy_toml = expand('$XDG_CONFIG_HOME/nvim/deinlazy.toml')
   call dein#load_toml(s:toml, {'lazy' : 0})
+  call dein#load_toml(s:lazy_toml, {'lazy' : 1})
 
   call dein#end()
   call dein#save_state()
@@ -27,7 +29,9 @@ syntax on
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " encoding
-set encoding=utf-8
+if !has('nvim')
+  set encoding=utf-8
+endif
 set termencoding=utf-8
 set fileencoding=utf-8
 set fileencodings=ucs-bom,iso-2022-jp,utf-8,euc-jp,cp932
@@ -173,3 +177,4 @@ inoremap    <M-l>       <Right>
 nnoremap <silent> sh :<C-u>hide edit %<.h<CR>
 nnoremap <silent> ss :<C-u>hide edit %<.cpp<CR>
 
+let g:python3_host_prog = '/usr/bin/python3'
