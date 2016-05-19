@@ -1,6 +1,5 @@
 " Bundles
 NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'kana/vim-smartchr'
