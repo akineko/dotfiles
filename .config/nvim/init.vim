@@ -177,4 +177,17 @@ inoremap    <M-l>       <Right>
 nnoremap <silent> sh :<C-u>hide edit %<.h<CR>
 nnoremap <silent> ss :<C-u>hide edit %<.cpp<CR>
 
+" Unite
+nnoremap [Unite] <Nop>
+nmap <Space>u [Unite]
+nnoremap <silent> [Unite]f :<C-u>Unite -no-split file<CR>
+nnoremap <silent> [Unite]m :<C-u>Unite -no-split file_mru<CR>
+nnoremap <silent> [Unite]y :<C-u>Unite history/yank<CR>
+nnoremap <silent> [Unite]b :<C-u>Unite -no-split buffer<CR>
+nnoremap <silent> [Unite]g :<C-u>Unite grep<CR>
+nnoremap <silent> [Unite]o :<C-u>Unite outline<CR>
+nnoremap <silent> [Unite]t :<C-u>Unite tab<CR>
+nnoremap <silent> [Unite]jl :<C-u>Unite junkfile<CR>
+nnoremap <silent> [Unite]jn :<C-u>Unite -start-insert junkfile/new junkfile<CR>
+
 let g:python3_host_prog = '/usr/bin/python3'
