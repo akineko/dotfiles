@@ -60,4 +60,24 @@ repo = 'ujihisa/unite-rake'
 [[plugins]]
 repo = 'basyura/unite-rails'
 
+# ----- utility -----
+[[plugins]]
+repo = 'renamer.vim'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'othree/eregex.vim'
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+# ----- syntax -----
+[[plugins]]
+repo = 'vim-jp/cpp-vim'
+on_ft = 'cpp'
 

@@ -1,43 +1,47 @@
-" Bundles
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'kana/vim-smartchr'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'mattn/vimplenote-vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'osyo-manga/vim-cpp11-syntax'
-NeoBundle 'othree/eregex.vim'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 't9md/vim-textmanip'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
+
+NeoBundle 't9md/vim-textmanip'
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-surround'
 NeoBundle 'tyru/DumbBuf.vim'
 NeoBundle 'vim-jp/vimdoc-ja'
 NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'vim-scripts/YankRing.vim'
 
-NeoBundle 'bufexplorer.zip'
-NeoBundle 'SQLUtilities'
-NeoBundle 'dbext.vim'
 NeoBundle 'SQLComplete.vim'
-NeoBundle 'taglist.vim'
 NeoBundle 'Source-Explorer-srcexpl.vim'
-NeoBundle 'capslock.vim'
-NeoBundle 'Quich-Filter'
-NeoBundle 'grep.vim'
-NeoBundle 'mru.vim'
-NeoBundle 'renamer.vim'
-NeoBundle 'sudo.vim'
-NeoBundle 'trinity.vim'
-" NeoBundle 'project.tar.gz'
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'tomasr/molokai'
+
+" 削除候補
+NeoBundle 'mru.vim'
+NeoBundle 'Quich-Filter'
+NeoBundle 'sudo.vim'
+NeoBundle 'SQLUtilities'
+NeoBundle 'dbext.vim'
+" NeoBundle 'project.tar.gz'
+NeoBundle 'capslock.vim'
+NeoBundle 'scrooloose/nerdtree'
+
+" 要検討
+NeoBundle 'mattn/vimplenote-vim'
+" taglist,nerdtree,sourceexplorerを使ってIDEっぽい見た目にしてくれるやつ
+NeoBundle 'trinity.vim'
+" 更新されてないしtagbarの方が良さそう
+NeoBundle 'taglist.vim'
+" NeoBundle 'LeafCage/yankround.vim' こちらの方が副作用なくておすすめっぽい
+" Uniteのyank機能で十分か検証する
+NeoBundle 'vim-scripts/YankRing.vim'
+" rhysd/vim-operator-surround 今はオペレーターを拡張したこちらが主流っぽい
+NeoBundle 'tpope/vim-surround'
+" neovimだと不要っぽい
+NeoBundle 'Shougo/vimshell'
+" neovimだとdeoplete
+NeoBundle 'Shougo/neocomplcache'
+" 現状は使ってないけど設定したら便利
+NeoBundle 'kana/vim-smartchr'
+" caw.vim の方が便利らしい
+NeoBundle 'scrooloose/nerdcommenter'
 
 "RUNTIMEPATHの共通化
 set runtimepath+=$HOME/.vim,$HOME/.vim/after

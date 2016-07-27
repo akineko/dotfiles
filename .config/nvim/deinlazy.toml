@@ -14,6 +14,8 @@ on_ft = 'go'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
-hook_add = 'call GoInstallBinaries'
-hook_post_update = 'call GoUpdateBinaries'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'css']
 
