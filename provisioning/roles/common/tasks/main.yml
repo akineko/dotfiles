@@ -1,0 +1,13 @@
+---
+
+- apt: name={{ item }} state=latest
+  become: yes
+  with_items:
+    - ctags
+    - gcc
+    - git
+    - make
+    - tmux
+    - vim
+    - zsh
+
