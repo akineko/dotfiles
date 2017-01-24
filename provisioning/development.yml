@@ -5,4 +5,5 @@
   roles:
     - { role: common }
     - { role: neovim }
+    - { role: golang }
 
