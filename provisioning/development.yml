@@ -6,4 +6,5 @@
     - { role: common }
     - { role: neovim }
     - { role: golang }
+    - { role: docker }
 

@@ -1,0 +1,52 @@
+---
+
+- apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  become: yes
+  with_items:
+    - curl
+    - "linux-image-extra-{{ ansible_kernel }}"
+    - linux-image-extra-virtual
+
+- apt:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  with_items:
+    - apt-transport-https
+    - ca-certificates
+
+- apt_key:
+    url: https://yum.dockerproject.org/gpg
+    id: 58118E89F3A912897C070ADBF76221572C52609D
+  become: yes
+
+- apt_repository:
+    repo: "deb https://apt.dockerproject.org/repo/ ubuntu-{{ ansible_distribution_release }} main"
+    state: present
+  become: yes
+
+- apt:
+    name: docker-engine
+    state: latest
+  become: yes
+
+- service:
+    name: docker
+    state: started
+    enabled: yes
+  become: yes
+
+- group:
+    name: docker
+    state: present
+  become: yes
+
+- user:
+    name: "{{ ansible_user_id }}"
+    groups: docker
+    append: yes
+  become: yes
+
