@@ -1,0 +1,135 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+
+# ----- unite -----
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+repo = 'Shougo/junkfile.vim'
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+
+[[plugins]]
+repo = 'thinca/vim-qfreplace'
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+
+[[plugins]]
+repo = 'thinca/vim-unite-history'
+
+[[plugins]]
+repo = 'osyo-manga/unite-filetype'
+
+[[plugins]]
+repo = 'Shougo/unite-sudo'
+
+[[plugins]]
+repo = 'sorah/unite-ghq'
+
+[[plugins]]
+repo = 'Shougo/unite-build'
+
+[[plugins]]
+repo = 'Shougo/unite-help'
+
+[[plugins]]
+repo = 'Kocha/vim-unite-tig'
+
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+
+[[plugins]]
+repo = 'ujihisa/unite-rake'
+
+[[plugins]]
+repo = 'basyura/unite-rails'
+
+# ----- utility -----
+[[plugins]]
+repo = 'renamer.vim'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'othree/eregex.vim'
+
+[[plugins]]
+repo = 'sjl/gundo.vim'
+
+[[plugins]]
+repo = 't9md/vim-textmanip'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+# ----- syntax -----
+[[plugins]]
+repo = 'vim-jp/cpp-vim'
+on_ft = 'cpp'
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+
+# ----- colorscheme -----
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'vim-scripts/jammy.vim'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'vim-scripts/twilight'
+
+[[plugins]]
+repo = 'jonathanfilip/vim-lucius'
+
+[[plugins]]
+repo = 'jpo/vim-railscasts-theme'
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'vim-scripts/Wombat'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'vim-scripts/rdark'
+
+[[plugins]]
+repo = 'mrkn/mrkn256.vim'
+

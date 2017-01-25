@@ -158,7 +158,8 @@ typeset -U path cdpath fpath manpath
 # プロンプトの設定
 # PROMPT="[%n@%m]%# "
 # PROMPT="[%n@%m] %{${fg[blue]}${bg[blue]}%}%~${reset_color} %{${fg[white]}%}%# "
-PROMPT="[%n@%m] %{${fg[cyan]}%}%~ %{${fg[white]}%}%# "
+PROMPT="[%n@%m] %{${fg[cyan]}%}%~
+%{${fg[white]}%}%# "
 # RPROMPT=' %~'
 # RPROMPT="%{${fg[green]}%} %~%{${fg[white]}%}"
 
@@ -205,9 +206,33 @@ export HGENCODING=utf8
 # 端末を256色に
 export TERM=xterm-256color
 
+# XDG_CONFIG
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
+# -------------------------------------------------------------------------------
+# Golang
+# -------------------------------------------------------------------------------
+
+GOROOT=$HOME/go
+GOPATH=$HOME/dev
+
+export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+
+# -------------------------------------------------------------------------------
+# Ruby
+# -------------------------------------------------------------------------------
+
 # rvmの設定
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 # -------------------------------------------------------------------------------
 # Python
