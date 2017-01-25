@@ -50,3 +50,9 @@
     append: yes
   become: yes
 
+- get_url:
+    url: https://github.com/docker/compose/releases/download/1.10.0/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: a+x
+  become: yes
+
