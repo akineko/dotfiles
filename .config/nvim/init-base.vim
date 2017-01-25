@@ -1,18 +1,3 @@
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-
-NeoBundle 't9md/vim-textmanip'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tyru/DumbBuf.vim'
-NeoBundle 'vim-jp/vimdoc-ja'
-NeoBundle 'vim-ruby/vim-ruby'
-
-NeoBundle 'SQLComplete.vim'
-NeoBundle 'Source-Explorer-srcexpl.vim'
-
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'tomasr/molokai'
-
 " 削除候補
 NeoBundle 'mru.vim'
 NeoBundle 'Quich-Filter'
@@ -20,12 +5,15 @@ NeoBundle 'sudo.vim'
 NeoBundle 'SQLUtilities'
 NeoBundle 'dbext.vim'
 " NeoBundle 'project.tar.gz'
-NeoBundle 'capslock.vim'
 NeoBundle 'scrooloose/nerdtree'
 
 " 要検討
 NeoBundle 'mattn/vimplenote-vim'
-" taglist,nerdtree,sourceexplorerを使ってIDEっぽい見た目にしてくれるやつ
+" ctagsと連携してソースコード見れる
+NeoBundle 'Source-Explorer-srcexpl.vim'
+" SQL補完
+NeoBundle 'SQLComplete.vim'
+" taglist,nerdtree,sourceexplorerを使ってIDEっぽい見た目にしてくれるやつだけど使ってない
 NeoBundle 'trinity.vim'
 " 更新されてないしtagbarの方が良さそう
 NeoBundle 'taglist.vim'
@@ -247,18 +235,6 @@ nnoremap    zh      [z
 " foldの末尾へ
 nnoremap    zl      ]z
 
-" ***** text-manip *****
-xmap <Space>d <Plug>(textmanip-duplicate-down)
-" nmap <Space>d <Plug>(textmanip-duplicate-down)
-xmap <Space>D <Plug>(textmanip-duplicate-up)
-" nmap <Space>D <Plug>(textmanip-duplicate-up)
-
-xmap <C-j> <Plug>(textmanip-move-down)
-xmap <C-k> <Plug>(textmanip-move-up)
-xmap <C-h> <Plug>(textmanip-move-left)
-xmap <C-l> <Plug>(textmanip-move-right)
-
-
 " カレントディレクトリ移動用のコマンドの定義
 command! -nargs=? -complete=dir -bang CD call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
@@ -300,9 +276,6 @@ let html_use_encoding = "UTF-8"
 " :TOhtml
 " :set fenc=UTF-8
 " :w
-
-" CapsLockPlugin
-imap <C-a> <C-O><Plug>CapsLockToggle
 
 " sudoPlugin sudoで保存するコマンド :w sudo;%
 
