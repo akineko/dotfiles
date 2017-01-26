@@ -192,6 +192,17 @@ xmap <C-k> <Plug>(textmanip-move-up)
 xmap <C-h> <Plug>(textmanip-move-left)
 xmap <C-l> <Plug>(textmanip-move-right)
 
+" VimFiler
+nnoremap <F2> :VimFiler -split -simple -winwidth=35 -no-quit -toggle<CR>
+augroup vimfiler
+  autocmd!
+  autocmd FileType vimfiler call s:vimfiler_settings()
+augroup END
+function! s:vimfiler_settings()
+  nnoremap <silent><buffer><expr> v vimfiler#do_switch_action('vsplit')
+  nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
+endfunction
+
 " Unite
 nnoremap [Unite] <Nop>
 nmap <Space>u [Unite]
