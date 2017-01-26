@@ -124,8 +124,8 @@ set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%
 " インサートモードでステータスラインのカラーを変更
 augroup InsertHock
     autocmd!
-    autocmd InsertEnter * highlight StatusLine term=bold cterm=bold ctermfg=7 ctermbg=4
-    autocmd InsertLeave * highlight StatusLine term=bold cterm=bold ctermfg=4 ctermbg=7
+    autocmd InsertEnter * highlight StatusLine term=bold cterm=bold ctermfg=234 ctermbg=110
+    autocmd InsertLeave * highlight StatusLine term=bold cterm=reverse ctermfg=245 ctermbg=234
 augroup END
 
 " ----- keymap -----
