@@ -23,3 +23,6 @@ on_ft = ['html', 'css']
 repo = 'tpope/vim-rails'
 on_ft = 'ruby'
 
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+

@@ -35,7 +35,8 @@ if has('nvim')
 endif
 " set termguicolors
 
-colorscheme iceberg
+colorscheme hybrid
+set background=dark
 
 " encoding
 if !has('nvim')
@@ -215,5 +216,16 @@ nnoremap <silent> [Unite]o :<C-u>Unite -vertical -winwidth=30 outline<CR>
 nnoremap <silent> [Unite]t :<C-u>Unite tab<CR>
 nnoremap <silent> [Unite]jl :<C-u>Unite junkfile<CR>
 nnoremap <silent> [Unite]jn :<C-u>Unite -start-insert junkfile/new junkfile<CR>
+
+" vim-go
+let g:go_fmt_command = 'goimports'
+let g:go_def_mapping_enabled = 0
+let g:go_highlight_operators = 0
+let g:go_highlight_functions = 0
+let g:go_highlight_methods = 0
+let g:go_highlight_types = 0
+let g:go_highlight_fields = 0
+let g:go_highlight_build_constraints = 0
+let g:go_term_enabled = 1
 
 let g:python3_host_prog = '/usr/bin/python3'
