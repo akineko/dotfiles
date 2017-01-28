@@ -230,4 +230,12 @@ let g:go_highlight_fields = 0
 let g:go_highlight_build_constraints = 0
 let g:go_term_enabled = 1
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_camel_case = 1
+
+" deoplete-go
+let g:deoplete#sources#go#package_dot = 1
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
 let g:python3_host_prog = '/usr/bin/python3'
