@@ -94,6 +94,9 @@ hook_add = '''
   autocmd! BufWritePost * Neomake
 '''
 
+[[plugins]]
+repo = 'cocopon/vaffle.vim'
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'

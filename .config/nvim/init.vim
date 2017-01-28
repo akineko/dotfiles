@@ -130,6 +130,8 @@ augroup InsertHock
 augroup END
 
 " ----- keymap -----
+let mapleader = ","
+
 " : と ; の入れ替え
 noremap ; :
 noremap : ;
@@ -194,6 +196,11 @@ xmap <C-j> <Plug>(textmanip-move-down)
 xmap <C-k> <Plug>(textmanip-move-up)
 xmap <C-h> <Plug>(textmanip-move-left)
 xmap <C-l> <Plug>(textmanip-move-right)
+
+" Vaffle
+let g:vaffle_show_hidden_files = 0
+let g:vaffle_auto_cd = 0
+nnoremap <Leader>f :<C-u>Vaffle<CR>
 
 " VimFiler
 nnoremap <F2> :VimFiler -split -simple -winwidth=35 -no-quit -toggle<CR>
