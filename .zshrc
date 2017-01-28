@@ -223,6 +223,16 @@ GOPATH=$HOME/dev
 
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 
+function peco-src () {
+  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+  fi
+  zle clear-screen
+}
+zle -N peco-src
+bindkey '^]' peco-src
+
 # -------------------------------------------------------------------------------
 # Ruby
 # -------------------------------------------------------------------------------
