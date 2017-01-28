@@ -230,10 +230,6 @@ export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 # rvmの設定
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
 # -------------------------------------------------------------------------------
 # Python
 # -------------------------------------------------------------------------------
