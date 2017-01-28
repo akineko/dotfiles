@@ -4,6 +4,7 @@
   connection: local
   roles:
     - { role: common }
+    - { role: tmux }
     - { role: neovim }
     - { role: golang }
     - { role: docker }

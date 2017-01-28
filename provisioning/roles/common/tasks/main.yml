@@ -7,7 +7,6 @@
     - gcc
     - git
     - make
-    - tmux
     - vim
     - zsh
 

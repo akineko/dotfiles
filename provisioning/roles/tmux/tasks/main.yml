@@ -1,0 +1,35 @@
+---
+
+- apt:
+    name: tmux
+    state: absent
+  become: yes
+
+- apt:
+    name: '{{ item }}'
+    state: latest
+  become: yes
+  with_items:
+    - libevent-dev
+    - libncurses5-dev
+
+- get_url:
+    url: https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz
+    dest: '{{ ansible_env.HOME }}/src/tmux-2.3.tar.gz'
+
+- unarchive:
+    src: '{{ ansible_env.HOME }}/src/tmux-2.3.tar.gz'
+    dest: '{{ ansible_env.HOME }}/src'
+
+- command: ./configure
+  args:
+    chdir: '{{ ansible_env.HOME }}/src/tmux-2.3'
+
+- make:
+    chdir: '{{ ansible_env.HOME }}/src/tmux-2.3'
+
+- make:
+    target: install
+    chdir: '{{ ansible_env.HOME }}/src/tmux-2.3'
+  become: yes
+
