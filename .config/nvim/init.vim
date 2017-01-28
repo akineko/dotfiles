@@ -238,4 +238,7 @@ let g:deoplete#enable_camel_case = 1
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
+" neomake go
+let g:neomake_go_enabled_makers = ['go', 'golint', 'govet', 'errcheck']
+
 let g:python3_host_prog = '/usr/bin/python3'

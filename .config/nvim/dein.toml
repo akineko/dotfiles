@@ -88,6 +88,12 @@ repo = 'thinca/vim-ref'
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 
+[[plugins]]
+repo = 'neomake/neomake'
+hook_add = '''
+  autocmd! BufWritePost * Neomake
+'''
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
