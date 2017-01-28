@@ -213,6 +213,11 @@ function! s:vimfiler_settings()
   nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
 endfunction
 
+" tagbar
+nnoremap <Leader>t :<C-u>TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
+
 " Unite
 nnoremap [Unite] <Nop>
 nmap <Space>u [Unite]

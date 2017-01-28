@@ -95,6 +95,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'majutsushi/tagbar'
+
+[[plugins]]
 repo = 'cocopon/vaffle.vim'
 
 # ----- syntax -----
