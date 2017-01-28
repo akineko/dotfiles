@@ -211,17 +211,9 @@ command! -bar -bang -nargs=? -complete=file GScouter
 
 " -*-*-*-*-*- ↓ Key-mappings ↓ -*-*-*-*-*-
 
-let mapleader = ","
-
 " マークやレジスタ
 nnoremap    <Space>m    :<C-u>marks
 nnoremap    <Space>r    :<C-u>registers
-
-".vimrcの編集・リロード
-nnoremap <Space>.
-\   :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>L
-\   :<C-u>source $MYVIMRC<CR>
 
 " ヘルプファイルを右分割で開くコマンド
 nnoremap <C-h>  :<C-u>vertical belowright help<Space>
