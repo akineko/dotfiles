@@ -104,10 +104,16 @@ repo = 'cocopon/iceberg.vim'
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'aereal/vim-colors-japanesque'
+
+[[plugins]]
 repo = 'vim-scripts/jammy.vim'
 
 [[plugins]]
 repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = 'reedes/vim-colors-pencil'
 
 [[plugins]]
 repo = 'vim-scripts/twilight'
