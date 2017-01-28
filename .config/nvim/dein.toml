@@ -102,6 +102,9 @@ on_ft = 'cpp'
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
 
+[[plugins]]
+repo = 'chase/vim-ansible-yaml'
+
 # ----- colorscheme -----
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
