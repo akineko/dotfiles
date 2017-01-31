@@ -44,16 +44,35 @@
     - Ricty-Regular.ttf
     - Ricty-Bold.ttf
 
+- command: mv '{{ item.src }}' '{{ item.dest }}'
+  args:
+    chdir: '{{ ansible_env.HOME }}/src'
+  with_items:
+    - { src: 'Ricty Regular for Powerline.ttf', dest: 'Ricty-Regular-for-Powerline.ttf' }
+    - { src: 'Ricty Bold for Powerline.ttf', dest: 'Ricty-Bold-for-Powerline.ttf' }
+
+- get_url:
+    url: http://www.rs.tus.ac.jp/yyusa/ricty/os2version_reviser.sh
+    dest: '{{ ansible_env.HOME }}/src/os2version_reviser.sh'
+    mode: a+x
+
+- command: ./os2version_reviser.sh {{ item }}
+  args:
+    chdir: '{{ ansible_env.HOME }}/src'
+  with_items:
+    - 'Ricty-Regular-for-Powerline.ttf'
+    - 'Ricty-Bold-for-Powerline.ttf'
+
 - file:
     path: '{{ ansible_env.HOME }}/.font'
     state: directory
 
-- command: cp 'src/{{ item.src }}' .font/{{ item.dest }}
+- command: cp src/{{ item }} .font/{{ item }}
   args:
     chdir: '{{ ansible_env.HOME }}'
   with_items:
-    - { src: 'Ricty Regular for Powerline.ttf', dest: 'Ricty-Regular-for-Powerline.ttf' }
-    - { src: 'Ricty Bold for Powerline.ttf', dest: 'Ricty-Bold-for-Powerline.ttf' }
+    - Ricty-Regular-for-Powerline.ttf
+    - Ricty-Bold-for-Powerline.ttf
 
 - command: fc-cache -fv
 
