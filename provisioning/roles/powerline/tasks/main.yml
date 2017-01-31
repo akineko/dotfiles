@@ -1,0 +1,59 @@
+---
+
+- apt:
+    name: fontforge
+    state: latest
+  become: yes
+  with_items:
+    - fontforge
+    - zip
+    - unzip
+
+- get_url:
+    url: 'https://github.com/google/fonts/raw/master/ofl/inconsolata/{{ item }}'
+    dest: '{{ ansible_env.HOME }}/src/{{ item }}'
+  with_items:
+    - Inconsolata-Bold.ttf
+    - Inconsolata-Regular.ttf
+
+- get_url:
+    url: http://iij.dl.osdn.jp/mix-mplus-ipa/63545/migu-1m-20150712.zip
+    dest: '{{ ansible_env.HOME }}/src/migu-1m-20150712.zip'
+
+- unarchive:
+    src: '{{ ansible_env.HOME }}/src/migu-1m-20150712.zip'
+    dest: '{{ ansible_env.HOME }}/src'
+
+- get_url:
+    url: http://www.rs.tus.ac.jp/yyusa/ricty/ricty_generator.sh
+    dest: '{{ ansible_env.HOME }}/src/ricty_generator.sh'
+    mode: a+x
+
+- command: ./ricty_generator.sh Inconsolata-{Regular,Bold}.ttf migu-1m-20150712/migu-1m-{bold,regular}.ttf
+  args:
+    chdir: '{{ ansible_env.HOME }}/src'
+
+- git:
+    repo: https://github.com/powerline/fontpatcher.git
+    dest: '{{ ansible_env.HOME }}/src/fontpatcher'
+
+- command: fontforge -lang=py -script fontpatcher/scripts/powerline-fontpatcher {{ item }}
+  args:
+    chdir: '{{ ansible_env.HOME }}/src'
+  with_items:
+    - Ricty-Regular.ttf
+    - Ricty-Bold.ttf
+
+- file:
+    path: '{{ ansible_env.HOME }}/.font'
+    state: directory
+
+- command: cp 'src/{{ item.src }}' .font/{{ item.dest }}
+  args:
+    chdir: '{{ ansible_env.HOME }}'
+  with_items:
+    - { src: 'Ricty Regular for Powerline.ttf', dest: 'Ricty-Regular-for-Powerline.ttf' }
+    - { src: 'Ricty Bold for Powerline.ttf', dest: 'Ricty-Bold-for-Powerline.ttf' }
+
+- command: fc-cache -fv
+
