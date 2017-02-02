@@ -1,0 +1,46 @@
+---
+
+- pip:
+    name: git+git://github.com/powerline/powerline
+    executable: pip3
+    editable: no
+    extra_args: --user
+    state: latest
+
+- apt:
+    name: socat
+    state: latest
+  become: yes
+
+- apt:
+    name: '{{ item }}'
+    state: latest
+  become: yes
+  with_items:
+    - libuv-dev
+    - automake
+    - libtool
+
+- pip:
+    name: '{{ item }}'
+    executable: pip3
+    state: latest
+  become: yes
+  with_items:
+    - psutil
+    - pyuv
+
+- blockinfile:
+    name: '{{ ansible_env.HOME }}/.zshrc'
+    block: |
+      # powerline
+      export PATH="$HOME/.local/bin:$PATH"
+      source $HOME/.local/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh
+
+- blockinfile:
+    name: '{{ ansible_env.HOME }}/.tmux.conf'
+    block: |
+      # powerline
+      run-shell "powerline-daemon -q"
+      source "$HOME/.local/lib/python3.4/site-packages/powerline/bindings/tmux/powerline.conf"
+

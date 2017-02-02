@@ -123,11 +123,11 @@ set history=100
 set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%l/%L]
 
 " インサートモードでステータスラインのカラーを変更
-augroup InsertHock
-    autocmd!
-    autocmd InsertEnter * highlight StatusLine term=bold cterm=bold ctermfg=234 ctermbg=110
-    autocmd InsertLeave * highlight StatusLine term=bold cterm=reverse ctermfg=245 ctermbg=234
-augroup END
+" augroup InsertHock
+"     autocmd!
+"     autocmd InsertEnter * highlight StatusLine term=bold cterm=bold ctermfg=234 ctermbg=110
+"     autocmd InsertLeave * highlight StatusLine term=bold cterm=reverse ctermfg=245 ctermbg=234
+" augroup END
 
 " ----- keymap -----
 let mapleader = ","
@@ -202,6 +202,9 @@ let g:vaffle_show_hidden_files = 0
 let g:vaffle_auto_cd = 0
 nnoremap <Leader>f :<C-u>Vaffle<CR>
 
+" Python3 plug
+" let g:python3_host_prog = '/usr/bin/python3'
+
 " VimFiler
 nnoremap <F2> :VimFiler -split -simple -winwidth=35 -no-quit -toggle<CR>
 augroup vimfiler
@@ -253,4 +256,14 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 " neomake go
 let g:neomake_go_enabled_makers = ['go', 'golint', 'govet', 'errcheck']
 
-let g:python3_host_prog = '/usr/bin/python3'
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+

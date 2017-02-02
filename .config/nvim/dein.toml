@@ -100,6 +100,9 @@ repo = 'majutsushi/tagbar'
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
 
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
