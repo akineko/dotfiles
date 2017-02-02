@@ -1,7 +1,10 @@
 ---
+# FIXME: Ubuntuで生成したものをWindows上で使うと特殊文字がずれる問題あり
+# Cica という powerline 対応の好みのフォントを見つけたのでそちらを使う
+# github.com/miiton/Cica
 
 - apt:
-    name: fontforge
+    name: '{{ item }}'
     state: latest
   become: yes
   with_items:
@@ -29,9 +32,21 @@
     dest: '{{ ansible_env.HOME }}/src/ricty_generator.sh'
     mode: a+x
 
-- command: ./ricty_generator.sh Inconsolata-{Regular,Bold}.ttf migu-1m-20150712/migu-1m-{bold,regular}.ttf
+- command: ./ricty_generator.sh Inconsolata-Regular.ttf Inconsolata-Bold.ttf migu-1m-20150712/migu-1m-regular.ttf migu-1m-20150712/migu-1m-bold.ttf
   args:
     chdir: '{{ ansible_env.HOME }}/src'
+
+- get_url:
+    url: http://www.rs.tus.ac.jp/yyusa/ricty/os2version_reviser.sh
+    dest: '{{ ansible_env.HOME }}/src/os2version_reviser.sh'
+    mode: a+x
+
+- command: ./os2version_reviser.sh {{ item }}
+  args:
+    chdir: '{{ ansible_env.HOME }}/src'
+  with_items:
+    - 'Ricty-Regular.ttf'
+    - 'Ricty-Bold.ttf'
 
 - git:
     repo: https://github.com/powerline/fontpatcher.git
@@ -50,18 +65,6 @@
   with_items:
     - { src: 'Ricty Regular for Powerline.ttf', dest: 'Ricty-Regular-for-Powerline.ttf' }
     - { src: 'Ricty Bold for Powerline.ttf', dest: 'Ricty-Bold-for-Powerline.ttf' }
-
-- get_url:
-    url: http://www.rs.tus.ac.jp/yyusa/ricty/os2version_reviser.sh
-    dest: '{{ ansible_env.HOME }}/src/os2version_reviser.sh'
-    mode: a+x
-
-- command: ./os2version_reviser.sh {{ item }}
-  args:
-    chdir: '{{ ansible_env.HOME }}/src'
-  with_items:
-    - 'Ricty-Regular-for-Powerline.ttf'
-    - 'Ricty-Bold-for-Powerline.ttf'
 
 - file:
     path: '{{ ansible_env.HOME }}/.font'

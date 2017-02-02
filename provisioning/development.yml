@@ -9,5 +9,4 @@
     - { role: golang }
     - { role: docker }
     - { role: anyenv }
-    - { role: ricty-for-powerline }
 
