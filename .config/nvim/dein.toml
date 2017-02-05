@@ -106,6 +106,8 @@ repo = 'itchyny/lightline.vim'
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
+[[plugins]]
+repo = 'nixprime/cpsm'
 
 # ----- syntax -----
 [[plugins]]

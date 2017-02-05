@@ -10,3 +10,12 @@
     - vim
     - zsh
 
+- name: install requirements for cpsm(vim plugin)
+  apt: name={{ item }} state=latest
+  become: yes
+  with_items:
+    - libboost-all-dev
+    - cmake
+    - python-dev
+    - libicu-dev
+

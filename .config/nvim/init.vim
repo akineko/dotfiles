@@ -261,6 +261,7 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
 nnoremap <C-p> :<C-u>CtrlP<CR>
 let g:ctrlp_user_command = 'files -a %s'
+let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 
 " lightline
 let g:lightline = {
