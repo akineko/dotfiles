@@ -4,7 +4,7 @@
 [color]
   ui = auto
 [core]
-  editor = vim
+  editor = nvim
   autocrlf = # CRLFをLFに変換して記録し、出力する際にはCRLFに戻す
 #  autocrlf = input # CRLFをLFに変換して記録し出力する際もそのまま
 [alias]
