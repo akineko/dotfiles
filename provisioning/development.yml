@@ -9,6 +9,7 @@
     - { role: golang }
     - { role: docker }
     - { role: anyenv }
+    - { role: rbenv }
     - { role: powerline }
     - { role: fish }
     - { role: fzf }

@@ -1,0 +1,6 @@
+---
+
+- git:
+    repo: https://github.com/rbenv/rbenv.git
+    dest: '{{ ansible_env.HOME }}/.rbenv'
+
