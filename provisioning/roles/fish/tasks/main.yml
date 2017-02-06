@@ -1,0 +1,14 @@
+---
+
+- apt_repository:
+    repo: 'ppa:fish-shell/release-2'
+    state: present
+  become: yes
+
+- apt:
+    name: fish
+    state: latest
+  become: yes
+
+- command: curl -Lo $HOME/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+
