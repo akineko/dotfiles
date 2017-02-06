@@ -109,6 +109,9 @@ repo = 'ctrlpvim/ctrlp.vim'
 [[plugins]]
 repo = 'nixprime/cpsm'
 
+[[plugins]]
+repo = 'tyru/caw.vim'
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
