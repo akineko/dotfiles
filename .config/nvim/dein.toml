@@ -112,6 +112,9 @@ repo = 'nixprime/cpsm'
 [[plugins]]
 repo = 'tyru/caw.vim'
 
+[[plugins]]
+repo = 'lambdalisue/vim-findent'
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
