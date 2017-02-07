@@ -4,6 +4,21 @@ if = "has('nvim')"
 on_i = 1
 hook_source = 'let g:deoplete#enable_at_startup = 1'
 
+# ----- C++ -----
+[[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+on_ft = 'cpp'
+
+# libclang を使った syntax highligh
+# インストールが一手間なのであとで試す
+# [[plugins]]
+# repo = 'jeaye/color_coded'
+# on_ft = 'cpp'
+# 
+# [[plugins]]
+# repo = 'arakashic/chromatica.nvim'
+# on_ft = 'cpp'
+
 # ----- golang -----
 [[plugins]]
 repo = 'zchee/deoplete-go'
