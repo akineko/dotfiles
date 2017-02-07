@@ -9,6 +9,7 @@
     - make
     - vim
     - zsh
+    - source-highlight
 
 - name: install requirements for cpsm(vim plugin)
   apt: name={{ item }} state=latest
