@@ -4,6 +4,7 @@ if = "has('nvim')"
 on_i = 1
 hook_source = 'let g:deoplete#enable_at_startup = 1'
 
+# ----- golang -----
 [[plugins]]
 repo = 'zchee/deoplete-go'
 if = "has('nvim')"
@@ -15,14 +16,17 @@ on_ft = 'go'
 repo = 'fatih/vim-go'
 on_ft = 'go'
 
+# ----- HTML -----
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'css']
 
+# ----- Ruby -----
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = 'ruby'
 
+# ----- utility -----
 [[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
