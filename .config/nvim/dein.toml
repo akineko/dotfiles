@@ -118,6 +118,13 @@ repo = 'lambdalisue/vim-findent'
 [[plugins]]
 repo = 'vim-scripts/AnsiEsc.vim'
 
+[[plugins]]
+repo = 'kana/vim-smartinput'
+
+[[plugins]]
+repo = 'cohama/vim-smartinput-endwise'
+hook_source = 'call smartinput_endwise#define_default_rules()'
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
