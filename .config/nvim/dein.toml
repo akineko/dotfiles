@@ -115,6 +115,9 @@ repo = 'tyru/caw.vim'
 [[plugins]]
 repo = 'lambdalisue/vim-findent'
 
+[[plugins]]
+repo = 'vim-scripts/AnsiEsc.vim'
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
