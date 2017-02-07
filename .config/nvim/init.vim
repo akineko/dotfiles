@@ -256,6 +256,11 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 " neomake go
 let g:neomake_go_enabled_makers = ['go', 'golint', 'govet', 'errcheck']
 
+" ctrlp
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_working_path_mode = 'ra'
+nnoremap <C-p> :<C-u>CtrlP<CR>
+
 " lightline
 let g:lightline = {
       \ 'colorscheme': 'wombat',
@@ -265,5 +270,4 @@ let g:lightline = {
       \ 'separator': { 'left': '', 'right': '' },
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
-
 

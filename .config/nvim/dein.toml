@@ -103,6 +103,10 @@ repo = 'cocopon/vaffle.vim'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
