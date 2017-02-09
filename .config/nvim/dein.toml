@@ -8,6 +8,37 @@ build = 'make'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
+# ----- textobj -----
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'kana/vim-textobj-entire'
+
+[[plugins]]
+repo = 'kana/vim-textobj-line'
+
+# [[plugins]]
+# repo = 'kana/vim-textobj-function'
+
+[[plugins]]
+repo = 'kana/vim-textobj-underscore'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-between'
+
+[[plugins]]
+repo = 'thinca/vim-textobj-comment'
+
+[[plugins]]
+repo = 'sgur/vim-textobj-parameter'
+
+[[plugins]]
+repo = 'kana/vim-textobj-jabraces'
+
+[[plugins]]
+repo = 'osyo-manga/vim-textobj-multiblock'
+
 # ----- unite -----
 [[plugins]]
 repo = 'Shougo/unite.vim'
