@@ -39,6 +39,21 @@ repo = 'kana/vim-textobj-jabraces'
 [[plugins]]
 repo = 'osyo-manga/vim-textobj-multiblock'
 
+# ----- operator -----
+[[plugins]]
+repo = 'kana/vim-operator-user'
+[[plugins]]
+repo = 'emonkak/vim-operator-sort'
+
+[[plugins]]
+repo = 'kana/vim-operator-replace'
+
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+
+[[plugins]]
+repo = 'tyru/operator-camelize.vim'
+
 # ----- unite -----
 [[plugins]]
 repo = 'Shougo/unite.vim'

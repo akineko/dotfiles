@@ -234,6 +234,15 @@ nnoremap <silent> [Unite]t :<C-u>Unite tab<CR>
 nnoremap <silent> [Unite]jl :<C-u>Unite junkfile<CR>
 nnoremap <silent> [Unite]jn :<C-u>Unite -start-insert junkfile/new junkfile<CR>
 
+" operator
+map R <Plug>(operator-replace)
+map <silent>sa <Plug>(operator-surround-append)
+map <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
+map <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
+vmap S <Plug>(operator-sort)
+vmap <leader>U <Plug>(operator-camelize)
+vmap <leader>u <Plug>(operator-decamelize)
+
 " vim-go
 let g:go_fmt_command = 'goimports'
 let g:go_def_mapping_enabled = 0
