@@ -64,8 +64,8 @@ repo = 'Shougo/neomru.vim'
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
 
-[[plugins]]
-repo = 'Shougo/vimfiler'
+# [[plugins]]
+# repo = 'Shougo/vimfiler'
 
 [[plugins]]
 repo = 'Shougo/junkfile.vim'

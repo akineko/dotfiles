@@ -209,15 +209,15 @@ nnoremap <Leader>f :<C-u>Vaffle<CR>
 " let g:python3_host_prog = '/usr/bin/python3'
 
 " VimFiler
-nnoremap <F2> :VimFiler -split -simple -winwidth=35 -no-quit -toggle<CR>
-augroup vimfiler
-  autocmd!
-  autocmd FileType vimfiler call s:vimfiler_settings()
-augroup END
-function! s:vimfiler_settings()
-  nnoremap <silent><buffer><expr> v vimfiler#do_switch_action('vsplit')
-  nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
-endfunction
+" nnoremap <F2> :VimFiler -split -simple -winwidth=35 -no-quit -toggle<CR>
+" augroup vimfiler
+"   autocmd!
+"   autocmd FileType vimfiler call s:vimfiler_settings()
+" augroup END
+" function! s:vimfiler_settings()
+"   nnoremap <silent><buffer><expr> v vimfiler#do_switch_action('vsplit')
+"   nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
+" endfunction
 
 " tagbar
 nnoremap <Leader>t :<C-u>TagbarToggle<CR>
