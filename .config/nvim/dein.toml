@@ -185,6 +185,9 @@ repo = 'vim-ruby/vim-ruby'
 [[plugins]]
 repo = 'chase/vim-ansible-yaml'
 
+[[plugins]]
+repo = 'cespare/vim-toml'
+
 # ----- colorscheme -----
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
