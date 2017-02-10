@@ -187,9 +187,12 @@ inoremap    <M-j>       <Down>
 inoremap    <M-h>       <Left>
 inoremap    <M-l>       <Right>
 
-" C++用(これはfiletypeがC++ならに変える)
-nnoremap <silent> sh :<C-u>hide edit %<.h<CR>
-nnoremap <silent> ss :<C-u>hide edit %<.cpp<CR>
+" C++
+augroup CppConfig
+  autocmd!
+  autocmd FileType cpp nnoremap <buffer> <silent> sh :<C-u>hide edit %<.h<CR>
+  autocmd FileType cpp nnoremap <buffer> <silent> ss :<C-u>hide edit %<.cpp<CR>
+augroup END
 
 " textmanip
 xmap <C-j> <Plug>(textmanip-move-down)
