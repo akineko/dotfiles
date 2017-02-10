@@ -4,3 +4,7 @@
     repo: https://github.com/rbenv/rbenv.git
     dest: '{{ ansible_env.HOME }}/.rbenv'
 
+- git:
+    repo: https://github.com/rbenv/ruby-build.git
+    dest: '{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build'
+
