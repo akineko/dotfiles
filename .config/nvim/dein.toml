@@ -39,6 +39,10 @@ repo = 'kana/vim-textobj-jabraces'
 [[plugins]]
 repo = 'osyo-manga/vim-textobj-multiblock'
 
+[[plugins]]
+repo = 'rhysd/vim-textobj-ruby'
+on_ft = 'ruby'
+
 # ----- operator -----
 [[plugins]]
 repo = 'kana/vim-operator-user'
@@ -109,6 +113,9 @@ repo = 'ujihisa/unite-rake'
 [[plugins]]
 repo = 'basyura/unite-rails'
 
+[[plugins]]
+repo = 'rhysd/unite-ruby-require.vim'
+
 # ----- utility -----
 [[plugins]]
 repo = 'renamer.vim'
@@ -172,10 +179,16 @@ repo = 'kana/vim-smartinput'
 
 [[plugins]]
 repo = 'cohama/vim-smartinput-endwise'
-hook_source = 'call smartinput_endwise#define_default_rules()'
+hook_add = 'call smartinput_endwise#define_default_rules()'
 
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'taka84u9/vim-ref-ri'
 
 # ----- syntax -----
 [[plugins]]
