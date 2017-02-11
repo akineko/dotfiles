@@ -15,8 +15,7 @@ set -x XDG_CACHE_HOME $HOME/.cache
 # eval (anyenv init - fish)
 
 # rbenv
-set -x RBENV_ROOT $HOME/.rbenv
-set -x PATH $HOME/.rbenv/bin $PATH
+# set -x PATH $HOME/.rbenv/bin $PATH
 
 # Golang
 set -x GOROOT $HOME/go
