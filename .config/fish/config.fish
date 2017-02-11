@@ -17,6 +17,9 @@ set -x XDG_CACHE_HOME $HOME/.cache
 # rbenv
 # set -x PATH $HOME/.rbenv/bin $PATH
 
+# Python
+set -x PATH $HOME/.local/bin $PATH
+
 # Golang
 set -x GOROOT $HOME/go
 set -x GOPATH $HOME/dev
