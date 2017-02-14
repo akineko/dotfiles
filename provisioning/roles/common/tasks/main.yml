@@ -18,5 +18,6 @@
     - libboost-all-dev
     - cmake
     - python-dev
+    - python3-dev
     - libicu-dev
 
