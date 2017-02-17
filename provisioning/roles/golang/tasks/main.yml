@@ -14,14 +14,15 @@
   register: go_version
   changed_when: false
 
-- file:
-    path: "{{ ansible_env.HOME }}/go"
-    state: absent
-  when: go_version|failed or go_version.stdout != "go version go{{ go_target_version }} linux/amd64"
+- block:
+  - file:
+      path: "{{ ansible_env.HOME }}/go"
+      state: absent
 
-- unarchive:
-    src: "{{ ansible_env.HOME }}/src/go{{ go_target_version }}.linux-amd64.tar.gz"
-    dest: "{{ ansible_env.HOME }}"
-    remote_src: yes
+  - unarchive:
+      src: "{{ ansible_env.HOME }}/src/go{{ go_target_version }}.linux-amd64.tar.gz"
+      dest: "{{ ansible_env.HOME }}"
+      remote_src: yes
+
   when: go_version|failed or go_version.stdout != "go version go{{ go_target_version }} linux/amd64"
 
