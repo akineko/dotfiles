@@ -1,5 +1,7 @@
 set -x TERM xterm-256color
 
+set -x EDITOR nvim
+
 # Subversion
 set -x SVN_EDITOR nvim
 
