@@ -8,3 +8,20 @@
     repo: https://github.com/rbenv/ruby-build.git
     dest: '{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build'
 
+- apt:
+    name: '{{ item }}'
+    state: latest
+  become: yes
+  with_items:
+    - autoconf
+    - bison
+    - build-essential
+    - libssl-dev
+    - libyaml-dev
+    - libreadline6-dev
+    - zlib1g-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm3
+    - libgdbm-dev
+
