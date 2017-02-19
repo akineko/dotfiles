@@ -268,6 +268,9 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 " neomake go
 let g:neomake_go_enabled_makers = ['go', 'golint', 'govet', 'errcheck']
 
+" vim-go
+let g:go_snippet_engine = "neosnippet"
+
 " ctrlp
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_working_path_mode = 'ra'
