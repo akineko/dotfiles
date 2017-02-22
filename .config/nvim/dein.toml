@@ -210,6 +210,9 @@ repo = 'chase/vim-ansible-yaml'
 [[plugins]]
 repo = 'cespare/vim-toml'
 
+[[plugins]]
+repo = 'ekalinin/Dockerfile.vim'
+
 # ----- colorscheme -----
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
