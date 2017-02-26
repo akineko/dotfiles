@@ -15,4 +15,5 @@ go get github.com/golang/dep/cmd/dep
 go get golang.org/x/tools/cmd/godoc
 go get github.com/motemen/gore
 go get github.com/k0kubun/pp
+go get github.com/motemen/gofind/cmd/gofind
 
