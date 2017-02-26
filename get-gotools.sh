@@ -16,4 +16,5 @@ go get golang.org/x/tools/cmd/godoc
 go get github.com/motemen/gore
 go get github.com/k0kubun/pp
 go get github.com/motemen/gofind/cmd/gofind
+go get github.com/clipperhouse/gen
 
