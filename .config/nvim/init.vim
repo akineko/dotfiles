@@ -44,7 +44,7 @@ if !has('nvim')
 endif
 set termencoding=utf-8
 set fileencoding=utf-8
-set fileencodings=ucs-bom,iso-2022-jp,utf-8,euc-jp,cp932
+let &fileencodings=join(['ucs-bom','iso-2022-jp','utf-8','euc-jp','cp932'])
 
 " fileformat
 set fileformat=unix
