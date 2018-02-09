@@ -8,6 +8,7 @@ ln -s $abspath/.gvimrc    $HOME/.gvimrc
 ln -s $abspath/.zshrc     $HOME/.zshrc
 ln -s $abspath/.tmux.conf $HOME/.tmux.conf
 ln -s $abspath/.gitconfig $HOME/.gitconfig
+ln -s $abspath/.tigrc     $HOME/.tigrc
 ln -s $abspath/.hgrc      $HOME/.hgrc
 ln -s $abspath/.gdbinit   $HOME/.gdbinit
 ln -s $abspath/.bashrc    $HOME/.bashrc
