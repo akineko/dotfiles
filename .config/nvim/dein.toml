@@ -118,7 +118,7 @@ repo = 'rhysd/unite-ruby-require.vim'
 
 # ----- utility -----
 [[plugins]]
-repo = 'renamer.vim'
+repo = 'vim-scripts/renamer.vim'
 
 [[plugins]]
 repo = 'h1mesuke/vim-alignta'
