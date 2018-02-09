@@ -166,6 +166,15 @@ repo = 'justinmk/vim-dirvish'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+
+[[plugins]]
 repo = 'ctrlpvim/ctrlp.vim'
 
 [[plugins]]
