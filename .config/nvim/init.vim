@@ -306,3 +306,13 @@ let g:vimshell_force_overwrite_statusline = 0
 nmap <Leader>c <Plug>(caw:prefix)
 xmap <Leader>c <Plug>(caw:prefix)
 
+" fugitive.vim
+nnoremap [fugitive] <Nop>
+nmap <Space>g [fugitive]
+nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
+nnoremap <silent> [fugitive]a :Gwrite<CR>
+nnoremap <silent> [fugitive]c :Gcommit<CR>
+nnoremap <silent> [fugitive]b :Gblame<CR>
+nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]m :Gmerge<CR>
+

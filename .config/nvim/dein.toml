@@ -205,6 +205,9 @@ repo = 'thinca/vim-ref'
 [[plugins]]
 repo = 'taka84u9/vim-ref-ri'
 
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
 # ----- syntax -----
 [[plugins]]
 repo = 'vim-jp/cpp-vim'
