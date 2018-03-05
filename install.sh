@@ -6,6 +6,7 @@ abspath=$(cd $(dirname $0) && pwd)
 ln -s $abspath/.vimrc     $HOME/.vimrc
 ln -s $abspath/.gvimrc    $HOME/.gvimrc
 ln -s $abspath/.zshrc     $HOME/.zshrc
+ln -s $abspath/.zsh       $HOME/.zsh
 ln -s $abspath/.tmux.conf $HOME/.tmux.conf
 ln -s $abspath/.gitconfig $HOME/.gitconfig
 ln -s $abspath/.tigrc     $HOME/.tigrc

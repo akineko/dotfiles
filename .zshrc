@@ -262,4 +262,13 @@ if [ -f $HOME/.pythonbrew/etc/bashrc ]; then
 	source $HOME/.pythonbrew/etc/bashrc
 fi
 
+if [[ -f ~/.zplug/init.zsh ]]; then
+  export ZPLUG_LOADFILE=~/.zsh/zplug.zsh
+  source ~/.zplug/init.zsh
+
+  if ! zplug check --verbose; then
+    zplug install
+  fi
+  zplug load
+fi
 
