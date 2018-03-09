@@ -11,6 +11,8 @@ compinit
 autoload -U colors
 colors
 
+autoload -Uz cdr
+
 # 変数定義をすると同時にexportされ環境変数としても設定する
 setopt all_export
 
