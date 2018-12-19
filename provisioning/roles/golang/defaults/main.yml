@@ -1,5 +1,5 @@
 ---
 
-go_target_version: 1.8
-go_target_version_checksum: sha256:53ab94104ee3923e228a2cb2116e5e462ad3ebaeea06ff04463479d7f12d27ca
+go_target_version: 1.11.4
+go_target_version_checksum: sha256:fb26c30e6a04ad937bbc657a1b5bba92f80096af1e8ee6da6430c045a8db3a5b
 
