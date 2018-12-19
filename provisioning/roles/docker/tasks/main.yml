@@ -6,30 +6,23 @@
     update_cache: yes
   become: yes
   with_items:
-    - curl
-    - "linux-image-extra-{{ ansible_kernel }}"
-    - linux-image-extra-virtual
-
-- apt:
-    name: "{{ item }}"
-    state: present
-  become: yes
-  with_items:
     - apt-transport-https
     - ca-certificates
+    - curl
+    - software-properties-common
 
 - apt_key:
-    url: https://yum.dockerproject.org/gpg
-    id: 58118E89F3A912897C070ADBF76221572C52609D
+    url: https://download.docker.com/linux/ubuntu/gpg
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
   become: yes
 
 - apt_repository:
-    repo: "deb https://apt.dockerproject.org/repo/ ubuntu-{{ ansible_distribution_release }} main"
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
     state: present
   become: yes
 
 - apt:
-    name: docker-engine
+    name: docker-ce
     state: latest
   become: yes
 
@@ -51,7 +44,7 @@
   become: yes
 
 - get_url:
-    url: https://github.com/docker/compose/releases/download/1.10.0/docker-compose-Linux-x86_64
+    url: https://github.com/docker/compose/releases/download/1.23.1/docker-compose-Linux-x86_64
     dest: /usr/local/bin/docker-compose
     mode: a+x
   become: yes
