@@ -8,7 +8,6 @@ sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get -y install ansible
 
-git clone https://github.com/akineko/dotfiles.git ~/dotfiles
-cd ~/dotfiles/provisioning
+cd provisioning
 ansible-playbook -i hosts development.yml -K
 

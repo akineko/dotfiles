@@ -30,4 +30,11 @@ ln -sf $abspath/.config/fish/functions/fish_prompt.fish $HOME/.config/fish/funct
 
 cp -r .vim       $HOME/
 mkdir -p $HOME/vimbackup
-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
+  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+fi
+
+if [ ! -f ~/.zplug/init.zsh ]; then
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+fi
+

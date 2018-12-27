@@ -8,6 +8,7 @@ zplug "mollifier/cd-gitroot"
 zplug "Tarrasch/zsh-bd"
 zplug "knu/zsh-git-escape-magic", use:git-escape-magic
 
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
+#zplug "mafredri/zsh-async", from:github
+#zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
