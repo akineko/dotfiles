@@ -205,6 +205,9 @@ let g:vaffle_show_hidden_files = 0
 let g:vaffle_auto_cd = 0
 nnoremap <Leader>f :<C-u>Vaffle<CR>
 
+" The NERDTree
+nnoremap <f2> :NERDTreeToggle<CR>
+
 " Python3 plug
 " let g:python3_host_prog = '/usr/bin/python3'
 

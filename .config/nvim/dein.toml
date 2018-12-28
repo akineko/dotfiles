@@ -157,6 +157,9 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'majutsushi/tagbar'
 
 [[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
 repo = 'cocopon/vaffle.vim'
 
 [[plugins]]
