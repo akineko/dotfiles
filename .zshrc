@@ -274,3 +274,5 @@ if [[ -f ~/.zplug/init.zsh ]]; then
   zplug load
 fi
 
+bindkey '^g' anyframe-widget-cd-ghq-repository
+
