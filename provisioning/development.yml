@@ -13,4 +13,5 @@
     - { role: powerline }
     - { role: fish }
     - { role: fzf }
+    - { role: google-cloud-sdk }
 
