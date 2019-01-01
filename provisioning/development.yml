@@ -3,15 +3,16 @@
 - hosts: localhost
   connection: local
   roles:
-    - { role: common }
-    - { role: tmux }
-    - { role: neovim }
-    - { role: golang }
-    - { role: docker }
     - { role: anyenv }
-    - { role: rbenv }
-    - { role: powerline }
+    - { role: common }
+    - { role: docker }
     - { role: fish }
     - { role: fzf }
+    - { role: golang }
     - { role: google-cloud-sdk }
+    - { role: kubernetes }
+    - { role: neovim }
+    - { role: powerline }
+    - { role: rbenv }
+    - { role: tmux }
 
