@@ -1,0 +1,17 @@
+---
+
+- get_url:
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+    dest: /usr/local/bin/minikube
+    mode: 0755
+  become: yes
+
+- apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - libvirt-clients
+    - libvirt-daemon-system
+    - qemu-kvm
+  become: yes
+

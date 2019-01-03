@@ -12,6 +12,7 @@
     - { role: google-cloud-sdk }
     - { role: kubernetes }
     - { role: neovim }
+    - { role: minikube }
     - { role: powerline }
     - { role: rbenv }
     - { role: tmux }
