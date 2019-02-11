@@ -212,15 +212,37 @@ export TERM=xterm-256color
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 
+# zplug
+if [[ -f ~/.zplug/init.zsh ]]; then
+  export ZPLUG_LOADFILE=~/.zsh/zplug.zsh
+  source ~/.zplug/init.zsh
+
+  if ! zplug check --verbose; then
+    zplug install
+  fi
+  zplug load
+fi
+
+bindkey '^g' anyframe-widget-cd-ghq-repository
+
+# linuxbrew
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+  compinit
+fi
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
+eval "$(anyenv init - zsh)"
 
 # -------------------------------------------------------------------------------
 # Golang
 # -------------------------------------------------------------------------------
 
-GOROOT=$HOME/go
+# GOROOT=$HOME/go
 GOPATH=$HOME/dev
 
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
@@ -264,15 +286,5 @@ if [ -f $HOME/.pythonbrew/etc/bashrc ]; then
 	source $HOME/.pythonbrew/etc/bashrc
 fi
 
-if [[ -f ~/.zplug/init.zsh ]]; then
-  export ZPLUG_LOADFILE=~/.zsh/zplug.zsh
-  source ~/.zplug/init.zsh
 
-  if ! zplug check --verbose; then
-    zplug install
-  fi
-  zplug load
-fi
-
-bindkey '^g' anyframe-widget-cd-ghq-repository
 
