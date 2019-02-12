@@ -41,9 +41,9 @@ on_ft = ['html', 'css']
 repo = 'fishbullet/deoplete-ruby'
 on_ft = 'ruby'
 
-# [[plugins]]
-# repo = 'vim-ruby/vim-ruby'
-# on_ft = 'ruby'
+[[plugins]]
+repo = 'uplus/deoplete-solargraph'
+on_ft = 'ruby'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
@@ -54,6 +54,4 @@ repo = 'todesking/ruby_hl_lvar.vim'
 on_ft = 'ruby'
 
 # ----- utility -----
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
 

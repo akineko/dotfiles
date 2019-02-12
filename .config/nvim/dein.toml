@@ -136,9 +136,6 @@ repo = 'sjl/gundo.vim'
 repo = 't9md/vim-textmanip'
 
 [[plugins]]
-repo = 'thinca/vim-ref'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 
 [[plugins]]
@@ -155,6 +152,9 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
+
+[[plugins]]
+repo = 'szw/vim-tags'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
