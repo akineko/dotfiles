@@ -1,0 +1,16 @@
+---
+
+- git:
+    repo: https://github.com/Homebrew/brew
+    dest: '{{ ansible_env.HOME }}/.linuxbrew/Homebrew'
+    depth: 1
+
+- file:
+    path: '{{ ansible_env.HOME }}/.linuxbrew/bin'
+    state: directory
+
+- file:
+    src: '{{ ansible_env.HOME }}/.linuxbrew/Homebrew/bin/brew'
+    dest: '{{ ansible_env.HOME }}/.linuxbrew/bin/brew'
+    state: link
+
