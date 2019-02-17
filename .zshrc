@@ -245,7 +245,7 @@ eval "$(anyenv init - zsh)"
 # GOROOT=$HOME/go
 GOPATH=$HOME/dev
 
-export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
+export PATH="$GOPATH/bin:$PATH"
 
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
