@@ -14,6 +14,7 @@
     - { role: linuxbrew }
     - { role: neovim }
     - { role: minikube }
+    - { role: pyenv }
     # - { role: powerline }
     - { role: rbenv }
     - { role: tmux }
