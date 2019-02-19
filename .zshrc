@@ -230,6 +230,7 @@ test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
 test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 if type brew &>/dev/null; then
+  export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH"
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
   compinit
 fi
