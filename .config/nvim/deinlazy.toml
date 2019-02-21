@@ -1,8 +1,8 @@
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-if = "has('nvim')"
-on_event = 'InsertEnter'
-hook_source = 'let g:deoplete#enable_at_startup = 1'
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# if = "has('nvim')"
+# on_event = 'InsertEnter'
+# hook_source = 'let g:deoplete#enable_at_startup = 1'
 
 # ----- C++ -----
 [[plugins]]
@@ -20,12 +20,12 @@ on_ft = 'cpp'
 # on_ft = 'cpp'
 
 # ----- golang -----
-[[plugins]]
-repo = 'zchee/deoplete-go'
-if = "has('nvim')"
-build = 'make'
-on_ft = 'go'
-on_event = 'InsertEnter'
+# [[plugins]]
+# repo = 'zchee/deoplete-go'
+# if = "has('nvim')"
+# build = 'make'
+# on_ft = 'go'
+# on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'fatih/vim-go'
@@ -37,13 +37,13 @@ repo = 'mattn/emmet-vim'
 on_ft = ['html', 'css']
 
 # ----- Ruby -----
-[[plugins]]
-repo = 'fishbullet/deoplete-ruby'
-on_ft = 'ruby'
+# [[plugins]]
+# repo = 'fishbullet/deoplete-ruby'
+# on_ft = 'ruby'
 
-[[plugins]]
-repo = 'uplus/deoplete-solargraph'
-on_ft = 'ruby'
+# [[plugins]]
+# repo = 'uplus/deoplete-solargraph'
+# on_ft = 'ruby'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
