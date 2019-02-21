@@ -237,7 +237,9 @@ fi
 
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init - zsh)"
+if type anyenv &>/dev/null; then
+  eval "$(anyenv init - zsh)"
+fi
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
