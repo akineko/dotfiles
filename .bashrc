@@ -13,3 +13,6 @@ function svndiff3() {
 
 alias svndiff="svn diff --diff-cmd ~/.vim/scripts/svndiff"
 
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+

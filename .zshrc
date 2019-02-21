@@ -239,6 +239,9 @@ fi
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init - zsh)"
 
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # -------------------------------------------------------------------------------
 # Golang
 # -------------------------------------------------------------------------------
@@ -290,5 +293,4 @@ fi
 if type pipenv &>/dev/null; then
   eval "$(pipenv --completion)"
 fi
-
 
