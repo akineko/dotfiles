@@ -1,7 +1,7 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('nvim')"
-on_i = 1
+on_event = 'InsertEnter'
 hook_source = 'let g:deoplete#enable_at_startup = 1'
 
 # ----- C++ -----
@@ -24,8 +24,8 @@ on_ft = 'cpp'
 repo = 'zchee/deoplete-go'
 if = "has('nvim')"
 build = 'make'
-on_i = 1
 on_ft = 'go'
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'fatih/vim-go'
