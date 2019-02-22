@@ -213,9 +213,6 @@ repo = 'tpope/vim-fugitive'
 
 # ----- lsp -----
 [[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
 repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
@@ -303,6 +300,9 @@ hook_add = '''
     augroup END
   endif
 '''
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
