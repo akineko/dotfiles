@@ -244,6 +244,11 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# gcloud
+if [ -f /usr/share/google-cloud-sdk/completion.zsh.inc ]; then
+  source /usr/share/google-cloud-sdk/completion.zsh.inc
+fi
+
 # -------------------------------------------------------------------------------
 # Golang
 # -------------------------------------------------------------------------------
