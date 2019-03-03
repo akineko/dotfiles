@@ -211,6 +211,12 @@ repo = 'taka84u9/vim-ref-ri'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+hook_add = '''
+set updatetime=1000
+'''
+
 # ----- lsp -----
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
