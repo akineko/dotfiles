@@ -207,8 +207,7 @@ repo = 'vim-scripts/AnsiEsc.vim'
 repo = 'kana/vim-smartinput'
 
 [[plugins]]
-repo = 'cohama/vim-smartinput-endwise'
-hook_add = 'call smartinput_endwise#define_default_rules()'
+repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
