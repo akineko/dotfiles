@@ -118,6 +118,9 @@ repo = 'rhysd/unite-ruby-require.vim'
 
 # ----- utility -----
 [[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
 repo = 'vim-scripts/renamer.vim'
 
 [[plugins]]
@@ -158,6 +161,14 @@ repo = 'szw/vim-tags'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+let g:NERDTreeQuitOnOpen = 1
+let g:NERDTreeShowHidden = 1
+'''
+
+[[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+depends = 'nerdtree'
 
 [[plugins]]
 repo = 'cocopon/vaffle.vim'
