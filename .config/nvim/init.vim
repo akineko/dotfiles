@@ -318,4 +318,5 @@ nnoremap <silent> [fugitive]c :Gcommit<CR>
 nnoremap <silent> [fugitive]b :Gblame<CR>
 nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]m :Gmerge<CR>
+nnoremap <silent> [fugitive]i :Grebase<CR>
 
