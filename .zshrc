@@ -270,6 +270,18 @@ function peco-src () {
 zle -N peco-src
 bindkey '^]' peco-src
 
+function fzf-cd() {
+  local dir="$(git ls-tree -dr --name-only --full-name --full-tree HEAD | sed -e "s|^|`git rev-parse --show-toplevel`/|" | fzf -0 -1 +m)"
+  if [[ -z "$dir" ]]; then
+    zle redisplay
+    return 0
+  fi
+  cd "$dir"
+  zle reset-prompt
+}
+zle -N fzf-cd
+bindkey '^d' fzf-cd
+
 # -------------------------------------------------------------------------------
 # Ruby
 # -------------------------------------------------------------------------------
