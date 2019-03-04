@@ -13,3 +13,6 @@ zplug "knu/zsh-git-escape-magic", use:git-escape-magic
 #zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "denysdovhan/spaceship-prompt", use:spaceship.zsh, from:github, as:theme
 
+zplug "plugins/docker", from:oh-my-zsh
+zplug "plugins/docker-compose", from:oh-my-zsh
+
