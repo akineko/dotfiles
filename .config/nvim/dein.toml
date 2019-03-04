@@ -121,6 +121,9 @@ repo = 'rhysd/unite-ruby-require.vim'
 repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
 repo = 'vim-scripts/renamer.vim'
 
 [[plugins]]
