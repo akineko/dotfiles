@@ -245,10 +245,6 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# gcloud
-if [ -f /usr/share/google-cloud-sdk/completion.zsh.inc ]; then
-  source /usr/share/google-cloud-sdk/completion.zsh.inc
-fi
 
 # -------------------------------------------------------------------------------
 # Golang
@@ -312,5 +308,10 @@ fi
 
 if type pipenv &>/dev/null; then
   eval "$(pipenv --completion)"
+fi
+
+# gcloud
+if [ -f /usr/share/google-cloud-sdk/completion.zsh.inc ]; then
+  source /usr/share/google-cloud-sdk/completion.zsh.inc
 fi
 
