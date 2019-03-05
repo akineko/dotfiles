@@ -186,7 +186,6 @@ bindkey "^[[4~" end-of-line
 
 # history関連の設定
 HISTFILE=~/.zhistory
-SAVEHIST=1000
 SAVEHIST=10000
 DIRSTACKSIZE=20
 
