@@ -59,20 +59,35 @@ repo = 'rhysd/vim-operator-surround'
 repo = 'tyru/operator-camelize.vim'
 
 # ----- unite -----
+# [[plugins]]
+# repo = 'Shougo/unite.vim'
+# hook_add = '''
+# nnoremap [Unite] <Nop>
+# nmap <Space>u [Unite]
+# nnoremap <silent> [Unite]f :<C-u>Unite -no-split file<CR>
+# nnoremap <silent> [Unite]m :<C-u>Unite -no-split file_mru<CR>
+# nnoremap <silent> [Unite]y :<C-u>Unite history/yank<CR>
+# nnoremap <silent> [Unite]b :<C-u>Unite -no-split buffer<CR>
+# nnoremap <silent> [Unite]g :<C-u>Unite grep<CR>
+# nnoremap <silent> [Unite]o :<C-u>Unite -vertical -winwidth=30 outline<CR>
+# nnoremap <silent> [Unite]t :<C-u>Unite tab<CR>
+# nnoremap <silent> [Unite]jl :<C-u>Unite junkfile<CR>
+# nnoremap <silent> [Unite]jn :<C-u>Unite -start-insert junkfile/new junkfile<CR>
+# '''
+
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo = 'Shougo/denite.nvim'
 hook_add = '''
-nnoremap [Unite] <Nop>
-nmap <Space>u [Unite]
-nnoremap <silent> [Unite]f :<C-u>Unite -no-split file<CR>
-nnoremap <silent> [Unite]m :<C-u>Unite -no-split file_mru<CR>
-nnoremap <silent> [Unite]y :<C-u>Unite history/yank<CR>
-nnoremap <silent> [Unite]b :<C-u>Unite -no-split buffer<CR>
-nnoremap <silent> [Unite]g :<C-u>Unite grep<CR>
-nnoremap <silent> [Unite]o :<C-u>Unite -vertical -winwidth=30 outline<CR>
-nnoremap <silent> [Unite]t :<C-u>Unite tab<CR>
-nnoremap <silent> [Unite]jl :<C-u>Unite junkfile<CR>
-nnoremap <silent> [Unite]jn :<C-u>Unite -start-insert junkfile/new junkfile<CR>
+nnoremap [Denite] <Nop>
+nmap <Space>u [Denite]
+nnoremap <silent> [Denite]f :<C-u>Denite -split=no file<CR>
+nnoremap <silent> [Denite]m :<C-u>Denite -split=no file_mru<CR>
+nnoremap <silent> [Denite]y :<C-u>Denite neoyank<CR>
+nnoremap <silent> [Denite]b :<C-u>Denite -split=no buffer<CR>
+nnoremap <silent> [Denite]g :<C-u>Denite grep<CR>
+nnoremap <silent> [Denite]o :<C-u>Denite -split=vertical -winwidth=30 outline<CR>
+nnoremap <silent> [Denite]jl :<C-u>Denite junkfile<CR>
+nnoremap <silent> [Denite]jn :<C-u>Denite junkfile:new junkfile<CR>
 '''
 
 [[plugins]]
