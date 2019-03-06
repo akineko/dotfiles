@@ -61,6 +61,19 @@ repo = 'tyru/operator-camelize.vim'
 # ----- unite -----
 [[plugins]]
 repo = 'Shougo/unite.vim'
+hook_add = '''
+nnoremap [Unite] <Nop>
+nmap <Space>u [Unite]
+nnoremap <silent> [Unite]f :<C-u>Unite -no-split file<CR>
+nnoremap <silent> [Unite]m :<C-u>Unite -no-split file_mru<CR>
+nnoremap <silent> [Unite]y :<C-u>Unite history/yank<CR>
+nnoremap <silent> [Unite]b :<C-u>Unite -no-split buffer<CR>
+nnoremap <silent> [Unite]g :<C-u>Unite grep<CR>
+nnoremap <silent> [Unite]o :<C-u>Unite -vertical -winwidth=30 outline<CR>
+nnoremap <silent> [Unite]t :<C-u>Unite tab<CR>
+nnoremap <silent> [Unite]jl :<C-u>Unite junkfile<CR>
+nnoremap <silent> [Unite]jn :<C-u>Unite -start-insert junkfile/new junkfile<CR>
+'''
 
 [[plugins]]
 repo = 'Shougo/neomru.vim'

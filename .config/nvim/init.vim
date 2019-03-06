@@ -227,19 +227,6 @@ nnoremap <Leader>t :<C-u>TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 
-" Unite
-nnoremap [Unite] <Nop>
-nmap <Space>u [Unite]
-nnoremap <silent> [Unite]f :<C-u>Unite -no-split file<CR>
-nnoremap <silent> [Unite]m :<C-u>Unite -no-split file_mru<CR>
-nnoremap <silent> [Unite]y :<C-u>Unite history/yank<CR>
-nnoremap <silent> [Unite]b :<C-u>Unite -no-split buffer<CR>
-nnoremap <silent> [Unite]g :<C-u>Unite grep<CR>
-nnoremap <silent> [Unite]o :<C-u>Unite -vertical -winwidth=30 outline<CR>
-nnoremap <silent> [Unite]t :<C-u>Unite tab<CR>
-nnoremap <silent> [Unite]jl :<C-u>Unite junkfile<CR>
-nnoremap <silent> [Unite]jn :<C-u>Unite -start-insert junkfile/new junkfile<CR>
-
 " operator
 map R <Plug>(operator-replace)
 map <silent>sa <Plug>(operator-surround-append)
