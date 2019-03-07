@@ -74,7 +74,7 @@ unsetopt hist_beep
 # 古いヒストリの削除時に重複コマンドを優先
 setopt hist_expire_dups_first
 # ヒストリ内の重複したコマンドがあれば古いのを削除
-# setopt hist_ignore_all_dups
+setopt hist_ignore_all_dups
 # 同じコマンドの連続は記録しない
 setopt hist_ignore_dups
 # 先頭にスペースがあるコマンドは記録しない
@@ -90,7 +90,7 @@ setopt hist_save_no_dups
 # 複数セッション起動時にコマンド実行してすぐにヒストリファイルを保存する
 #setopt inc_append_history
 # ヒストリの共有
-#setopt share_history
+setopt share_history
 
 # -------------------- 入出力の設定 --------------------
 # エイリアスの有効化
@@ -186,6 +186,7 @@ bindkey "^[[4~" end-of-line
 
 # history関連の設定
 HISTFILE=~/.zhistory
+HISTSIZE=10000
 SAVEHIST=10000
 DIRSTACKSIZE=20
 
