@@ -1,26 +1,30 @@
 ---
 
-- apt_repository:
-    repo: 'ppa:neovim-ppa/stable'
-  become: yes
+- block:
+    - apt_repository:
+        repo: 'ppa:neovim-ppa/stable'
+      become: yes
 
-- apt:
-    name: neovim
-    state: latest
-  become: yes
+    - apt:
+        name: neovim
+        state: latest
+      become: yes
 
-- apt:
-    name: '{{ item }}'
-    state: latest
-  become: yes
-  with_items:
-    - python-dev
-    - python-pip
-    - python3-dev
-    - python3-pip
+    - apt:
+        name: '{{ item }}'
+        state: latest
+      become: yes
+      with_items:
+        - python-dev
+        - python-pip
+        - python3-dev
+        - python3-pip
 
-- pip:
-    name: neovim
-    state: latest
-    executable: pip3
-  become: yes
+    - pip:
+        name: neovim
+        state: latest
+        executable: pip3
+      become: yes
+
+  tags: neovim
+
