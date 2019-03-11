@@ -1,7 +1,7 @@
 ---
 
 - apt_repository:
-    repo: 'ppa:neovim-ppa/unstable'
+    repo: 'ppa:neovim-ppa/stable'
   become: yes
 
 - apt:
