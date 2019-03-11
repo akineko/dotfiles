@@ -55,7 +55,7 @@ set number
 
 " カーソル位置のハイライト
 set cursorline
-set nocursorcolumn
+set cursorcolumn
 
 " スクロールのマージ
 set scrolloff=5
