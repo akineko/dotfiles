@@ -319,11 +319,15 @@ hook_add = '''
   endif
 '''
 
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete.vim'
+#
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
+repo = 'tbodt/deoplete-tabnine'
+build = './install.sh'
 
 # ----- syntax -----
 [[plugins]]
