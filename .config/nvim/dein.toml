@@ -215,6 +215,12 @@ set updatetime=1000
 '''
 
 [[plugins]]
+repo = 'dhruvasagar/vim-zoom'
+hook_add = '''
+nmap <C-w>o <Plug>(zoom-toggle)
+'''
+
+[[plugins]]
 repo = 'thaerkh/vim-workspace'
 hook_add = '''
 nnoremap <leader>s :<C-u>ToggleWorkspace<CR>
