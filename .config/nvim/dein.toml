@@ -258,6 +258,15 @@ hook_add = '''
 set updatetime=1000
 '''
 
+[[plugins]]
+repo = 'thaerkh/vim-workspace'
+hook_add = '''
+nnoremap <leader>s :<C-u>ToggleWorkspace<CR>
+let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+let g:workspace_undodir = $HOME . '/.vim/sessions/.undodir'
+let g:workspace_autosave_untrailspaces = 0
+'''
+
 # ----- lsp -----
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
