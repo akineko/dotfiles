@@ -90,59 +90,7 @@ nnoremap <silent> [Denite]jl :<C-u>Denite junkfile<CR>
 nnoremap <silent> [Denite]jn :<C-u>Denite junkfile:new junkfile<CR>
 '''
 
-[[plugins]]
-repo = 'Shougo/neomru.vim'
 
-[[plugins]]
-repo = 'Shougo/neoyank.vim'
-
-# [[plugins]]
-# repo = 'Shougo/vimfiler'
-
-[[plugins]]
-repo = 'Shougo/junkfile.vim'
-
-[[plugins]]
-repo = 'Shougo/unite-outline'
-
-[[plugins]]
-repo = 'thinca/vim-qfreplace'
-
-[[plugins]]
-repo = 'tsukkee/unite-tag'
-
-[[plugins]]
-repo = 'thinca/vim-unite-history'
-
-[[plugins]]
-repo = 'osyo-manga/unite-filetype'
-
-[[plugins]]
-repo = 'Shougo/unite-sudo'
-
-[[plugins]]
-repo = 'sorah/unite-ghq'
-
-[[plugins]]
-repo = 'Shougo/unite-build'
-
-[[plugins]]
-repo = 'Shougo/unite-help'
-
-[[plugins]]
-repo = 'Kocha/vim-unite-tig'
-
-[[plugins]]
-repo = 'ujihisa/unite-colorscheme'
-
-[[plugins]]
-repo = 'ujihisa/unite-rake'
-
-[[plugins]]
-repo = 'basyura/unite-rails'
-
-[[plugins]]
-repo = 'rhysd/unite-ruby-require.vim'
 
 # ----- utility -----
 [[plugins]]

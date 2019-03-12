@@ -53,5 +53,74 @@ on_ft = 'ruby'
 repo = 'todesking/ruby_hl_lvar.vim'
 on_ft = 'ruby'
 
+# ----- denite -----
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/junkfile.vim'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/unite-outline'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'thinca/vim-qfreplace'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'thinca/vim-unite-history'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'osyo-manga/unite-filetype'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/unite-sudo'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'sorah/unite-ghq'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/unite-build'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/unite-help'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'Kocha/vim-unite-tig'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'ujihisa/unite-rake'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'basyura/unite-rails'
+on_source = ['denite.nvim']
+
+[[plugins]]
+repo = 'rhysd/unite-ruby-require.vim'
+on_source = ['denite.nvim']
+
 # ----- utility -----
 
