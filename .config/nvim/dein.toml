@@ -175,11 +175,11 @@ merged = 0
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
 
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-
-[[plugins]]
-repo = 'nixprime/cpsm'
+# [[plugins]]
+# repo = 'ctrlpvim/ctrlp.vim'
+#
+# [[plugins]]
+# repo = 'nixprime/cpsm'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
