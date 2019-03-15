@@ -220,13 +220,30 @@ hook_add = '''
 nmap <C-w>o <Plug>(zoom-toggle)
 '''
 
+# [[plugins]]
+# repo = 'thaerkh/vim-workspace'
+# hook_add = '''
+# nnoremap <leader>s :<C-u>ToggleWorkspace<CR>
+# let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+# let g:workspace_undodir = $HOME . '/.vim/sessions/.undodir'
+# let g:workspace_session_disable_on_args = 1
+# let g:workspace_autosave_untrailspaces = 0
+# '''
+
 [[plugins]]
-repo = 'thaerkh/vim-workspace'
+repo = 'xolox/vim-misc'
+
+[[plugins]]
+repo = 'xolox/vim-session'
+depends = 'vim-misc'
 hook_add = '''
-nnoremap <leader>s :<C-u>ToggleWorkspace<CR>
-let g:workspace_session_directory = $HOME . '/.vim/sessions/'
-let g:workspace_undodir = $HOME . '/.vim/sessions/.undodir'
-let g:workspace_autosave_untrailspaces = 0
+let g:session_lock_enabled = 0
+let g:session_autoload = 'no'
+let g:session_autosave = 'yes'
+let g:session_autosave_periodic = 5
+let g:session_autosave_silent = 1
+let g:session_persist_font = 0
+let g:session_persist_colors = 0
 '''
 
 # ----- lsp -----
