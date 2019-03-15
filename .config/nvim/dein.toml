@@ -246,6 +246,13 @@ let g:session_persist_font = 0
 let g:session_persist_colors = 0
 '''
 
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = 'context_filetype.vim'
+
 # ----- lsp -----
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
