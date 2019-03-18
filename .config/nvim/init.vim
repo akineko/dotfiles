@@ -166,6 +166,8 @@ nnoremap    [Tab]               <Nop>
 nmap        <C-t>               [Tab]
 nnoremap    <silent> [Tab]n     :<C-u>tabnew<CR>
 nnoremap    <silent> [Tab]c     :<C-u>tabclose<CR>
+nnoremap    <silent> [Tab]h     :<C-u>-tabmove<CR>
+nnoremap    <silent> [tab]l     :<C-u>+tabmove<CR>
 nnoremap    [Tab]j              gt
 nnoremap    [Tab]k              gT
 nnoremap    <Tab>     gt
