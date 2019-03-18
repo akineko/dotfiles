@@ -96,6 +96,10 @@ set hlsearch
 set wrapscan
 " 補完の際の大文字小文字の区別しない ignorecaseとsmartcaseに依存
 set infercase
+" 置換時のプレビュー
+if has('nvim')
+  set inccommand=split
+endif
 
 " ファイル更新の自動読み込み
 set autoread
