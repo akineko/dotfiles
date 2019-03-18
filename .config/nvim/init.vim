@@ -190,7 +190,7 @@ inoremap    <M-l>       <Right>
 " C++
 augroup CppConfig
   autocmd!
-  autocmd FileType cpp nnoremap <buffer> <silent> sh :<C-u>hide edit %<.h<CR>
+  autocmd FileType cpp nnoremap <buffer> <silent> sh :<C-u>hide edit %<.hpp<CR>
   autocmd FileType cpp nnoremap <buffer> <silent> ss :<C-u>hide edit %<.cpp<CR>
 augroup END
 
