@@ -72,6 +72,10 @@ nnoremap <silent> [Denite]g :<C-u>Denite grep<CR>
 nnoremap <silent> [Denite]o :<C-u>Denite -split=vertical -winwidth=30 outline<CR>
 nnoremap <silent> [Denite]jl :<C-u>Denite junkfile<CR>
 nnoremap <silent> [Denite]jn :<C-u>Denite junkfile:new junkfile<CR>
+" 直前の結果の再利用
+nnoremap <silent> [Denite]r :<C-u>Denite -resume<CR>
+nnoremap <silent> [Denite]n :<C-u>Denite -resume -select=+1 -immediately<CR>
+nnoremap <silent> [Denite]p :<C-u>Denite -resume -select=-1 -immediately<CR>
 '''
 hook_source = '''
 call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
