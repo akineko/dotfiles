@@ -210,8 +210,8 @@ repo = 'lambdalisue/vim-findent'
 [[plugins]]
 repo = 'vim-scripts/AnsiEsc.vim'
 
-[[plugins]]
-repo = 'kana/vim-smartinput'
+# [[plugins]]
+# repo = 'kana/vim-smartinput'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
