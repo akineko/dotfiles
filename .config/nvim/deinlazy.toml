@@ -60,6 +60,7 @@ on_source = ['denite.nvim']
 
 [[plugins]]
 repo = 'Shougo/neoyank.vim'
+on_event = 'TextYankPost'
 on_source = ['denite.nvim']
 
 [[plugins]]
