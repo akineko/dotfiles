@@ -179,6 +179,9 @@ repo = 'cocopon/vaffle.vim'
 
 [[plugins]]
 repo = 'justinmk/vim-dirvish'
+hook_add = '''
+nmap <Plug>(nomap-dirvish_up) <Plug>(dirvish_up)
+'''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
