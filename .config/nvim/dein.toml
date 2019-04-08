@@ -137,7 +137,9 @@ nmap # <Plug>(anzu-sharp-with-echo)
 nmap <Esc><Esc> <Plug>(anzu-clear-search-status)
 
 " statusline
-set statusline=%{anzu#search_status()}
+if exists('*anzu#search_status')
+  set statusline=%{anzu#search_status()}
+endif
 '''
 
 [[plugins]]
