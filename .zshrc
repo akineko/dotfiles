@@ -254,6 +254,7 @@ fi
 # GOROOT=$HOME/go
 GOPATH=$HOME/dev
 
+export GOENV_DISABLE_GOPATH=1
 export PATH="$GOPATH/bin:$PATH"
 
 function peco-src () {
