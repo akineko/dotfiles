@@ -151,11 +151,14 @@ repo = 't9md/vim-textmanip'
 [[plugins]]
 repo = 'thinca/vim-quickrun'
 
+# [[plugins]]
+# repo = 'neomake/neomake'
+# hook_add = '''
+#   autocmd! BufWritePost * Neomake
+# '''
+
 [[plugins]]
-repo = 'neomake/neomake'
-hook_add = '''
-  autocmd! BufWritePost * Neomake
-'''
+repo = 'w0rp/ale'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
