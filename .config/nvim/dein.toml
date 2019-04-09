@@ -52,8 +52,8 @@ repo = 'emonkak/vim-operator-sort'
 [[plugins]]
 repo = 'kana/vim-operator-replace'
 
-[[plugins]]
-repo = 'rhysd/vim-operator-surround'
+# [[plugins]]
+# repo = 'rhysd/vim-operator-surround'
 
 [[plugins]]
 repo = 'tyru/operator-camelize.vim'
@@ -240,6 +240,9 @@ repo = 'vim-scripts/AnsiEsc.vim'
 
 [[plugins]]
 repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
 
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'

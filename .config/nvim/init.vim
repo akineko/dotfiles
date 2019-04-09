@@ -241,9 +241,9 @@ let g:tagbar_autoclose = 1
 
 " operator
 map R <Plug>(operator-replace)
-map <silent>sa <Plug>(operator-surround-append)
-map <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
-map <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
+" map <silent>sa <Plug>(operator-surround-append)
+" map <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
+" map <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
 vmap S <Plug>(operator-sort)
 vmap <leader>U <Plug>(operator-camelize)
 vmap <leader>u <Plug>(operator-decamelize)
