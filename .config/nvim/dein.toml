@@ -391,6 +391,7 @@ hook_add = '''
       autocmd User lsp_setup call lsp#register_server({
           \ 'name': 'solargraph',
           \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+          \ 'initialization_options': {"diagnostics": "true"},
           \ 'whitelist': ['ruby'],
           \ })
       autocmd FileType ruby setlocal omnifunc=lsp#complete
