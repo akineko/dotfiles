@@ -91,10 +91,6 @@ repo = 'Shougo/unite-outline'
 on_source = ['denite.nvim']
 
 [[plugins]]
-repo = 'thinca/vim-qfreplace'
-on_source = ['denite.nvim']
-
-[[plugins]]
 repo = 'tsukkee/unite-tag'
 on_source = ['denite.nvim']
 
