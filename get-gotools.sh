@@ -2,20 +2,20 @@
 set -Ceux
 
 # common
-go get github.com/motemen/ghq
-go get github.com/peco/peco/cmd/peco
-go get github.com/mattn/memo
-go get github.com/direnv/direnv
+go get -u github.com/motemen/ghq
+go get -u github.com/peco/peco/cmd/peco
+go get -u github.com/mattn/memo
+go get -u github.com/direnv/direnv
 
 # vim
-go get github.com/mattn/files
+go get -u github.com/mattn/files
 go get -u golang.org/x/tools/cmd/gopls
 
 # golang
 # go get github.com/golang/dep/cmd/dep
-go get golang.org/x/tools/cmd/godoc
-go get github.com/motemen/gore
-go get github.com/k0kubun/pp
-go get github.com/motemen/gofind/cmd/gofind
-go get github.com/clipperhouse/gen
+go get -u golang.org/x/tools/cmd/godoc
+go get -u github.com/motemen/gore
+go get -u github.com/k0kubun/pp
+go get -u github.com/motemen/gofind/cmd/gofind
+go get -u github.com/clipperhouse/gen
 
