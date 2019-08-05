@@ -215,7 +215,7 @@ xmap <C-l> <Plug>(textmanip-move-right)
 " Vaffle
 let g:vaffle_show_hidden_files = 0
 let g:vaffle_auto_cd = 0
-nnoremap <Leader>f :<C-u>Vaffle<CR>
+nnoremap <Space>f :<C-u>Vaffle<CR>
 
 " The NERDTree
 nnoremap <f2> :NERDTreeToggle<CR>

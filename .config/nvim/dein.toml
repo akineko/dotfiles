@@ -224,6 +224,12 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 
 let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all,alt-d:deselect-all'
+
+nnoremap [fzf] <Nop>
+nmap <Leader>f [fzf]
+nnoremap [fzf]f :<C-u>Files<CR>
+nnoremap [fzf]b :<C-u>Buffers<CR>
+nnoremap [fzf]t :<C-u>Tags<CR>
 '''
 
 # [[plugins]]
