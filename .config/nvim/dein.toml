@@ -272,6 +272,7 @@ repo = 'tpope/vim-fugitive'
 repo = 'airblade/vim-gitgutter'
 hook_add = '''
 set updatetime=1000
+let g:gitgutter_sign_allow_clobber = 1
 '''
 
 [[plugins]]
@@ -430,6 +431,13 @@ repo = 'cespare/vim-toml'
 
 [[plugins]]
 repo = 'ekalinin/Dockerfile.vim'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+hook_add = '''
+let g:terraform_align = 1
+let g:terraform_fmt_on_save = 1
+'''
 
 # ----- colorscheme -----
 [[plugins]]
