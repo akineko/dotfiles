@@ -447,13 +447,28 @@ repo = 'cocopon/iceberg.vim'
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'nightsense/snow'
+
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+
+[[plugins]]
+repo = 'rakr/vim-one'
+
+[[plugins]]
+repo = 'arcticicestudio/nord-vim'
+
+[[plugins]]
+repo = 'cormacrelf/vim-colors-github'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
 repo = 'aereal/vim-colors-japanesque'
 
 [[plugins]]
 repo = 'vim-scripts/jammy.vim'
-
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]
 repo = 'reedes/vim-colors-pencil'
