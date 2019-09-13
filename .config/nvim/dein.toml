@@ -340,6 +340,8 @@ repo = 'prabirshrestha/async.vim'
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
 hook_add = '''
+let g:lsp_diagnostics_enabled = 0
+
   if executable('typescript-language-server')
     augroup LspTypeScript
       au!
