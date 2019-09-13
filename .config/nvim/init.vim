@@ -2,6 +2,7 @@ if &compatible
   set nocompatible
 endif
 
+let mapleader = ","
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
@@ -139,7 +140,6 @@ set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%
 " augroup END
 
 " ----- keymap -----
-let mapleader = ","
 
 " : と ; の入れ替え
 noremap ; :
