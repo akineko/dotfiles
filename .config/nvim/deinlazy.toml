@@ -145,3 +145,23 @@ on_source = ['denite.nvim']
 
 # ----- utility -----
 
+[[plugins]]
+repo = 'kana/vim-submode'
+on_event = ['VimEnter']
+hook_post_source = '''
+" window
+call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>+')
+call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>-')
+call submode#map('winsize', 'n', '', '>', '<C-w>>')
+call submode#map('winsize', 'n', '', '<', '<C-w><')
+call submode#map('winsize', 'n', '', '+', '<C-w>+')
+call submode#map('winsize', 'n', '', '-', '<C-w>-')
+" tab
+call submode#enter_with('movetab', 'n', '', '<C-t>l', ':<C-u>+tabmove<CR>')
+call submode#enter_with('movetab', 'n', '', '<C-t>h', ':<C-u>-tabmove<CR>')
+call submode#map('movetab', 'n', '', 'l', ':<C-u>+tabmove<CR>')
+call submode#map('movetab', 'n', '', 'h', ':<C-u>-tabmove<CR>')
+'''
+
