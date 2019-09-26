@@ -24,9 +24,9 @@ repo = 'Shougo/neosnippet-snippets'
 
 
 # ----- C++ -----
-[[plugins]]
-repo = 'octol/vim-cpp-enhanced-highlight'
-on_ft = 'cpp'
+# [[plugins]]
+# repo = 'octol/vim-cpp-enhanced-highlight'
+# on_ft = 'cpp'
 
 # libclang を使った syntax highligh
 # インストールが一手間なのであとで試す
@@ -68,9 +68,9 @@ on_ft = ['html', 'css']
 repo = 'tpope/vim-rails'
 on_ft = 'ruby'
 
-[[plugins]]
-repo = 'todesking/ruby_hl_lvar.vim'
-on_ft = 'ruby'
+# [[plugins]]
+# repo = 'todesking/ruby_hl_lvar.vim'
+# on_ft = 'ruby'
 
 # ----- terraform -----
 [[plugins]]

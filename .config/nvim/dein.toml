@@ -398,29 +398,40 @@ let g:lsp_diagnostics_enabled = 0
 repo = 'tbodt/deoplete-tabnine'
 build = './install.sh'
 
-# ----- syntax -----
-[[plugins]]
-repo = 'vim-jp/cpp-vim'
-on_ft = 'cpp'
 
-[[plugins]]
-repo = 'vim-ruby/vim-ruby'
 
+# ----- filetype -----
 [[plugins]]
-repo = 'chase/vim-ansible-yaml'
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-
-[[plugins]]
-repo = 'ekalinin/Dockerfile.vim'
-
-[[plugins]]
-repo = 'hashivim/vim-terraform'
+repo = 'sheerun/vim-polyglot'
 hook_add = '''
+" Terraform
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
 '''
+
+# ----- syntax -----
+# [[plugins]]
+# repo = 'vim-jp/cpp-vim'
+# on_ft = 'cpp'
+
+# [[plugins]]
+# repo = 'vim-ruby/vim-ruby'
+
+# [[plugins]]
+# repo = 'chase/vim-ansible-yaml'
+
+# [[plugins]]
+# repo = 'cespare/vim-toml'
+
+# [[plugins]]
+# repo = 'ekalinin/Dockerfile.vim'
+
+# [[plugins]]
+# repo = 'hashivim/vim-terraform'
+# hook_add = '''
+# let g:terraform_align = 1
+# let g:terraform_fmt_on_save = 1
+# '''
 
 # ----- colorscheme -----
 [[plugins]]
@@ -432,8 +443,8 @@ repo = 'w0ng/vim-hybrid'
 [[plugins]]
 repo = 'nightsense/snow'
 
-[[plugins]]
-repo = 'joshdick/onedark.vim'
+# [[plugins]]
+# repo = 'joshdick/onedark.vim'
 
 [[plugins]]
 repo = 'rakr/vim-one'
