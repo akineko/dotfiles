@@ -247,6 +247,10 @@ fi
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# starship
+if type starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 # -------------------------------------------------------------------------------
 # Golang
