@@ -158,13 +158,6 @@ fpath=($fpath ~/.zfunc)
 typeset -U path cdpath fpath manpath
 
 # プロンプトの設定
-# PROMPT="[%n@%m]%# "
-# PROMPT="[%n@%m] %{${fg[blue]}${bg[blue]}%}%~${reset_color} %{${fg[white]}%}%# "
-PROMPT="[%n@%m] %F{cyan}%~%f
-%# "
-# RPROMPT=' %~'
-# RPROMPT="%{${fg[green]}%} %~%{${fg[white]}%}"
-
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '(%s)-[%b]'
 zstyle ':vcs_info:*' actionformats '(%s)-[%b|%a]'
@@ -173,7 +166,10 @@ precmd () {
 	LANG=en_US.UTF-8 vcs_info
 	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
-RPROMPT="%1(v|%F{green}%1v%f|)"
+
+# PROMPT="[%n@%m] %{${fg[blue]}${bg[blue]}%}%~${reset_color} %{${fg[white]}%}%# "
+PROMPT="[%n@%m] %F{cyan}%~%f %1(v|%F{green}%1v%f|)
+%# "
 
 # キーバインドの設定
 # bindkey -v
