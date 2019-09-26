@@ -214,15 +214,16 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 export PATH="$HOME/.local/bin:$PATH"
 
-# zplug
-if [[ -f ~/.zplug/init.zsh ]]; then
-  export ZPLUG_LOADFILE=~/.zsh/zplug.zsh
-  source ~/.zplug/init.zsh
+# zplugin
+if [[ -f ~/.zplugin/bin/zplugin.zsh ]]; then
+  source ~/.zplugin/bin/zplugin.zsh
+  autoload -Uz _zplugin
+  (( ${+_comps} )) && _comps[zplugin]=_zplugin
 
-  if ! zplug check --verbose; then
-    zplug install
-  fi
-  zplug load
+  source ~/.zsh/zplugin.zsh
+
+  autoload -U compinit
+  compinit
 fi
 
 bindkey '^g' anyframe-widget-cd-ghq-repository
