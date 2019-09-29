@@ -1,7 +1,9 @@
 #!/bin/bash
 set -Ceux
 
-curl https://sh.rustup.rs -sSf | sh
+if !(type rustup &> /dev/null); then
+  curl https://sh.rustup.rs -sSf | sh
+fi
 
 tools=(
   "clippy"
