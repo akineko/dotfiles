@@ -417,6 +417,15 @@ repo = 'neoclide/coc.nvim'
 merged = 0
 rev = 'release'
 hook_add = '''
+let g:coc_global_extensions = [
+      \  'coc-json',
+      \  'coc-rls',
+      \  'coc-solargraph',
+      \  'coc-tabnine',
+      \  'coc-tsserver',
+      \  'coc-yaml',
+      \]
+
 nmap <silent> <leader>h  :<C-u>call CocAction('doHover')<CR>
 nmap <silent> <leader>df <Plug>(coc-definition)
 nmap <silent> <leader>rf <Plug>(coc-references)
