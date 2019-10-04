@@ -13,6 +13,7 @@ ln -sf $abspath/.tigrc     $HOME/.tigrc
 ln -sf $abspath/.hgrc      $HOME/.hgrc
 ln -sf $abspath/.gdbinit   $HOME/.gdbinit
 ln -sf $abspath/.bashrc    $HOME/.bashrc
+ln -sf $abspath/bin        $HOME/bin
 
 mkdir -p $HOME/.cache
 mkdir -p $HOME/.config
@@ -34,7 +35,7 @@ if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 fi
 
-if [ ! -f ~/.zplugin/bin ]; then
+if [ ! -d ~/.zplugin/bin ]; then
   mkdir ~/.zplugin
   git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
 fi

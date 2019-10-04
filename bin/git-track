@@ -1,0 +1,8 @@
+#!/bin/bash
+
+branch=$(git branch -r | fzf | awk '{print $1}')
+if [[ -n "$branch" ]]; then
+  git checkout --track "$branch"
+fi
+
+# vim: ft=sh

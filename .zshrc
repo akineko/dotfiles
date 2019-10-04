@@ -209,6 +209,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/bin"
 
 # zplugin
 if [[ -f ~/.zplugin/bin/zplugin.zsh ]]; then
@@ -321,4 +322,8 @@ fi
 if [ -f /usr/share/google-cloud-sdk/completion.zsh.inc ]; then
   source /usr/share/google-cloud-sdk/completion.zsh.inc
 fi
+
+for f in $HOME/.zsh/functions/*.zsh; do
+  source "$f"
+done
 
