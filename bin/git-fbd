@@ -1,6 +1,6 @@
 #!/bin/bash
 
-branches=$(git branch --format "%(refname:short)" --merged | grep -v 'master' | fzf -m)
+branches=$(git branch --format "%(refname:short)" --merged | grep -v 'master' | fzf -m --preview="git show --color {}")
 if [[ -n "$branches" ]]; then
   echo $branches | xargs git branch -d
 fi

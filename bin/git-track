@@ -1,6 +1,6 @@
 #!/bin/bash
 
-branch=$(git branch --format "%(refname:short)" -r | fzf)
+branch=$(git branch --format "%(refname:short)" -r | fzf --preview="git show --color {}")
 if [[ -n "$branch" ]]; then
   git checkout --track "$branch"
 fi
