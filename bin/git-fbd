@@ -1,0 +1,8 @@
+#!/bin/bash
+
+branches=$(git branch --format "%(refname:short)" --merged | grep -v 'master' | fzf -m)
+if [[ -n "$branches" ]]; then
+  echo $branches | xargs git branch -d
+fi
+
+# vim: ft=sh

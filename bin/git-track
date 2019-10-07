@@ -1,6 +1,6 @@
 #!/bin/bash
 
-branch=$(git branch -r | fzf | awk '{print $1}')
+branch=$(git branch --format "%(refname:short)" -r | fzf)
 if [[ -n "$branch" ]]; then
   git checkout --track "$branch"
 fi
