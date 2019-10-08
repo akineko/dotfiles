@@ -261,10 +261,12 @@ export PATH="$GOPATH/bin:$PATH"
 
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
+  if [[ -z "$selected_dir" ]]; then
+    zle redisplay
+    return 0
   fi
-  zle clear-screen
+  BUFFER="cd ${selected_dir}"
+  zle accept-line
 }
 zle -N peco-src
 bindkey '^]' peco-src
@@ -275,8 +277,8 @@ function fzf-cd() {
     zle redisplay
     return 0
   fi
-  cd "$dir"
-  zle reset-prompt
+  BUFFER="cd $dir"
+  zle accept-line
 }
 zle -N fzf-cd
 bindkey '^d' fzf-cd
