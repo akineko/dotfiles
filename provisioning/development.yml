@@ -3,20 +3,20 @@
 - hosts: localhost
   connection: local
   roles:
-    - { role: anyenv }
+    # - { role: anyenv }
     - { role: common }
     - { role: docker }
-    - { role: fish }
-    - { role: fzf }
-    - { role: golang }
+    # - { role: fish }
+    # - { role: fzf }
+    # - { role: golang }
     - { role: google-cloud-sdk }
     - { role: kubernetes }
     - { role: linuxbrew }
     - { role: neovim }
-    - { role: minikube }
-    - { role: pyenv }
+    # - { role: minikube }
+    # - { role: pyenv }
     # - { role: powerline }
-    - { role: rbenv }
-    - { role: tmux }
+    # - { role: rbenv }
+    # - { role: tmux }
     - { role: tpm }
 
