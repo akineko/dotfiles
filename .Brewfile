@@ -42,5 +42,6 @@ brew "fzf"
 brew "gibo"
 brew "jq"
 brew "lsd"
+brew "procs"
 brew "rargs"
 
