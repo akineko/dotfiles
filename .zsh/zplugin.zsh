@@ -8,6 +8,7 @@ zplugin light Tarrasch/zsh-bd
 zplugin ice wait'!0'; zplugin light zsh-users/zsh-completions
 zplugin ice wait'!0'; zplugin ice as'completion'; zplugin snippet OMZ::plugins/docker/_docker
 zplugin ice wait'!0'; zplugin ice as'completion'; zplugin snippet OMZ::plugins/docker-compose/_docker-compose
+zplugin ice wait'!0'; zplugin light pkulev/zsh-rustup-completion
 
 # Utilities -----
 #zplugin ice pick'async.zsh'; zplugin light mafredri/zsh-async
