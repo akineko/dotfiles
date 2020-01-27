@@ -19,6 +19,8 @@ mkdir -p $HOME/.cache
 mkdir -p $HOME/.config
 ln -sf $abspath/.config/nvim $HOME/.config/nvim
 
+ln -sf $abspath/.config/starship.toml $HOME/.config/starship.toml
+
 mkdir -p $HOME/.config/fish
 ln -sf $abspath/.config/fish/config.fish $HOME/.config/fish/config.fish
 ln -sf $abspath/.config/fish/fishfile    $HOME/.config/fish/fishfile
