@@ -1,17 +1,18 @@
 ---
 
-- apt_repository:
-    repo: "deb http://packages.cloud.google.com/apt cloud-sdk-{{ ansible_distribution_release }} main"
+- apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     state: present
   become: yes
 
-- apt_key:
-    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+- apt_repository:
+    repo: "deb http://packages.cloud.google.com/apt cloud-sdk-{{ ansible_distribution_release }} main"
     state: present
   become: yes
 
 - apt:
     name: google-cloud-sdk
     state: present
+    update_cache: yes
   become: yes
 
