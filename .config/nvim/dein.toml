@@ -9,39 +9,39 @@ build = 'make'
 repo = 'vim-jp/vimdoc-ja'
 
 # ----- textobj -----
-[[plugins]]
-repo = 'kana/vim-textobj-user'
+# [[plugins]]
+# repo = 'kana/vim-textobj-user'
 
-[[plugins]]
-repo = 'kana/vim-textobj-entire'
+# [[plugins]]
+# repo = 'kana/vim-textobj-entire'
 
-[[plugins]]
-repo = 'kana/vim-textobj-line'
+# [[plugins]]
+# repo = 'kana/vim-textobj-line'
 
 # [[plugins]]
 # repo = 'kana/vim-textobj-function'
 
-[[plugins]]
-repo = 'kana/vim-textobj-underscore'
+# [[plugins]]
+# repo = 'kana/vim-textobj-underscore'
 
-[[plugins]]
-repo = 'thinca/vim-textobj-between'
+# [[plugins]]
+# repo = 'thinca/vim-textobj-between'
 
-[[plugins]]
-repo = 'thinca/vim-textobj-comment'
+# [[plugins]]
+# repo = 'thinca/vim-textobj-comment'
 
-[[plugins]]
-repo = 'sgur/vim-textobj-parameter'
+# [[plugins]]
+# repo = 'sgur/vim-textobj-parameter'
 
-[[plugins]]
-repo = 'kana/vim-textobj-jabraces'
+# [[plugins]]
+# repo = 'kana/vim-textobj-jabraces'
 
-[[plugins]]
-repo = 'osyo-manga/vim-textobj-multiblock'
+# [[plugins]]
+# repo = 'osyo-manga/vim-textobj-multiblock'
 
-[[plugins]]
-repo = 'rhysd/vim-textobj-ruby'
-on_ft = 'ruby'
+# [[plugins]]
+# repo = 'rhysd/vim-textobj-ruby'
+# on_ft = 'ruby'
 
 # ----- operator -----
 [[plugins]]
