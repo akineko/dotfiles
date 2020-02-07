@@ -426,10 +426,16 @@ let g:coc_global_extensions = [
       \  'coc-yaml',
       \]
 
-nmap <silent> <leader>h  :<C-u>call CocAction('doHover')<CR>
+nnoremap <silent> <leader>h  :<C-u>call CocAction('doHover')<CR>
 nmap <silent> <leader>df <Plug>(coc-definition)
 nmap <silent> <leader>rf <Plug>(coc-references)
 nmap <silent> <leader>rn <Plug>(coc-rename)
+nnoremap <silent> <leader>ld :<C-u>CocList diagnostics<CR>
+nnoremap <silent> <leader>lo :<C-u>CocList outline<CR>
+nnoremap <silent> <leader>lc :<C-u>CocList commands<CR>
+nnoremap <silent> <leader>lj :<C-u>CocNext<CR>
+nnoremap <silent> <leader>lk :<C-u>CocPrev<CR>
+nnoremap <silent> <leader>lr :<C-u>CocListResume<CR>
 '''
 
 # ----- filetype -----
