@@ -160,11 +160,11 @@ repo = 'thinca/vim-qfreplace'
 #   autocmd! BufWritePost * Neomake
 # '''
 
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-let g:ale_sign_column_always = 1
-'''
+# [[plugins]]
+# repo = 'w0rp/ale'
+# hook_add = '''
+# let g:ale_sign_column_always = 1
+# '''
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
