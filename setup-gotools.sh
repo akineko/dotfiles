@@ -9,7 +9,7 @@ go get -u github.com/direnv/direnv
 
 # vim
 go get -u github.com/mattn/files
-go get -u golang.org/x/tools/cmd/gopls
+go get -u golang.org/x/tools/gopls
 
 # golang
 # go get github.com/golang/dep/cmd/dep
