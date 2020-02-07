@@ -14,9 +14,9 @@
     - { role: linuxbrew }
     - { role: neovim }
     # - { role: minikube }
-    # - { role: pyenv }
+    - { role: python-requirements }
     # - { role: powerline }
-    # - { role: rbenv }
+    - { role: ruby-requirements }
     # - { role: tmux }
     - { role: tpm }
 
