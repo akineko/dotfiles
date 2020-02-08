@@ -5,12 +5,11 @@
 
 - apt:
     name: '{{ item }}'
+      - fontforge
+      - zip
+      - unzip
     state: latest
   become: yes
-  with_items:
-    - fontforge
-    - zip
-    - unzip
 
 - get_url:
     url: 'https://github.com/google/fonts/raw/master/ofl/inconsolata/{{ item }}'

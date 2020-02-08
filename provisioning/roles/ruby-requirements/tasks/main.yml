@@ -9,19 +9,18 @@
 #     dest: '{{ ansible_env.HOME }}/.rbenv/plugins/ruby-build'
 
 - apt:
-    name: '{{ item }}'
+    name:
+      - autoconf
+      - bison
+      - build-essential
+      - libffi-dev
+      - libgdbm-dev
+      - libgdbm5
+      - libncurses5-dev
+      - libreadline6-dev
+      - libssl-dev
+      - libyaml-dev
+      - zlib1g-dev
     state: latest
   become: yes
-  with_items:
-    - autoconf
-    - bison
-    - build-essential
-    - libssl-dev
-    - libyaml-dev
-    - libreadline6-dev
-    - zlib1g-dev
-    - libncurses5-dev
-    - libffi-dev
-    - libgdbm5
-    - libgdbm-dev
 

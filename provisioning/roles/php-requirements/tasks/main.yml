@@ -1,22 +1,21 @@
 ---
 
 - apt:
-    name: '{{ item }}'
+    name:
+      - build-essential
+      - libbz2-dev
+      - libcurl4-openssl-dev
+      - libjpeg-dev
+      - libmcrypt-dev
+      - libpng-dev
+      - libreadline-dev
+      - libsqlite3-dev
+      - libssl-dev
+      - libtidy-dev
+      - libxml2-dev
+      - libxslt1-dev
+      - pkg-config
+      - re2c
     state: latest
   become: yes
-  with_items:
-    - build-essential
-    - libbz2-dev
-    - libcurl4-openssl-dev
-    - libjpeg-dev
-    - libmcrypt-dev
-    - libpng-dev
-    - libreadline-dev
-    - libsqlite3-dev
-    - libssl-dev
-    - libtidy-dev
-    - libxml2-dev
-    - libxslt1-dev
-    - pkg-config
-    - re2c
 

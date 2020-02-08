@@ -1,15 +1,14 @@
 ---
 
 - apt:
-    name: "{{ item }}"
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
     state: present
     update_cache: yes
   become: yes
-  with_items:
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - software-properties-common
 
 - apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg

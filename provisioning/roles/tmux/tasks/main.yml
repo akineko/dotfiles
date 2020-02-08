@@ -7,11 +7,10 @@
 
 - apt:
     name: '{{ item }}'
+      - libevent-dev
+      - libncurses5-dev
     state: latest
   become: yes
-  with_items:
-    - libevent-dev
-    - libncurses5-dev
 
 - get_url:
     url: https://github.com/tmux/tmux/releases/download/2.3/tmux-2.3.tar.gz

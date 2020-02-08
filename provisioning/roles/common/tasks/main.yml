@@ -1,24 +1,26 @@
 ---
 
-- apt: name={{ item }} state=latest
+- apt:
+    name:
+      - ctags
+      - gcc
+      - git
+      - make
+      - source-highlight
+      - tig
+      - vim
+      - zsh
+    state: latest
   become: yes
-  with_items:
-    - ctags
-    - gcc
-    - git
-    - make
-    - source-highlight
-    - tig
-    - vim
-    - zsh
 
 - name: install requirements for cpsm(vim plugin)
-  apt: name={{ item }} state=latest
+  apt:
+    name:
+      - cmake
+      - libboost-all-dev
+      - libicu-dev
+      - python-dev
+      - python3-dev
+    state: latest
   become: yes
-  with_items:
-    - libboost-all-dev
-    - cmake
-    - python-dev
-    - python3-dev
-    - libicu-dev
 

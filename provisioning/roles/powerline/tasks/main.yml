@@ -14,12 +14,11 @@
 
 - apt:
     name: '{{ item }}'
+      - libuv-dev
+      - automake
+      - libtool
     state: latest
   become: yes
-  with_items:
-    - libuv-dev
-    - automake
-    - libtool
 
 - pip:
     name: '{{ item }}'
