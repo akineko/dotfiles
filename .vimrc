@@ -15,7 +15,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'tyru/DumbBuf.vim'
 NeoBundle 'sjl/gundo.vim'
-NeoBundle 'Shougo/neocomplcache'
+if has('python3')
+  NeoBundle 'Shougo/deoplete.nvim'
+  NeoBundle 'roxma/nvim-yarp'
+  NeoBundle 'roxma/vim-hug-neovim-rpc'
+endif
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'thinca/vim-quickrun'
@@ -563,13 +567,8 @@ let g:dumbbuf_hotkey='<F4>'
 " コメント間のスペース幅
 let NERDSpaceDelims = 1
 
-" ***** neocomplcache *****
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_manual_completion_start_length = 3
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
-" let g:neocomplcache_enable_quick_match = 1
+" ***** deoplete *****
+let g:deoplete#enable_at_startup = 1
 
 " ユーザ定義スニペット補完ファイルのあるディレクトリ,区切りで複数可
 "let g:neocomplcache_snippets_dir =
