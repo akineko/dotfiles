@@ -16,6 +16,7 @@
       - libxslt1-dev
       - pkg-config
       - re2c
+      - unzip
     state: latest
   become: yes
 
