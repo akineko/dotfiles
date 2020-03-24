@@ -18,3 +18,5 @@
   root = ~/dev/src
 
 # vim: set expandtab sw=2 ts=2:
+[http]
+	postBuffer = 524288000
