@@ -1,5 +1,6 @@
 {
   "diagnostic.refreshAfterSave": true,
+  "diagnostic.displayByAle": true,
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "languageserver": {
     "golang": {
