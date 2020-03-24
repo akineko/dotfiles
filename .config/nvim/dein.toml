@@ -325,6 +325,19 @@ repo = 'Shougo/context_filetype.vim'
 [[plugins]]
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
+hook_add = '''
+let g:precious_enable_switch_CursorMoved = {
+      \  "*" : 0,
+      \  "help" : 1,
+      \  "toml" : 1,
+      \}
+
+augroup MyPreciousCmd
+  autocmd!
+  autocmd InsertEnter * :PreciousSwitch
+  autocmd InsertEnter * :PreciousReset
+augroup END
+'''
 
 # ----- lsp -----
 # [[plugins]]
