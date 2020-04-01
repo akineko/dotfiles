@@ -11,7 +11,7 @@
     # - { role: golang }
     - { role: google-cloud-sdk }
     - { role: kubernetes }
-    - { role: linuxbrew }
+    # - { role: linuxbrew }
     - { role: neovim }
     # - { role: minikube }
     - { role: php-requirements }
