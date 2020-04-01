@@ -283,9 +283,12 @@ function fzf-cd() {
 zle -N fzf-cd
 bindkey '^d' fzf-cd
 
-# direnv
 export EDITOR=nvim
-eval "$(direnv hook zsh)"
+
+# direnv
+if type direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
+fi
 
 # -------------------------------------------------------------------------------
 # Ruby
