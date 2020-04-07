@@ -223,6 +223,7 @@ if [[ -f ~/.zplugin/bin/zplugin.zsh ]]; then
   compinit
 fi
 
+zstyle ":anyframe:selector:" use fzf
 bindkey '^g' anyframe-widget-cd-ghq-repository
 
 # linuxbrew
