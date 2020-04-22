@@ -5,8 +5,9 @@
   ui = auto
 [core]
   editor = nvim
-  autocrlf = # CRLFをLFに変換して記録し、出力する際にはCRLFに戻す
-#  autocrlf = input # CRLFをLFに変換して記録し出力する際もそのまま
+#  autocrlf = true  # checkout: LF -> CRLF  commit: CRLF -> LF
+#  autocrlf = input # checkout: do nothing  commit: CRLF -> LF
+  autocrlf = false # checkout: do nothing  commit: do nothing
 [alias]
   st = status
   ci = commit
