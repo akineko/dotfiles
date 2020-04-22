@@ -60,8 +60,12 @@ set fileformats=unix,dos,mac
 set number
 
 " カーソル位置のハイライト
-set cursorline
-set cursorcolumn
+set nocursorline
+set nocursorcolumn
+
+" 描画改善
+set lazyredraw
+set ttyfast
 
 " スクロールのマージ
 set scrolloff=5

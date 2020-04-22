@@ -216,6 +216,12 @@ nmap <Plug>(nomap-dirvish_up) <Plug>(dirvish_up)
 '''
 
 [[plugins]]
+repo = 'itchyny/vim-parenmatch'
+hook_add = '''
+let g:loaded_matchparen = 1
+'''
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
@@ -465,7 +471,6 @@ let g:coc_global_extensions = [
       \  'coc-json',
       \  'coc-rls',
       \  'coc-solargraph',
-      \  'coc-tabnine',
       \  'coc-tsserver',
       \  'coc-yaml',
       \]
