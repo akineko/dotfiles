@@ -133,6 +133,8 @@ set showcmd
 " コマンドの記録数
 set history=100
 
+set redrawtime=15000
+
 " ステータスラインに文字コードと改行文字を表示
 set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%l/%L]
 
