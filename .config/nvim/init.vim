@@ -139,6 +139,8 @@ set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%
 "     autocmd InsertLeave * highlight StatusLine term=bold cterm=reverse ctermfg=245 ctermbg=234
 " augroup END
 
+set redrawtime=15000
+
 " カーソル位置のシンタックス情報を表示
 function! s:get_syn_id(transparent)
   let synid = synID(line("."), col("."), 1)
