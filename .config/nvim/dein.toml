@@ -469,6 +469,8 @@ nnoremap <silent> <leader>lc :<C-u>CocList commands<CR>
 nnoremap <silent> <leader>lj :<C-u>CocNext<CR>
 nnoremap <silent> <leader>lk :<C-u>CocPrev<CR>
 nnoremap <silent> <leader>lr :<C-u>CocListResume<CR>
+
+command! -nargs=0 Format :call CocAction('format')
 '''
 
 # ----- filetype -----
