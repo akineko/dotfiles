@@ -13,9 +13,10 @@
       - autoconf
       - bison
       - build-essential
+      - libdb-dev
       - libffi-dev
       - libgdbm-dev
-      - libgdbm5
+      - libgdbm6
       - libncurses5-dev
       - libreadline6-dev
       - libssl-dev
