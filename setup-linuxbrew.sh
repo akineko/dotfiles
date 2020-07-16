@@ -43,3 +43,6 @@ brew install lsd
 brew install procs
 brew install rargs
 
+brew tap kyoshidajp/ghkw
+brew install ghkw
+
