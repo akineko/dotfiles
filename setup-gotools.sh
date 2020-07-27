@@ -28,7 +28,6 @@ go get -u github.com/zmb3/gogetdoc
 go get -u golang.org/x/tools/cmd/goimports
 go get -u golang.org/x/lint/golint
 go get -u golang.org/x/tools/gopls
-go get -u github.com/golangci/golangci-lint/cmd/golangci-lint
 go get -u github.com/fatih/gomodifytags
 go get -u golang.org/x/tools/cmd/gorename
 go get -u github.com/jstemmer/gotags
