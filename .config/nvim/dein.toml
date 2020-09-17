@@ -78,16 +78,28 @@ nnoremap <silent> [Denite]n :<C-u>Denite -resume -select=+1 -immediately<CR>
 nnoremap <silent> [Denite]p :<C-u>Denite -resume -select=-1 -immediately<CR>
 '''
 hook_source = '''
-call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
-call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
-call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>')
-call denite#custom#map('insert', "<C-v>", '<denite:do_action:vsplit>')
-call denite#custom#map('normal', "v", '<denite:do_action:vsplit>')
-call denite#custom#map('normal', 'r', '<denite:do_action:quickfix>')
+
+autocmd Filetype denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>    denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> <Tab>   denite#do_map('choose_action')
+  nnoremap <silent><buffer><expr> <C-t>   denite#do_map('do_action', 'tabopen')
+  nnoremap <silent><buffer><expr> t       denite#do_map('do_action', 'tabopen')
+  nnoremap <silent><buffer><expr> <C-v>   denite#do_map('do_action', 'vsplit')
+  nnoremap <silent><buffer><expr> v       denite#do_map('do_action', 'vsplit')
+  nnoremap <silent><buffer><expr> <C-x>   denite#do_map('do_action', 'split')
+  nnoremap <silent><buffer><expr> s       denite#do_map('do_action', 'split')
+  nnoremap <silent><buffer><expr> u       denite#do_map('move_up_path')
+  nnoremap <silent><buffer><expr> d       denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p       denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q       denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i       denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
+endfunction
 
 if executable('rg')
   call denite#custom#var('file/rec', 'command',
-        \ ['rg', '--files', '--glob', '!.git'])
+        \ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
   call denite#custom#var('grep', 'command', ['rg', '--threads', '1'])
   call denite#custom#var('grep', 'recursive_opts', [])
   call denite#custom#var('grep', 'final_opts', [])
