@@ -76,8 +76,6 @@ nnoremap <silent> [Denite]jn :<C-u>Denite junkfile:new junkfile<CR>
 nnoremap <silent> [Denite]r :<C-u>Denite -resume<CR>
 nnoremap <silent> [Denite]n :<C-u>Denite -resume -select=+1 -immediately<CR>
 nnoremap <silent> [Denite]p :<C-u>Denite -resume -select=-1 -immediately<CR>
-'''
-hook_source = '''
 
 autocmd Filetype denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
@@ -96,7 +94,8 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> i       denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
 endfunction
-
+'''
+hook_source = '''
 if executable('rg')
   call denite#custom#var('file/rec', 'command',
         \ ['rg', '--files', '--glob', '!.git', '--color', 'never'])
