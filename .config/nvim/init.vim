@@ -257,28 +257,6 @@ xmap <C-k> <Plug>(textmanip-move-up)
 xmap <C-h> <Plug>(textmanip-move-left)
 xmap <C-l> <Plug>(textmanip-move-right)
 
-" Vaffle
-let g:vaffle_show_hidden_files = 0
-let g:vaffle_auto_cd = 0
-nnoremap <Space>f :<C-u>Vaffle<CR>
-
-" The NERDTree
-nnoremap <f2> :NERDTreeToggle<CR>
-
-" Python3 plug
-" let g:python3_host_prog = '/usr/bin/python3'
-
-" VimFiler
-" nnoremap <F2> :VimFiler -split -simple -winwidth=35 -no-quit -toggle<CR>
-" augroup vimfiler
-"   autocmd!
-"   autocmd FileType vimfiler call s:vimfiler_settings()
-" augroup END
-" function! s:vimfiler_settings()
-"   nnoremap <silent><buffer><expr> v vimfiler#do_switch_action('vsplit')
-"   nnoremap <silent><buffer><expr> s vimfiler#do_switch_action('split')
-" endfunction
-
 " tagbar
 nnoremap <Leader>t :<C-u>TagbarToggle<CR>
 let g:tagbar_autofocus = 1

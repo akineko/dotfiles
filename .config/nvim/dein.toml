@@ -117,14 +117,11 @@ call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
 '''
 
 # ----- utility -----
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
+# [[plugins]]
+# repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
-
-[[plugins]]
-repo = 'vim-scripts/renamer.vim'
 
 [[plugins]]
 repo = 'h1mesuke/vim-alignta'
@@ -196,24 +193,57 @@ repo = 'majutsushi/tagbar'
 repo = 'szw/vim-tags'
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
+repo = 'antoinemadec/FixCursorHold.nvim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/glyph-palette.vim'
+depends = 'nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+depends = 'FixCursorHold.nvim'
 hook_add = '''
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeShowHidden = 1
+let g:fern#default_hidden = 1
+
+nnoremap <Space>f :<C-u>Fern . -reveal=% -stay<CR>
+nnoremap <f2> :<C-u>Fern . -drawer -reveal=% -toggle<CR>
+
+
+function! s:init_fern() abort
+  nnoremap <Plug>(fern-close-drawer) :<C-u>FernDo close -drawer -stay<CR>
+  nmap <buffer><silent> <Plug>(fern-action-open-and-close)
+      \ <Plug>(fern-action-open)
+      \ <Plug>(fern-close-drawer)
+
+  nmap <buffer> t <Plug>(fern-action-open:tabedit)
+  nmap <buffer> T <Plug>(fern-action-open:tabedit)gT
+  nmap <buffer> <C-x> <Plug>(fern-action-open:split)
+  nmap <buffer> <C-v> <Plug>(fern-action-open:vsplit)
+
+  nmap <buffer> D <Plug>(fern-action-remove)
+  nnoremap <buffer> q :<C-u>quit<CR>
+endfunction
+
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
 '''
 
 [[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
-depends = 'nerdtree'
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+depends = ['fern.vim', 'nerdfont.vim']
 
 [[plugins]]
-repo = 'cocopon/vaffle.vim'
+repo = 'lambdalisue/fern-git-status.vim'
+depends = 'fern.vim'
 
 [[plugins]]
-repo = 'justinmk/vim-dirvish'
-hook_add = '''
-nmap <Plug>(nomap-dirvish_up) <Plug>(dirvish_up)
-'''
+repo = 'LumaKernel/fern-mapping-fzf.vim'
+depends = ['fzf', 'fern.vim']
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
