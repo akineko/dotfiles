@@ -63,6 +63,10 @@ set number
 set cursorline
 set cursorcolumn
 
+" 描画改善
+set lazyredraw
+set ttyfast
+
 " スクロールのマージ
 set scrolloff=5
 
