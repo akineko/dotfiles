@@ -199,7 +199,7 @@ nnoremap <Space>.l :<C-u>source $XDG_CONFIG_HOME/nvim/init.vim<CR>
 
 " 選択した文字列の検索/置換
 vnoremap <silent> // y/<C-r>=escape(@", '\\/.*$^~[]')<CR><CR>
-vnoremap /r y:%S/<C-r>=escape(@", '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
+vnoremap /r y:%s/\v<C-r>=escape(@", '\\/.*$^~[]')<CR>//gc<Left><Left><Left>
 vnoremap /g y:Rg <C-r>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " ウィンドウ操作
