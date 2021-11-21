@@ -388,131 +388,81 @@ augroup MyPreciousCmd
 augroup END
 '''
 
-# ----- lsp -----
-# [[plugins]]
-# repo = 'prabirshrestha/async.vim'
-#
-# [[plugins]]
-# repo = 'prabirshrestha/vim-lsp'
-# hook_add = '''
-# let g:lsp_diagnostics_enabled = 0
-#
-#   if executable('typescript-language-server')
-#     augroup LspTypeScript
-#       au!
-#       autocmd User lsp_setup call lsp#register_server({
-#          \ 'name': 'typescript-language-server',
-#          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-#          \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
-#          \ 'whitelist': ['typescript'],
-#          \ })
-#       autocmd FileType typescript setlocal omnifunc=lsp#complete
-#     augroup END
-#   endif
-#
-#   if executable('pyls')
-#     " pip install python-language-server
-#     augroup LspPython
-#       au!
-#       autocmd User lsp_setup call lsp#register_server({
-#          \ 'name': 'pyls',
-#          \ 'cmd': {server_info->['pyls']},
-#          \ 'whitelist': ['python'],
-#          \ })
-#       autocmd FileType python setlocal omnifunc=lsp#complete
-#     augroup END
-#   endif
-#
-#   if executable('golsp')
-#     augroup LspGo
-#       au!
-#       autocmd User lsp_setup call lsp#register_server({
-#          \ 'name': 'go-lang',
-#          \ 'cmd': {server_info->['gopls']},
-#          \ 'whitelist': ['go'],
-#          \ })
-#       autocmd FileType go setlocal omnifunc=lsp#complete
-#       autocmd FileType python,go nmap gd <plug>(lsp-definition)
-#     augroup END
-#   endif
-#
-#   if executable('solargraph')
-#     augroup LspRuby
-#       au!
-#       autocmd User lsp_setup call lsp#register_server({
-#          \ 'name': 'solargraph',
-#          \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
-#          \ 'initialization_options': {"diagnostics": "true"},
-#          \ 'whitelist': ['ruby'],
-#          \ })
-#       autocmd FileType ruby setlocal omnifunc=lsp#complete
-#     augroup END
-#   endif
-#
-#   if executable('clangd')
-#     augroup LspCpp
-#       au!
-#       autocmd User lsp_setup call lsp#register_server({
-#          \ 'name': 'clangd',
-#          \ 'cmd': {server_info->['clangd']},
-#          \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-#          \ })
-#       autocmd FileType c,cpp setlocal omnifunc=lsp#complete
-#     augroup END
-#   endif
-# 
-#   " if executable('cquery')
-#   "   augroup LspCpp
-#   "     au!
-#   "     autocmd User lsp_setup call lsp#register_server({
-#   "        \ 'name': 'cquery',
-#   "        \ 'cmd': {server_info->['cquery']},
-#   "        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-#   "        \ 'initialization_options': { 'cacheDirectory': '.cache/cquery' },
-#   "        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
-#   "        \ })
-#   "     autocmd FileType c,cpp setlocal omnifunc=lsp#complete
-#   "   augroup END
-#   " endif
-# '''
+# ----- vim-lsp -----
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
 
-# [[plugins]]
-# repo = 'prabirshrestha/asyncomplete.vim'
-#
-# [[plugins]]
-# repo = 'prabirshrestha/asyncomplete-lsp.vim'
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+hook_add = '''
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_float_cursor = 0
+let g:asynccomplete_auto_popup = 1
+let g:asynccomplete_auto_completeopt = 1
+let g:asynccomplete_popup_deley = 200
+let g:lsp_text_edit_enabled = 1
+
+nnoremap <silent> <leader>h :<C-u>LspHover<CR>
+nnoremap <silent> <leader>dc :<C-u>LspDeclaration<CR>
+nnoremap <silent> <leader>df :<C-u>LspDefinition<CR>
+nnoremap <silent> <leader>tdf :<C-u>LspTypeDefinition<CR>
+nnoremap <silent> <leader>rf :<C-u>LspReferences<CR>
+nnoremap <silent> <leader>rn :<C-u>LspRename<CR>
+nnoremap <silent> <leader>lf :<C-u>LspDocumentFormat<CR>
+nnoremap <silent> <leader>lj :<C-u>LspNextError<CR>
+nnoremap <silent> <leader>lk :<C-u>LspPreviousError<CR>
+nnoremap <silent> <leader>li :<C-u>LspImplementation<CR>
+'''
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip'
+
+[[plugins]]
+repo = 'hrsh7th/vim-vsnip-integ'
 
 # [[plugins]]
 # repo = 'tbodt/deoplete-tabnine'
 # build = './install.sh'
 
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-merged = 0
-rev = 'release'
-hook_add = '''
-let g:coc_global_extensions = [
-      \  'coc-json',
-      \  'coc-rls',
-      \  'coc-solargraph',
-      \  'coc-tabnine',
-      \  'coc-tsserver',
-      \  'coc-yaml',
-      \]
-
-nnoremap <silent> <leader>h  :<C-u>call CocAction('doHover')<CR>
-nmap <silent> <leader>df <Plug>(coc-definition)
-nmap <silent> <leader>rf <Plug>(coc-references)
-nmap <silent> <leader>rn <Plug>(coc-rename)
-nnoremap <silent> <leader>ld :<C-u>CocList diagnostics<CR>
-nnoremap <silent> <leader>lo :<C-u>CocList outline<CR>
-nnoremap <silent> <leader>lc :<C-u>CocList commands<CR>
-nnoremap <silent> <leader>lj :<C-u>CocNext<CR>
-nnoremap <silent> <leader>lk :<C-u>CocPrev<CR>
-nnoremap <silent> <leader>lr :<C-u>CocListResume<CR>
-
-command! -nargs=0 Format :call CocAction('format')
-'''
+# ----- coc.nvim -----
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# merged = 0
+# rev = 'release'
+# hook_add = '''
+# let g:coc_global_extensions = [
+#      \  'coc-json',
+#      \  'coc-rls',
+#      \  'coc-solargraph',
+#      \  'coc-tabnine',
+#      \  'coc-tsserver',
+#      \  'coc-yaml',
+#      \]
+# 
+# nnoremap <silent> <leader>h  :<C-u>call CocAction('doHover')<CR>
+# nmap <silent> <leader>df <Plug>(coc-definition)
+# nmap <silent> <leader>rf <Plug>(coc-references)
+# nmap <silent> <leader>rn <Plug>(coc-rename)
+# nnoremap <silent> <leader>ld :<C-u>CocList diagnostics<CR>
+# nnoremap <silent> <leader>lo :<C-u>CocList outline<CR>
+# nnoremap <silent> <leader>lc :<C-u>CocList commands<CR>
+# nnoremap <silent> <leader>lj :<C-u>CocNext<CR>
+# nnoremap <silent> <leader>lk :<C-u>CocPrev<CR>
+# nnoremap <silent> <leader>lr :<C-u>CocListResume<CR>
+# 
+# command! -nargs=0 Format :call CocAction('format')
+# '''
 
 # ----- filetype -----
 [[plugins]]
