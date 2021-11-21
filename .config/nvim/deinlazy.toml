@@ -2,8 +2,10 @@
 # repo = 'Shougo/deoplete.nvim'
 # if = "has('nvim')"
 # on_event = 'InsertEnter'
-# hook_source = 'let g:deoplete#enable_at_startup = 1'
-
+# hook_source = '''
+# let g:deoplete#enable_at_startup = 1
+# let g:deoplete#enable_camel_case = 1
+# '''
 
 # [[plugins]]
 # repo = 'Shougo/neosnippet.vim'
@@ -18,6 +20,7 @@
 #   set conceallevel=2 concealcursor=niv
 # endif
 # let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+# let g:go_snippet_engine = "neosnippet"
 # '''
 
 
@@ -47,6 +50,11 @@
 # build = 'make'
 # on_ft = 'go'
 # on_event = 'InsertEnter'
+# hook_source = '''
+# let g:deoplete#sources#go#package_dot = 1
+# let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+# '''
+
 
 # [[plugins]]
 # repo = 'fatih/vim-go'

@@ -46,17 +46,34 @@ repo = 'vim-jp/vimdoc-ja'
 # ----- operator -----
 [[plugins]]
 repo = 'kana/vim-operator-user'
+
 [[plugins]]
 repo = 'emonkak/vim-operator-sort'
+hook_add = '''
+vmap S <Plug>(operator-sort)
+'''
 
 [[plugins]]
 repo = 'kana/vim-operator-replace'
+hook_add = '''
+map R <Plug>(operator-replace)
+'''
 
 # [[plugins]]
 # repo = 'rhysd/vim-operator-surround'
+# hook_add = '''
+# map <silent>sa <Plug>(operator-surround-append)
+# map <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
+# map <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
+# '''
 
 [[plugins]]
 repo = 'tyru/operator-camelize.vim'
+hook_add = '''
+vmap <leader>U <Plug>(operator-camelize)
+vmap <leader>u <Plug>(operator-decamelize)
+'''
+
 
 # ----- denite -----
 [[plugins]]
@@ -155,6 +172,12 @@ repo = 'sjl/gundo.vim'
 
 [[plugins]]
 repo = 't9md/vim-textmanip'
+hook_add = '''
+xmap <C-j> <Plug>(textmanip-move-down)
+xmap <C-k> <Plug>(textmanip-move-up)
+xmap <C-h> <Plug>(textmanip-move-left)
+xmap <C-l> <Plug>(textmanip-move-right)
+'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -172,7 +195,8 @@ repo = 'thinca/vim-qfreplace'
 # [[plugins]]
 # repo = 'neomake/neomake'
 # hook_add = '''
-#   autocmd! BufWritePost * Neomake
+# autocmd! BufWritePost * Neomake
+# let g:neomake_go_enabled_makers = ['go', 'golint', 'govet', 'errcheck']
 # '''
 
 # [[plugins]]
@@ -195,6 +219,11 @@ repo = 'thinca/vim-qfreplace'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
+hook_add = '''
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
+nnoremap <Leader>t :<C-u>TagbarToggle<CR>
+'''
 
 [[plugins]]
 repo = 'szw/vim-tags'
@@ -254,6 +283,30 @@ depends = ['fzf', 'fern.vim']
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}',
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+
+function! LightlineFilename()
+  return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+        \ &filetype ==# 'unite' ? unite#get_status_string() :
+        \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+        \ expand('%') !=# '' ? expand('%') : '[No Name]'
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf'
@@ -308,6 +361,10 @@ nnoremap <silent> <C-p> :GFiles<CR>
 
 [[plugins]]
 repo = 'tyru/caw.vim'
+hook_add = '''
+nmap <Leader>c <Plug>(caw:prefix)
+xmap <Leader>c <Plug>(caw:prefix)
+'''
 
 [[plugins]]
 repo = 'lambdalisue/vim-findent'
@@ -335,6 +392,17 @@ repo = 'taka84u9/vim-ref-ri'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+hook_add = '''
+nnoremap [fugitive] <Nop>
+nmap <Space>g [fugitive]
+nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
+nnoremap <silent> [fugitive]a :Gwrite<CR>
+nnoremap <silent> [fugitive]c :Gcommit<CR>
+nnoremap <silent> [fugitive]b :Gblame<CR>
+nnoremap <silent> [fugitive]d :Gdiff<CR>
+nnoremap <silent> [fugitive]m :Gmerge<CR>
+nnoremap <silent> [fugitive]i :Grebase<CR>
+'''
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
