@@ -271,17 +271,6 @@ vmap S <Plug>(operator-sort)
 vmap <leader>U <Plug>(operator-camelize)
 vmap <leader>u <Plug>(operator-decamelize)
 
-" vim-go
-let g:go_fmt_command = 'goimports'
-let g:go_def_mapping_enabled = 0
-let g:go_highlight_operators = 0
-let g:go_highlight_functions = 0
-let g:go_highlight_methods = 0
-let g:go_highlight_types = 0
-let g:go_highlight_fields = 0
-let g:go_highlight_build_constraints = 0
-let g:go_term_enabled = 1
-
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_camel_case = 1
@@ -293,7 +282,7 @@ let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const
 " neomake go
 let g:neomake_go_enabled_makers = ['go', 'golint', 'govet', 'errcheck']
 
-" vim-go
+" neosnippet
 let g:go_snippet_engine = "neosnippet"
 
 " lightline

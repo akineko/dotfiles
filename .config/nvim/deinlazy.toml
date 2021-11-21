@@ -48,8 +48,23 @@
 # on_ft = 'go'
 # on_event = 'InsertEnter'
 
+# [[plugins]]
+# repo = 'fatih/vim-go'
+# on_ft = 'go'
+# hook_source = '''
+# let g:go_fmt_command = 'goimports'
+# let g:go_def_mapping_enabled = 0
+# let g:go_highlight_operators = 0
+# let g:go_highlight_functions = 0
+# let g:go_highlight_methods = 0
+# let g:go_highlight_types = 0
+# let g:go_highlight_fields = 0
+# let g:go_highlight_build_constraints = 0
+# let g:go_term_enabled = 1
+# '''
+
 [[plugins]]
-repo = 'fatih/vim-go'
+repo = 'mattn/vim-goimports'
 on_ft = 'go'
 
 # ----- HTML -----
