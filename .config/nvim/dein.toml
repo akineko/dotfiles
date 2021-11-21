@@ -158,6 +158,13 @@ repo = 't9md/vim-textmanip'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+hook_add = '''
+let g:quickrun_config = {
+\   "cpp" : {
+\       "cmdopt" : "-Wall -std=c++17",
+\   },
+\}
+'''
 
 [[plugins]]
 repo = 'thinca/vim-qfreplace'
