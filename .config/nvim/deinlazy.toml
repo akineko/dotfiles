@@ -1,3 +1,27 @@
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+on_event = 'InsertEnter'
+hook_source = '''
+call ddc#custom#patch_global('sources', ['vim-lsp'])
+call ddc#custom#patch_global('sourceOptions', {
+ \ 'vim-lsp': {
+ \   'matchers': ['matcher_head'],
+ \   'mark': 'lsp',
+ \   'minAutoCompleteLength': 0,
+ \   },
+ \ })
+
+call ddc#enable()
+'''
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'shun/ddc-vim-lsp'
+on_source = 'ddc.vim'
+
 # [[plugins]]
 # repo = 'Shougo/deoplete.nvim'
 # if = "has('nvim')"

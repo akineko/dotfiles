@@ -46,6 +46,9 @@ brew install rargs
 brew tap kyoshidajp/ghkw
 brew install ghkw
 
+# language
+brew install deno
+
 # build requirements
 brew install pkg-config
 brew install libxml2

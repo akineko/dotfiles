@@ -488,14 +488,14 @@ augroup END
 '''
 
 # ----- vim-lsp -----
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
+# [[plugins]]
+# repo = 'prabirshrestha/async.vim'
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete.vim'
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 
 [[plugins]]
@@ -504,9 +504,9 @@ hook_add = '''
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_float_cursor = 0
-let g:asynccomplete_auto_popup = 1
-let g:asynccomplete_auto_completeopt = 1
-let g:asynccomplete_popup_deley = 200
+" let g:asynccomplete_auto_popup = 1
+" let g:asynccomplete_auto_completeopt = 1
+" let g:asynccomplete_popup_deley = 200
 let g:lsp_text_edit_enabled = 1
 
 nnoremap <silent> <leader>h :<C-u>LspHover<CR>
@@ -529,6 +529,12 @@ repo = 'hrsh7th/vim-vsnip'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip-integ'
+
+[[plugins]]
+repo = 'vim-denops/denops.vim'
+
+# [[plugins]]
+# repo = 'Shougo/pum.vim'
 
 # [[plugins]]
 # repo = 'tbodt/deoplete-tabnine'
