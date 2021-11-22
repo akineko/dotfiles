@@ -9,8 +9,11 @@ call ddc#custom#patch_global('sources', [
 
 call ddc#custom#patch_global('sourceOptions', {
   \ '_': {
-  \   'matchers': ['matcher_head'],
-  \   'minAutoCompleteLength': 2,
+  \   'matchers': ['matcher_fuzzy'],
+  \   'sorters': ['sorter_fuzzy'],
+  \   'converters': ['converter_remove_overlap', 'converter_fuzzy'],
+  \   'minAutoCompleteLength': 1,
+  \   'ignoreCase': v:true,
   \ },
   \ 'vim-lsp': {
   \   'mark': 'lsp',
@@ -21,12 +24,17 @@ call ddc#custom#patch_global('sourceOptions', {
   \   'maxCandidates': 5,
   \   'isVolatile': v:true,
   \ },
-  \ 'rg': {'mark': 'rg'},
+  \ 'rg': {
+  \   'mark': 'rg',
+  \   'matchers': ['matcher_head', 'matcher_length'],
+  \   'minAutoCompleteLength': 4,
+  \ },
   \ 'buffer': {'mark': 'B'},
   \ 'around': {'mark': 'A'},
   \ 'file': {
   \   'mark': 'F',
   \   'isVolatile': v:true,
+  \   'minAutoCompleteLength': 1000,
   \   'forceCompletionPattern': '\S/\S*',
   \ },
   \ 'cmdline': {
@@ -44,11 +52,36 @@ call ddc#custom#patch_global('sourceParams', {
   \ },
   \ })
 
+call ddc#custom#patch_global('filterParams', {
+  \ 'converter_fuzzy': {'hlGroup': 'DiffText'},
+  \ })
+
+call ddc#custom#patch_filetype(['vim'], {
+  \ 'sources': ['vim-lsp', 'buffer', 'around', 'file'],
+  \ })
+
 call ddc#enable()
 '''
 
+# ----- ddc-filter -----
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_length'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'tani/ddc-fuzzy'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-converter_remove_overlap'
 on_source = 'ddc.vim'
 
 # ----- ddc-source -----
@@ -61,15 +94,15 @@ repo = 'LumaKernel/ddc-tabnine'
 on_source = 'ddc.vim'
 
 [[plugins]]
+repo = 'Shougo/ddc-rg'
+on_source = 'ddc.vim'
+
+[[plugins]]
 repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'matsui54/ddc-buffer'
-on_source = 'ddc.vim'
-
-[[plugins]]
-repo = 'Shougo/ddc-rg'
 on_source = 'ddc.vim'
 
 [[plugins]]
