@@ -28,10 +28,18 @@ if dein#check_install()
   call dein#install()
 endif
 
-if !has('vim_starting')
-  call dein#call_hook('source')
-  call dein#call_hook('post_source')
-endif
+command! -nargs=0 DeinUpdate :call dein#update()
+command! -nargs=0 DeinClean :call s:deinClean()
+
+function! s:deinClean()
+  call map(dein#check_clean(), 'delete(v:val, "rf")')
+  call dein#recache_runtimepath()
+endfunction
+
+" if !has('vim_starting')
+"   call dein#call_hook('source')
+"   call dein#call_hook('post_source')
+" endif
 
 filetype plugin indent on
 syntax on
