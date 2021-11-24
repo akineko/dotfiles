@@ -1,8 +1,13 @@
 # ----- ddc -----
 [[plugins]]
+repo = 'Shougo/pum.vim'
+
+[[plugins]]
 repo = 'Shougo/ddc.vim'
+depends = ['pum.vim']
 on_event = 'InsertEnter'
 hook_source = '''
+call ddc#custom#patch_global('backspaceCompletion', v:true)
 call ddc#custom#patch_global('sources', [
   \ 'tabnine', 'vim-lsp', 'rg', 'file',
   \ ])
@@ -59,6 +64,27 @@ call ddc#custom#patch_global('filterParams', {
 call ddc#custom#patch_filetype(['vim'], {
   \ 'sources': ['vim-lsp', 'buffer', 'around', 'file'],
   \ })
+
+" pum.vim
+call ddc#custom#patch_global('completionMenu', 'pum.vim')
+
+inoremap <silent><expr> <C-n>
+ \ pum#visible()
+ \ ? '<Cmd>call pum#map#insert_relative(+1)<CR>'
+ \ : ddc#manual_complete()
+inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+" without nvim-autopairs
+" inoremap <silent><expr> <CR>
+"\ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
+" with nvim-autopairs
+inoremap <silent><expr> <CR>
+\ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : v:lua.MPairs.completion_confirm()
+inoremap <silent><expr> <C-l>   ddc#map#extend()
+
+call pum#set_option('setline_insert', v:true)
+autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 
 call ddc#enable()
 '''

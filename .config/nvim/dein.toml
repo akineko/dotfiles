@@ -399,8 +399,17 @@ repo = 'vim-scripts/AnsiEsc.vim'
 # [[plugins]]
 # repo = 'kana/vim-smartinput'
 
+# [[plugins]]
+# repo = 'cohama/lexima.vim'
+
+# [[plugins]]
+# repo = 'jiangmiao/auto-pairs'
+
 [[plugins]]
-repo = 'cohama/lexima.vim'
+repo = 'windwp/nvim-autopairs'
+hook_add = '''
+lua require('nvim-autopairs').setup{}
+'''
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
@@ -532,9 +541,6 @@ repo = 'hrsh7th/vim-vsnip-integ'
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-
-# [[plugins]]
-# repo = 'Shougo/pum.vim'
 
 # [[plugins]]
 # repo = 'tbodt/deoplete-tabnine'
