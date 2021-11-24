@@ -496,6 +496,73 @@ augroup MyPreciousCmd
 augroup END
 '''
 
+# ----- nvim-lsp -----
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'williamboman/nvim-lsp-installer'
+depends = ['nvim-lspconfig', 'lsp_signature.nvim']
+hook_add = '''
+lua << EOF
+local on_attach = function (client, bufnr)
+  vim.wo.signcolumn = 'yes'
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+
+  local opts = { noremap=true, silent=true }
+  buf_set_keymap('n', '<leader>dc', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', '<leader>df', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>h', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<leader>li', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<leader><C-h>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<leader>tdf', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<leader>rf', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<leader>ls', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<leader>lk', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', '<leader>lj', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<leader>ll', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+  -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  --   vim.lsp.diagnostic.on_publish_diagnostics, {
+  --     virtual_text = false,
+  --   }
+  -- )
+
+  require "lsp_signature".on_attach()
+end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+local lsp_installer = require("nvim-lsp-installer")
+lsp_installer.on_server_ready(function(server)
+  local opts = {}
+  opts.on_attach = on_attach
+  opts.capabilities = capabilities
+
+  server:setup(opts)
+end)
+EOF
+'''
+
 # ----- vim-lsp -----
 # [[plugins]]
 # repo = 'prabirshrestha/async.vim'
@@ -506,32 +573,31 @@ augroup END
 # [[plugins]]
 # repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-hook_add = '''
-let g:lsp_diagnostics_enabled = 1
-let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_diagnostics_float_cursor = 0
-" let g:asynccomplete_auto_popup = 1
-" let g:asynccomplete_auto_completeopt = 1
-" let g:asynccomplete_popup_deley = 200
-let g:lsp_text_edit_enabled = 1
-
-nnoremap <silent> <leader>h :<C-u>LspHover<CR>
-nnoremap <silent> <leader>dc :<C-u>LspDeclaration<CR>
-nnoremap <silent> <leader>df :<C-u>LspDefinition<CR>
-nnoremap <silent> <leader>tdf :<C-u>LspTypeDefinition<CR>
-nnoremap <silent> <leader>rf :<C-u>LspReferences<CR>
-nnoremap <silent> <leader>rn :<C-u>LspRename<CR>
-nnoremap <silent> <leader>lf :<C-u>LspDocumentFormat<CR>
-nnoremap <silent> <leader>lj :<C-u>LspNextError<CR>
-nnoremap <silent> <leader>lk :<C-u>LspPreviousError<CR>
-nnoremap <silent> <leader>li :<C-u>LspImplementation<CR>
-'''
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
+# [[plugins]]
+# repo = 'prabirshrestha/vim-lsp'
+# hook_add = '''
+# let g:lsp_diagnostics_enabled = 1
+# let g:lsp_diagnostics_echo_cursor = 1
+# let g:lsp_diagnostics_float_cursor = 0
+# " let g:asynccomplete_auto_popup = 1
+# " let g:asynccomplete_auto_completeopt = 1
+# " let g:asynccomplete_popup_deley = 200
+# let g:lsp_text_edit_enabled = 1
+# 
+# nnoremap <silent> <leader>h :<C-u>LspHover<CR>
+# nnoremap <silent> <leader>dc :<C-u>LspDeclaration<CR>
+# nnoremap <silent> <leader>df :<C-u>LspDefinition<CR>
+# nnoremap <silent> <leader>tdf :<C-u>LspTypeDefinition<CR>
+# nnoremap <silent> <leader>rf :<C-u>LspReferences<CR>
+# nnoremap <silent> <leader>rn :<C-u>LspRename<CR>
+# nnoremap <silent> <leader>lf :<C-u>LspDocumentFormat<CR>
+# nnoremap <silent> <leader>lj :<C-u>LspNextError<CR>
+# nnoremap <silent> <leader>lk :<C-u>LspPreviousError<CR>
+# nnoremap <silent> <leader>li :<C-u>LspImplementation<CR>
+# '''
+# 
+# [[plugins]]
+# repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'

@@ -9,7 +9,7 @@ on_event = 'InsertEnter'
 hook_source = '''
 call ddc#custom#patch_global('backspaceCompletion', v:true)
 call ddc#custom#patch_global('sources', [
-  \ 'tabnine', 'vim-lsp', 'rg', 'file',
+  \ 'nvim-lsp', 'vsnip', 'file',
   \ ])
 
 call ddc#custom#patch_global('sourceOptions', {
@@ -19,6 +19,10 @@ call ddc#custom#patch_global('sourceOptions', {
   \   'converters': ['converter_remove_overlap', 'converter_fuzzy'],
   \   'minAutoCompleteLength': 1,
   \   'ignoreCase': v:true,
+  \ },
+  \ 'nvim-lsp': {
+  \   'mark': 'lsp',
+  \   'forceCompletionPattern': "\\.|:\\s*|->",
   \ },
   \ 'vim-lsp': {
   \   'mark': 'lsp',
@@ -33,6 +37,10 @@ call ddc#custom#patch_global('sourceOptions', {
   \   'mark': 'rg',
   \   'matchers': ['matcher_head', 'matcher_length'],
   \   'minAutoCompleteLength': 4,
+  \ },
+  \ 'vsnip': {
+  \   'mark': 'vsnip',
+  \   'dup': v:true,
   \ },
   \ 'buffer': {'mark': 'B'},
   \ 'around': {'mark': 'A'},
@@ -65,6 +73,20 @@ call ddc#custom#patch_filetype(['vim'], {
   \ 'sources': ['vim-lsp', 'buffer', 'around', 'file'],
   \ })
 
+" without pum.vim
+" set completeopt-=preview
+" 
+" inoremap <silent><expr> <CR>
+"  \ pumvisible() ? '<C-y>' : v:lua.MPairs.completion_confirm()
+" inoremap <silent><expr> <C-n>
+"  \ pumvisible()
+"  \ ? '<C-n>'
+"  \ : ddc#manual_complete()
+" inoremap <silent><expr> <C-p>
+"  \ pumvisible()
+"  \ ? '<C-p>'
+"  \ : ddc#manual_complete()
+
 " pum.vim
 call ddc#custom#patch_global('completionMenu', 'pum.vim')
 
@@ -72,7 +94,10 @@ inoremap <silent><expr> <C-n>
  \ pum#visible()
  \ ? '<Cmd>call pum#map#insert_relative(+1)<CR>'
  \ : ddc#manual_complete()
-inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <silent><expr> <C-p>
+ \ pum#visible()
+ \ ? '<Cmd>call pum#map#insert_relative(-1)<CR>'
+ \ : ddc#manual_complete()
 inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
 inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
 " without nvim-autopairs
@@ -80,14 +105,25 @@ inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
 "\ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
 " with nvim-autopairs
 inoremap <silent><expr> <CR>
-\ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : v:lua.MPairs.completion_confirm()
+ \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : v:lua.MPairs.completion_confirm()
 inoremap <silent><expr> <C-l>   ddc#map#extend()
 
-call pum#set_option('setline_insert', v:true)
+" call pum#set_option('setline_insert', v:true)
 autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
 
 call ddc#enable()
 '''
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+on_source = 'ddc.vim'
+hook_source = '''
+call popup_preview#enable()
+'''
+
+[[plugins]]
+repo = 'ray-x/lsp_signature.nvim'
+on_source = 'nvim-lspconfig'
 
 # ----- ddc-filter -----
 [[plugins]]
@@ -111,6 +147,10 @@ repo = 'Shougo/ddc-converter_remove_overlap'
 on_source = 'ddc.vim'
 
 # ----- ddc-source -----
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'
+
 [[plugins]]
 repo = 'shun/ddc-vim-lsp'
 on_source = 'ddc.vim'
