@@ -484,15 +484,25 @@ repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
 hook_add = '''
 let g:precious_enable_switch_CursorMoved = {
-      \  "*" : 0,
-      \  "help" : 1,
-      \  "toml" : 1,
-      \}
+   \  "*" : 0,
+   \  "help" : 1,
+   \  "toml" : 1,
+   \}
+let g:precious_enable_switch_CursorMove_i = {
+   \  "*" : 0,
+   \  "help" : 1,
+   \  "toml" : 1,
+   \}
+let g:precious_enable_switch_CursorHold = {
+   \  "*" : 0,
+   \  "help" : 1,
+   \  "toml" : 1,
+   \}
 
 augroup MyPreciousCmd
   autocmd!
   autocmd InsertEnter * :PreciousSwitch
-  autocmd InsertEnter * :PreciousReset
+  autocmd InsertLeave * :PreciousReset
 augroup END
 '''
 
