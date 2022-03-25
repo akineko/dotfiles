@@ -485,27 +485,38 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
 hook_add = '''
-let g:precious_enable_switch_CursorMoved = {
-   \  "*" : 0,
-   \  "help" : 1,
-   \  "toml" : 1,
-   \}
-let g:precious_enable_switch_CursorMove_i = {
-   \  "*" : 0,
-   \  "help" : 1,
-   \  "toml" : 1,
-   \}
-let g:precious_enable_switch_CursorHold = {
-   \  "*" : 0,
-   \  "help" : 1,
-   \  "toml" : 1,
-   \}
+let g:precious_enable_switchers = {
+    \	"*" : {
+    \		"setfiletype" : 0
+    \	},
+    \	"help" : {
+    \		"setfiletype" : 1
+    \	},
+    \	"toml" : {
+    \		"setfiletype" : 1
+    \	},
+    \}
+" let g:precious_enable_switch_CursorMoved = {
+"   \  "*" : 0,
+"   \  "help" : 1,
+"   \  "toml" : 1,
+"   \}
+" let g:precious_enable_switch_CursorMove_i = {
+"   \  "*" : 0,
+"   \  "help" : 1,
+"   \  "toml" : 1,
+"   \}
+" let g:precious_enable_switch_CursorHold = {
+"   \  "*" : 0,
+"   \  "help" : 1,
+"   \  "toml" : 1,
+"   \}
 
-augroup MyPreciousCmd
-  autocmd!
-  autocmd InsertEnter * :PreciousSwitch
-  autocmd InsertLeave * :PreciousReset
-augroup END
+" augroup MyPreciousCmd
+"   autocmd!
+"   autocmd InsertEnter * :PreciousSwitch
+"   autocmd InsertLeave * :PreciousReset
+" augroup END
 '''
 
 # ----- nvim-lsp -----
