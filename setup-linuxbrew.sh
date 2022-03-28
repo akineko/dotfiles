@@ -2,13 +2,42 @@
 
 # brew tap linuxbrew/xorg
 
-# tap "delphinus/sfmono-square"
-# brew "delphinus/sfmono-square/sfmono-square"
+# neovim
+brew install --HEAD luajit
+brew install --HEAD neovim
+
+# shell
+brew install fish
+brew install zsh
+brew install starship
+brew install tmux
 
 # grep tools
 brew install ripgrep
 brew install the_platinum_searcher
 brew install the_silver_searcher
+
+# cli tools
+brew install asdf
+brew install gibo
+brew install jq
+
+# rust tools
+brew install bat
+brew install exa
+brew install fd
+brew install fselect
+brew install lsd
+brew install procs
+brew install rargs
+
+# go tools
+brew install fzf
+brew install peco
+brew install ghq
+brew install direnv
+brew tap kyoshidajp/ghkw
+brew install ghkw
 
 # C++ build tools
 brew install cmake
@@ -23,31 +52,6 @@ brew install stern
 # terraform
 brew install terraformer
 brew install tfenv
-
-# shell
-brew install fish
-brew install zsh
-brew install starship
-brew install tmux
-
-# cli tools
-brew install anyenv
-brew install bat
-brew install exa
-brew install fd
-brew install fselect
-brew install fzf
-brew install gibo
-brew install jq
-brew install lsd
-brew install procs
-brew install rargs
-
-brew tap kyoshidajp/ghkw
-brew install ghkw
-
-# language
-brew install deno
 
 # build requirements
 brew install pkg-config

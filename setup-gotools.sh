@@ -2,10 +2,7 @@
 set -Ceux
 
 # common
-go get -u github.com/motemen/ghq
-go get -u github.com/peco/peco/cmd/peco
 go get -u github.com/mattn/memo
-go get -u github.com/direnv/direnv
 
 # vim
 go get -u github.com/mattn/files
