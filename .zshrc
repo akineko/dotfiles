@@ -69,6 +69,8 @@ setopt append_history
 setopt bang_hist
 # 実行時間をヒストリに記録
 # setopt extended_history
+# ビープ音をオフ
+setopt no_beep
 # ヒストリ関係のビープ音をオフ
 unsetopt hist_beep
 # 古いヒストリの削除時に重複コマンドを優先
