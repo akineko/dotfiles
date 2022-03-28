@@ -211,13 +211,13 @@ export XDG_CACHE_HOME=$HOME/.cache
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:$HOME/bin"
 
-# zplugin
-if [[ -f ~/.zplugin/bin/zplugin.zsh ]]; then
-  source ~/.zplugin/bin/zplugin.zsh
-  autoload -Uz _zplugin
-  (( ${+_comps} )) && _comps[zplugin]=_zplugin
+# zinit
+if [[ -f ~/.zinit/bin/zinit.zsh ]]; then
+  source ~/.zinit/bin/zinit.zsh
+  autoload -Uz _zinit
+  (( ${+_comps} )) && _comps[zinit]=_zinit
 
-  source ~/.zsh/zplugin.zsh
+  source ~/.zsh/zinit.zsh
 
   autoload -U compinit
   compinit
