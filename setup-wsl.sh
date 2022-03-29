@@ -1,8 +1,13 @@
 #!/bin/bash
 
+# Distrod https://github.com/nullpo-head/wsl-distrod
+curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
+chmod +x install.sh
+sudo ./install.sh install
+sudo /opt/distrod/bin/distrod enable
+
 # ビープ音OFF
-touch ~/.inputrc
-echo 'set bell-style none' >> ~/.inputrc
+echo 'set bell-style none' > ~/.inputrc
 
 # Windows 側の PATH を引き継がない
 echo "[interop]\\nappendWindowsPath = false" | sudo tee -a /etc/wsl.conf
