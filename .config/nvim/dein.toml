@@ -11,6 +11,14 @@ repo = 'vim-jp/vimdoc-ja'
 [[plugins]]
 repo = 'thinca/vim-localrc'
 
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+if = 'has("nvim")'
+
 # ----- textobj -----
 # [[plugins]]
 # repo = 'kana/vim-textobj-user'
@@ -382,6 +390,11 @@ nnoremap [fzf]t :<C-u>Vista finder<CR>
 nnoremap <silent> <C-p> :GFiles<CR>
 '''
 
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+if = 'has("nvim")'
+depends = ['plenary.nvim', 'nvim-web-devicons']
+
 # [[plugins]]
 # repo = 'ctrlpvim/ctrlp.vim'
 #
@@ -591,10 +604,6 @@ EOF
 '''
 
 [[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-if = 'has("nvim")'
-
-[[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
 if = 'has("nvim")'
 depends = ['plenary.nvim']
@@ -608,10 +617,6 @@ require("null-ls").setup({
 })
 EOF
 '''
-
-[[plugins]]
-repo = 'kyazdani42/nvim-web-devicons'
-if = 'has("nvim")'
 
 [[plugins]]
 repo = 'folke/trouble.nvim'
