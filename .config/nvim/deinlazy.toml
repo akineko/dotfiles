@@ -122,8 +122,15 @@ call popup_preview#enable()
 '''
 
 [[plugins]]
-repo = 'ray-x/lsp_signature.nvim'
-on_source = 'nvim-lspconfig'
+repo = 'matsui54/denops-signature_help'
+on_event = 'VimEnter'
+hook_source = '''
+call signature_help#enable()
+'''
+
+# [[plugins]]
+# repo = 'ray-x/lsp_signature.nvim'
+# on_source = 'nvim-lspconfig'
 
 # ----- ddc-filter -----
 [[plugins]]
