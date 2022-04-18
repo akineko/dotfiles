@@ -609,6 +609,29 @@ require("null-ls").setup({
 EOF
 '''
 
+[[plugins]]
+repo = 'kyazdani42/nvim-web-devicons'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'folke/trouble.nvim'
+if = 'has("nvim")'
+depends = ['nvim-web-devicons']
+on_event = 'VimEnter'
+hook_post_source = '''
+lua << EOF
+require("trouble").setup()
+EOF
+'''
+hook_add = '''
+nnoremap <leader>xx <Cmd>TroubleToggle<CR>
+nnoremap <leader>xw <Cmd>TroubleToggle workspace_diagnostics<CR>
+nnoremap <leader>xd <Cmd>TroubleToggle document_diagnostics<CR>
+nnoremap <leader>xq <Cmd>TroubleToggle quickfix<CR>
+nnoremap <leader>xl <Cmd>TroubleToggle loclist<CR>
+nnoremap gR <Cmd>TroubleToggle lsp_references<CR>
+'''
+
 # ----- vim-lsp -----
 # [[plugins]]
 # repo = 'prabirshrestha/async.vim'
