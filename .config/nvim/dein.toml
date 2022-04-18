@@ -590,6 +590,25 @@ end)
 EOF
 '''
 
+[[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'jose-elias-alvarez/null-ls.nvim'
+if = 'has("nvim")'
+depends = ['plenary.nvim']
+on_event = 'VimEnter'
+hook_post_source = '''
+lua << EOF
+require("null-ls").setup({
+  sources = {
+    null_ls.builtins.formatting.prettier,
+  },
+})
+EOF
+'''
+
 # ----- vim-lsp -----
 # [[plugins]]
 # repo = 'prabirshrestha/async.vim'
