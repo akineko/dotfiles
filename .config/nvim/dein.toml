@@ -8,6 +8,9 @@ build = 'make'
 [[plugins]]
 repo = 'vim-jp/vimdoc-ja'
 
+[[plugins]]
+repo = 'thinca/vim-localrc'
+
 # ----- textobj -----
 # [[plugins]]
 # repo = 'kana/vim-textobj-user'
