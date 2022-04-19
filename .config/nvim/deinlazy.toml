@@ -109,7 +109,6 @@ call popup_preview#enable()
 
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
-on_source = 'nvim-lspconfig'
 
 # ----- ddc-filter -----
 [[plugins]]
@@ -168,6 +167,159 @@ on_source = 'ddc.vim'
 [[plugins]]
 repo = 'Shougo/ddc-cmdline-history'
 on_source = 'ddc.vim'
+
+# ----- LSP -----
+[[plugins]]
+repo = 'jose-elias-alvarez/null-ls.nvim'
+if = 'has("nvim")'
+depends = ['plenary.nvim']
+on_event = 'VimEnter'
+hook_post_source = '''
+lua << EOF
+require('null-ls').setup{
+  sources = {
+    require('null-ls').builtins.formatting.prettier,
+  },
+}
+EOF
+'''
+
+[[plugins]]
+repo = 'folke/trouble.nvim'
+if = 'has("nvim")'
+depends = ['nvim-web-devicons']
+on_event = 'VimEnter'
+hook_add = '''
+nnoremap <leader>xx :TroubleToggle<CR>
+nnoremap <leader>xw :TroubleToggle workspace_diagnostics<CR>
+nnoremap <leader>xd :TroubleToggle document_diagnostics<CR>
+nnoremap <leader>xq :TroubleToggle quickfix<CR>
+nnoremap <leader>xl :TroubleToggle loclist<CR>
+nnoremap gR :TroubleToggle lsp_references<CR>
+'''
+hook_post_source = '''
+lua << EOF
+require("trouble").setup()
+EOF
+'''
+
+# ----- treesitter -----
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+if = 'has("nvim")'
+merged = 0
+on_event = 'VimEnter'
+hook_post_update = 'TSUpdate'
+hook_post_source = '''
+lua << EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = 'all',
+  highlight = {
+    enable = true,
+    disable = {'toml'},
+  },
+  -- indent = {
+  --   enable = true,
+  -- },
+}
+EOF
+'''
+
+# ----- telescope -----
+[[plugins]]
+repo = 'nvim-telescope/telescope.nvim'
+if = 'has("nvim")'
+depends = ['plenary.nvim', 'nvim-web-devicons', 'telescope-fzf-native.nvim', 'trouble.nvim']
+on_event = 'VimEnter'
+hook_source = '''
+lua << EOF
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
+local trouble = require('trouble.providers.telescope')
+
+local custom_actions = {}
+function custom_actions._multiopen(prompt_bufnr, open_cmd)
+  local picker = action_state.get_current_picker(prompt_bufnr)
+  local num_selections = #picker:get_multi_selection()
+  if not num_selections or num_selections <= 1 then
+    actions.add_selection(prompt_bufnr)
+  end
+  actions.send_selected_to_qflist(prompt_bufnr)
+
+  local results = vim.fn.getqflist()
+
+  for _, result in ipairs(results) do
+    local current_file = vim.fn.bufname()
+    local next_file = vim.fn.bufname(result.bufnr)
+
+    if current_file == "" then
+      vim.api.nvim_command("edit" .. " " .. next_file)
+    else
+      vim.api.nvim_command(open_cmd .. " " .. next_file)
+    end
+  end
+
+  vim.api.nvim_command("cd .")
+end
+function custom_actions.multi_selection_open_vsplit(prompt_bufnr)
+    custom_actions._multiopen(prompt_bufnr, "vsplit")
+end
+function custom_actions.multi_selection_open_split(prompt_bufnr)
+    custom_actions._multiopen(prompt_bufnr, "split")
+end
+function custom_actions.multi_selection_open_tab(prompt_bufnr)
+    custom_actions._multiopen(prompt_bufnr, "tabe")
+end
+function custom_actions.multi_selection_open(prompt_bufnr)
+    custom_actions._multiopen(prompt_bufnr, "edit")
+end
+
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<ESC>"] = actions.close,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-i>"] = actions.toggle_selection,
+        ["<C-a>"] = actions.toggle_all,
+        ["<C-u>"] = actions.preview_scrolling_up,
+        ["<C-d>"] = actions.preview_scrolling_down,
+        ["<C-v>"] = custom_actions.multi_selection_open_vsplit,
+        ["<C-s>"] = custom_actions.multi_selection_open_split,
+        ["<C-t>"] = custom_actions.multi_selection_open_tab,
+        ["<C-o>"] = trouble.smart_open_with_trouble,
+      },
+      n = i,
+    },
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+    }
+  }
+}
+
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('frecency')
+EOF
+'''
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-fzf-native.nvim'
+if = 'has("nvim")'
+build = 'make'
+
+[[plugins]]
+repo = 'nvim-telescope/telescope-frecency.nvim'
+if = 'has("nvim")'
+on_source = 'telescope.nvim'
+hook_post_source = '''
+lua require('telescope').load_extension('frecency')
+'''
 
 # ----- golang -----
 [[plugins]]

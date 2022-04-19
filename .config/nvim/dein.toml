@@ -16,8 +16,14 @@ repo = 'nvim-lua/plenary.nvim'
 if = 'has("nvim")'
 
 [[plugins]]
+repo = 'tami5/sqlite.lua'
+
+[[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 if = 'has("nvim")'
+
+[[plugins]]
+repo = 'folke/lsp-colors.nvim'
 
 # ----- textobj -----
 # [[plugins]]
@@ -348,12 +354,6 @@ nnoremap <silent> <C-p> :GFiles<CR>
 '''
 
 [[plugins]]
-repo = 'nvim-telescope/telescope.nvim'
-if = 'has("nvim")'
-depends = ['plenary.nvim', 'nvim-web-devicons']
-
-
-[[plugins]]
 repo = 'tyru/caw.vim'
 hook_add = '''
 nmap <Leader>c <Plug>(caw:prefix)
@@ -477,35 +477,6 @@ let g:precious_enable_switchers = {
 " augroup END
 '''
 
-# ----- treesitter -----
-[[plugins]]
-repo = 'nvim-treesitter/nvim-treesitter'
-merged = 0
-if = 'has("nvim")'
-on_event = 'VimEnter'
-hook_post_update = 'TSUpdate'
-hook_post_source = '''
-lua << EOF
-require('nvim-treesitter.configs').setup {
-  ensure_installed = 'maintained',
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  -- indent = {
-  --   enable = true,
-  -- },
-}
-EOF
-'''
-
-# ----- treesitter colorscheme -----
-[[plugins]]
-repo = 'EdenEast/nightfox.nvim'
-
-[[plugins]]
-repo = 'sainnhe/edge'
-
 # ----- nvim-lsp -----
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
@@ -592,42 +563,8 @@ EOF
 '''
 
 [[plugins]]
-repo = 'jose-elias-alvarez/null-ls.nvim'
-if = 'has("nvim")'
-depends = ['plenary.nvim']
-on_event = 'VimEnter'
-hook_post_source = '''
-lua << EOF
-require("null-ls").setup({
-  sources = {
-    null_ls.builtins.formatting.prettier,
-  },
-})
-EOF
-'''
-
-[[plugins]]
 repo = 'jose-elias-alvarez/nvim-lsp-ts-utils'
 if = 'has("nvim")'
-
-[[plugins]]
-repo = 'folke/trouble.nvim'
-if = 'has("nvim")'
-depends = ['nvim-web-devicons']
-on_event = 'VimEnter'
-hook_post_source = '''
-lua << EOF
-require("trouble").setup()
-EOF
-'''
-hook_add = '''
-nnoremap <leader>xx <Cmd>TroubleToggle<CR>
-nnoremap <leader>xw <Cmd>TroubleToggle workspace_diagnostics<CR>
-nnoremap <leader>xd <Cmd>TroubleToggle document_diagnostics<CR>
-nnoremap <leader>xq <Cmd>TroubleToggle quickfix<CR>
-nnoremap <leader>xl <Cmd>TroubleToggle loclist<CR>
-nnoremap gR <Cmd>TroubleToggle lsp_references<CR>
-'''
 
 # ----- vim-lsp -----
 # [[plugins]]
@@ -685,6 +622,13 @@ let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
 '''
 
+# ----- treesitter colorscheme -----
+[[plugins]]
+repo = 'EdenEast/nightfox.nvim'
+
+[[plugins]]
+repo = 'sainnhe/edge'
+
 # ----- colorscheme -----
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
@@ -695,8 +639,8 @@ repo = 'w0ng/vim-hybrid'
 [[plugins]]
 repo = 'nightsense/snow'
 
-# [[plugins]]
-# repo = 'joshdick/onedark.vim'
+[[plugins]]
+repo = 'joshdick/onedark.vim'
 
 [[plugins]]
 repo = 'rakr/vim-one'
