@@ -73,20 +73,6 @@ call ddc#custom#patch_filetype(['vim'], {
   \ 'sources': ['vim-lsp', 'buffer', 'around', 'file'],
   \ })
 
-" without pum.vim
-" set completeopt-=preview
-" 
-" inoremap <silent><expr> <CR>
-"  \ pumvisible() ? '<C-y>' : v:lua.MPairs.completion_confirm()
-" inoremap <silent><expr> <C-n>
-"  \ pumvisible()
-"  \ ? '<C-n>'
-"  \ : ddc#manual_complete()
-" inoremap <silent><expr> <C-p>
-"  \ pumvisible()
-"  \ ? '<C-p>'
-"  \ : ddc#manual_complete()
-
 " pum.vim
 call ddc#custom#patch_global('completionMenu', 'pum.vim')
 
@@ -183,79 +169,7 @@ on_source = 'ddc.vim'
 repo = 'Shougo/ddc-cmdline-history'
 on_source = 'ddc.vim'
 
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
-# if = "has('nvim')"
-# on_event = 'InsertEnter'
-# hook_source = '''
-# let g:deoplete#enable_at_startup = 1
-# let g:deoplete#enable_camel_case = 1
-# '''
-
-# [[plugins]]
-# repo = 'Shougo/neosnippet.vim'
-# depends = ['neosnippet-snippets', 'context_filetype.vim']
-# on_event = 'InsertCharPre'
-# on_ft = 'snippet'
-# hook_source = '''
-# imap <C-k> <Plug>(neosnippet_expand_or_jump)
-# smap <C-k> <Plug>(neosnippet_expand_or_jump)
-# " xmap <C-k> <Plug>(neosnippet_expand_target)
-# if has('conceal')
-#   set conceallevel=2 concealcursor=niv
-# endif
-# let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
-# let g:go_snippet_engine = "neosnippet"
-# '''
-
-
-# [[plugins]]
-# repo = 'Shougo/neosnippet-snippets'
-
-
-# ----- C++ -----
-# [[plugins]]
-# repo = 'octol/vim-cpp-enhanced-highlight'
-# on_ft = 'cpp'
-
-# libclang を使った syntax highligh
-# インストールが一手間なのであとで試す
-# [[plugins]]
-# repo = 'jeaye/color_coded'
-# on_ft = 'cpp'
-# 
-# [[plugins]]
-# repo = 'arakashic/chromatica.nvim'
-# on_ft = 'cpp'
-
 # ----- golang -----
-# [[plugins]]
-# repo = 'zchee/deoplete-go'
-# if = "has('nvim')"
-# build = 'make'
-# on_ft = 'go'
-# on_event = 'InsertEnter'
-# hook_source = '''
-# let g:deoplete#sources#go#package_dot = 1
-# let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-# '''
-
-
-# [[plugins]]
-# repo = 'fatih/vim-go'
-# on_ft = 'go'
-# hook_source = '''
-# let g:go_fmt_command = 'goimports'
-# let g:go_def_mapping_enabled = 0
-# let g:go_highlight_operators = 0
-# let g:go_highlight_functions = 0
-# let g:go_highlight_methods = 0
-# let g:go_highlight_types = 0
-# let g:go_highlight_fields = 0
-# let g:go_highlight_build_constraints = 0
-# let g:go_term_enabled = 1
-# '''
-
 [[plugins]]
 repo = 'mattn/vim-goimports'
 on_ft = 'go'
@@ -266,26 +180,9 @@ repo = 'mattn/emmet-vim'
 on_ft = ['html', 'css', 'php']
 
 # ----- Ruby -----
-# [[plugins]]
-# repo = 'fishbullet/deoplete-ruby'
-# on_ft = 'ruby'
-
-# [[plugins]]
-# repo = 'uplus/deoplete-solargraph'
-# on_ft = 'ruby'
-
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = 'ruby'
-
-# [[plugins]]
-# repo = 'todesking/ruby_hl_lvar.vim'
-# on_ft = 'ruby'
-
-# ----- terraform -----
-[[plugins]]
-repo = 'juliosueiras/vim-terraform-completion'
-on_ft = 'terraform'
 
 # ----- denite -----
 [[plugins]]
