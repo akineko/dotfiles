@@ -535,6 +535,35 @@ let g:precious_enable_switchers = {
 " augroup END
 '''
 
+# ----- treesitter -----
+[[plugins]]
+repo = 'nvim-treesitter/nvim-treesitter'
+merged = 0
+if = 'has("nvim")'
+on_event = 'VimEnter'
+hook_post_update = 'TSUpdate'
+hook_post_source = '''
+lua << EOF
+require('nvim-treesitter.configs').setup {
+  ensure_installed = 'maintained',
+  highlight = {
+    enable = true,
+    disable = {},
+  },
+  -- indent = {
+  --   enable = true,
+  -- },
+}
+EOF
+'''
+
+# ----- treesitter colorscheme -----
+[[plugins]]
+repo = 'EdenEast/nightfox.nvim'
+
+[[plugins]]
+repo = 'sainnhe/edge'
+
 # ----- nvim-lsp -----
 [[plugins]]
 repo = 'neovim/nvim-lspconfig'
@@ -798,12 +827,6 @@ repo = 'nanotech/jellybeans.vim'
 
 [[plugins]]
 repo = 'aereal/vim-colors-japanesque'
-
-[[plugins]]
-repo = 'vim-scripts/jammy.vim'
-
-[[plugins]]
-repo = 'reedes/vim-colors-pencil'
 
 [[plugins]]
 repo = 'vim-scripts/twilight'

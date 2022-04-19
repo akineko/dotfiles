@@ -49,7 +49,7 @@ if has('nvim')
 endif
 set termguicolors
 
-colorscheme hybrid
+colorscheme nordfox
 set background=dark
 
 " encoding
