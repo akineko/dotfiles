@@ -193,37 +193,6 @@ let g:quickrun_config = {
 [[plugins]]
 repo = 'thinca/vim-qfreplace'
 
-# [[plugins]]
-# repo = 'majutsushi/tagbar'
-# hook_add = '''
-# let g:tagbar_autofocus = 1
-# let g:tagbar_autoclose = 1
-# nnoremap <Leader>t :<C-u>TagbarToggle<CR>
-# '''
-
-[[plugins]]
-repo = 'liuchengxu/vista.vim'
-hook_add = '''
-let g:vista_default_executive = has('nvim') ? 'nvim_lsp' : 'vim_lsp'
-let g:vista_finder_alternative_executives = ['ctags']
-" let g:vista_icon_indent = ["▸ ", ""]
-let g:vista_echo_cursor = 0
-let g:vista_close_on_jump = 0
-let g:vista_blink = [0, 0]
-let g:vista_top_level_blink = [0, 0]
-let g:vista#renderer#enable_icon = 1
-let g:vista#renderer#icons = {
-\   "function": "\uf794",
-\   "variable": "\uf71b",
-\  }
-let g:vista_fzf_preview = ['right:50%']
-let g:vista_keep_fzf_colors = 0
-
-nnoremap <Leader>v :<C-u>Vista!!<CR>
-autocmd FileType vista,vista_kind nnoremap <buffer> <silent> / :<C-u>call vista#finder#fzf#Run()<CR>
-'''
-
-
 [[plugins]]
 repo = 'szw/vim-tags'
 
@@ -347,7 +316,6 @@ nmap <Leader>f [fzf]
 nnoremap [fzf]f :<C-u>Files<CR>
 nnoremap [fzf]b :<C-u>Buffers<CR>
 " nnoremap [fzf]t :<C-u>Tags<CR>
-nnoremap [fzf]t :<C-u>Vista finder<CR>
 
 " nnoremap <silent> <C-p> :ProjectFiles<CR>
 nnoremap <silent> <C-p> :GFiles<CR>
