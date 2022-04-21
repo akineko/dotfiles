@@ -203,6 +203,36 @@ require("trouble").setup()
 EOF
 '''
 
+[[plugins]]
+repo = 'tami5/lspsaga.nvim'
+if = 'has("nvim")'
+depends = ['nvim-lspconfig']
+on_event = 'VimEnter'
+hook_add = '''
+nnoremap gd          :Lspsaga preview_definition<CR>
+nnoremap K           :Lspsaga hover_doc<CR>
+nnoremap S           :Lspsaga signature_help<CR>
+nnoremap <leader>rn  :Lspsaga rename<CR>
+nnoremap gf          :Lspsaga lsp_finder<CR>
+nnoremap ge          :Lspsaga show_line_diagnostics<CR>
+nnoremap gk          :Lspsaga diagnostic_jump_prev<CR>
+nnoremap gj          :Lspsaga diagnostic_jump_next<CR>
+nnoremap <leader>lca :Lspsaga code_action<CR>
+vnoremap <leader>lca :<C-u>Lspsaga code_action<CR>
+
+nnoremap <silent> <C-b> :lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+nnoremap <silent> <C-f> :lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+
+nnoremap <A-t> :<C-u>Lspsaga open_floaterm<CR>
+tnoremap <A-t> <C-\><C-n>:Lspsaga close_floaterm<CR>
+'''
+hook_post_source = '''
+lua << EOF
+require('lspsaga').setup {
+}
+EOF
+'''
+
 # ----- treesitter -----
 [[plugins]]
 repo = 'nvim-treesitter/nvim-treesitter'
