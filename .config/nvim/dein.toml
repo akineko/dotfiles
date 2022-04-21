@@ -386,6 +386,14 @@ repo = 'machakann/vim-sandwich'
 
 [[plugins]]
 repo = 'dhruvasagar/vim-table-mode'
+hook_add = '''
+let g:table_mode_disable_mappings = 1
+let g:table_mode_disable_tableize_mappings = 1
+let g:table_mode_map_prefix = ''
+let g:table_mode_toggle_map = ''
+nnoremap <Space>tm :TableModeEnable<CR>
+nnoremap <Space>tt :Tableize<CR>
+'''
 
 [[plugins]]
 repo = 'thinca/vim-ref'
