@@ -351,6 +351,52 @@ hook_post_source = '''
 lua require('telescope').load_extension('frecency')
 '''
 
+# ----- utility -----
+[[plugins]]
+repo = 'sidebar-nvim/sidebar.nvim'
+if = 'has("nvim")'
+on_event = 'VimEnter'
+hook_add = '''
+nnoremap <F3> :SidebarNvimToggle<CR>
+'''
+hook_post_source = '''
+lua << EOF
+require('sidebar-nvim').setup {
+  hide_statusline = true,
+  sections = {
+    'symbols',
+    'git',
+    'todos',
+    'containers',
+    'files',
+  },
+  files = {
+    show_hidden = true,
+  },
+}
+EOF
+'''
+
+[[plugins]]
+repo = 'kana/vim-submode'
+on_event = ['VimEnter']
+hook_post_source = '''
+" window
+call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
+call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
+call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>+')
+call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>-')
+call submode#map('winsize', 'n', '', '>', '<C-w>>')
+call submode#map('winsize', 'n', '', '<', '<C-w><')
+call submode#map('winsize', 'n', '', '+', '<C-w>+')
+call submode#map('winsize', 'n', '', '-', '<C-w>-')
+" tab
+call submode#enter_with('movetab', 'n', '', '<C-t>l', ':<C-u>+tabmove<CR>')
+call submode#enter_with('movetab', 'n', '', '<C-t>h', ':<C-u>-tabmove<CR>')
+call submode#map('movetab', 'n', '', 'l', ':<C-u>+tabmove<CR>')
+call submode#map('movetab', 'n', '', 'h', ':<C-u>-tabmove<CR>')
+'''
+
 # ----- golang -----
 [[plugins]]
 repo = 'mattn/vim-goimports'
@@ -431,26 +477,4 @@ on_source = ['denite.nvim']
 [[plugins]]
 repo = 'rhysd/unite-ruby-require.vim'
 on_source = ['denite.nvim']
-
-# ----- utility -----
-
-[[plugins]]
-repo = 'kana/vim-submode'
-on_event = ['VimEnter']
-hook_post_source = '''
-" window
-call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
-call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
-call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>+')
-call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>-')
-call submode#map('winsize', 'n', '', '>', '<C-w>>')
-call submode#map('winsize', 'n', '', '<', '<C-w><')
-call submode#map('winsize', 'n', '', '+', '<C-w>+')
-call submode#map('winsize', 'n', '', '-', '<C-w>-')
-" tab
-call submode#enter_with('movetab', 'n', '', '<C-t>l', ':<C-u>+tabmove<CR>')
-call submode#enter_with('movetab', 'n', '', '<C-t>h', ':<C-u>-tabmove<CR>')
-call submode#map('movetab', 'n', '', 'l', ':<C-u>+tabmove<CR>')
-call submode#map('movetab', 'n', '', 'h', ':<C-u>-tabmove<CR>')
-'''
 
