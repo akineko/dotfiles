@@ -396,12 +396,6 @@ nnoremap <Space>tt :Tableize<CR>
 '''
 
 [[plugins]]
-repo = 'thinca/vim-ref'
-
-[[plugins]]
-repo = 'taka84u9/vim-ref-ri'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
 nnoremap [fugitive] <Nop>
