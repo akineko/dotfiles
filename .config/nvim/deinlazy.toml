@@ -209,7 +209,6 @@ if = 'has("nvim")'
 depends = ['nvim-lspconfig']
 on_event = 'VimEnter'
 hook_add = '''
-nnoremap gd          :Lspsaga preview_definition<CR>
 nnoremap K           :Lspsaga hover_doc<CR>
 nnoremap S           :Lspsaga signature_help<CR>
 nnoremap <leader>rn  :Lspsaga rename<CR>
@@ -261,6 +260,20 @@ repo = 'nvim-telescope/telescope.nvim'
 if = 'has("nvim")'
 depends = ['plenary.nvim', 'nvim-web-devicons', 'telescope-fzf-native.nvim', 'trouble.nvim']
 on_event = 'VimEnter'
+hook_add = '''
+nmap <leader>f [Telescope]
+nnoremap [Telescope]t :Telescope<CR>
+nnoremap [Telescope]f :Telescope git_files<CR>
+nnoremap [Telescope]F :Telescope find_files hidden=true<CR>
+nnoremap [Telescope]g :Telescope live_grep<CR>
+nnoremap [Telescope]b :Telescope buffers<CR>
+nnoremap gr :Telescope lsp_references<CR>
+nnoremap gd :Telescope lsp_definitions jump_type=never<CR>
+nnoremap gs :Telescope lsp_document_symbols<CR>
+nnoremap gw :Telescope lsp_dynamic_workspace_symbols<CR>
+nnoremap <leader>li  :Telescope lsp_type_definitions<CR>
+nnoremap <leader>tdf :Telescope lsp_implementations<CR>
+'''
 hook_source = '''
 lua << EOF
 local actions = require('telescope.actions')
