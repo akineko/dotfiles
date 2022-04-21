@@ -246,7 +246,7 @@ require('nvim-treesitter.configs').setup {
   ensure_installed = 'all',
   highlight = {
     enable = true,
-    disable = {'toml', 'lua'},
+    disable = {'toml', 'lua', 'vim'},
   },
   -- indent = {
   --   enable = true,
