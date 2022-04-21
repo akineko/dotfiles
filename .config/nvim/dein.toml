@@ -204,7 +204,7 @@ repo = 'thinca/vim-qfreplace'
 [[plugins]]
 repo = 'liuchengxu/vista.vim'
 hook_add = '''
-let g:vista_default_executive = 'vim_lsp'
+let g:vista_default_executive = has('nvim') ? 'nvim_lsp' : 'vim_lsp'
 let g:vista_finder_alternative_executives = ['ctags']
 " let g:vista_icon_indent = ["▸ ", ""]
 let g:vista_echo_cursor = 0
@@ -219,7 +219,7 @@ let g:vista#renderer#icons = {
 let g:vista_fzf_preview = ['right:50%']
 let g:vista_keep_fzf_colors = 0
 
-nnoremap <Leader>t :<C-u>Vista!!<CR>
+nnoremap <Leader>v :<C-u>Vista!!<CR>
 autocmd FileType vista,vista_kind nnoremap <buffer> <silent> / :<C-u>call vista#finder#fzf#Run()<CR>
 '''
 
