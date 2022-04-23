@@ -1,3 +1,55 @@
+# ----- statusline -----
+[[plugins]]
+repo = 'nvim-lualine/lualine.nvim'
+if = 'has("nvim")'
+depends = ['nvim-web-devicons']
+on_event = ['VimEnter']
+hook_post_source = '''
+lua << EOF
+local function file_encoding()
+    return ((vim.bo.fenc ~= '' and vim.bo.fenc) or vim.o.enc)
+end
+
+local function lsp_client_names()
+    local clients = {}
+
+    for _, client in pairs(vim.lsp.buf_get_clients(0)) do
+        clients[#clients + 1] = client.name
+    end
+
+    return table.concat(clients, ' ')
+end
+
+require("lualine").setup {
+  options = {
+    theme = 'wombat',
+  },
+  sections = {
+    lualine_b = {
+      'branch',
+      'diff',
+      {'diagnostics', sources = {'nvim_diagnostic'}},
+    },
+    lualine_c = {{'filename', path = 1}},
+    lualine_x = {
+      {
+        lsp_client_names,
+        icon = ' LSP:',
+      },
+      file_encoding,
+      'fileformat',
+      'filetype',
+    }
+  },
+  tabline = {
+    lualine_a = {
+      {'tabs', mode = 2}
+    },
+  },
+}
+EOF
+'''
+
 # ----- ddc -----
 [[plugins]]
 repo = 'Shougo/pum.vim'

@@ -251,6 +251,7 @@ depends = ['fzf', 'fern.vim']
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+if = '!has("nvim")'
 hook_add = '''
 let g:lightline = {
       \ 'colorscheme': 'wombat',
