@@ -457,11 +457,8 @@ depends = ['nvim-lspconfig', 'lsp_signature.nvim', 'nvim-lsp-ts-utils']
 hook_add = '''
 lua << EOF
 local on_attach = function (client, bufnr)
-  vim.wo.signcolumn = 'yes'
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', '<leader>lf',  '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  local opts = { buffer = bufnr, noremap = true, silent = true }
+  vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, opts)
 
   require "lsp_signature".on_attach()
 end

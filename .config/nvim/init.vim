@@ -66,6 +66,8 @@ set fileformats=unix,dos,mac
 
 " 行番号
 set number
+" 行番号横の印表示域
+set signcolumn=yes
 
 " カーソル位置のハイライト
 set cursorline
