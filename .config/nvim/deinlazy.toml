@@ -30,16 +30,19 @@ require("lualine").setup {
       'diff',
       {'diagnostics', sources = {'nvim_diagnostic'}},
     },
-    lualine_c = {{'filename', path = 1}},
+    lualine_c = { {'filename', path = 1} },
     lualine_x = {
-      {
-        lsp_client_names,
-        icon = ' LSP:',
-      },
+      -- {
+      --   lsp_client_names,
+      --   icon = ' LSP:',
+      -- },
       file_encoding,
       'fileformat',
       'filetype',
     }
+  },
+  inactive_sections = {
+    lualine_c = { {'filename', path = 1} }
   },
   tabline = {
     lualine_a = {
