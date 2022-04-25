@@ -60,7 +60,7 @@ setopt equals
 setopt numeric_glob_sort
 # lsコマンドなどでパターンマッチを複数指定した場合に
 # 途中でエラーがあっても結果も表示する
-setopt nomatch
+setopt nonomatch
 
 # -------------------- ヒストリの設定 --------------------
 # セッションが終了した順にヒストリに追記
