@@ -343,13 +343,6 @@ repo = 'jiangmiao/auto-pairs'
 if = '!has("nvim")'
 
 [[plugins]]
-repo = 'windwp/nvim-autopairs'
-if = 'has("nvim")'
-hook_add = '''
-lua require('nvim-autopairs').setup{}
-'''
-
-[[plugins]]
 repo = 'machakann/vim-sandwich'
 
 [[plugins]]

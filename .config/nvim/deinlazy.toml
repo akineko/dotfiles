@@ -179,6 +179,15 @@ call popup_preview#enable()
 repo = 'ray-x/lsp_signature.nvim'
 if = 'has("nvim")'
 
+[[plugins]]
+repo = 'windwp/nvim-autopairs'
+if = 'has("nvim")'
+on_event = 'VimEnter'
+hook_add = '''
+lua require('nvim-autopairs').setup{}
+'''
+
+
 # ----- ddc-filter -----
 [[plugins]]
 repo = 'Shougo/ddc-matcher_head'
