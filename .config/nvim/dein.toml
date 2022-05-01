@@ -336,16 +336,15 @@ repo = 'lambdalisue/vim-findent'
 repo = 'vim-scripts/AnsiEsc.vim'
 
 # [[plugins]]
-# repo = 'kana/vim-smartinput'
-
-# [[plugins]]
 # repo = 'cohama/lexima.vim'
 
-# [[plugins]]
-# repo = 'jiangmiao/auto-pairs'
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+if = '!has("nvim")'
 
 [[plugins]]
 repo = 'windwp/nvim-autopairs'
+if = 'has("nvim")'
 hook_add = '''
 lua require('nvim-autopairs').setup{}
 '''
@@ -453,6 +452,7 @@ if = 'has("nvim")'
 
 [[plugins]]
 repo = 'williamboman/nvim-lsp-installer'
+if = 'has("nvim")'
 depends = ['nvim-lspconfig', 'lsp_signature.nvim', 'nvim-lsp-ts-utils']
 hook_add = '''
 lua << EOF
@@ -514,38 +514,45 @@ if = 'has("nvim")'
 # ----- vim-lsp -----
 # [[plugins]]
 # repo = 'prabirshrestha/async.vim'
+# if = '!has("nvim")'
 # 
 # [[plugins]]
 # repo = 'prabirshrestha/asyncomplete.vim'
+# if = '!has("nvim")'
 # 
 # [[plugins]]
 # repo = 'prabirshrestha/asyncomplete-lsp.vim'
+# if = '!has("nvim")'
 
-# [[plugins]]
-# repo = 'prabirshrestha/vim-lsp'
-# hook_add = '''
-# let g:lsp_diagnostics_enabled = 1
-# let g:lsp_diagnostics_echo_cursor = 1
-# let g:lsp_diagnostics_float_cursor = 0
-# " let g:asynccomplete_auto_popup = 1
-# " let g:asynccomplete_auto_completeopt = 1
-# " let g:asynccomplete_popup_deley = 200
-# let g:lsp_text_edit_enabled = 1
-# 
-# nnoremap <silent> <leader>h :<C-u>LspHover<CR>
-# nnoremap <silent> <leader>dc :<C-u>LspDeclaration<CR>
-# nnoremap <silent> <leader>df :<C-u>LspDefinition<CR>
-# nnoremap <silent> <leader>tdf :<C-u>LspTypeDefinition<CR>
-# nnoremap <silent> <leader>rf :<C-u>LspReferences<CR>
-# nnoremap <silent> <leader>rn :<C-u>LspRename<CR>
-# nnoremap <silent> <leader>lf :<C-u>LspDocumentFormat<CR>
-# nnoremap <silent> <leader>lj :<C-u>LspNextError<CR>
-# nnoremap <silent> <leader>lk :<C-u>LspPreviousError<CR>
-# nnoremap <silent> <leader>li :<C-u>LspImplementation<CR>
-# '''
-# 
-# [[plugins]]
-# repo = 'mattn/vim-lsp-settings'
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+if = '!has("nvim")'
+hook_add = '''
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_float_cursor = 0
+" let g:asynccomplete_auto_popup = 1
+" let g:asynccomplete_auto_completeopt = 1
+" let g:asynccomplete_popup_deley = 200
+let g:lsp_text_edit_enabled = 1
+
+nnoremap <silent> K :<C-u>LspHover<CR>
+nnoremap <silent> <leader>dc :<C-u>LspDeclaration<CR>
+nnoremap <silent> gd :<C-u>LspDefinition<CR>
+nnoremap <silent> <leader>df :<C-u>LspDefinition<CR>
+nnoremap <silent> <leader>td :<C-u>LspTypeDefinition<CR>
+nnoremap <silent> gr :<C-u>LspReferences<CR>
+nnoremap <silent> <leader>rf :<C-u>LspReferences<CR>
+nnoremap <silent> <leader>rn :<C-u>LspRename<CR>
+nnoremap <silent> <leader>lf :<C-u>LspDocumentFormat<CR>
+nnoremap <silent> gj :<C-u>LspNextError<CR>
+nnoremap <silent> gk :<C-u>LspPreviousError<CR>
+nnoremap <silent> <leader>li :<C-u>LspImplementation<CR>
+'''
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+if = '!has("nvim")'
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
