@@ -330,8 +330,8 @@ nnoremap <leader>rf :Telescope lsp_references<CR>
 nnoremap <leader>df :Telescope lsp_definitions jump_type=never<CR>
 nnoremap gs :Telescope lsp_document_symbols<CR>
 nnoremap gw :Telescope lsp_dynamic_workspace_symbols<CR>
-nnoremap <leader>li :Telescope lsp_type_definitions<CR>
-nnoremap <leader>td :Telescope lsp_implementations<CR>
+nnoremap <leader>td :Telescope lsp_type_definitions<CR>
+nnoremap <leader>li :Telescope lsp_implementations<CR>
 '''
 hook_source = '''
 lua << EOF
