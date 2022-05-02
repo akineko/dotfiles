@@ -342,7 +342,7 @@ hook_add = '''
 nnoremap <leader>tt :Telescope<CR>
 
 nmap <leader>f [Telescope]
-nnoremap [Telescope]f :Telescope git_files<CR>
+nnoremap [Telescope]f :lua require'telescope-config'.project_files()<CR>
 nnoremap [Telescope]F :Telescope find_files hidden=true<CR>
 nnoremap [Telescope]g :Telescope live_grep<CR>
 nnoremap [Telescope]b :Telescope buffers<CR>
