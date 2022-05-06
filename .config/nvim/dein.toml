@@ -222,10 +222,11 @@ function! s:init_fern() abort
       \ <Plug>(fern-action-open)
       \ <Plug>(fern-close-drawer)
 
-  nmap <buffer> t <Plug>(fern-action-open:tabedit)
+  nmap <buffer> <Enter> <Plug>(fern-action-open-and-close)
+  nmap <buffer> t <Plug>(fern-action-open:tabedit)<Plug>(fern-close-drawer)
   nmap <buffer> T <Plug>(fern-action-open:tabedit)gT
-  nmap <buffer> <C-x> <Plug>(fern-action-open:split)
-  nmap <buffer> <C-v> <Plug>(fern-action-open:vsplit)
+  nmap <buffer> <C-x> <Plug>(fern-action-open:split)<Plug>(fern-close-drawer)
+  nmap <buffer> <C-v> <Plug>(fern-action-open:vsplit)<Plug>(fern-close-drawer)
 
   nmap <buffer> D <Plug>(fern-action-remove)
   nnoremap <buffer> q :<C-u>quit<CR>
