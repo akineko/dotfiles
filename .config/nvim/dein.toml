@@ -452,7 +452,7 @@ hook_add = '''
 lua << EOF
 local on_attach = function (client, bufnr)
   local opts = { buffer = bufnr, noremap = true, silent = true }
-  vim.keymap.set('n', '<leader>lf', vim.lsp.buf.formatting, opts)
+  vim.keymap.set('n', '<leader>lf', ":lua vim.lsp.buf.format{ async = true }<CR>", opts)
 
   require "lsp_signature".on_attach()
 end
