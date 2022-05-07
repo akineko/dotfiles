@@ -315,7 +315,7 @@ EOF
 repo = 'nvim-treesitter/nvim-treesitter'
 if = 'has("nvim")'
 merged = 0
-depends = ['nvim-ts-rainbow']
+depends = ['nvim-ts-rainbow', 'nvim-ts-autotag']
 on_event = 'VimEnter'
 hook_post_update = 'TSUpdate'
 hook_post_source = '''
@@ -334,6 +334,9 @@ require('nvim-treesitter.configs').setup {
     -- disable = { "jsx", "cpp" },
     extended_mode = true,
     max_file_lines = nil,
+  },
+  autotag = {
+    enable = true,
   }
 }
 EOF
@@ -341,6 +344,10 @@ EOF
 
 [[plugins]]
 repo = 'p00f/nvim-ts-rainbow'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'windwp/nvim-ts-autotag'
 if = 'has("nvim")'
 
 # ----- telescope -----
