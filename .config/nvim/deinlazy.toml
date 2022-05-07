@@ -351,6 +351,11 @@ if = 'has("nvim")'
 repo = 'windwp/nvim-ts-autotag'
 if = 'has("nvim")'
 
+[[plugins]]
+repo = 'romgrk/nvim-treesitter-context'
+if = 'has("nvim")'
+on_source = 'nvim-treesitter'
+
 # ----- telescope -----
 [[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
