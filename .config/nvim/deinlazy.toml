@@ -315,6 +315,7 @@ EOF
 repo = 'nvim-treesitter/nvim-treesitter'
 if = 'has("nvim")'
 merged = 0
+depends = ['nvim-ts-rainbow']
 on_event = 'VimEnter'
 hook_post_update = 'TSUpdate'
 hook_post_source = '''
@@ -328,9 +329,19 @@ require('nvim-treesitter.configs').setup {
   -- indent = {
   --   enable = true,
   -- },
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" },
+    extended_mode = true,
+    max_file_lines = nil,
+  }
 }
 EOF
 '''
+
+[[plugins]]
+repo = 'p00f/nvim-ts-rainbow'
+if = 'has("nvim")'
 
 # ----- telescope -----
 [[plugins]]
