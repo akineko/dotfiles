@@ -30,6 +30,7 @@ brew install fselect
 brew install lsd
 brew install procs
 brew install rargs
+brew install gitui
 
 # go tools
 brew install fzf
@@ -38,6 +39,7 @@ brew install ghq
 brew install direnv
 brew tap kyoshidajp/ghkw
 brew install ghkw
+brew install lazygit
 
 # C++ build tools
 brew install cmake
