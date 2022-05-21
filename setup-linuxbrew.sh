@@ -31,6 +31,7 @@ brew install lsd
 brew install procs
 brew install rargs
 brew install gitui
+brew install shellcheck
 
 # go tools
 brew install fzf
