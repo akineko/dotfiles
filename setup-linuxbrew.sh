@@ -32,6 +32,7 @@ brew install procs
 brew install rargs
 brew install gitui
 brew install shellcheck
+brew install zellij
 
 # go tools
 brew install fzf
