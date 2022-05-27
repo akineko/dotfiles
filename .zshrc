@@ -205,6 +205,7 @@ export HGENCODING=utf8
 
 # 端末を256色に
 export TERM=xterm-256color
+export COLORTERM=truecolor
 
 # XDG_CONFIG
 export XDG_CONFIG_HOME=$HOME/.config
