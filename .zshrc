@@ -204,7 +204,11 @@ export SVN_EDITOR=vim
 export HGENCODING=utf8
 
 # 端末を256色に
-export TERM=xterm-256color
+if [[ $TMUX = "" ]] then
+    export TERM="xterm-256color"
+else
+    export TERM="tmux-256color"
+fi
 export COLORTERM=truecolor
 
 # XDG_CONFIG
