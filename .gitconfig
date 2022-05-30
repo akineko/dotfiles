@@ -8,6 +8,8 @@
 #  autocrlf = true  # checkout: LF -> CRLF  commit: CRLF -> LF
 #  autocrlf = input # checkout: do nothing  commit: CRLF -> LF
   autocrlf = false # checkout: do nothing  commit: do nothing
+[push]
+  default = current
 [alias]
   st = status
   ci = commit
