@@ -10,6 +10,8 @@
   autocrlf = false # checkout: do nothing  commit: do nothing
 [push]
   default = current
+[pull]
+  rebase = true
 [alias]
   st = status
   ci = commit
