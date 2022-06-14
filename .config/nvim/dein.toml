@@ -561,6 +561,9 @@ repo = 'vim-denops/denops.vim'
 [[plugins]]
 repo = 'sheerun/vim-polyglot'
 
+[[plugins]]
+repo = 'pantharshit00/vim-prisma'
+
 # ----- treesitter colorscheme -----
 [[plugins]]
 repo = 'EdenEast/nightfox.nvim'
