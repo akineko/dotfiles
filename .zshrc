@@ -243,12 +243,6 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-# anyenv
-# export PATH="$HOME/.anyenv/bin:$PATH"
-# if type anyenv &>/dev/null; then
-  # eval "$(anyenv init - zsh)"
-# fi
-
 # asdf
 if type asdf &>/dev/null; then
   . $(brew --prefix asdf)/libexec/asdf.sh
