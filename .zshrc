@@ -256,6 +256,10 @@ if type starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 
+# volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
 # -------------------------------------------------------------------------------
 # Golang
 # -------------------------------------------------------------------------------
