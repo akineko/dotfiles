@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -Ceu
 
 abspath=$(cd "$(dirname "$0")" && pwd)
@@ -35,12 +35,5 @@ ln -sf "$abspath/.config/fish/functions/fish_prompt.fish" "$HOME/.config/fish/fu
 
 cp -r .vim "$HOME/"
 mkdir -p "$HOME/vimbackup"
-if [ ! -d ~/.vim/bundle/neobundle.vim ]; then
-  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-fi
 
-if [ ! -d ~/.zinit/bin ]; then
-  mkdir ~/.zinit
-  git clone https://github.com/zdharma-continuum/zinit.git ~/.zinit/bin
-fi
-
+source "$abspath/init-tools.sh"
