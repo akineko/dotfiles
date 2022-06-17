@@ -5,12 +5,13 @@ curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/insta
 chmod +x install.sh
 sudo ./install.sh install
 sudo /opt/distrod/bin/distrod enable
+rm install.sh
 
 # ビープ音OFF
 echo 'set bell-style none' > ~/.inputrc
 
 # Windows 側の PATH を引き継がない
-echo "[interop]\\nappendWindowsPath = false" | sudo tee -a /etc/wsl.conf
+print "[interop]\\nappendWindowsPath = false" | sudo tee -a /etc/wsl.conf
 
 # Git の認証情報を Windows 側と共有する
 # Git for Windows をデフォルトのままインストールした前提
