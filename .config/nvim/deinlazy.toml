@@ -358,15 +358,30 @@ on_source = 'nvim-treesitter'
 
 # ----- telescope -----
 [[plugins]]
+repo = 'ahmedkhalf/project.nvim'
+if = 'has("nvim")'
+on_event = 'VimEnter'
+hook_source = '''
+lua require("project_nvim").setup()
+'''
+
+[[plugins]]
 repo = 'nvim-telescope/telescope.nvim'
 if = 'has("nvim")'
-depends = ['plenary.nvim', 'nvim-web-devicons', 'telescope-fzf-native.nvim', 'trouble.nvim']
+depends = [
+  'plenary.nvim',
+  'nvim-web-devicons',
+  'telescope-fzf-native.nvim',
+  'trouble.nvim',
+  'project.nvim'
+]
 on_event = 'VimEnter'
 hook_add = '''
 nnoremap <leader>tt :Telescope<CR>
 
 nmap <leader>f [Telescope]
-nnoremap [Telescope]f :lua require'telescope-config'.project_files()<CR>
+" nnoremap [Telescope]f :lua require'telescope-config'.project_files()<CR>
+nnoremap [Telescope]f :Telescope find_files hidden=true<CR>
 nnoremap [Telescope]F :Telescope find_files hidden=true no_ignore=true<CR>
 nnoremap [Telescope]g :Telescope live_grep<CR>
 nnoremap [Telescope]b :Telescope buffers<CR>
@@ -455,6 +470,7 @@ require('telescope').setup{
 
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('frecency')
+require('telescope').load_extension('projects')
 EOF
 '''
 
