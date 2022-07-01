@@ -489,6 +489,17 @@ lua require('telescope').load_extension('frecency')
 
 # ----- utility -----
 [[plugins]]
+repo = 'phaazon/hop.nvim'
+if = 'has("nvim")'
+on_event = 'VimEnter'
+hook_post_source = '''
+lua require('hop').setup()
+'''
+hook_add = '''
+nnoremap <leader>m :<C-u>HopWord<CR>
+'''
+
+[[plugins]]
 repo = 'sidebar-nvim/sidebar.nvim'
 if = 'has("nvim")'
 on_event = 'VimEnter'

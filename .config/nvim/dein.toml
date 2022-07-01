@@ -142,8 +142,14 @@ call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
 '''
 
 # ----- utility -----
+# [[plugins]]
+# repo = 'easymotion/vim-easymotion'
+
 [[plugins]]
-repo = 'easymotion/vim-easymotion'
+repo = 'yuki-yano/fuzzy-motion.vim'
+hook_add = '''
+nnoremap <leader>, :<C-u>FuzzyMotion<CR>
+'''
 
 [[plugins]]
 repo = 'h1mesuke/vim-alignta'
