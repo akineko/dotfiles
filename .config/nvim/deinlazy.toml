@@ -254,7 +254,16 @@ depends = ['plenary.nvim']
 on_event = 'VimEnter'
 hook_post_source = '''
 lua << EOF
+local nvim_lsp = require('lspconfig')
+
 require('null-ls').setup{
+  root_dir = nvim_lsp.util.root_pattern(
+      "package.json",
+      "node_modules",
+      ".null-ls-root",
+      "Makefile",
+      ".git"
+    ),
   sources = {
     require('null-ls').builtins.formatting.prettier,
     require('null-ls').builtins.code_actions.shellcheck,
@@ -385,6 +394,7 @@ nnoremap [Telescope]f :Telescope find_files hidden=true<CR>
 nnoremap [Telescope]F :Telescope find_files hidden=true no_ignore=true<CR>
 nnoremap [Telescope]g :Telescope live_grep<CR>
 nnoremap [Telescope]b :Telescope buffers<CR>
+nnoremap [Telescope]p :Telescope projects<CR>
 
 nnoremap gr :Telescope lsp_references<CR>
 nnoremap gd :Telescope lsp_definitions jump_type=never<CR>
