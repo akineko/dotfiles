@@ -73,6 +73,9 @@ set signcolumn=yes
 set cursorline
 set cursorcolumn
 
+" マウス
+set mouse=
+
 " 描画改善
 set lazyredraw
 set ttyfast

@@ -577,6 +577,18 @@ repo = 'EdenEast/nightfox.nvim'
 [[plugins]]
 repo = 'sainnhe/edge'
 
+[[plugins]]
+repo = 'bluz71/vim-moonfly-colors'
+
+[[plugins]]
+repo = 'kaiuri/nvim-juliana'
+
+[[plugins]]
+repo = 'navarasu/onedark.nvim'
+
+[[plugins]]
+repo = 'rakr/vim-one'
+
 # ----- colorscheme -----
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
@@ -587,45 +599,9 @@ repo = 'w0ng/vim-hybrid'
 [[plugins]]
 repo = 'nightsense/snow'
 
-[[plugins]]
-repo = 'joshdick/onedark.vim'
-
-[[plugins]]
-repo = 'rakr/vim-one'
-
-[[plugins]]
-repo = 'arcticicestudio/nord-vim'
-
-[[plugins]]
-repo = 'cormacrelf/vim-colors-github'
-
-[[plugins]]
-repo = 'nanotech/jellybeans.vim'
+# [[plugins]]
+# repo = 'joshdick/onedark.vim'
 
 [[plugins]]
 repo = 'aereal/vim-colors-japanesque'
-
-[[plugins]]
-repo = 'vim-scripts/twilight'
-
-[[plugins]]
-repo = 'jonathanfilip/vim-lucius'
-
-[[plugins]]
-repo = 'jpo/vim-railscasts-theme'
-
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
-
-[[plugins]]
-repo = 'vim-scripts/Wombat'
-
-[[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
-repo = 'vim-scripts/rdark'
-
-[[plugins]]
-repo = 'mrkn/mrkn256.vim'
 
