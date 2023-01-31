@@ -101,7 +101,7 @@ call ddc#custom#patch_global('sourceOptions', {
   \ },
   \ 'tabnine': {
   \   'mark': 'TN',
-  \   'maxCandidates': 5,
+  \   'maxItems': 5,
   \   'isVolatile': v:true,
   \ },
   \ 'rg': {
