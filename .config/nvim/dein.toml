@@ -331,6 +331,7 @@ let $FZF_DEFAULT_OPTS = '--bind alt-a:select-all,alt-d:deselect-all'
 
 [[plugins]]
 repo = 'tyru/caw.vim'
+if = '!has("nvim")'
 hook_add = '''
 nmap <Leader>c <Plug>(caw:prefix)
 xmap <Leader>c <Plug>(caw:prefix)

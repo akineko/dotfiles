@@ -140,9 +140,6 @@ call ddc#custom#patch_global('filterParams', {
   \ 'converter_fuzzy': {'hlGroup': 'DiffText'},
   \ })
 
-" pum.vim
-call ddc#custom#patch_global('completionMenu', 'pum.vim')
-
 inoremap <silent><expr> <C-n>
   \ pum#visible()
   \ ? '<Cmd>call pum#map#insert_relative(+1)<CR>'
@@ -329,7 +326,7 @@ EOF
 repo = 'nvim-treesitter/nvim-treesitter'
 if = 'has("nvim")'
 merged = 0
-depends = ['nvim-ts-rainbow', 'nvim-ts-autotag']
+depends = ['nvim-ts-rainbow', 'nvim-ts-autotag', 'nvim-ts-context-commentstring']
 on_event = 'VimEnter'
 hook_post_update = 'TSUpdate'
 hook_post_source = '''
@@ -351,7 +348,11 @@ require('nvim-treesitter.configs').setup {
   },
   autotag = {
     enable = true,
-  }
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
 }
 EOF
 '''
@@ -368,6 +369,10 @@ if = 'has("nvim")'
 repo = 'romgrk/nvim-treesitter-context'
 if = 'has("nvim")'
 on_source = 'nvim-treesitter'
+
+[[plugins]]
+repo = 'JoosepAlviste/nvim-ts-context-commentstring'
+if = 'has("nvim")'
 
 # ----- telescope -----
 [[plugins]]
@@ -502,6 +507,30 @@ lua require('telescope').load_extension('frecency')
 '''
 
 # ----- utility -----
+[[plugins]]
+repo = 'numToStr/Comment.nvim'
+if = 'has("nvim")'
+on_event = ['VimEnter']
+depends = ['nvim-ts-context-commentstring']
+hook_post_source = '''
+lua << EOF
+require('Comment').setup{
+  toggler = {
+    line = '<leader>cc',
+    block = '<leader>cb',
+  },
+  opleader = {
+    line = '<leader>cc',
+    block = '<leader>cb',
+  },
+  mappings = {
+    extra = false,
+  },
+  pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+}
+EOF
+'''
+
 [[plugins]]
 repo = 'phaazon/hop.nvim'
 if = 'has("nvim")'
