@@ -488,6 +488,7 @@ lsp_installer.on_server_ready(function(server)
 
   if server.name == "tsserver" then
     opts.on_attach = function(client, bufnr)
+      client.server_capabilities.documentFormattingProvider = false
       local ts_utils = require("nvim-lsp-ts-utils")
       ts_utils.setup({
         enable_import_on_completion = true,

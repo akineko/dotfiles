@@ -257,18 +257,49 @@ hook_post_source = '''
 lua << EOF
 local nvim_lsp = require('lspconfig')
 
+local function find_root()
+  local node_root = nvim_lsp.util.find_package_json_ancestor()
+  if node_root ~= "" then
+    return node_root
+  end
+
+  local modules_root = nvim_lsp.util.find_node_modules_ancestor()
+  if modules_root ~= "" then
+    return modules_root
+  end
+
+  return nvim_lsp.util.find_git_ancestor()
+end
+
 require('null-ls').setup{
-  root_dir = nvim_lsp.util.root_pattern(
-      "package.json",
-      "node_modules",
-      ".null-ls-root",
-      "Makefile",
-      ".git"
-    ),
+  -- debug = true,
+  root_dir = find_root(),
   sources = {
-    require('null-ls').builtins.formatting.prettier,
+    -- ShellScript
     require('null-ls').builtins.code_actions.shellcheck,
+    -- JavaScript / TypeScript
+    -- require('null-ls').builtins.formatting.prettier.with({
+        -- prefer_local = "node_modules/.bin",
+    -- }),
+    -- require('null-ls').builtins.formatting.rome.with({
+        -- prefer_local = "node_modules/.bin",
+    -- }),
+    require('null-ls').builtins.formatting.dprint.with({
+        prefer_local = "node_modules/.bin",
+    }),
+    require('null-ls').builtins.code_actions.xo.with({
+        prefer_local = "node_modules/.bin",
+    }),
+    require('null-ls').builtins.diagnostics.xo.with({
+        prefer_local = "node_modules/.bin",
+    }),
   },
+  on_attach = function (client, bufnr)
+    local opts = { buffer = bufnr, noremap = true, silent = true }
+    vim.keymap.set('n', '<leader>lf', ":lua vim.lsp.buf.format{ async = true }<CR>", opts)
+
+    require "lsp_signature".on_attach()
+  end
 }
 EOF
 '''
@@ -303,8 +334,8 @@ nnoremap S           :Lspsaga signature_help<CR>
 nnoremap <leader>rn  :Lspsaga rename<CR>
 nnoremap gf          :Lspsaga lsp_finder<CR>
 nnoremap ge          :Lspsaga show_line_diagnostics<CR>
-nnoremap gk          :Lspsaga diagnostic_jump_prev<CR>
-nnoremap gj          :Lspsaga diagnostic_jump_next<CR>
+nnoremap <leader>lk  :Lspsaga diagnostic_jump_prev<CR>
+nnoremap <leader>lj  :Lspsaga diagnostic_jump_next<CR>
 nnoremap <leader>lca :Lspsaga code_action<CR>
 vnoremap <leader>lca :<C-u>Lspsaga code_action<CR>
 
