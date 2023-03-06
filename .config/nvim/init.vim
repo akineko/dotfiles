@@ -71,7 +71,7 @@ set signcolumn=yes
 
 " カーソル位置のハイライト
 set cursorline
-set cursorcolumn
+set nocursorcolumn
 
 " マウス
 set mouse=
