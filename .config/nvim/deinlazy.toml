@@ -253,20 +253,18 @@ repo = 'neovim/nvim-lspconfig'
 if = 'has("nvim")'
 
 [[plugins]]
-repo = 'jose-elias-alvarez/nvim-lsp-ts-utils'
+repo = 'williamboman/mason.nvim'
 if = 'has("nvim")'
 
 [[plugins]]
-repo = 'nvim-lua/lsp-status.nvim'
+repo = 'williamboman/mason-lspconfig.nvim'
 if = 'has("nvim")'
-
-[[plugins]]
-repo = 'williamboman/nvim-lsp-installer'
-if = 'has("nvim")'
-depends = ['nvim-lspconfig', 'lsp_signature.nvim', 'nvim-lsp-ts-utils']
+depends = ['nvim-lspconfig', 'mason.nvim', 'lsp_signature.nvim', 'nvim-lsp-ts-utils']
 on_event = 'VimEnter'
 hook_post_source = '''
 lua << EOF
+require("mason").setup()
+
 local on_attach = function (client, bufnr)
   local opts = { buffer = bufnr, noremap = true, silent = true }
   vim.keymap.set('n', '<leader>lf', ":lua vim.lsp.buf.format{ async = true }<CR>", opts)
@@ -290,13 +288,14 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
   }
 }
 
-local lsp_installer = require("nvim-lsp-installer")
-lsp_installer.on_server_ready(function(server)
+local lspconfig = require("lspconfig")
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup_handlers({ function(server_name)
   local opts = {}
   opts.on_attach = on_attach
   opts.capabilities = capabilities
 
-  if server.name == "tsserver" then
+  if server_name == "tsserver" then
     opts.on_attach = function(client, bufnr)
       client.server_capabilities.documentFormattingProvider = false
       local ts_utils = require("nvim-lsp-ts-utils")
@@ -314,10 +313,18 @@ lsp_installer.on_server_ready(function(server)
     end
   end
 
-  server:setup(opts)
-end)
+  lspconfig[server_name].setup(opts)
+end})
 EOF
 '''
+
+[[plugins]]
+repo = 'jose-elias-alvarez/nvim-lsp-ts-utils'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'nvim-lua/lsp-status.nvim'
+if = 'has("nvim")'
 
 [[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
