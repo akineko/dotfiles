@@ -402,7 +402,7 @@ EOF
 '''
 
 [[plugins]]
-repo = 'tami5/lspsaga.nvim'
+repo = 'glepnir/lspsaga.nvim'
 if = 'has("nvim")'
 depends = ['nvim-lspconfig']
 on_event = 'VimEnter'
@@ -411,17 +411,17 @@ nnoremap K           :Lspsaga hover_doc<CR>
 nnoremap S           :Lspsaga signature_help<CR>
 nnoremap <leader>rn  :Lspsaga rename<CR>
 nnoremap gf          :Lspsaga lsp_finder<CR>
+nnoremap gD          :Lspsaga peek_definition<CR>
+nnoremap <leader>lo  :Lspsaga outline<CR>
+nnoremap <F4>        :Lspsaga outline<CR>
 nnoremap ge          :Lspsaga show_line_diagnostics<CR>
 nnoremap <leader>lk  :Lspsaga diagnostic_jump_prev<CR>
 nnoremap <leader>lj  :Lspsaga diagnostic_jump_next<CR>
 nnoremap <leader>lca :Lspsaga code_action<CR>
 vnoremap <leader>lca :<C-u>Lspsaga code_action<CR>
 
-nnoremap <silent> <C-b> :lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-nnoremap <silent> <C-f> :lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-
-nnoremap <A-t> :<C-u>Lspsaga open_floaterm<CR>
-tnoremap <A-t> <C-\><C-n>:Lspsaga close_floaterm<CR>
+nnoremap <A-t> :<C-u>Lspsaga term_toggle<CR>
+tnoremap <A-t> <C-\><C-n>:Lspsaga term_toggle<CR>
 '''
 hook_post_source = '''
 lua << EOF
