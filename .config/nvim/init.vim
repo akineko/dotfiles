@@ -18,9 +18,12 @@ if dein#load_state(s:dein_dir)
   let s:toml = expand('$XDG_CONFIG_HOME/nvim/dein.toml')
   let s:lazy_toml = expand('$XDG_CONFIG_HOME/nvim/deinlazy.toml')
   let s:ddc_toml = expand('$XDG_CONFIG_HOME/nvim/ddc.toml')
+  let s:nvimcmp_toml = expand('$XDG_CONFIG_HOME/nvim/nvim-cmp.toml')
+
   call dein#load_toml(s:toml, {'lazy' : 0})
   call dein#load_toml(s:lazy_toml, {'lazy' : 1})
-  call dein#load_toml(s:ddc_toml, {'lazy' : 1})
+  " call dein#load_toml(s:ddc_toml, {'lazy' : 1})
+  call dein#load_toml(s:nvimcmp_toml, {'lazy' : 1})
 
   call dein#end()
   call dein#save_state()
@@ -265,3 +268,4 @@ augroup CppConfig
   autocmd FileType cpp nnoremap <buffer> <silent> sh :<C-u>hide edit %<.hpp<CR>
   autocmd FileType cpp nnoremap <buffer> <silent> ss :<C-u>hide edit %<.cpp<CR>
 augroup END
+

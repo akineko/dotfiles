@@ -65,7 +65,13 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'williamboman/mason-lspconfig.nvim'
 if = 'has("nvim")'
-depends = ['nvim-lspconfig', 'mason.nvim', 'lsp_signature.nvim', 'nvim-lsp-ts-utils']
+depends = [
+  'mason.nvim',
+  'nvim-lspconfig',
+  'cmp-nvim-lsp',
+  'lsp_signature.nvim',
+  'nvim-lsp-ts-utils'
+]
 on_event = 'VimEnter'
 hook_post_source = '''
 lua << EOF
@@ -78,21 +84,27 @@ local on_attach = function (client, bufnr)
   require "lsp_signature".on_attach()
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-capabilities.textDocument.completion.completionItem.preselectSupport = true
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
+local ok, _ = pcall(require, 'cmp')
+local capabilities
+if ok then
+  capabilities = require('cmp_nvim_lsp').default_capabilities()
+else
+  capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+  capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+  capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+  capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+  capabilities.textDocument.completion.completionItem.preselectSupport = true
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+  capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+  capabilities.textDocument.completion.completionItem.resolveSupport = {
+    properties = {
+      'documentation',
+      'detail',
+      'additionalTextEdits',
+    }
   }
-}
+end
 
 local lspconfig = require("lspconfig")
 require("mason-lspconfig").setup()
