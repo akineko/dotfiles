@@ -490,12 +490,6 @@ repo = 'mattn/vim-lsp-settings'
 if = '!has("nvim")'
 
 [[plugins]]
-repo = 'hrsh7th/vim-vsnip'
-
-[[plugins]]
-repo = 'hrsh7th/vim-vsnip-integ'
-
-[[plugins]]
 repo = 'vim-denops/denops.vim'
 
 # ----- filetype -----

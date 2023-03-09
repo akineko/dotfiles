@@ -1,0 +1,183 @@
+# ----- ddc -----
+[[plugins]]
+repo = 'Shougo/pum.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
+
+[[plugins]]
+repo = 'Shougo/ddc.vim'
+depends = ['pum.vim', 'ddc-ui-pum']
+on_event = 'InsertEnter'
+hook_source = '''
+call ddc#custom#patch_global('ui', 'pum')
+call ddc#custom#patch_global('backspaceCompletion', v:true)
+if has('nvim')
+  call ddc#custom#patch_global('sources', [
+    \ 'nvim-lsp', 'file',
+    \ ])
+  call ddc#custom#patch_filetype(['vim'], {
+    \ 'sources': ['nvim-lsp', 'buffer', 'around', 'file'],
+    \ })
+else
+  call ddc#custom#patch_global('sources', [
+    \ 'vim-lsp', 'file',
+    \ ])
+  call ddc#custom#patch_filetype(['vim'], {
+    \ 'sources': ['vim-lsp', 'buffer', 'around', 'file'],
+    \ })
+endif
+
+call ddc#custom#patch_global('sourceOptions', {
+  \ '_': {
+  \   'matchers': ['matcher_fuzzy'],
+  \   'sorters': ['sorter_fuzzy'],
+  \   'converters': ['converter_remove_overlap', 'converter_fuzzy'],
+  \   'minAutoCompleteLength': 1,
+  \   'ignoreCase': v:true,
+  \ },
+  \ 'nvim-lsp': {
+  \   'mark': 'lsp',
+  \   'forceCompletionPattern': "\\.|:\\s*|->",
+  \ },
+  \ 'vim-lsp': {
+  \   'mark': 'lsp',
+  \   'forceCompletionPattern': "\\.|:\\s*|->",
+  \ },
+  \ 'tabnine': {
+  \   'mark': 'TN',
+  \   'maxItems': 5,
+  \   'isVolatile': v:true,
+  \ },
+  \ 'rg': {
+  \   'mark': 'rg',
+  \   'matchers': ['matcher_head', 'matcher_length'],
+  \   'minAutoCompleteLength': 4,
+  \ },
+  \ 'buffer': {'mark': 'B'},
+  \ 'around': {'mark': 'A'},
+  \ 'file': {
+  \   'mark': 'F',
+  \   'isVolatile': v:true,
+  \   'minAutoCompleteLength': 1000,
+  \   'forceCompletionPattern': '\S/\S*',
+  \ },
+  \ 'cmdline': {
+  \   'mark': 'cmdline',
+  \   'forceCompletionPattern': '\S/\S*',
+  \ },
+  \ 'cmdline-history': {'mark': 'history'},
+  \ })
+
+call ddc#custom#patch_global('sourceParams', {
+  \ 'buffer': {
+  \   'requireSameFiletype': v:true,
+  \   'fromAltBuf': v:true,
+  \   'forceCollect': v:true,
+  \ },
+  \ })
+
+call ddc#custom#patch_global('filterParams', {
+  \ 'converter_fuzzy': {'hlGroup': 'DiffText'},
+  \ })
+
+inoremap <silent><expr> <C-n>
+  \ pum#visible()
+  \ ? '<Cmd>call pum#map#insert_relative(+1)<CR>'
+  \ : ddc#manual_complete()
+inoremap <silent><expr> <C-p>
+  \ pum#visible()
+  \ ? '<Cmd>call pum#map#insert_relative(-1)<CR>'
+  \ : ddc#manual_complete()
+inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+inoremap <C-e>   <Cmd>call pum#map#cancel()<CR>
+
+if has('nvim')
+  " with nvim-autopairs
+  inoremap <silent><expr> <CR>
+    \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : v:lua.MPairs.completion_confirm()
+else
+  " without nvim-autopairs
+  inoremap <silent><expr> <CR>
+    \ pum#visible() ? '<Cmd>call pum#map#confirm()<CR>' : '<CR>'
+endif
+
+
+inoremap <silent><expr> <C-l>   ddc#map#extend()
+
+" autocmd User PumCompleteDone call vsnip_integ#on_complete_done(g:pum#completed_item)
+
+call ddc#enable()
+'''
+
+[[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+on_source = 'ddc.vim'
+hook_source = '''
+call popup_preview#enable()
+'''
+
+# ----- ddc-filter -----
+[[plugins]]
+repo = 'Shougo/ddc-matcher_head'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-matcher_length'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-sorter_rank'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'tani/ddc-fuzzy'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-converter_remove_overlap'
+on_source = 'ddc.vim'
+
+# ----- ddc-source -----
+[[plugins]]
+repo = 'Shougo/ddc-nvim-lsp'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'shun/ddc-vim-lsp'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'LumaKernel/ddc-tabnine'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-rg'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-around'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'matsui54/ddc-buffer'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'LumaKernel/ddc-file'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-cmdline-history'
+on_source = 'ddc.vim'
+
+# [[plugins]]
+# repo = 'hrsh7th/vim-vsnip'
+
+# [[plugins]]
+# repo = 'hrsh7th/vim-vsnip-integ'
+
