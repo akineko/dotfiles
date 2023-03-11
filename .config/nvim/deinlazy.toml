@@ -150,14 +150,18 @@ if = 'has("nvim")'
 
 # ----- null-ls -----
 [[plugins]]
+repo = 'jay-babu/mason-null-ls.nvim'
+if = 'has("nvim")'
+depends = ['mason.nvim']
+
+[[plugins]]
 repo = 'jose-elias-alvarez/null-ls.nvim'
 if = 'has("nvim")'
-depends = ['nvim-lspconfig', 'plenary.nvim']
+depends = ['nvim-lspconfig', 'plenary.nvim', 'mason-null-ls.nvim']
 on_event = 'VimEnter'
 hook_post_source = '''
 lua << EOF
 local nvim_lsp = require('lspconfig')
-
 local function find_root()
   local node_root = nvim_lsp.util.find_package_json_ancestor()
   if node_root ~= "" then
@@ -172,12 +176,18 @@ local function find_root()
   return nvim_lsp.util.find_git_ancestor()
 end
 
+require('mason').setup()
+require('mason-null-ls').setup({
+  ensure_installed = {
+    'shellcheck',
+  },
+  automatic_setup = true,
+})
+
 require('null-ls').setup{
-  -- debug = true,
-  root_dir = find_root(),
+  debug = false,
+  -- root_dir = find_root(),
   sources = {
-    -- ShellScript
-    require('null-ls').builtins.code_actions.shellcheck,
     -- JavaScript / TypeScript
     -- require('null-ls').builtins.formatting.prettier.with({
         -- prefer_local = "node_modules/.bin",
@@ -185,25 +195,26 @@ require('null-ls').setup{
     -- require('null-ls').builtins.formatting.rome.with({
         -- prefer_local = "node_modules/.bin",
     -- }),
-    require('null-ls').builtins.formatting.dprint.with({
-        prefer_local = "node_modules/.bin",
-    }),
-    require('null-ls').builtins.code_actions.xo.with({
-        prefer_local = "node_modules/.bin",
-    }),
-    require('null-ls').builtins.diagnostics.xo.with({
-        prefer_local = "node_modules/.bin",
-    }),
+    -- require('null-ls').builtins.formatting.dprint.with({
+    --     prefer_local = "node_modules/.bin",
+    -- }),
+    -- require('null-ls').builtins.code_actions.xo.with({
+    --     prefer_local = "node_modules/.bin",
+    -- }),
+    -- require('null-ls').builtins.diagnostics.xo.with({
+    --     prefer_local = "node_modules/.bin",
+    -- }),
+    -- require('null-ls').builtins.diagnostics.eslint.with({
+    --     prefer_local = "node_modules/.bin",
+    -- }),
   },
-  on_attach = function (client, bufnr)
-    local opts = { buffer = bufnr, noremap = true, silent = true }
-    vim.keymap.set('n', '<leader>lf', ":lua vim.lsp.buf.format{ async = true }<CR>", opts)
-
-    require "lsp_signature".on_attach()
-  end
 }
+
+require('mason-null-ls').setup_handlers()
 EOF
 '''
+
+# ----- lsp tools -----
 
 [[plugins]]
 repo = 'folke/trouble.nvim'
