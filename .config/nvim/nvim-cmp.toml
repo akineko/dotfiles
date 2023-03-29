@@ -3,7 +3,7 @@
 repo = 'hrsh7th/nvim-cmp'
 if = 'has("nvim")'
 depends = [
-  'nvim-cmp',
+  'cmp-nvim-lsp',
   'cmp-buffer',
   'cmp-path',
   'cmp-cmdline',
@@ -36,10 +36,9 @@ cmp.setup({
     { name = 'nvim_lsp' },
     -- { name = 'nvim_lsp_signature_help' },
     { name = 'vsnip' },
-    { name = 'fuzzy_buffer' },
   },
   {
-    { name = 'buffer' },
+    { name = 'fuzzy_buffer' },
   })
 })
 
@@ -98,18 +97,19 @@ if = 'has("nvim")'
 [[plugins]]
 repo = 'hrsh7th/cmp-vsnip'
 if = 'has("nvim")'
+depends = ['vim-vsnip']
 
 [[plugins]]
 repo = 'hrsh7th/vim-vsnip'
 if = 'has("nvim")'
 
 [[plugins]]
-repo = 'tzachar/fuzzy.nvim'
-if = 'has("nvim")'
-depends = ['telescope-fzf-native.nvim']
-
-[[plugins]]
 repo = 'tzachar/cmp-fuzzy-buffer'
 if = 'has("nvim")'
 depends = ['fuzzy.nvim']
+
+[[plugins]]
+repo = 'tzachar/fuzzy.nvim'
+if = 'has("nvim")'
+depends = ['telescope-fzf-native.nvim']
 
