@@ -541,6 +541,48 @@ EOF
 '''
 
 [[plugins]]
+repo = 'nvim-tree/nvim-tree.lua'
+if = 'has("nvim")'
+on_event = 'VimEnter'
+depends = ['nvim-web-devicons']
+hook_add = '''
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+nnoremap <F2> :NvimTreeToggle<CR>
+'''
+hook_post_source = '''
+lua << EOF
+local api = require('nvim-tree.api')
+
+local function on_attach(bufnr)
+  local function opts(desc)
+    return { desc = desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  api.config.mappings.default_on_attach(bufnr)
+
+  vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
+  vim.keymap.set('n', '<C-y>', api.fs.copy.absolute_path, opts('Copy Absolute Path'))
+end
+
+require('nvim-tree').setup {
+  on_attach = on_attach,
+  git = {
+    ignore = false,
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true,
+      -- window_picker = {
+      --   enable = false,
+      -- },
+    },
+  },
+}
+EOF
+'''
+
+[[plugins]]
 repo = 'kana/vim-submode'
 on_event = ['VimEnter']
 hook_post_source = '''

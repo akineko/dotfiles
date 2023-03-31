@@ -214,6 +214,7 @@ depends = 'nerdfont.vim'
 
 [[plugins]]
 repo = 'lambdalisue/fern.vim'
+if = '!has("nvim")'
 depends = 'FixCursorHold.nvim'
 hook_add = '''
 let g:fern#default_hidden = 1
@@ -246,14 +247,17 @@ augroup END
 
 [[plugins]]
 repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+if = '!has("nvim")'
 depends = ['fern.vim', 'nerdfont.vim']
 
 [[plugins]]
 repo = 'lambdalisue/fern-git-status.vim'
+if = '!has("nvim")'
 depends = 'fern.vim'
 
 [[plugins]]
 repo = 'LumaKernel/fern-mapping-fzf.vim'
+if = '!has("nvim")'
 depends = ['fzf', 'fern.vim']
 
 [[plugins]]
