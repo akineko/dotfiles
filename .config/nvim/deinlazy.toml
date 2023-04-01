@@ -70,7 +70,8 @@ depends = [
   'nvim-lspconfig',
   'cmp-nvim-lsp',
   'lsp_signature.nvim',
-  'nvim-lsp-ts-utils'
+  'nvim-lsp-ts-utils',
+  'lsp-format.nvim'
 ]
 on_event = 'VimEnter'
 hook_post_source = '''
@@ -106,6 +107,12 @@ else
   }
 end
 
+require('lsp-format').setup{
+  typescript = {
+    order = { 'null-ls', 'tsserver' }
+  }
+}
+
 local lspconfig = require("lspconfig")
 require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers({ function(server_name)
@@ -115,6 +122,8 @@ require("mason-lspconfig").setup_handlers({ function(server_name)
 
   if server_name == "tsserver" then
     opts.on_attach = function(client, bufnr)
+      require('lsp-format').on_attach(client)
+
       client.server_capabilities.documentFormattingProvider = false
       local ts_utils = require("nvim-lsp-ts-utils")
       ts_utils.setup({
@@ -146,6 +155,10 @@ if = 'has("nvim")'
 
 [[plugins]]
 repo = 'ray-x/lsp_signature.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'lukas-reineke/lsp-format.nvim'
 if = 'has("nvim")'
 
 # ----- null-ls -----
