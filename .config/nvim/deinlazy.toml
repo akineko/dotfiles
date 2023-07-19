@@ -214,9 +214,9 @@ require('null-ls').setup{
     -- require('null-ls').builtins.code_actions.xo.with({
     --     prefer_local = "node_modules/.bin",
     -- }),
-    -- require('null-ls').builtins.diagnostics.xo.with({
-    --     prefer_local = "node_modules/.bin",
-    -- }),
+    require('null-ls').builtins.diagnostics.xo.with({
+        prefer_local = "node_modules/.bin",
+    }),
     -- require('null-ls').builtins.diagnostics.eslint.with({
     --     prefer_local = "node_modules/.bin",
     -- }),
