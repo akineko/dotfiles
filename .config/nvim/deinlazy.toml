@@ -195,11 +195,11 @@ require('mason-null-ls').setup({
     'shellcheck',
   },
   automatic_setup = true,
+  handlers = {},
 })
 
 require('null-ls').setup{
   debug = false,
-  -- root_dir = find_root(),
   sources = {
     -- JavaScript / TypeScript
     -- require('null-ls').builtins.formatting.prettier.with({
@@ -223,7 +223,6 @@ require('null-ls').setup{
   },
 }
 
-require('mason-null-ls').setup_handlers()
 EOF
 '''
 
