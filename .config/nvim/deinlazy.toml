@@ -336,7 +336,9 @@ repo = 'ahmedkhalf/project.nvim'
 if = 'has("nvim")'
 on_event = 'VimEnter'
 hook_source = '''
-lua require("project_nvim").setup()
+lua require("project_nvim").setup({
+  detection_methods = { "pattern" },
+})
 '''
 
 [[plugins]]
