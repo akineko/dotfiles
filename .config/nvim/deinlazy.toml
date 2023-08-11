@@ -246,15 +246,14 @@ EOF
 '''
 
 [[plugins]]
-repo = 'glepnir/lspsaga.nvim'
+repo = 'nvimdev/lspsaga.nvim'
 if = 'has("nvim")'
 depends = ['nvim-lspconfig']
 on_event = 'VimEnter'
 hook_add = '''
 nnoremap K           :Lspsaga hover_doc<CR>
-nnoremap S           :Lspsaga signature_help<CR>
 nnoremap <leader>rn  :Lspsaga rename<CR>
-nnoremap gf          :Lspsaga lsp_finder<CR>
+nnoremap gf          :Lspsaga finder<CR>
 nnoremap gD          :Lspsaga peek_definition<CR>
 nnoremap <leader>lo  :Lspsaga outline<CR>
 nnoremap <F4>        :Lspsaga outline<CR>
@@ -269,8 +268,17 @@ tnoremap <A-t> <C-\><C-n>:Lspsaga term_toggle<CR>
 '''
 hook_post_source = '''
 lua << EOF
-require('lspsaga').setup {
-}
+require('lspsaga').setup({
+  code_action = {
+    show_server_name = true,
+  },
+  outline = {
+    layout = 'float',
+    keys = {
+      jump = '<CR>',
+    }
+  },
+})
 EOF
 '''
 
