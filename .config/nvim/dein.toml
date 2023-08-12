@@ -382,6 +382,7 @@ nnoremap <silent> [fugitive]i :Git rebase<CR>
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+if = '!has("nvim")'
 hook_add = '''
 set updatetime=1000
 let g:gitgutter_sign_allow_clobber = 1

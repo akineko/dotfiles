@@ -603,6 +603,16 @@ EOF
 '''
 
 [[plugins]]
+repo = 'lewis6991/gitsigns.nvim'
+if = 'has("nvim")'
+on_event = ['VimEnter']
+hook_post_source = '''
+lua << EOF
+require('gitsigns').setup({})
+EOF
+'''
+
+[[plugins]]
 repo = 'kana/vim-submode'
 on_event = ['VimEnter']
 hook_post_source = '''
