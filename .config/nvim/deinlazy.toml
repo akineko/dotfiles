@@ -287,11 +287,33 @@ EOF
 repo = 'nvim-treesitter/nvim-treesitter'
 if = 'has("nvim")'
 merged = 0
-depends = ['nvim-ts-rainbow', 'nvim-ts-autotag', 'nvim-ts-context-commentstring']
+depends = ['rainbow-delimiters.nvim', 'nvim-ts-autotag', 'nvim-ts-context-commentstring']
 on_event = 'VimEnter'
 hook_post_update = 'TSUpdate'
 hook_post_source = '''
 lua << EOF
+local rainbow_delimiters = require 'rainbow-delimiters'
+vim.g.rainbow_delimiters = {
+    strategy = {
+        [''] = rainbow_delimiters.strategy['global'],
+        commonlisp = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+        [''] = 'rainbow-delimiters',
+        lua = 'rainbow-blocks',
+    },
+    highlight = {
+        'TSRainbowRed',    -- guifg=#bf616a
+        'TSRainbowYellow', -- guifg=#ebcb8b
+        'TSRainbowBlue',   -- guifg=#81a1c1
+        'TSRainbowOrange', -- guifg=#c9826b
+        'TSRainbowGreen',  -- guifg=#a3be8c
+        'TSRainbowViolet', -- guifg=#b48ead
+        'TSRainbowCyan',   -- guifg=#88c0d0
+    },
+    -- blacklist = {'c', 'cpp'},
+}
+
 require('nvim-treesitter.configs').setup {
   ensure_installed = 'all',
   highlight = {
@@ -301,12 +323,6 @@ require('nvim-treesitter.configs').setup {
   -- indent = {
   --   enable = true,
   -- },
-  rainbow = {
-    enable = true,
-    -- disable = { "jsx", "cpp" },
-    extended_mode = true,
-    max_file_lines = nil,
-  },
   autotag = {
     enable = true,
   },
@@ -319,7 +335,7 @@ EOF
 '''
 
 [[plugins]]
-repo = 'p00f/nvim-ts-rainbow'
+repo = 'HiPhish/rainbow-delimiters.nvim'
 if = 'has("nvim")'
 
 [[plugins]]
