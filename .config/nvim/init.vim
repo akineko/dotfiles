@@ -82,7 +82,7 @@ set nocursorcolumn
 set mouse=
 
 " 描画改善
-set lazyredraw
+" set lazyredraw
 set ttyfast
 
 " スクロールのマージ
