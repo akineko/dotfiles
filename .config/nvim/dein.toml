@@ -10,6 +10,7 @@ repo = 'vim-jp/vimdoc-ja'
 
 [[plugins]]
 repo = 'thinca/vim-localrc'
+if = '!has("nvim")'
 
 [[plugins]]
 repo = 'nvim-lua/plenary.nvim'
