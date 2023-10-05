@@ -1,22 +1,21 @@
 # Commands -----
-#zplugin pick'init.sh'; zplugin light b4b4r07/enhancd
-zplugin light mollifier/cd-gitroot
-zplugin light mollifier/anyframe
-zplugin light Tarrasch/zsh-bd
+#zinit pick'init.sh'; zinit light b4b4r07/enhancd
+zinit light mollifier/cd-gitroot
+zinit light mollifier/anyframe
+zinit light Tarrasch/zsh-bd
 
 # Completions -----
-zplugin ice wait'!0'; zplugin light zsh-users/zsh-completions
-zplugin ice wait'!0'; zplugin ice as'completion'; zplugin snippet OMZ::plugins/docker/_docker
-zplugin ice wait'!0'; zplugin ice as'completion'; zplugin snippet OMZ::plugins/docker-compose/_docker-compose
-zplugin ice wait'!0'; zplugin light pkulev/zsh-rustup-completion
+zinit ice wait'!0'; zinit light zsh-users/zsh-completions
+zinit ice wait'!0'; zinit ice as'completion'; zinit snippet OMZ::plugins/docker/_docker
+zinit ice wait'!0'; zinit ice as'completion'; zinit snippet OMZ::plugins/docker-compose/_docker-compose
+zinit ice wait'!0'; zinit light pkulev/zsh-rustup-completion
 
 # Utilities -----
-#zplugin ice pick'async.zsh'; zplugin light mafredri/zsh-async
-zplugin ice wait'!0'; zplugin light zdharma/fast-syntax-highlighting
-zplugin ice wait'!0' atload'_zsh_autosuggest_start'; zplugin light zsh-users/zsh-autosuggestions
-zplugin ice wait'!0' pick'git-escape-magic'; zplugin light knu/zsh-git-escape-magic
+#zinit ice pick'async.zsh'; zinit light mafredri/zsh-async
+zinit ice wait'!0'; zinit light zdharma/fast-syntax-highlighting
+zinit ice wait'!0' atload'_zsh_autosuggest_start'; zinit light zsh-users/zsh-autosuggestions
+zinit ice wait'!0' pick'git-escape-magic'; zinit light knu/zsh-git-escape-magic
 
 # Themes -----
-#zplugin ice pick'async.zsh' src'pure.zsh'; zplugin light sindresorhus/pure
-#zplugin ice pick'spaceship.zsh'; zplugin light denysdovhan/spaceship-prompt
-
+#zinit ice pick'async.zsh' src'pure.zsh'; zinit light sindresorhus/pure
+#zinit ice pick'spaceship.zsh'; zinit light denysdovhan/spaceship-prompt
