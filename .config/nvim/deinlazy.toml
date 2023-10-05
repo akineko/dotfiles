@@ -73,6 +73,7 @@ depends = [
   'nvim-lsp-ts-utils',
   'lsp-format.nvim'
   'none-ls.nvim',
+  'nvim-vtsls',
 ]
 on_event = 'VimEnter'
 hook_post_source = '''
@@ -81,7 +82,7 @@ require("mason").setup()
 
 require('lsp-format').setup{
   typescript = {
-    order = { 'tsserver', 'null-ls' },
+    order = { 'tsserver', 'vtsls', 'null-ls' },
   }
 }
 
@@ -116,6 +117,7 @@ else
 end
 
 local lspconfig = require("lspconfig")
+lspconfig.configs.vtsls = require("vtsls").lspconfig
 require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers({ function(server_name)
   local opts = {}
@@ -134,6 +136,16 @@ require("mason-lspconfig").setup_handlers({ function(server_name)
       local opts = { noremap=true, silent=true }
       vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":TSLspOrganize<CR>", opts)
       vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
+
+      on_attach(client, bufnr)
+    end
+  end
+
+  if server_name == "vtsls" then
+    opts.on_attach = function(client, bufnr)
+      local opts = { noremap=true, silent=true }
+      vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":VtsExec organize_imports<CR>", opts)
+      vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":VtsExec add_missing_imports<CR>", opts)
 
       on_attach(client, bufnr)
     end
@@ -207,6 +219,10 @@ if = 'has("nvim")'
 
 [[plugins]]
 repo = 'lukas-reineke/lsp-format.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
+repo = 'yioneko/nvim-vtsls'
 if = 'has("nvim")'
 
 # ----- null-ls -----
