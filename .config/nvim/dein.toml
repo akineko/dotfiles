@@ -17,9 +17,6 @@ repo = 'nvim-lua/plenary.nvim'
 if = 'has("nvim")'
 
 [[plugins]]
-repo = 'tami5/sqlite.lua'
-
-[[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 if = 'has("nvim")'
 
