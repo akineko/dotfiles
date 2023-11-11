@@ -377,7 +377,6 @@ on_event = 'VimEnter'
 [[plugins]]
 repo = 'ahmedkhalf/project.nvim'
 if = 'has("nvim")'
-on_event = 'VimEnter'
 hook_source = '''
 lua << EOF
 require("project_nvim").setup({
@@ -397,7 +396,7 @@ depends = [
   'trouble.nvim',
   'project.nvim'
 ]
-on_event = 'VimEnter'
+on_cmd = ['Telescope']
 hook_add = '''
 nnoremap <leader>tt :Telescope<CR>
 
