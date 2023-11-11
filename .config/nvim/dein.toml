@@ -521,6 +521,9 @@ repo = 'navarasu/onedark.nvim'
 [[plugins]]
 repo = 'rakr/vim-one'
 
+[[plugins]]
+repo = 'rmehri01/onenord.nvim'
+
 # ----- colorscheme -----
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
