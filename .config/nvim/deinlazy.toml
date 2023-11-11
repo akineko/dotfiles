@@ -363,6 +363,11 @@ on_source = 'nvim-treesitter'
 repo = 'JoosepAlviste/nvim-ts-context-commentstring'
 if = 'has("nvim")'
 
+[[plugins]]
+repo = 'RRethy/vim-illuminate'
+if = 'has("nvim")'
+on_event = 'VimEnter'
+
 # ----- telescope -----
 [[plugins]]
 repo = 'ahmedkhalf/project.nvim'
