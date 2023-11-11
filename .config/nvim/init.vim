@@ -202,6 +202,14 @@ function! s:get_syn_info()
 endfunction
 command! SyntaxInfo call s:get_syn_info()
 
+" .env.* も .env と同じ filetype にする
+lua << EOL
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile' }, {
+  pattern = '.env*',
+  command = 'set filetype=conf',
+})
+EOL
+
 " ----- keymap -----
 
 " : と ; の入れ替え
