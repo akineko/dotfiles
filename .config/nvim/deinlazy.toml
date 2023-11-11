@@ -55,6 +55,10 @@ EOF
 
 # ----- LSP -----
 [[plugins]]
+repo = 'nvim-lua/plenary.nvim'
+if = 'has("nvim")'
+
+[[plugins]]
 repo = 'neovim/nvim-lspconfig'
 if = 'has("nvim")'
 
@@ -375,9 +379,11 @@ repo = 'ahmedkhalf/project.nvim'
 if = 'has("nvim")'
 on_event = 'VimEnter'
 hook_source = '''
-lua require("project_nvim").setup({
+lua << EOF
+require("project_nvim").setup({
   detection_methods = { "pattern" },
 })
+EOF
 '''
 
 [[plugins]]

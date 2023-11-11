@@ -13,10 +13,6 @@ repo = 'thinca/vim-localrc'
 if = '!has("nvim")'
 
 [[plugins]]
-repo = 'nvim-lua/plenary.nvim'
-if = 'has("nvim")'
-
-[[plugins]]
 repo = 'kyazdani42/nvim-web-devicons'
 if = 'has("nvim")'
 
