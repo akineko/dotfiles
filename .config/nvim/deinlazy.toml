@@ -387,7 +387,8 @@ if = 'has("nvim")'
 hook_source = '''
 lua << EOF
 require("project_nvim").setup({
-  detection_methods = { "pattern" },
+  manual_mode = true,
+  show_hidden = true,
 })
 EOF
 '''
