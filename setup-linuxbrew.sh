@@ -33,6 +33,7 @@ brew install rargs
 brew install gitui
 brew install shellcheck
 brew install zellij
+brew install zoxide
 
 # go tools
 brew install fzf
