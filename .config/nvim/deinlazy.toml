@@ -196,9 +196,9 @@ require('null-ls').setup{
     -- require('null-ls').builtins.formatting.dprint.with({
     --     prefer_local = "node_modules/.bin",
     -- }),
-    -- require('null-ls').builtins.code_actions.xo.with({
-    --     only_local = "node_modules/.bin",
-    -- }),
+    require('null-ls').builtins.code_actions.xo.with({
+        only_local = "node_modules/.bin",
+    }),
     require('null-ls').builtins.diagnostics.xo.with({
         only_local = "node_modules/.bin",
         timeout = 10000,
@@ -296,6 +296,11 @@ require('lspsaga').setup({
     keys = {
       jump = '<CR>',
     }
+  },
+  lightbulb = {
+    sign = true,
+    virtual_text = true,
+    debounce = 1000,
   },
 })
 EOF
