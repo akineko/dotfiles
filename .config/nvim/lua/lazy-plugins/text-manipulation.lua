@@ -10,6 +10,17 @@ return {
     },
   },
   {
+    'Wansmer/treesj',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    keys = {
+      { '<Leader>j', ':TSJJoin<CR>' },
+      { '<Leader>s', ':TSJSplit<CR>' },
+    },
+    opts = {
+      use_default_keymaps = false,
+    },
+  },
+  {
     't9md/vim-textmanip',
     event = 'BufEnter',
     keys = {
