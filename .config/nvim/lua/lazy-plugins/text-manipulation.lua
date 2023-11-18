@@ -38,6 +38,10 @@ return {
     'machakann/vim-sandwich',
     event = 'BufEnter',
   },
+  {
+    'terryma/vim-expand-region',
+    event = 'BufEnter',
+  },
   -- operator
   {
     'emonkak/vim-operator-sort',
