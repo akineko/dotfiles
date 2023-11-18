@@ -13,8 +13,8 @@ return {
     'Wansmer/treesj',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     keys = {
-      { '<Leader>j', ':TSJJoin<CR>' },
-      { '<Leader>s', ':TSJSplit<CR>' },
+      { '<Leader>tj', ':TSJJoin<CR>' },
+      { '<Leader>ts', ':TSJSplit<CR>' },
     },
     opts = {
       use_default_keymaps = false,

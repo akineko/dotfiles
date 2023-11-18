@@ -23,8 +23,6 @@ return {
     },
     cmd = { 'Telescope' },
     keys = {
-      { '<leader>tt', ':Telescope<CR>' },
-
       { '[Telescope]', '' },
       { '<leader>f', '[Telescope]', remap = true },
       -- { '[Telescope]f', [[:lua require'telescope-config'.project_files()<CR>]] },
@@ -38,7 +36,7 @@ return {
       { 'gd', ':Telescope lsp_definitions jump_type=never<CR>' },
       { '<leader>rf', ':Telescope lsp_references<CR>' },
       { '<leader>df', ':Telescope lsp_definitions jump_type=never<CR>' },
-      { 'gs', ':Telescope lsp_document_symbols<CR>' },
+      { '<leader>ls', ':Telescope lsp_document_symbols<CR>' },
       { 'gw', ':Telescope lsp_dynamic_workspace_symbols<CR>' },
       { '<leader>td', ':Telescope lsp_type_definitions<CR>' },
       { '<leader>li', ':Telescope lsp_implementations<CR>' },
