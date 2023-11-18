@@ -56,6 +56,7 @@
   "operator-camelize.vim": { "branch": "master", "commit": "1d029632bc7ba28a8ecf59274d2b958046348611" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
+  "quick-scope": { "branch": "master", "commit": "256d81e391a22eeb53791ff62ce65f870418fa71" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "769436897e32bc4f01a9d5f57a23169efe099d46" },
   "sidebar.nvim": { "branch": "main", "commit": "990ce5f562c9125283ccac5473235b1a56fea6dc" },
   "snow": { "branch": "master", "commit": "f9800e987e404efed4748fe8098e04ddbec9770b" },

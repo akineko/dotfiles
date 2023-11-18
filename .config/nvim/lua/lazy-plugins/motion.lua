@@ -18,5 +18,14 @@ return {
       { '<leader>,', ':FuzzyMotion<CR>' },
     },
   },
+  {
+    'unblevable/quick-scope',
+    event = 'BufEnter',
+    init = function()
+      vim.g.qs_highlight_on_keys = {'f', 'F'}
+      vim.cmd[[highlight QuickScopePrimary guifg=#2e3440 guibg=#81a1c1]]
+      vim.cmd[[highlight QuickScopeSecondary guifg=#2e3440 guibg=#a3be8c]]
+    end,
+  },
 }
 
