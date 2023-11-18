@@ -22,4 +22,13 @@ return {
       vim.fn['submode#map']('movetab', 'n', 's', 'h', ':<C-u>-tabmove<CR>')
     end,
   },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 500
+    end,
+    opts = {},
+  },
 }
