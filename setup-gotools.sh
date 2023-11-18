@@ -6,6 +6,7 @@ go get -u github.com/mattn/memo
 
 # vim
 go get -u github.com/mattn/files
+go install github.com/rhysd/vim-startuptime@latest
 
 # golang
 # go get github.com/golang/dep/cmd/dep

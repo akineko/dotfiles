@@ -202,6 +202,15 @@ function! s:get_syn_info()
 endfunction
 command! SyntaxInfo call s:get_syn_info()
 
+" volta で nodejs を管理している場合は neovim-node-host を設定
+if executable('volta')
+  " let g:node_host_prog = trim(system("volta which neovim-node-host"))
+  let g:node_host_prog = system('volta which neovim-node-host | tr -d "\n"')
+endif
+" if executable('neovim-node-host')
+"   let g:node_host_prog = trim(system("which neovim-node-host"))
+" endif
+
 " .env.* も .env と同じ filetype にする
 lua << EOL
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufNewFile' }, {
