@@ -1,7 +1,13 @@
 return {
   {
-    'h1mesuke/vim-alignta',
+    'echasnovski/mini.align',
     event = 'BufEnter',
+    opts = {
+      mappings = {
+        start = '',
+        start_with_preview = 'ga',
+      },
+    },
   },
   {
     't9md/vim-textmanip',
