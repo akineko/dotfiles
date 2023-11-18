@@ -1,8 +1,5 @@
 return {
   {
-    'vim-denops/denops.vim'
-  },
-  {
     'kana/vim-submode',
     event = 'BufEnter',
     config = function()
