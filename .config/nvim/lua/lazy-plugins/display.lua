@@ -17,14 +17,6 @@ return {
     opts = function()
       local rainbow_delimiters = require('rainbow-delimiters')
       return {
-        strategy = {
-            [''] = rainbow_delimiters.strategy['global'],
-            commonlisp = rainbow_delimiters.strategy['local'],
-        },
-        query = {
-            [''] = 'rainbow-delimiters',
-            lua = 'rainbow-blocks',
-        },
         highlight = {
             'TSRainbowRed',    -- guifg=#bf616a
             'TSRainbowYellow', -- guifg=#ebcb8b
@@ -34,7 +26,6 @@ return {
             'TSRainbowViolet', -- guifg=#b48ead
             'TSRainbowCyan',   -- guifg=#88c0d0
         },
-        -- blacklist = {'c', 'cpp'},
       }
     end,
   },
