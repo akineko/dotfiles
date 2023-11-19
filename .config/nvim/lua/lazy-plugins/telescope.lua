@@ -5,6 +5,7 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
       'folke/trouble.nvim',
+      'debugloop/telescope-undo.nvim',
       'nvim-telescope/telescope-frecency.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
       {
@@ -31,6 +32,7 @@ return {
       { '[Telescope]g', ':Telescope live_grep<CR>' },
       { '[Telescope]b', ':Telescope buffers<CR>' },
       { '[Telescope]p', ':Telescope projects<CR>' },
+      { '[Telescope]u', ':Telescope undo<CR>' },
       -- lsp
       { 'gr', ':Telescope lsp_references<CR>' },
       { 'gd', ':Telescope lsp_definitions jump_type=never<CR>' },
@@ -127,9 +129,9 @@ return {
 
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('frecency')
-      require('telescope').load_extension('projects')
       require('telescope').load_extension('file_browser')
+      require('telescope').load_extension('projects')
+      require("telescope").load_extension("undo")
     end,
   },
 }
-
