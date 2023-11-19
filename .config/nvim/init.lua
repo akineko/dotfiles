@@ -1,8 +1,4 @@
--- if has('nvim')
---   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
--- endif
 vim.opt.termguicolors = true
-
 -- vim.cmd.colorscheme("nordfox")
 vim.opt.background = "dark"
 
@@ -40,6 +36,7 @@ vim.opt.mouse = ""
 -- 描画改善
 -- vim.opt.lazyredraw
 vim.opt.ttyfast = true
+vim.opt.redrawtime = 15000
 
 -- スクロールのマージ
 vim.opt.scrolloff = 5
@@ -67,7 +64,7 @@ vim.opt.splitright = true
 -- modeline
 vim.opt.modeline = true
 
--- ---- search -----
+-- search
 -- 小文字での検索時に大文字小文字を区別しない
 vim.opt.ignorecase = true
 -- 大文字がある場合のみ大文字小文字を区別
@@ -108,8 +105,6 @@ vim.opt.history = 100
 
 -- ステータスラインに文字コードと改行文字を表示
 vim.opt.statusline = "%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\\ %F%=[%l/%L]"
-
-vim.opt.redrawtime = 15000
 
 -- カーソル位置のシンタックス情報を表示
 local function get_syn_id(transparent)
@@ -244,12 +239,6 @@ vim.keymap.set("n", "[Tag]t", "<C-]>")
 vim.keymap.set("n", "[Tag]j", ":tag<CR>", { silent = true })
 vim.keymap.set("n", "[Tag]k", ":pop<CR>", { silent = true })
 vim.keymap.set("n", "[Tag]l", ":tags<CR>", { silent = true })
-
--- insert mode でのカーソル移動
-vim.keymap.set("i", "<M-k>", "<Up>")
-vim.keymap.set("i", "<M-j>", "<Down>")
-vim.keymap.set("i", "<M-h>", "<Left>")
-vim.keymap.set("i", "<M-l>", "<Right>")
 
 -- C++
 vim.api.nvim_create_augroup("CppConfig", { clear = true })
