@@ -38,4 +38,13 @@ return {
     },
     opts = {},
   },
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    keys = { '<A-t>' },
+    opts = {
+      open_mapping = '<A-t>',
+      direction = 'float',
+    },
+  },
 }

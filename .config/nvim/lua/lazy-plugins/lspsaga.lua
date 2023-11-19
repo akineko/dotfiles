@@ -19,9 +19,6 @@ return {
       { '<leader>lj',  ':Lspsaga diagnostic_jump_next<CR>' },
       { '<leader>lca', ':Lspsaga code_action<CR>' },
       { '<leader>lca', ':Lspsaga code_action<CR>', mode = 'v' },
-      -- terminal
-      { '<A-t>', ':<C-u>Lspsaga term_toggle<CR>' },
-      { '<A-t>', [[<C-\><C-n>:Lspsaga term_toggle<CR>]], mode = 't' },
     },
     opts = {
       code_action = {
