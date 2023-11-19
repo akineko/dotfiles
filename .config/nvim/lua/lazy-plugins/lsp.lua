@@ -118,17 +118,19 @@ return {
         handlers = {},
       })
 
-      require('null-ls').setup{
+      local null_ls = require('null-ls')
+      null_ls.setup{
         debug = false,
         on_attach = on_attach,
         -- root_dir = find_root,
         sources = {
           -- JavaScript / TypeScript
-          require('null-ls').builtins.code_actions.xo.with({
+          null_ls.builtins.code_actions.xo.with({
               only_local = "node_modules/.bin",
           }),
-          require('null-ls').builtins.diagnostics.xo.with({
+          null_ls.builtins.diagnostics.xo.with({
               only_local = "node_modules/.bin",
+              method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
               timeout = 10000,
           }),
         },
