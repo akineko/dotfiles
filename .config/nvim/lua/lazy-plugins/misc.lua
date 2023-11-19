@@ -31,23 +31,6 @@ return {
     end,
   },
   {
-    'szw/vim-tags',
-    event = 'BufEnter',
-  },
-  {
-    'antoinemadec/FixCursorHold.nvim',
-    event = 'BufEnter',
-  },
-  {
-    'lambdalisue/glyph-palette.vim',
-    event = 'BufEnter',
-    dependencies = { 'lambdalisue/nerdfont.vim' },
-  },
-  {
-    'lambdalisue/vim-findent',
-    event = 'BufEnter',
-  },
-  {
     'vim-scripts/AnsiEsc.vim',
     event = 'BufEnter',
   },
