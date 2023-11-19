@@ -31,8 +31,11 @@ return {
       'RRethy/vim-illuminate',
       'RRethy/nvim-treesitter-endwise',
       'windwp/nvim-ts-autotag',
-      'romgrk/nvim-treesitter-context',
       'JoosepAlviste/nvim-ts-context-commentstring',
+      {
+        'romgrk/nvim-treesitter-context',
+        opts = { multiline_threshold = 1 },
+      },
     },
   },
 }
