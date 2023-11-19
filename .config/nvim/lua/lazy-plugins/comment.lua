@@ -20,4 +20,13 @@ return {
       }
     end,
   },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      'nvim-treesitter/nvim-treesitter',
+    },
+    cmd = { 'TodoQuickFix', 'TodoLocList', 'TodoTrouble', 'TodoTelescope' },
+    opts = {},
+  },
 }

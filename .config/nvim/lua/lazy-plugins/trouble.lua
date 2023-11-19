@@ -1,7 +1,10 @@
 return {
   {
     'folke/trouble.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      "folke/todo-comments.nvim",
+    },
     event = 'BufEnter',
     keys = {
       { '<leader>xx', ':TroubleToggle<CR>' },
@@ -10,6 +13,7 @@ return {
       { '<leader>xq', ':TroubleToggle quickfix<CR>' },
       { '<leader>xl', ':TroubleToggle loclist<CR>' },
       { 'gR',         ':TroubleToggle lsp_references<CR>' },
+      { '<leader>xt', ':TodoTrouble<CR>' },
     },
     opts = {},
   },
