@@ -28,4 +28,14 @@ return {
     end,
     opts = {},
   },
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    keys = {
+      { '<Leader>ss', [[:lua require('spectre').toggle()<CR>]], desc = 'Toggle Spectre' },
+      { '<Leader>sw', [[:lua require('spectre').open_visual({select_word=true})<CR>]], desc = 'Search current word' },
+      { '<Leader>sw', [[<esc>:lua require('spectre').open_visual()<CR>]], mode = 'v', desc = 'Search current word' },
+    },
+    opts = {},
+  },
 }
