@@ -15,6 +15,9 @@ return {
         -- indent = {
         --   enable = true,
         -- },
+        endwise = {
+          enable = true,
+        },
         autotag = {
           enable = true,
         },
@@ -24,8 +27,9 @@ return {
         },
       })
     end,
-    depends = {
+    dependencies = {
       'RRethy/vim-illuminate',
+      'RRethy/nvim-treesitter-endwise',
       'windwp/nvim-ts-autotag',
       'romgrk/nvim-treesitter-context',
       'JoosepAlviste/nvim-ts-context-commentstring',
