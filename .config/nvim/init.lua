@@ -150,20 +150,15 @@ local function get_syn_info()
   print("link to")
   print(
     "name: "
-      .. linkedSyn
-      .. name
+      .. linkedSyn.name
       .. " ctermfg: "
-      .. linkedSyn
-      .. ctermfg
+      .. linkedSyn.ctermfg
       .. " ctermbg: "
-      .. linkedSyn
-      .. ctermbg
+      .. linkedSyn.ctermbg
       .. " guifg: "
-      .. linkedSyn
-      .. guifg
+      .. linkedSyn.guifg
       .. " guibg: "
-      .. linkedSyn
-      .. guibg
+      .. linkedSyn.guibg
   )
 end
 vim.api.nvim_create_user_command(
