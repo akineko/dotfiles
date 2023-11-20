@@ -47,4 +47,8 @@ return {
       direction = 'float',
     },
   },
+  {
+    'deris/vim-rengbang',
+    cmd = { 'RengBang', 'RengBangConfirm' },
+  },
 }
