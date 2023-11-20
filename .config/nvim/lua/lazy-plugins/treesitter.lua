@@ -67,5 +67,14 @@ return {
       },
     },
   },
+  {
+    'mfussenegger/nvim-treehopper',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    keys = {
+      { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]] },
+      { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]], mode = 'x' },
+      { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]], mode = 'o',  remap = true },
+    },
+  },
 }
 
