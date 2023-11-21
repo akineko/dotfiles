@@ -107,6 +107,15 @@ return {
             n = i,
           },
         },
+        pickers = {
+          buffers = {
+            mappings = {
+              i = {
+                ['<Delete>'] = actions.delete_buffer,
+              },
+            },
+          },
+        },
         extensions = {
           fzf = {
             fuzzy = true,
