@@ -27,6 +27,10 @@ return {
         virtual_text = true,
         debounce = 1000,
       },
+      symbol_in_winbar = {
+        enable = false,
+      },
     },
   },
 }
+
