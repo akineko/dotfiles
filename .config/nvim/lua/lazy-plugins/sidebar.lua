@@ -1,25 +1,5 @@
 return {
   {
-    'sidebar-nvim/sidebar.nvim',
-    event = 'BufEnter',
-    keys = {
-      { '<F3>', ':SidebarNvimToggle<CR>' },
-    },
-    opts = {
-      hide_statusline = true,
-      sections = {
-        'symbols',
-        'git',
-        'todos',
-        'containers',
-        'files',
-      },
-      files = {
-        show_hidden = true,
-      },
-    },
-  },
-  {
     'nvim-tree/nvim-tree.lua',
     event = 'BufEnter',
     dependencies = { 'nvim-tree/nvim-web-devicons', },
