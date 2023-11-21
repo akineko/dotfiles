@@ -12,8 +12,6 @@ return {
       { '<leader>rn',  ':Lspsaga rename<CR>' },
       { 'gf',          ':Lspsaga finder<CR>' },
       { 'gD',          ':Lspsaga peek_definition<CR>' },
-      { '<leader>lo',  ':Lspsaga outline<CR>' },
-      { '<F4>',        ':Lspsaga outline<CR>' },
       { 'ge',          ':Lspsaga show_line_diagnostics<CR>' },
       { '<leader>lk',  ':Lspsaga diagnostic_jump_prev<CR>' },
       { '<leader>lj',  ':Lspsaga diagnostic_jump_next<CR>' },
@@ -24,12 +22,6 @@ return {
       code_action = {
         show_server_name = true,
       },
-      outline = {
-        layout = 'float',
-        keys = {
-          jump = '<CR>',
-        }
-      },
       lightbulb = {
         sign = true,
         virtual_text = true,
@@ -38,4 +30,3 @@ return {
     },
   },
 }
-

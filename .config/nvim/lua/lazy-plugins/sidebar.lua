@@ -43,5 +43,34 @@ return {
       }
     end,
   },
+  {
+    'stevearc/aerial.nvim',
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+    event = 'BufEnter',
+    keys = {
+      { '<F3>', ':AerialToggle right<CR>' },
+      { '<leader>lo',  ':AerialToggle right<CR>' },
+    },
+    opts = {
+      backends = { "lsp", "treesitter", "markdown", "man" },
+      filter_kind = {
+        'Class',
+        'Constructor',
+        'Enum',
+        'Function',
+        'Interface',
+        'Method',
+        'Module',
+        'Struct',
+        'Variable',
+      },
+      autojump = true,
+      close_on_select = true,
+      close_automatic_events = { 'unfocus', 'switch_buffer', 'unsupported' },
+    },
+  }
 }
 
