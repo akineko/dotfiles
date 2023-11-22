@@ -27,8 +27,8 @@ return {
     keys = {
       { '[Telescope]', '' },
       { '<leader>f', '[Telescope]', remap = true },
-      { '[Telescope]f', ':Telescope find_files hidden=true<CR>' },
-      { '[Telescope]F', ':Telescope find_files hidden=true no_ignore=true<CR>' },
+      { '[Telescope]f', ':Telescope find_files<CR>' },
+      { '[Telescope]F', ':Telescope find_files no_ignore=true<CR>' },
       { '[Telescope]g', ':Telescope live_grep<CR>' },
       { '[Telescope]b', ':Telescope buffers<CR>' },
       { '[Telescope]p', ':Telescope projects<CR>' },
@@ -47,7 +47,6 @@ return {
     config = function()
       local actions = require('telescope.actions')
       local action_state = require('telescope.actions.state')
-      local trouble = require('trouble.providers.telescope')
 
       local custom_actions = {}
       function custom_actions._multiopen(prompt_bufnr, open_cmd)
@@ -86,8 +85,15 @@ return {
           custom_actions._multiopen(prompt_bufnr, "edit")
       end
 
+      local telescope_config = require('telescope.config')
+      local vimgrep_arguments = { unpack(telescope_config.values.vimgrep_arguments) }
+      table.insert(vimgrep_arguments, '--hidden')
+      table.insert(vimgrep_arguments, '--glob')
+      table.insert(vimgrep_arguments, '!**/.git/*')
+
       require('telescope').setup{
         defaults = {
+          vimgrep_arguments = vimgrep_arguments,
           mappings = {
             i = {
               ["<ESC>"] = actions.close,
@@ -101,12 +107,15 @@ return {
               ["<C-s>"] = custom_actions.multi_selection_open_split,
               ["<C-t>"] = custom_actions.multi_selection_open_tab,
               ["<M-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
-              ["<M-o>"] = trouble.smart_open_with_trouble,
+              ["<M-o>"] = require('trouble.providers.telescope').smart_open_with_trouble,
             },
             n = i,
           },
         },
         pickers = {
+          find_files = {
+            find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+          },
           buffers = {
             mappings = {
               i = {
