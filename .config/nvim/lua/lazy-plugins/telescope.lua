@@ -27,7 +27,6 @@ return {
     keys = {
       { '[Telescope]', '' },
       { '<leader>f', '[Telescope]', remap = true },
-      -- { '[Telescope]f', [[:lua require'telescope-config'.project_files()<CR>]] },
       { '[Telescope]f', ':Telescope find_files hidden=true<CR>' },
       { '[Telescope]F', ':Telescope find_files hidden=true no_ignore=true<CR>' },
       { '[Telescope]g', ':Telescope live_grep<CR>' },
