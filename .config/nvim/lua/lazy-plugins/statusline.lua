@@ -63,6 +63,7 @@ return {
     },
     event = 'BufEnter',
     opts = {
+      attach_navic = false,
       show_modified = true,
     },
   },
