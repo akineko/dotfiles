@@ -14,6 +14,22 @@ return {
         build = 'make',
       },
       {
+        'AckslD/nvim-neoclip.lua',
+        opts = {
+          keys = {
+            telescope = {
+              i = {
+                paste = '<C-p>',
+                paste_behind = '<C-S-p>',
+                replay = '<C-r>',
+                delete = '<Delete>',
+                edit = '<C-e>',
+              },
+            },
+          },
+        },
+      },
+      {
         'ahmedkhalf/project.nvim',
         config = function()
           require('project_nvim').setup({
@@ -34,6 +50,7 @@ return {
       { '[Telescope]p', ':Telescope projects<CR>' },
       { '[Telescope]t', ':TodoTelescope<CR>' },
       { '[Telescope]u', ':Telescope undo<CR>' },
+      { '[Telescope]y', ':Telescope neoclip<CR>' },
       -- lsp
       { 'gr', ':Telescope lsp_references<CR>' },
       { 'gd', ':Telescope lsp_definitions jump_type=never<CR>' },
@@ -149,6 +166,7 @@ return {
       require('telescope').load_extension('fzf')
       require('telescope').load_extension('frecency')
       require('telescope').load_extension('file_browser')
+      require('telescope').load_extension('neoclip')
       require('telescope').load_extension('projects')
       require("telescope").load_extension("undo")
     end,
