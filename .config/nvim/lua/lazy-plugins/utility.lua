@@ -39,6 +39,13 @@ return {
     opts = {},
   },
   {
+    'cshuaimin/ssr.nvim',
+    keys = {
+      { '<Leader>sr', function() require('ssr').open() end, mode = { 'n', 'x'} },
+    },
+    opts = {},
+  },
+  {
     'akinsho/toggleterm.nvim',
     version = "*",
     keys = { '<A-t>' },
