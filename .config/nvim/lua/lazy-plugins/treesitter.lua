@@ -1,6 +1,17 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'RRethy/vim-illuminate',
+      'RRethy/nvim-treesitter-endwise',
+      'windwp/nvim-ts-autotag',
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      {
+        'romgrk/nvim-treesitter-context',
+        opts = { multiline_threshold = 1 },
+      },
+    },
     event = 'BufEnter',
     build = ':TSUpdate',
     config = function()
@@ -55,17 +66,6 @@ return {
         },
       })
     end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-      'RRethy/vim-illuminate',
-      'RRethy/nvim-treesitter-endwise',
-      'windwp/nvim-ts-autotag',
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      {
-        'romgrk/nvim-treesitter-context',
-        opts = { multiline_threshold = 1 },
-      },
-    },
   },
   {
     'mfussenegger/nvim-treehopper',
