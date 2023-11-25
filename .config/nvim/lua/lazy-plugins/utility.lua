@@ -34,4 +34,22 @@ return {
     cmd = 'Sort',
     opts = {},
   },
+  {
+    'kevinhwang91/nvim-bqf',
+    dependencies = {
+      'junegunn/fzf',
+      'nvim-treesitter/nvim-treesitter',
+    },
+    ft = 'qf',
+    opts = {
+      func_map = {
+        prevfile = '<C-k>',
+        nextfile = '<C-j>',
+        stoggleup = '',
+        stoggledown = '',
+        stogglevm = '<C-i>',
+        stogglebuf = '<C-i>',
+      },
+    },
+  },
 }
