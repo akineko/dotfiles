@@ -1,7 +1,10 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons', },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons',
+      'rmagatti/auto-session',
+    },
     event = 'VimEnter',
     config = function()
       local function file_encoding()
@@ -29,7 +32,10 @@ return {
             'diff',
             {'diagnostics', sources = {'nvim_diagnostic'}},
           },
-          lualine_c = { {'filename', path = 1} },
+          lualine_c = {
+            {'filename', path = 1},
+            require('auto-session.lib').current_session_name,
+          },
           lualine_x = {
             -- {
             --   lsp_client_names,
