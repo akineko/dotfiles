@@ -122,7 +122,7 @@ return {
               ["<C-u>"] = actions.preview_scrolling_up,
               ["<C-d>"] = actions.preview_scrolling_down,
               ["<C-v>"] = custom_actions.multi_selection_open_vsplit,
-              ["<C-s>"] = custom_actions.multi_selection_open_split,
+              ["<C-x>"] = custom_actions.multi_selection_open_split,
               ["<C-t>"] = custom_actions.multi_selection_open_tab,
               ["<M-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
               ["<M-o>"] = require('trouble.providers.telescope').smart_open_with_trouble,
