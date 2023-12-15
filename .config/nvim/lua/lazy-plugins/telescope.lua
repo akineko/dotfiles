@@ -107,7 +107,7 @@ return {
       local vimgrep_arguments = { unpack(telescope_config.values.vimgrep_arguments) }
       table.insert(vimgrep_arguments, '--hidden')
       table.insert(vimgrep_arguments, '--glob')
-      table.insert(vimgrep_arguments, '!**/.git/*')
+      table.insert(vimgrep_arguments, '!**/{.git,node_modules}/*')
 
       require('telescope').setup{
         defaults = {
