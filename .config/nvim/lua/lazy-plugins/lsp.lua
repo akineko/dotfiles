@@ -101,6 +101,8 @@ return {
       end})
 
       -- null-ls
+      local null_ls = require('null-ls')
+
       local function find_root()
         local node_root = lspconfig.util.find_package_json_ancestor()
         if node_root ~= "" then
@@ -120,10 +122,14 @@ return {
           'shellcheck',
         },
         automatic_installation = false,
-        handlers = {},
+        handlers = {
+          shellcheck = function(source_name, methods)
+            null_ls.register(null_ls.builtins.code_actions.shellcheck.with({ disabled_filetypes = { 'conf' } }))
+            null_ls.register(null_ls.builtins.diagnostics.shellcheck.with({ disabled_filetypes = { 'conf' } }))
+          end,
+        },
       })
 
-      local null_ls = require('null-ls')
       null_ls.setup{
         debug = false,
         on_attach = on_attach,
