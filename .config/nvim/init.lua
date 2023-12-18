@@ -94,7 +94,7 @@ vim.opt.hidden = true
 -- 不可視文字の表示
 -- tab:最初２文字 trail:行末の空白 extends:折り返しの行末 precedes:折り返しの行頭 eol:行末
 vim.opt.list = true
-vim.opt.listchars = { tab = ">\\", trail = "-", nbsp = "%", extends = ">", precedes = "<" }
+vim.opt.listchars = { tab = "> ", trail = "-", nbsp = "%", extends = ">", precedes = "<" }
 
 -- コマンドラインの行数
 vim.opt.cmdheight = 2
