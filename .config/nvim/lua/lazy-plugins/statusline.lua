@@ -3,7 +3,6 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = {
       'nvim-tree/nvim-web-devicons',
-      'rmagatti/auto-session',
     },
     event = 'VimEnter',
     config = function()
@@ -34,7 +33,6 @@ return {
           },
           lualine_c = {
             {'filename', path = 1},
-            require('auto-session.lib').current_session_name,
           },
           lualine_x = {
             -- {

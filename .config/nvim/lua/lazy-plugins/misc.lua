@@ -67,35 +67,19 @@ return {
       { '<C-w>o', '<Plug>(zoom-toggle)' },
     },
   },
-  -- {
-  --   'xolox/vim-session',
-  --   event = 'BufEnter',
-  --   dependencies = { 'xolox/vim-misc' },
-  --   init = function()
-  --     vim.g.session_lock_enabled = 0
-  --     vim.g.session_autoload = 'no'
-  --     vim.g.session_autosave = 'yes'
-  --     vim.g.session_autosave_periodic = 5
-  --     vim.g.session_autosave_silent = 1
-  --     vim.g.session_persist_font = 0
-  --     vim.g.session_persist_colors = 0
-  --   end,
-  -- },
   {
-    'rmagatti/auto-session',
-    dependencies = { 'nvim-telescope/telescope.nvim' },
+    'xolox/vim-session',
     event = 'VeryLazy',
+    dependencies = { 'xolox/vim-misc' },
     init = function()
-      vim.o.sessionoptions='blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+      vim.g.session_lock_enabled = 0
+      vim.g.session_autoload = 'no'
+      vim.g.session_autosave = 'yes'
+      vim.g.session_autosave_periodic = 5
+      vim.g.session_autosave_silent = 1
+      vim.g.session_persist_font = 0
+      vim.g.session_persist_colors = 0
     end,
-    main = 'auto-session',
-    opts = {
-      auto_session_enabled = true,
-      auto_session_create_enabled = true,
-      auto_save_enabled = true,
-      auto_restore_enabled = true,
-      auto_session_use_git_branch = true,
-    },
   },
   {
     'osyo-manga/vim-precious',

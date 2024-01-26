@@ -6,7 +6,6 @@ return {
       'nvim-tree/nvim-web-devicons',
       'folke/trouble.nvim',
       "folke/todo-comments.nvim",
-      'rmagatti/auto-session',
       'debugloop/telescope-undo.nvim',
       'nvim-telescope/telescope-frecency.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
@@ -170,7 +169,6 @@ return {
       require('telescope').load_extension('neoclip')
       require('telescope').load_extension('projects')
       require("telescope").load_extension('undo')
-      require("telescope").load_extension('session-lens')
     end,
   },
 }
