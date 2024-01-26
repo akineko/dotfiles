@@ -4,7 +4,6 @@ return {
     dependencies = {
       'neovim/nvim-lspconfig',
       'williamboman/mason.nvim',
-      'SmiteshP/nvim-navic',
       'ray-x/lsp_signature.nvim',
       'nvim-lua/lsp-status.nvim',
       'lukas-reineke/lsp-format.nvim',
@@ -52,10 +51,6 @@ return {
       local on_attach = function (client, bufnr)
         local opts = { buffer = bufnr, noremap = true, silent = true }
         vim.keymap.set('n', '<leader>lf', ":lua vim.lsp.buf.format{ async = true }<CR>", opts)
-
-        if client.server_capabilities.documentSymbolProvider then
-          require('nvim-navic').on_attach(client, bufnr)
-        end
 
         require "lsp_signature".on_attach()
         require('lsp-format').on_attach(client)
