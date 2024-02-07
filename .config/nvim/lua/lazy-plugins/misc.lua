@@ -4,10 +4,6 @@ return {
     event = 'BufEnter',
   },
   {
-    'kyazdani42/nvim-web-devicons',
-    event = 'BufEnter',
-  },
-  {
     'folke/lsp-colors.nvim',
     event = 'BufEnter',
   },
