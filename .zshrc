@@ -264,6 +264,9 @@ fi
 # volta
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+if type volta &>/dev/null; then
+  eval "$(volta completions zsh)"
+fi
 
 # -------------------------------------------------------------------------------
 # Golang
@@ -347,4 +350,3 @@ fi
 for f in $HOME/.zsh/functions/*.zsh; do
   source "$f"
 done
-
