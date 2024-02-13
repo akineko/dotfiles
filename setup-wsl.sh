@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Distrod https://github.com/nullpo-head/wsl-distrod
-curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
-chmod +x install.sh
-sudo ./install.sh install
-sudo /opt/distrod/bin/distrod enable
-rm install.sh
-
 # ビープ音OFF
 echo 'set bell-style none' > ~/.inputrc
 
