@@ -8,7 +8,7 @@ print "[interop]\\nappendWindowsPath = false" | sudo tee -a /etc/wsl.conf
 
 # Git の認証情報を Windows 側と共有する
 # Git for Windows をデフォルトのままインストールした前提
-git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/libexec/git-core/git-credential-manager-core.exe"
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
 
 # Homebrew で入れた zsh をデフォルトシェルにするなら
 # sudo chsh -s /home/linuxbrew/.linuxbrew/bin/zsh akineko
