@@ -15,6 +15,8 @@ return {
     event = 'BufEnter',
     build = ':TSUpdate',
     config = function()
+      vim.g.skip_ts_context_commentstring_module = true
+
       require('nvim-treesitter.configs').setup({
         -- ensure_installed = 'all',
         -- ignore_install = { 'sql' },
@@ -31,10 +33,6 @@ return {
         },
         autotag = {
           enable = true,
-        },
-        context_commentstring = {
-          enable = true,
-          enable_autocmd = false,
         },
         textobjects = {
           select = {
