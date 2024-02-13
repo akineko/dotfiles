@@ -24,7 +24,7 @@ brew install jq
 
 # rust tools
 brew install bat
-brew install exa
+brew install eza
 brew install fd
 brew install fselect
 brew install lsd
