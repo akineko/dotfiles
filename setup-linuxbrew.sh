@@ -18,6 +18,7 @@ brew install the_platinum_searcher
 brew install the_silver_searcher
 
 # cli tools
+brew install mise
 brew install asdf
 brew install gibo
 brew install jq

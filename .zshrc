@@ -248,6 +248,11 @@ if type asdf &>/dev/null; then
   . $(brew --prefix asdf)/libexec/asdf.sh
 fi
 
+# mise
+if type mise &>/dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
