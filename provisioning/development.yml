@@ -5,14 +5,14 @@
   roles:
     # - { role: anyenv }
     - { role: common }
-    - { role: docker }
+    # - { role: docker }
     # - { role: fish }
     # - { role: fzf }
     # - { role: golang }
     - { role: google-cloud-sdk }
-    - { role: kubernetes }
+    # - { role: kubernetes }
     # - { role: linuxbrew }
-    - { role: neovim }
+    # - { role: neovim }
     # - { role: minikube }
     - { role: php-requirements }
     - { role: python-requirements }
