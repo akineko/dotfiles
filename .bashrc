@@ -16,3 +16,4 @@ alias svndiff="svn diff --diff-cmd ~/.vim/scripts/svndiff"
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+. "$HOME/.cargo/env"

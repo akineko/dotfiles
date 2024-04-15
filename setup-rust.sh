@@ -1,8 +1,8 @@
 #!/bin/bash
 set -Ceux
 
-if !(type rustup &> /dev/null); then
-  curl https://sh.rustup.rs -sSf | sh
+if ! (type rustup &> /dev/null); then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
 
 tools=(
@@ -13,7 +13,7 @@ tools=(
   "rustfmt"
 )
 
-for tool in ${tools[@]}; do
-  rustup component add $tool
+for tool in "${tools[@]}"; do
+  rustup component add "${tool}"
 done
 
