@@ -19,7 +19,6 @@ brew install the_silver_searcher
 
 # cli tools
 brew install mise
-brew install asdf
 brew install gibo
 brew install jq
 
@@ -54,10 +53,6 @@ brew install ninja
 brew install kubernetes-cli
 brew install kubectx
 brew install stern
-
-# terraform
-brew install terraformer
-brew install tfenv
 
 # build requirements
 brew install pkg-config

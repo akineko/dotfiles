@@ -243,14 +243,10 @@ if type brew &>/dev/null; then
   compinit
 fi
 
-# asdf
-if type asdf &>/dev/null; then
-  . $(brew --prefix asdf)/libexec/asdf.sh
-fi
-
 # mise
 if type mise &>/dev/null; then
   eval "$(mise activate zsh)"
+  eval "$(mise activate --shims)"
 fi
 
 # fzf

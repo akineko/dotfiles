@@ -20,6 +20,7 @@ mkdir -p "$HOME/.config"
 ln -sf "$abspath/.config/nvim" "$HOME/.config/nvim"
 ln -sf "$abspath/.config/git" "$HOME/.config/git"
 ln -sf "$abspath/.config/gitui" "$HOME/.config/gitui"
+ln -sf "$abspath/.config/mise" "$HOME/.config/mise"
 
 ln -sf "$abspath/.config/starship.toml" "$HOME/.config/starship.toml"
 

@@ -1,0 +1,12 @@
+[tools]
+node = "20"
+deno = "latest"
+terraform = "1.5.2"
+usage = "latest"
+go = "latest"
+ruby = "latest"
+python = "latest"
+
+[settings]
+experimental = true
+
