@@ -22,7 +22,10 @@ return {
       require("mason").setup()
       require('lsp-format').setup{
         typescript = {
-          order = { 'tsserver', 'vtsls', 'null-ls' },
+          exclude = { 'tsserver', 'vtsls' },
+        },
+        typescriptreact = {
+          exclude = { 'tsserver', 'vtsls' },
         }
       }
 
