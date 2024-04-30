@@ -117,7 +117,7 @@ return {
 
       require('mason-null-ls').setup({
         ensure_installed = {
-          'shellcheck',
+          'bash-language-server',
         },
         automatic_installation = false,
         handlers = {
