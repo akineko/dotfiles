@@ -263,8 +263,10 @@ if type starship &>/dev/null; then
 fi
 
 # volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+if [ -d ~/.volta ]; then
+  export VOLTA_HOME="$HOME/.volta"
+  export PATH="$VOLTA_HOME/bin:$PATH"
+fi
 
 # rustup
 [ -f ~/.cargo/env ] && source ~/.cargo/env
