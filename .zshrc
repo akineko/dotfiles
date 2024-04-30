@@ -249,6 +249,13 @@ if type mise &>/dev/null; then
   eval "$(mise activate --shims)"
 fi
 
+# proto
+if [ -d ~/.proto ]; then
+  export PROTO_HOME="$HOME/.proto"
+  export PATH="$PROTO_HOME/shims:$PROTO_HOME/bin:$PATH"
+  eval "$(proto completions)"
+fi
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
