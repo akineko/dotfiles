@@ -275,6 +275,11 @@ if [ -d ~/.volta ]; then
   export PATH="$VOLTA_HOME/bin:$PATH"
 fi
 
+# pnpm
+if type pnpm &>/dev/null; then
+  eval "$(pnpm completion zsh)"
+fi
+
 # rustup
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 
