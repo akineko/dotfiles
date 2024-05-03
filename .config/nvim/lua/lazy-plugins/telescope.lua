@@ -158,6 +158,9 @@ return {
             -- theme = "ivy",
             hidden = true,
           },
+          frecency = {
+            db_safe_mode = false,
+          },
         }
       }
 
