@@ -132,6 +132,12 @@ return {
         pickers = {
           find_files = {
             find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+            mappings = {
+              ["i"] = {
+                ['<Delete>'] = require('telescope._extensions.file_browser.actions').remove,
+              },
+              n = i,
+            },
           },
           buffers = {
             mappings = {
@@ -151,14 +157,6 @@ return {
           file_browser = {
             -- theme = "ivy",
             hidden = true,
-            mappings = {
-              ["i"] = {
-                -- your custom insert mode mappings
-              },
-              ["n"] = {
-                -- your custom normal mode mappings
-              },
-            },
           },
         }
       }
