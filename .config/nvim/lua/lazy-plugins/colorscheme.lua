@@ -9,6 +9,12 @@ return {
     end,
   },
   {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    priority = 1000,
+  },
+  {
     "sainnhe/edge",
   },
   {
