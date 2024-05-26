@@ -90,37 +90,17 @@ return {
       -- null-ls
       local null_ls = require('null-ls')
 
-      local function find_root()
-        local node_root = lspconfig.util.find_package_json_ancestor()
-        if node_root ~= "" then
-          return node_root
-        end
-
-        local modules_root = lspconfig.util.find_node_modules_ancestor()
-        if modules_root ~= "" then
-          return modules_root
-        end
-
-        return lspconfig.util.find_git_ancestor()
-      end
-
       require('mason-null-ls').setup({
         ensure_installed = {
           'bash-language-server',
         },
         automatic_installation = false,
-        handlers = {
-          shellcheck = function(source_name, methods)
-            null_ls.register(null_ls.builtins.code_actions.shellcheck.with({ disabled_filetypes = { 'conf' } }))
-            null_ls.register(null_ls.builtins.diagnostics.shellcheck.with({ disabled_filetypes = { 'conf' } }))
-          end,
-        },
+        handlers = {},
       })
 
       null_ls.setup{
         debug = false,
         on_attach = on_attach,
-        -- root_dir = find_root,
         sources = {
           -- JavaScript / TypeScript
           null_ls.builtins.code_actions.xo.with({
