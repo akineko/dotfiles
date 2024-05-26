@@ -6,7 +6,6 @@ return {
       'williamboman/mason.nvim',
       'ray-x/lsp_signature.nvim',
       'nvim-lua/lsp-status.nvim',
-      'lukas-reineke/lsp-format.nvim',
       -- TypeScript
       'yioneko/nvim-vtsls',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
@@ -20,14 +19,6 @@ return {
     event = 'VeryLazy',
     config = function()
       require("mason").setup()
-      require('lsp-format').setup{
-        typescript = {
-          exclude = { 'tsserver', 'vtsls' },
-        },
-        typescriptreact = {
-          exclude = { 'tsserver', 'vtsls' },
-        }
-      }
 
       local ok, _ = pcall(require, 'cmp')
       local capabilities
@@ -53,10 +44,8 @@ return {
 
       local on_attach = function (client, bufnr)
         local opts = { buffer = bufnr, noremap = true, silent = true }
-        vim.keymap.set('n', '<leader>lf', ":lua vim.lsp.buf.format{ async = true }<CR>", opts)
 
         require "lsp_signature".on_attach()
-        require('lsp-format').on_attach(client)
       end
 
       local lspconfig = require("lspconfig")
@@ -146,5 +135,40 @@ return {
       }
     end,
   },
+  {
+    'stevearc/conform.nvim',
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+    },
+    event = { 'BufWritePre' },
+    cmd = { 'ConformInfo' },
+    keys = {
+      {
+        '<leader>lf',
+        [[:lua require("conform").format({ async = true, lsp_fallback = true })<CR>]],
+        desc = 'Format buffer',
+      },
+    },
+    config = function()
+      require('conform').setup({
+        formatters_by_ft = {
+          lua = { 'stylua' },
+          javascript = { 'biome-check', 'dprint', { 'biome', 'prettierd', 'prettier' } },
+          javascriptreact = { 'biome-check', 'dprint', { 'biome', 'prettierd', 'prettier' } },
+          typescript = { 'biome-check', 'dprint', { 'biome', 'prettierd', 'prettier' } },
+          typescriptreact = { 'biome-check', 'dprint', { 'biome', 'prettierd', 'prettier' } },
+        },
+        -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
+      })
+      -- NOTE: setup のオプションや args.buf を渡す形式だと dprint が動かない
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        callback = function()
+          require("conform").format({ timeout_ms = 500, lsp_fallback = true })
+        end,
+      })
+    end,
+    init = function()
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
+  },
 }
-
