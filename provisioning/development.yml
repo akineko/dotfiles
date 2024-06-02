@@ -14,10 +14,7 @@
     # - { role: linuxbrew }
     # - { role: neovim }
     # - { role: minikube }
-    - { role: php-requirements }
-    - { role: python-requirements }
     # - { role: powerline }
-    - { role: ruby-requirements }
     # - { role: tmux }
     - { role: tpm }
 

@@ -55,12 +55,12 @@ brew install kubectx
 brew install stern
 
 # build requirements
-brew install pkg-config
-brew install libxml2
-brew install curl
-brew install libpng
-brew install libjpeg
-brew install icu4c
-brew install libxslt
-brew install libzip
+#brew install pkg-config
+#brew install libxml2
+#brew install curl
+#brew install libpng
+#brew install libjpeg
+#brew install icu4c
+#brew install libxslt
+#brew install libzip
 
