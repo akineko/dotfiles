@@ -3,15 +3,11 @@ set -Ceux
 
 # common
 go install github.com/mattn/memo@latest
-
-# vim
-go install github.com/mattn/files@latest
-go install github.com/rhysd/vim-startuptime@latest@latest
+go install github.com/aquaproj/aqua/v2/cmd/aqua@latest
 
 # golang
 go install golang.org/x/tools/cmd/godoc@latest
-go install github.com/motemen/gore@latest
-go install github.com/k0kubun/pp@latest
+go install github.com/x-motemen/gore/cmd/gore@latest
 go install github.com/motemen/gofind/cmd/gofind@latest
 go install github.com/clipperhouse/gen@latest
 
