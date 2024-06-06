@@ -133,10 +133,10 @@ return {
       require('conform').setup({
         formatters_by_ft = {
           lua = { 'stylua' },
-          javascript = { 'biome-check', 'dprint', { 'biome', 'prettierd', 'prettier' } },
-          javascriptreact = { 'biome-check', 'dprint', { 'biome', 'prettierd', 'prettier' } },
-          typescript = { 'biome-check', 'dprint', { 'biome', 'prettierd', 'prettier' } },
-          typescriptreact = { 'biome-check', 'dprint', { 'biome', 'prettierd', 'prettier' } },
+          javascript = { 'biome-check', { 'dprint', 'biome', 'prettierd', 'prettier' } },
+          javascriptreact = { 'biome-check', { 'dprint', 'biome', 'prettierd', 'prettier' } },
+          typescript = { 'biome-check', { 'dprint', 'biome', 'prettierd', 'prettier' } },
+          typescriptreact = { 'biome-check', { 'dprint', 'biome', 'prettierd', 'prettier' } },
         },
         -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
       })
