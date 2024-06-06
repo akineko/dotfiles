@@ -10,12 +10,6 @@ return {
 -- utility
   {
     'thinca/vim-quickrun',
-    dependencies = {
-      {
-        'Shougo/vimproc.vim',
-        build = 'make',
-      },
-    },
     event = 'BufEnter',
     keys = {
       { '<leader>r', ':QuickRun<CR>', silent = true },

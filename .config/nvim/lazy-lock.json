@@ -113,6 +113,5 @@
   "vim-vsnip": { "branch": "master", "commit": "02a8e79295c9733434aab4e0e2b8c4b7cea9f3a9" },
   "vim-zoom": { "branch": "master", "commit": "01c737005312c09e0449d6518decf8cedfee32c7" },
   "vimdoc-ja": { "branch": "master", "commit": "9c4a2c27dc90ef6bdb34296be66f5cf094db988f" },
-  "vimproc.vim": { "branch": "master", "commit": "bf06f3f9bb1b60542fccde1ed7499798d1154db6" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }
