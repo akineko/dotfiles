@@ -44,6 +44,17 @@ return {
     end,
   },
   {
+    'antosha417/nvim-lsp-file-operations',
+    event = 'BufEnter',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-tree.lua',
+    },
+    config = function()
+      require('lsp-file-operations').setup()
+    end,
+  },
+  {
     'stevearc/aerial.nvim',
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
