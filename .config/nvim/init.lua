@@ -167,7 +167,7 @@ vim.api.nvim_create_user_command(
 )
 
 -- volta で nodejs を管理している場合は neovim-node-host を設定
-if vim.fn.executable("volta") then
+if vim.fn.executable("volta") == 1 then
   vim.g.node_host_prog = vim.fn.trim(vim.fn.system("volta which neovim-node-host"))
 end
 
