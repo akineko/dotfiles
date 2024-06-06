@@ -12,6 +12,7 @@ return {
       -- none-ls
       'nvim-lua/plenary.nvim',
       'nvimtools/none-ls.nvim',
+      'nvimtools/none-ls-extras.nvim',
       'jay-babu/mason-null-ls.nvim',
       -- nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -103,13 +104,17 @@ return {
         on_attach = on_attach,
         sources = {
           -- JavaScript / TypeScript
-          null_ls.builtins.code_actions.xo.with({
-              only_local = "node_modules/.bin",
+          -- null_ls.builtins.formatting.biome.with({
+          --     prefer_local = "node_modules/.bin",
+          -- }),
+          require('none-ls.code_actions.eslint').with({
+            only_local = 'node_modules/.bin',
           }),
-          null_ls.builtins.diagnostics.xo.with({
-              only_local = "node_modules/.bin",
-              method = null_ls.methods.DIAGNOSTICS_ON_SAVE,
-              timeout = 10000,
+          require('none-ls.diagnostics.eslint').with({
+            only_local = 'node_modules/.bin',
+          }),
+          require('none-ls.formatting.eslint').with({
+            only_local = 'node_modules/.bin',
           }),
         },
       }
