@@ -39,28 +39,6 @@ return {
         end,
       },
     },
-    cmd = { 'Telescope' },
-    keys = {
-      { '[Telescope]', '' },
-      { '<leader>f', '[Telescope]', remap = true },
-      { '[Telescope]f', ':Telescope find_files<CR>' },
-      { '[Telescope]F', ':Telescope find_files no_ignore=true<CR>' },
-      { '[Telescope]g', ':Telescope live_grep<CR>' },
-      { '[Telescope]b', ':Telescope buffers<CR>' },
-      { '[Telescope]p', ':Telescope projects<CR>' },
-      { '[Telescope]t', ':TodoTelescope<CR>' },
-      { '[Telescope]u', ':Telescope undo<CR>' },
-      { '[Telescope]y', ':Telescope neoclip<CR>' },
-      -- lsp
-      { 'gr', ':Telescope lsp_references<CR>' },
-      { 'gd', ':Telescope lsp_definitions jump_type=never<CR>' },
-      { '<leader>rf', ':Telescope lsp_references<CR>' },
-      { '<leader>df', ':Telescope lsp_definitions jump_type=never<CR>' },
-      { '<leader>ls', ':Telescope lsp_document_symbols<CR>' },
-      { 'gw', ':Telescope lsp_dynamic_workspace_symbols<CR>' },
-      { '<leader>td', ':Telescope lsp_type_definitions<CR>' },
-      { '<leader>li', ':Telescope lsp_implementations<CR>' },
-    },
     config = function()
       local actions = require('telescope.actions')
       local action_state = require('telescope.actions.state')
@@ -171,5 +149,41 @@ return {
       require('telescope').load_extension('projects')
       require("telescope").load_extension('undo')
     end,
+  },
+  {
+    'prochri/telescope-all-recent.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'kkharji/sqlite.lua',
+      -- optional, if using telescope for vim.ui.select
+      -- 'stevearc/dressing.nvim'
+    },
+    cmd = { 'Telescope' },
+    keys = {
+      { '[Telescope]', '' },
+      { '<leader>f', '[Telescope]', remap = true },
+      { '<leader>ff', ':Telescope find_files<CR>' },
+      { '<leader>fF', ':Telescope find_files no_ignore=true<CR>' },
+      { '<leader>fg', ':Telescope live_grep<CR>' },
+      { '<leader>fb', ':Telescope buffers<CR>' },
+      { '<leader>fp', ':Telescope projects<CR>' },
+      { '<leader>ft', ':TodoTelescope<CR>' },
+      { '<leader>fu', ':Telescope undo<CR>' },
+      { '<leader>fy', ':Telescope neoclip<CR>' },
+      -- lsp
+      { 'gr', ':Telescope lsp_references<CR>' },
+      { 'gd', ':Telescope lsp_definitions jump_type=never<CR>' },
+      { '<leader>rf', ':Telescope lsp_references<CR>' },
+      { '<leader>df', ':Telescope lsp_definitions jump_type=never<CR>' },
+      { '<leader>ls', ':Telescope lsp_document_symbols<CR>' },
+      { 'gw', ':Telescope lsp_dynamic_workspace_symbols<CR>' },
+      { '<leader>td', ':Telescope lsp_type_definitions<CR>' },
+      { '<leader>li', ':Telescope lsp_implementations<CR>' },
+    },
+    opts = {
+      -- default = {
+      --   sorting = 'frecency',
+      -- },
+    },
   },
 }
