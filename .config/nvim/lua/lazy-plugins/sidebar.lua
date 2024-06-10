@@ -55,6 +55,25 @@ return {
     end,
   },
   {
+    'stevearc/oil.nvim',
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = 'VeryLazy',
+    keys = {
+      { '<leader>o', ':Oil --float<CR>' },
+    },
+    opts = {
+      lsp_file_methods = {
+        autosave_changes = true,
+      },
+      view_options = {
+        show_hidden = true,
+      },
+      float = {
+        padding = 10,
+      },
+    },
+  },
+  {
     'stevearc/aerial.nvim',
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
@@ -62,8 +81,8 @@ return {
     },
     event = 'BufEnter',
     keys = {
-      { '<F3>', ':AerialToggle right<CR>' },
-      { '<leader>lo',  ':AerialToggle right<CR>' },
+      { '<F3>',       ':AerialToggle right<CR>' },
+      { '<leader>lo', ':AerialToggle right<CR>' },
     },
     opts = {
       backends = { "lsp", "treesitter", "markdown", "man" },
@@ -84,4 +103,3 @@ return {
     },
   }
 }
-
