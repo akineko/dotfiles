@@ -7,7 +7,6 @@ return {
       'folke/trouble.nvim',
       "folke/todo-comments.nvim",
       'debugloop/telescope-undo.nvim',
-      'nvim-telescope/telescope-frecency.nvim',
       'nvim-telescope/telescope-file-browser.nvim',
       {
         'nvim-telescope/telescope-fzf-native.nvim',
@@ -136,14 +135,10 @@ return {
             -- theme = "ivy",
             hidden = true,
           },
-          frecency = {
-            db_safe_mode = false,
-          },
-        }
+        },
       }
 
       require('telescope').load_extension('fzf')
-      require('telescope').load_extension('frecency')
       require('telescope').load_extension('file_browser')
       require('telescope').load_extension('neoclip')
       require('telescope').load_extension('projects')
