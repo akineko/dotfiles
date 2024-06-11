@@ -43,7 +43,7 @@ return {
         }
       end
 
-      local on_attach = function (client, bufnr)
+      local on_attach = function(client, bufnr)
         local opts = { buffer = bufnr, noremap = true, silent = true }
 
         require "lsp_signature".on_attach()
@@ -67,7 +67,7 @@ return {
             })
             ts_utils.setup_client(client)
 
-            local opts = { noremap=true, silent=true }
+            local opts = { noremap = true, silent = true }
             vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":TSLspOrganize<CR>", opts)
             vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
 
@@ -77,7 +77,7 @@ return {
 
         if server_name == "vtsls" then
           opts.on_attach = function(client, bufnr)
-            local opts = { noremap=true, silent=true }
+            local opts = { noremap = true, silent = true }
             vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":VtsExec organize_imports<CR>", opts)
             vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":VtsExec add_missing_imports<CR>", opts)
 
@@ -86,7 +86,7 @@ return {
         end
 
         lspconfig[server_name].setup(opts)
-      end})
+      end })
 
       -- null-ls
       local null_ls = require('null-ls')
@@ -99,7 +99,7 @@ return {
         handlers = {},
       })
 
-      null_ls.setup{
+      null_ls.setup {
         debug = false,
         on_attach = on_attach,
         sources = {
@@ -156,4 +156,23 @@ return {
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
   },
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = {
+      'kevinhwang91/promise-async',
+    },
+    event = 'BufEnter',
+    keys = {
+      { 'zR', ':lua require("ufo").openAllFolds()<CR>',  desc = 'Open all folds' },
+      { 'zM', ':lua require("ufo").closeAllFolds()<CR>', desc = 'Close all folds' },
+    },
+    config = function()
+      vim.o.foldcolumn = '0'
+      vim.o.foldlevel = 99
+      vim.o.foldlevelstart = 99
+      vim.o.foldenable = true
+
+      require('ufo').setup()
+    end,
+  }
 }
