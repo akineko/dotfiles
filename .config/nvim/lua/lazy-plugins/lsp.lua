@@ -43,6 +43,11 @@ return {
         }
       end
 
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+
       local on_attach = function(client, bufnr)
         local opts = { buffer = bufnr, noremap = true, silent = true }
 
@@ -161,7 +166,7 @@ return {
     dependencies = {
       'kevinhwang91/promise-async',
     },
-    event = 'BufEnter',
+    event = 'VeryLazy',
     keys = {
       { 'zR', ':lua require("ufo").openAllFolds()<CR>',  desc = 'Open all folds' },
       { 'zM', ':lua require("ufo").closeAllFolds()<CR>', desc = 'Close all folds' },
