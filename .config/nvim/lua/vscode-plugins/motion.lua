@@ -14,7 +14,7 @@ return {
           enabled = true,
         },
         char = {
-          enabled = true,
+          enabled = false,
           keys = { 'f', 'F' },
         },
       },
