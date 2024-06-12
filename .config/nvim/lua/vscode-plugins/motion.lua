@@ -3,12 +3,6 @@ return {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {
-      highlight = {
-        groups = {
-          match = 'String',
-          label = 'Number',
-        },
-      },
       modes = {
         search = {
           enabled = true,
