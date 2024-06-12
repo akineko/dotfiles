@@ -32,6 +32,11 @@ vim.opt.cursorcolumn = false
 -- マウス
 vim.opt.mouse = ""
 
+-- クリップボード
+if vim.fn.has('gui') then
+  vim.opt.clipboard = "unnamedplus"
+end
+
 -- 描画改善
 -- vim.opt.lazyredraw
 vim.opt.ttyfast = true
@@ -134,30 +139,30 @@ local function get_syn_info()
   local baseSyn = get_syn_attr(get_syn_id(0))
   print(
     "name: "
-      .. baseSyn.name
-      .. " ctermfg: "
-      .. baseSyn.ctermfg
-      .. " ctermbg: "
-      .. baseSyn.ctermbg
-      .. " guifg: "
-      .. baseSyn.guifg
-      .. " guibg: "
-      .. baseSyn.guibg
+    .. baseSyn.name
+    .. " ctermfg: "
+    .. baseSyn.ctermfg
+    .. " ctermbg: "
+    .. baseSyn.ctermbg
+    .. " guifg: "
+    .. baseSyn.guifg
+    .. " guibg: "
+    .. baseSyn.guibg
   )
 
   local linkedSyn = get_syn_attr(get_syn_id(1))
   print("link to")
   print(
     "name: "
-      .. linkedSyn.name
-      .. " ctermfg: "
-      .. linkedSyn.ctermfg
-      .. " ctermbg: "
-      .. linkedSyn.ctermbg
-      .. " guifg: "
-      .. linkedSyn.guifg
-      .. " guibg: "
-      .. linkedSyn.guibg
+    .. linkedSyn.name
+    .. " ctermfg: "
+    .. linkedSyn.ctermfg
+    .. " ctermbg: "
+    .. linkedSyn.ctermbg
+    .. " guifg: "
+    .. linkedSyn.guifg
+    .. " guibg: "
+    .. linkedSyn.guibg
   )
 end
 vim.api.nvim_create_user_command(
