@@ -9,7 +9,10 @@ return {
       'JoosepAlviste/nvim-ts-context-commentstring',
       {
         'romgrk/nvim-treesitter-context',
-        opts = { multiline_threshold = 1 },
+        opts = {
+          multiline_threshold = 1,
+          max_lines = 1,
+        },
       },
     },
     event = 'BufEnter',
@@ -23,7 +26,7 @@ return {
         auto_install = true,
         highlight = {
           enable = true,
-          disable = {'toml', 'lua', 'vim'},
+          disable = { 'toml', 'lua', 'vim' },
         },
         -- indent = {
         --   enable = true,
@@ -47,7 +50,7 @@ return {
             },
             selection_modes = {
               ['@parameter.outer'] = 'v', -- charwise
-              ['@function.outer'] = 'V', -- linewise
+              ['@function.outer'] = 'V',  -- linewise
               ['@class.outer'] = '<c-v>', -- blockwise
             },
             include_surrounding_whitespace = true,
@@ -71,8 +74,7 @@ return {
     keys = {
       { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]] },
       { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]], mode = 'x' },
-      { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]], mode = 'o',  remap = true },
+      { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]], mode = 'o', remap = true },
     },
   },
 }
-
