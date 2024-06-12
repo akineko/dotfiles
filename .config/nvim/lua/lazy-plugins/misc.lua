@@ -1,9 +1,5 @@
 return {
   {
-    'vim-jp/vimdoc-ja',
-    event = 'BufEnter',
-  },
-  {
     'thinca/vim-quickrun',
     event = 'BufEnter',
     keys = {
