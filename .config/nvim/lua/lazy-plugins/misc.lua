@@ -4,11 +4,6 @@ return {
     event = 'BufEnter',
   },
   {
-    'folke/lsp-colors.nvim',
-    event = 'BufEnter',
-  },
--- utility
-  {
     'thinca/vim-quickrun',
     event = 'BufEnter',
     keys = {
@@ -17,7 +12,7 @@ return {
     init = function()
       vim.g.quickrun_config = {
         cpp = {
-            cmdopt = '-Wall -std=c++17',
+          cmdopt = '-Wall -std=c++17',
         },
       }
     end,
@@ -42,13 +37,13 @@ return {
   {
     'tpope/vim-fugitive',
     keys = {
-      { '[fugitive]', '' },
-      { '<Space>g', '[fugitive]', remap = true },
+      { '[fugitive]',  '' },
+      { '<Space>g',    '[fugitive]',            remap = true },
       { '[fugitive]s', ':Git status<CR><C-w>T', silent = true },
-      { '[fugitive]b', ':Git blame<CR>', silent = true },
-      { '[fugitive]d', ':Git diff<CR>', silent = true },
-      { '[fugitive]m', ':Git merge<CR>', silent = true },
-      { '[fugitive]i', ':Git rebase<CR>', silent = true },
+      { '[fugitive]b', ':Git blame<CR>',        silent = true },
+      { '[fugitive]d', ':Git diff<CR>',         silent = true },
+      { '[fugitive]m', ':Git merge<CR>',        silent = true },
+      { '[fugitive]i', ':Git rebase<CR>',       silent = true },
     },
   },
   {
