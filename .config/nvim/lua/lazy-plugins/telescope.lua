@@ -66,17 +66,21 @@ return {
 
         vim.api.nvim_command("cd .")
       end
+
       function custom_actions.multi_selection_open_vsplit(prompt_bufnr)
-          custom_actions._multiopen(prompt_bufnr, "vsplit")
+        custom_actions._multiopen(prompt_bufnr, "vsplit")
       end
+
       function custom_actions.multi_selection_open_split(prompt_bufnr)
-          custom_actions._multiopen(prompt_bufnr, "split")
+        custom_actions._multiopen(prompt_bufnr, "split")
       end
+
       function custom_actions.multi_selection_open_tab(prompt_bufnr)
-          custom_actions._multiopen(prompt_bufnr, "tabe")
+        custom_actions._multiopen(prompt_bufnr, "tabe")
       end
+
       function custom_actions.multi_selection_open(prompt_bufnr)
-          custom_actions._multiopen(prompt_bufnr, "edit")
+        custom_actions._multiopen(prompt_bufnr, "edit")
       end
 
       local telescope_config = require('telescope.config')
@@ -85,7 +89,7 @@ return {
       table.insert(vimgrep_arguments, '--glob')
       table.insert(vimgrep_arguments, '!**/{.git,node_modules}/*')
 
-      require('telescope').setup{
+      require('telescope').setup {
         defaults = {
           vimgrep_arguments = vimgrep_arguments,
           mappings = {
@@ -101,7 +105,7 @@ return {
               ["<C-x>"] = custom_actions.multi_selection_open_split,
               ["<C-t>"] = custom_actions.multi_selection_open_tab,
               ["<M-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
-              ["<M-o>"] = require('trouble.providers.telescope').smart_open_with_trouble,
+              ["<M-o>"] = require('trouble.sources.telescope').open,
             },
             n = i,
           },
@@ -155,8 +159,6 @@ return {
     },
     cmd = { 'Telescope' },
     keys = {
-      { '[Telescope]', '' },
-      { '<leader>f', '[Telescope]', remap = true },
       { '<leader>ff', ':Telescope find_files<CR>' },
       { '<leader>fF', ':Telescope find_files no_ignore=true<CR>' },
       { '<leader>fg', ':Telescope live_grep<CR>' },
@@ -166,12 +168,12 @@ return {
       { '<leader>fu', ':Telescope undo<CR>' },
       { '<leader>fy', ':Telescope neoclip<CR>' },
       -- lsp
-      { 'gr', ':Telescope lsp_references<CR>' },
-      { 'gd', ':Telescope lsp_definitions jump_type=never<CR>' },
+      { 'gr',         ':Telescope lsp_references<CR>' },
+      { 'gd',         ':Telescope lsp_definitions jump_type=never<CR>' },
       { '<leader>rf', ':Telescope lsp_references<CR>' },
       { '<leader>df', ':Telescope lsp_definitions jump_type=never<CR>' },
       { '<leader>ls', ':Telescope lsp_document_symbols<CR>' },
-      { 'gw', ':Telescope lsp_dynamic_workspace_symbols<CR>' },
+      { 'gw',         ':Telescope lsp_dynamic_workspace_symbols<CR>' },
       { '<leader>td', ':Telescope lsp_type_definitions<CR>' },
       { '<leader>li', ':Telescope lsp_implementations<CR>' },
     },

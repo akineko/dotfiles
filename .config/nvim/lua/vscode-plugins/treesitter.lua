@@ -22,7 +22,7 @@ return {
 
       require('nvim-treesitter.configs').setup({
         -- ensure_installed = 'all',
-        -- ignore_install = { 'sql' },
+        ignore_install = { 'dockerfile' },
         auto_install = true,
         highlight = {
           enable = true,

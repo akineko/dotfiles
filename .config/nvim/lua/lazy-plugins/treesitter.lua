@@ -19,11 +19,11 @@ return {
 
       require('nvim-treesitter.configs').setup({
         -- ensure_installed = 'all',
-        -- ignore_install = { 'sql' },
+        ignore_install = { 'dockerfile' },
         auto_install = true,
         highlight = {
           enable = true,
-          disable = {'toml', 'lua', 'vim'},
+          disable = { 'toml', 'lua', 'vim' },
         },
         -- indent = {
         --   enable = true,
@@ -47,7 +47,7 @@ return {
             },
             selection_modes = {
               ['@parameter.outer'] = 'v', -- charwise
-              ['@function.outer'] = 'V', -- linewise
+              ['@function.outer'] = 'V',  -- linewise
               ['@class.outer'] = '<c-v>', -- blockwise
             },
             include_surrounding_whitespace = true,
@@ -71,8 +71,7 @@ return {
     keys = {
       { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]] },
       { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]], mode = 'x' },
-      { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]], mode = 'o',  remap = true },
+      { 'm', [[:<C-u>lua require('tsht').nodes()<CR>]], mode = 'o', remap = true },
     },
   },
 }
-

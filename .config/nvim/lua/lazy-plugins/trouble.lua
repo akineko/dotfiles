@@ -7,15 +7,15 @@ return {
     },
     event = 'BufEnter',
     keys = {
-      { '<leader>xx', ':TroubleToggle<CR>' },
-      { '<leader>xw', ':TroubleToggle workspace_diagnostics<CR>' },
-      { '<leader>xd', ':TroubleToggle document_diagnostics<CR>' },
-      { '<leader>xq', ':TroubleToggle quickfix<CR>' },
-      { '<leader>xl', ':TroubleToggle loclist<CR>' },
-      { 'gR',         ':TroubleToggle lsp_references<CR>' },
+      { '<leader>xx', ':Trouble diagnostics toggle<CR>' },
+      { '<leader>xd', ':Trouble lsp_document_symbols toggle<CR>' },
+      { '<leader>xq', ':Trouble quickfix toggle<CR>' },
+      { '<leader>xl', ':Trouble loclist toggle<CR>' },
+      { 'gR',         ':Trouble lsp_references toggle<CR>' },
       { '<leader>xt', ':TodoTrouble<CR>' },
     },
-    opts = {},
+    opts = {
+      focus = true,
+    },
   },
 }
-
