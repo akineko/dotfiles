@@ -16,6 +16,38 @@ return {
     },
     opts = {
       focus = true,
+      modes = {
+        lsp_references = {
+          auto_refresh = false,
+        },
+        outline = {
+          title = '{hl:Title}Outline',
+          mode = 'lsp_document_symbols',
+          focus = true,
+          win = { position = 'right' },
+          groups = {
+            { 'filename', format = '{file_icon} {basename:Title} {count}' },
+          },
+          filter = {
+            any = {
+              kind = {
+                'Class',
+                'Constructor',
+                'Enum',
+                'Field',
+                'Function',
+                'Interface',
+                'Method',
+                'Module',
+                'Namespace',
+                'Struct',
+                'Trait',
+                'Variable',
+              },
+            },
+          },
+        },
+      },
     },
   },
 }
