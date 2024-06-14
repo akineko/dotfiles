@@ -5,7 +5,10 @@ return {
       'nvim-treesitter/nvim-treesitter-textobjects',
       'RRethy/vim-illuminate',
       'RRethy/nvim-treesitter-endwise',
-      'windwp/nvim-ts-autotag',
+      {
+        'windwp/nvim-ts-autotag',
+        opts = { enable_close_on_slash = true },
+      },
       'JoosepAlviste/nvim-ts-context-commentstring',
       {
         'romgrk/nvim-treesitter-context',
@@ -32,9 +35,6 @@ return {
         --   enable = true,
         -- },
         endwise = {
-          enable = true,
-        },
-        autotag = {
           enable = true,
         },
         textobjects = {
