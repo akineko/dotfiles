@@ -6,6 +6,7 @@ usage = "latest"
 go = "latest"
 ruby = "latest"
 python = "latest"
+tmux = "latest"
 
 [settings]
 experimental = true

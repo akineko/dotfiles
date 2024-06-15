@@ -1,6 +1,9 @@
 #!/bin/bash
 set -Ceux
 
+# tmux
+sudo apt-get install -y --no-install-recommends bison automake
+
 # node.js
 # https://github.com/nodejs/node/blob/main/BUILDING.md#unix-prerequisites
 sudo apt-get install -y --no-install-recommends python3 g++ make python3-pip
