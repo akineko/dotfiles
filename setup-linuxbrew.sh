@@ -22,19 +22,6 @@ brew install mise
 brew install gibo
 brew install jq
 
-# rust tools
-brew install bat
-brew install eza
-brew install fd
-brew install fselect
-brew install lsd
-brew install procs
-brew install rargs
-brew install gitui
-brew install shellcheck
-brew install zellij
-brew install zoxide
-
 # go tools
 brew install fzf
 brew install peco
@@ -63,4 +50,3 @@ brew install stern
 #brew install icu4c
 #brew install libxslt
 #brew install libzip
-
