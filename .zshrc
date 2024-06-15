@@ -247,6 +247,13 @@ fi
 if type mise &>/dev/null; then
   eval "$(mise activate zsh)"
   eval "$(mise activate --shims)"
+  eval "$(mise completions zsh)"
+fi
+
+# aqua
+if type aqua &>/dev/null; then
+  export PATH="$(aqua root-dir)/bin:$PATH"
+  eval "$(aqua completion zsh)"
 fi
 
 # proto

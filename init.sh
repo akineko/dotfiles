@@ -14,6 +14,7 @@ ln -sf "$abspath/.hgrc" "$HOME/.hgrc"
 ln -sf "$abspath/.gdbinit" "$HOME/.gdbinit"
 ln -sf "$abspath/.bashrc" "$HOME/.bashrc"
 ln -sf "$abspath/bin" "$HOME/bin"
+ln -sf "$abspath/aqua.yaml" "$HOME/aqua.yaml"
 
 mkdir -p "$HOME/.cache"
 mkdir -p "$HOME/.config"
