@@ -18,6 +18,7 @@ if ! (type mise &>/dev/null); then
   curl https://mise.run | sh
 fi
 
-# if ! (type volta &>/dev/null); then
-#   curl https://get.volta.sh | bash -s -- --skip-setup
-# fi
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  mkdir -p ~/.tmux/plugins/tpm
+  git clone --depth 1 https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
+fi

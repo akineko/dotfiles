@@ -16,5 +16,5 @@
     # - { role: minikube }
     # - { role: powerline }
     # - { role: tmux }
-    - { role: tpm }
+    # - { role: tpm }
 
