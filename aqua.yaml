@@ -22,3 +22,4 @@ packages:
 - name: kyoshidajp/ghkw@v0.2.1
 - name: jesseduffield/lazygit@v0.42.0
 - name: ninja-build/ninja@v1.12.1
+- name: tree-sitter/tree-sitter@v0.22.6

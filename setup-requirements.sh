@@ -12,6 +12,7 @@ sudo apt-get install -y --no-install-recommends \
   meson \
   source-highlight \
   tig \
+  unzip \
   vim \
   zsh
 
