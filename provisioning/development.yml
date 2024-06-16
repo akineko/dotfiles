@@ -4,12 +4,12 @@
   connection: local
   roles:
     # - { role: anyenv }
-    - { role: common }
+    # - { role: common }
     # - { role: docker }
     # - { role: fish }
     # - { role: fzf }
     # - { role: golang }
-    - { role: google-cloud-sdk }
+    # - { role: google-cloud-sdk }
     # - { role: kubernetes }
     # - { role: linuxbrew }
     # - { role: neovim }

@@ -1,6 +1,20 @@
 #!/bin/bash
 set -Ceux
 
+sudo apt-get install -y --no-install-recommends \
+  ca-certificates \
+  curl \
+  exuberant-ctags \
+  gcc \
+  git \
+  make \
+  cmake \
+  meson \
+  source-highlight \
+  tig \
+  vim \
+  zsh
+
 # tmux
 sudo apt-get install -y --no-install-recommends bison automake
 
