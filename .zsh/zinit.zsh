@@ -9,6 +9,7 @@ zinit ice wait'!0'; zinit light zsh-users/zsh-completions
 zinit ice wait'!0'; zinit ice as'completion'; zinit snippet OMZ::plugins/docker/completions/_docker
 zinit ice wait'!0'; zinit ice as'completion'; zinit snippet OMZ::plugins/docker-compose/_docker-compose
 zinit ice wait'!0'; zinit light pkulev/zsh-rustup-completion
+zinit ice lucid nocompile; zinit load MenkeTechnologies/zsh-cargo-completion
 
 # Utilities -----
 #zinit ice pick'async.zsh'; zinit light mafredri/zsh-async
