@@ -6,6 +6,7 @@ abspath=$(cd "$(dirname "$0")" && pwd)
 ln -snf "$abspath/.vimrc" "$HOME/.vimrc"
 ln -snf "$abspath/.gvimrc" "$HOME/.gvimrc"
 ln -snf "$abspath/.zshrc" "$HOME/.zshrc"
+ln -snf "$abspath/.zshenv" "$HOME/.zshenv"
 ln -snf "$abspath/.zsh" "$HOME/.zsh"
 ln -snf "$abspath/.tmux.conf" "$HOME/.tmux.conf"
 ln -snf "$abspath/.gitconfig" "$HOME/.gitconfig"

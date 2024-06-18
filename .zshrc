@@ -197,11 +197,10 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# svnの設定
-export SVN_EDITOR=vim
+export EDITOR=nvim
+export SVN_EDITOR=nvim
 
-# mercurialの設定
-export HGENCODING=utf8
+export PATH="$PATH:$HOME/bin"
 
 # 端末を256色に
 if [[ $TMUX = "" ]] then
@@ -210,13 +209,6 @@ else
     export TERM="tmux-256color"
 fi
 export COLORTERM=truecolor
-
-# XDG_CONFIG
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PATH:$HOME/bin"
 
 # zinit
 if [[ -f ~/.zinit/bin/zinit.zsh ]]; then
@@ -287,18 +279,10 @@ if type pnpm &>/dev/null; then
   eval "$(pnpm completion zsh)"
 fi
 
-# rustup
-[ -f ~/.cargo/env ] && source ~/.cargo/env
-
-# -------------------------------------------------------------------------------
-# Golang
-# -------------------------------------------------------------------------------
-
-# GOROOT=$HOME/go
-GOPATH=$HOME/dev
-
-export GOENV_DISABLE_GOPATH=1
-export PATH="$GOPATH/bin:$PATH"
+# direnv
+if type direnv &>/dev/null; then
+  eval "$(direnv hook zsh)"
+fi
 
 function peco-src () {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
@@ -323,20 +307,6 @@ function fzf-cd() {
 }
 zle -N fzf-cd
 bindkey '^d' fzf-cd
-
-export EDITOR=nvim
-
-# direnv
-if type direnv &>/dev/null; then
-  eval "$(direnv hook zsh)"
-fi
-
-# -------------------------------------------------------------------------------
-# Ruby
-# -------------------------------------------------------------------------------
-
-# rvmの設定
-if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then source "$HOME/.rvm/scripts/rvm" ; fi
 
 # -------------------------------------------------------------------------------
 # Python
