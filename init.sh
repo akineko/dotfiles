@@ -23,6 +23,7 @@ ln -snf "$abspath/.config/nvim" "$HOME/.config/nvim"
 ln -snf "$abspath/.config/git" "$HOME/.config/git"
 ln -snf "$abspath/.config/gitui" "$HOME/.config/gitui"
 ln -snf "$abspath/.config/mise" "$HOME/.config/mise"
+ln -snf "$abspath/.config/zsh" "$HOME/.config/zsh"
 ln -snf "$abspath/.config/sheldon" "$HOME/.config/sheldon"
 
 ln -snf "$abspath/.config/starship.toml" "$HOME/.config/starship.toml"

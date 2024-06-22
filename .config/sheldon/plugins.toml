@@ -6,6 +6,19 @@ defer = '{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file 
 [plugins.zsh-defer]
 github = 'romkatv/zsh-defer'
 
+# sync dotfiles
+[plugins.core-files]
+local = '~/.config/zsh'
+use = ['core.zsh']
+
+[plugins.sync-files]
+local = '~/.config/zsh/sync'
+use = ['*.zsh']
+
+[plugins.functions]
+local = '~/.zsh/functions'
+use = ['*.zsh']
+
 # Commands
 [plugins.zsh-bd]
 github = 'Tarrasch/zsh-bd'
@@ -43,4 +56,10 @@ apply = ['defer', 'fpath']
 [plugins.pnpm-shell-completion]
 github = 'g-plane/pnpm-shell-completion'
 apply = ['defer']
+
+# async dotfiles
+# [plugins.async-files]
+# local = '~/.config/zsh/async'
+# use = ['*.zsh']
+# apply = ['defer']
 
