@@ -3,7 +3,7 @@ vim.keymap.set("n", "<Space>.", ":edit $XDG_CONFIG_HOME/nvim/init.lua<CR>")
 vim.keymap.set("n", "<Space>.l", ":source $XDG_CONFIG_HOME/nvim/init.lua<CR>")
 
 -- 選択した文字列の検索/置換
-vim.keymap.set("v", "//", [[y/<C-r>=escape(@", '\\/.*$^~[]')<CR><CR>]], { silent = true })
+vim.keymap.set("v", "//", [[y/<C-r>"<CR>]], { silent = true })
 vim.keymap.set("v", "/r", [[y:%s/\v<C-r>=escape(@", '\\/.*$^~[]')<CR>//gc<Left><Left><Left>]])
 vim.keymap.set("v", "/g", [[y:Telescope grep_string search=<C-r>=escape(@", '\\/.*$^~[]')<CR><CR>]])
 
