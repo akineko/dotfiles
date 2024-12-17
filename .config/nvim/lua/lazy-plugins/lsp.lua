@@ -140,13 +140,29 @@ return {
       },
     },
     config = function()
+      local function first(bufnr, ...)
+        local conform = require("conform")
+        for i = 1, select("#", ...) do
+          local formatter = select(i, ...)
+          if conform.get_formatter_info(formatter, bufnr).available then
+            return formatter
+          end
+        end
+        return select(1, ...)
+      end
+
+      local function js_formatters(bufnr)
+        return { 'biome-check', first(bufnr, 'dprint', 'biome', 'prettierd', 'prettier') }
+      end
+
       require('conform').setup({
         formatters_by_ft = {
           lua = { 'stylua' },
-          javascript = { 'biome-check', { 'dprint', 'biome', 'prettierd', 'prettier' } },
-          javascriptreact = { 'biome-check', { 'dprint', 'biome', 'prettierd', 'prettier' } },
-          typescript = { 'biome-check', { 'dprint', 'biome', 'prettierd', 'prettier' } },
-          typescriptreact = { 'biome-check', { 'dprint', 'biome', 'prettierd', 'prettier' } },
+          javascript = js_formatters,
+          javascriptreact = js_formatters,
+          typescript = js_formatters,
+          typescriptreact = js_formatters,
+          terraform = { lsp_format = 'fallback' },
         },
         -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
       })
