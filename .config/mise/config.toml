@@ -7,8 +7,6 @@ go = "latest"
 ruby = "latest"
 python = "latest"
 tmux = "latest"
-"go:github.com/aquaproj/aqua/v2/cmd/aqua" = "latest"
 
 [settings]
 experimental = true
-

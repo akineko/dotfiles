@@ -3,6 +3,7 @@ set -Ceux
 
 # common
 go install github.com/mattn/memo@latest
+go install github.com/aquaproj/aqua/v2/cmd/aqua@latest
 
 # golang
 go install golang.org/x/tools/cmd/godoc@latest
