@@ -18,9 +18,9 @@ return {
         },
       },
       modes = {
-        search = {
-          enabled = true,
-        },
+        -- search = {
+        --   enabled = true,
+        -- },
         char = {
           enabled = false,
           keys = { 'f', 'F' },
