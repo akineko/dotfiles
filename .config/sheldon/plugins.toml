@@ -53,13 +53,12 @@ github = 'ohmyzsh/ohmyzsh'
 use = ['plugins/docker/completions/_docker']
 apply = ['defer', 'fpath']
 
-[plugins.pnpm-shell-completion]
-github = 'g-plane/pnpm-shell-completion'
-apply = ['defer']
+# [plugins.pnpm-shell-completion]
+# github = 'g-plane/pnpm-shell-completion'
+# apply = ['pnpm', 'source']
 
 # async dotfiles
 # [plugins.async-files]
 # local = '~/.config/zsh/async'
 # use = ['*.zsh']
 # apply = ['defer']
-

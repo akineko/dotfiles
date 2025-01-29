@@ -4,3 +4,6 @@ if [ -d ~/.volta ]; then
   export PATH="$VOLTA_HOME/bin:$PATH"
 fi
 
+if type pnpm &>/dev/null; then
+  eval "$(pnpm completion zsh)"
+fi
