@@ -17,3 +17,8 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
   mkdir -p ~/.tmux/plugins/tpm
   git clone --depth 1 https://github.com/tmux-plugins/tpm.git ~/.tmux/plugins/tpm
 fi
+
+if [ ! -d ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install
+fi
