@@ -1,7 +1,7 @@
 [tools]
 node = "20"
 deno = "latest"
-terraform = "1.5.2"
+terraform = "1.10.2"
 usage = "latest"
 go = "latest"
 ruby = "latest"
@@ -10,3 +10,5 @@ tmux = "latest"
 
 [settings]
 experimental = true
+idiomatic_version_file = false
+# idiomatic_version_file_disable_tools = ["terraform"]
