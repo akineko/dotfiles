@@ -15,13 +15,15 @@ return {
   },
   {
     "shellRaining/hlchunk.nvim",
-    event = { "UIEnter" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("hlchunk").setup({
         line_num = {
+          enable = true,
           style = '#81a1c1',
         },
         chunk = {
+          enable = true,
           style = '#81a1c1',
         },
       })
