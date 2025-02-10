@@ -7,7 +7,14 @@ return {
       'RRethy/nvim-treesitter-endwise',
       {
         'windwp/nvim-ts-autotag',
-        opts = { enable_close_on_slash = true },
+        event = { 'BufReadPre', 'BufNewFile' },
+        opts = function()
+          require('nvim-ts-autotag').setup({
+            opts = {
+              enable_close_on_slash = true,
+            }
+          })
+        end
       },
       'JoosepAlviste/nvim-ts-context-commentstring',
       {
@@ -27,12 +34,6 @@ return {
         highlight = {
           enable = true,
           disable = { 'toml', 'lua', 'vim' },
-        },
-        -- indent = {
-        --   enable = true,
-        -- },
-        endwise = {
-          enable = true,
         },
         textobjects = {
           select = {
