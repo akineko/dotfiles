@@ -6,7 +6,7 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons',
     },
-    event = 'BufEnter',
+    event = 'LspAttach',
     keys = {
       { 'K',           ':Lspsaga hover_doc<CR>' },
       { '<leader>rn',  ':Lspsaga rename<CR>' },

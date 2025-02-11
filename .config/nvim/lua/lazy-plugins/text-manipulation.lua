@@ -24,9 +24,9 @@ return {
     't9md/vim-textmanip',
     event = 'BufEnter',
     keys = {
-      { '<C-j>', '<Plug>(textmanip-move-down)', mode = 'x' },
-      { '<C-k>', '<Plug>(textmanip-move-up)', mode = 'x' },
-      { '<C-h>', '<Plug>(textmanip-move-left)', mode = 'x' },
+      { '<C-j>', '<Plug>(textmanip-move-down)',  mode = 'x' },
+      { '<C-k>', '<Plug>(textmanip-move-up)',    mode = 'x' },
+      { '<C-h>', '<Plug>(textmanip-move-left)',  mode = 'x' },
       { '<C-l>', '<Plug>(textmanip-move-right)', mode = 'x' },
     },
   },
@@ -37,7 +37,7 @@ return {
         '<C-a>',
         function() require('dial.map').manipulate('increment', 'normal') end,
       },
-      { 
+      {
         '<C-x>',
         function() require("dial.map").manipulate('decrement', 'normal') end,
       },
@@ -54,7 +54,7 @@ return {
     },
     config = function()
       local augend = require("dial.augend")
-      require('dial.config').augends:register_group{
+      require('dial.config').augends:register_group {
         default = {
           augend.integer.alias.decimal_int,
           augend.integer.alias.hex,
@@ -100,7 +100,7 @@ return {
   {
     'tyru/operator-camelize.vim',
     keys = {
-      { '<leader>U', '<Plug>(operator-camelize)', mode = 'v' },
+      { '<leader>U', '<Plug>(operator-camelize)',   mode = 'v' },
       { '<leader>u', '<Plug>(operator-decamelize)', mode = 'v' },
     },
     dependencies = { 'kana/vim-operator-user' },

@@ -89,35 +89,39 @@ return {
       table.insert(vimgrep_arguments, '--glob')
       table.insert(vimgrep_arguments, '!**/{.git,node_modules}/*')
 
+      local default_mappings = {
+        ["<ESC>"] = actions.close,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-i>"] = actions.toggle_selection,
+        ["<C-a>"] = actions.toggle_all,
+        ["<C-u>"] = actions.preview_scrolling_up,
+        ["<C-d>"] = actions.preview_scrolling_down,
+        ["<C-v>"] = custom_actions.multi_selection_open_vsplit,
+        ["<C-x>"] = custom_actions.multi_selection_open_split,
+        ["<C-t>"] = custom_actions.multi_selection_open_tab,
+        ["<M-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
+        ["<M-o>"] = require('trouble.sources.telescope').open,
+      }
+
       require('telescope').setup {
         defaults = {
           vimgrep_arguments = vimgrep_arguments,
           mappings = {
-            i = {
-              ["<ESC>"] = actions.close,
-              ["<C-j>"] = actions.move_selection_next,
-              ["<C-k>"] = actions.move_selection_previous,
-              ["<C-i>"] = actions.toggle_selection,
-              ["<C-a>"] = actions.toggle_all,
-              ["<C-u>"] = actions.preview_scrolling_up,
-              ["<C-d>"] = actions.preview_scrolling_down,
-              ["<C-v>"] = custom_actions.multi_selection_open_vsplit,
-              ["<C-x>"] = custom_actions.multi_selection_open_split,
-              ["<C-t>"] = custom_actions.multi_selection_open_tab,
-              ["<M-l>"] = actions.smart_send_to_loclist + actions.open_loclist,
-              ["<M-o>"] = require('trouble.sources.telescope').open,
-            },
-            n = i,
+            i = default_mappings,
+            n = default_mappings,
           },
         },
         pickers = {
           find_files = {
             find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
             mappings = {
-              ["i"] = {
+              i = {
                 ['<Delete>'] = require('telescope._extensions.file_browser.actions').remove,
               },
-              n = i,
+              n = {
+                ['<Delete>'] = require('telescope._extensions.file_browser.actions').remove,
+              },
             },
           },
           buffers = {

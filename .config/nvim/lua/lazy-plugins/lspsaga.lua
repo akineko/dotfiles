@@ -6,7 +6,7 @@ return {
       'nvim-treesitter/nvim-treesitter',
       'nvim-tree/nvim-web-devicons',
     },
-    event = 'BufEnter',
+    event = 'LspAttach',
     keys = {
       { 'K',           ':Lspsaga hover_doc<CR>' },
       { '<leader>rn',  ':Lspsaga rename<CR>' },
@@ -16,7 +16,7 @@ return {
       { '<leader>lk',  ':Lspsaga diagnostic_jump_prev<CR>' },
       { '<leader>lj',  ':Lspsaga diagnostic_jump_next<CR>' },
       { '<leader>lca', ':Lspsaga code_action<CR>' },
-      { '<leader>lca', ':Lspsaga code_action<CR>', mode = 'v' },
+      { '<leader>lca', ':Lspsaga code_action<CR>',          mode = 'v' },
     },
     opts = {
       code_action = {
@@ -33,4 +33,3 @@ return {
     },
   },
 }
-

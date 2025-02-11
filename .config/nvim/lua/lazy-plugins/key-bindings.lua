@@ -2,6 +2,9 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
+    keys = {
+      { '<leader>?', function() require('which-key').show({ global = false }) end, desc = 'Show which-key' },
+    },
     init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 500
@@ -22,7 +25,7 @@ return {
         },
         body = '<C-t>',
         heads = {
-          { "n", ":tabnew<CR>", { exit = true } },
+          { "n", ":tabnew<CR>",     { exit = true } },
           { "c", ":tabclose<CR>" },
           { "h", ":-tabmove<CR>" },
           { "l", ":+tabmove<CR>" },

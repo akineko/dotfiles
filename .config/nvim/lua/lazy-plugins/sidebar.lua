@@ -26,8 +26,8 @@ return {
 
       require('nvim-tree').setup {
         on_attach = on_attach,
-        git = {
-          ignore = false,
+        filters = {
+          git_ignored = false,
         },
         update_focused_file = {
           enable = true,
@@ -35,9 +35,6 @@ return {
         actions = {
           open_file = {
             quit_on_open = true,
-            -- window_picker = {
-            --   enable = false,
-            -- },
           },
         },
       }
@@ -70,6 +67,10 @@ return {
       },
       float = {
         padding = 10,
+      },
+      keymaps = {
+        ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
+        ['<C-x>'] = { 'actions.select', opts = { horizontal = true } },
       },
     },
   },
