@@ -106,63 +106,119 @@ return {
     end,
   },
   {
-    'olimorris/codecompanion.nvim',
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      { 'zbirenbaum/copilot.lua' },
+      { 'nvim-lua/plenary.nvim' },
+    },
+    build = 'make tiktoken',
     event = { 'VeryLazy' },
     keys = {
-      { '<leader>aa', ':CodeCompanionActions<CR>',  mode = { 'n', 'v' } },
-      { '<leader>ac', ':CodeCompanionChat<CR>' },
-      { '<leader>ai', ':CodeCompanion /buffer<CR>', mode = { 'n', 'v' } },
+      {
+        '<leader>cp',
+        function()
+          require('CopilotChat.integrations.telescope').pick(require('CopilotChat.actions').prompt_actions())
+        end,
+        mode = { 'n', 'v' },
+        desc = 'CopilotChat - Prompt actions',
+      },
     },
     opts = {
-      adapter = {
-        copilot = function()
-          return require('codecompanion.adapters').extend('copilot', {
-            schema = {
-              model = {
-                default = 'claude-3.5-sonnet',
-              },
-            },
-          })
-        end,
-      },
-      strategies = {
-        chat = {
-          adapter = 'copilot',
-          slash_commands = {
-            ['buffer'] = {
-              opts = {
-                provider = 'telescope',
-              },
-            },
-            ['file'] = {
-              opts = {
-                provider = 'telescope',
-              },
-            },
-            ['help'] = {
-              opts = {
-                provider = 'telescope',
-              },
-            },
-            ['symbols'] = {
-              opts = {
-                provider = 'telescope',
-              },
-            },
-          },
+      model = 'claude-3.5-sonnet',
+      prompts = {
+        Explain = {
+          prompt = '/COPILOT_EXPLAIN 選択したコードの説明を日本語で段落をつけて書いてください。',
         },
-        inline = {
-          adapter = 'copilot',
+        Review = {
+          prompt = '/COPILOT_REVIEW コードを日本語でレビューしてください。',
+          description = "コードのレビューをお願いする",
         },
-      },
-      display = {
-        action_palette = {
-          provider = 'telescope',
+        Fix = {
+          prompt = '/COPILOT_FIX このコードには問題があります。バグを修正したコードに書き換えてください。',
         },
-      },
-      opts = {
-        language = 'Japanese',
+        Optimize = {
+          prompt = '/COPILOT_OPTIMIZE 選択したコードを最適化し、パフォーマンスと可読性を向上させてください。',
+        },
+        Docs = {
+          prompt =
+          '/COPILOT_DOCS 選択したコードのドキュメントを日本語で書いてください。ドキュメントをコメントとして追加した元のコードを含むコードブロックで回答してください。使用するプログラミング言語に最も適したドキュメントスタイルを使用してください（例：JavaScriptのJSDoc、Pythonのdocstringsなど）',
+        },
+        Tests = {
+          prompt = '/COPILOT_TESTS 選択したコードの詳細な単体テスト関数を書いてください。',
+        },
+        FixDiagnostic = {
+          prompt = '/COPILOT_FIXDIAGNOSTIC ファイル内の次のような診断上の問題を解決してください：',
+        },
+        Commit = {
+          prompt = '/COPILOT_COMMIT この変更をコミットしてください。',
+        },
+        CommitStaged = {
+          prompt = '/COPILOT_COMMITSTAGED ステージングされた変更をコミットしてください。',
+        },
       },
     },
   },
+  {
+    'yetone/avante.nvim',
+    event = 'VeryLazy',
+    version = false, -- latest code changes
+    -- version = '*', -- latest release version
+    build = 'make',
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      'stevearc/dressing.nvim',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      --- optional,
+      'hrsh7th/nvim-cmp',
+      'nvim-tree/nvim-web-devicons',
+      'zbirenbaum/copilot.lua',
+      {
+        'HakonHarnes/img-clip.nvim',
+        event = 'VeryLazy',
+        opts = {
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { 'markdown', 'Avante' },
+        },
+        ft = { 'markdown', 'Avante' },
+      },
+    },
+    opts = {
+      provider = 'copilot',
+      auto_suggestions_provider = 'claude',
+      claude = {
+        model = 'claude-3-5-sonnet-20241022',
+      },
+      copilot = {
+        model = 'claude-3.5-sonnet',
+      },
+      openai = {
+        model = 'gpt-4o',
+      },
+      behaviour = {
+        auto_suggestions = false, -- copilot で有効にすると API の使用過多で BAN の可能性あり
+        auto_set_keymaps = true,
+        auto_apply_diff_after_generation = true,
+      },
+      hints = {
+        enabled = false,
+      },
+      file_selector = {
+        provider = 'telescope',
+      },
+    },
+  }
 }
