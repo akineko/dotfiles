@@ -11,9 +11,9 @@ return {
       'jose-elias-alvarez/nvim-lsp-ts-utils',
       -- none-ls
       'nvim-lua/plenary.nvim',
-      'nvimtools/none-ls.nvim',
-      'nvimtools/none-ls-extras.nvim',
-      'jay-babu/mason-null-ls.nvim',
+      -- 'nvimtools/none-ls.nvim',
+      -- 'nvimtools/none-ls-extras.nvim',
+      -- 'jay-babu/mason-null-ls.nvim',
       -- nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -94,35 +94,35 @@ return {
       end })
 
       -- null-ls
-      local null_ls = require('null-ls')
-
-      require('mason-null-ls').setup({
-        ensure_installed = {
-          'bash-language-server',
-        },
-        automatic_installation = false,
-        handlers = {},
-      })
-
-      null_ls.setup {
-        debug = false,
-        on_attach = on_attach,
-        sources = {
-          -- JavaScript / TypeScript
-          -- null_ls.builtins.formatting.biome.with({
-          --     prefer_local = "node_modules/.bin",
-          -- }),
-          require('none-ls.code_actions.eslint').with({
-            only_local = 'node_modules/.bin',
-          }),
-          require('none-ls.diagnostics.eslint').with({
-            only_local = 'node_modules/.bin',
-          }),
-          require('none-ls.formatting.eslint').with({
-            only_local = 'node_modules/.bin',
-          }),
-        },
-      }
+      -- local null_ls = require('null-ls')
+      --
+      -- require('mason-null-ls').setup({
+      --   ensure_installed = {
+      --     'bash-language-server',
+      --   },
+      --   automatic_installation = false,
+      --   handlers = {},
+      -- })
+      --
+      -- null_ls.setup {
+      --   debug = false,
+      --   on_attach = on_attach,
+      --   sources = {
+      --     -- JavaScript / TypeScript
+      --     -- null_ls.builtins.formatting.biome.with({
+      --     --     prefer_local = "node_modules/.bin",
+      --     -- }),
+      --     require('none-ls.code_actions.eslint').with({
+      --       only_local = 'node_modules/.bin',
+      --     }),
+      --     require('none-ls.diagnostics.eslint').with({
+      --       only_local = 'node_modules/.bin',
+      --     }),
+      --     require('none-ls.formatting.eslint').with({
+      --       only_local = 'node_modules/.bin',
+      --     }),
+      --   },
+      -- }
     end,
   },
   {
@@ -159,6 +159,30 @@ return {
     end,
     init = function()
       vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    end,
+  },
+  {
+    'mfussenegger/nvim-lint',
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+    },
+    event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
+    config = function()
+      local lint = require("lint")
+      lint.linters_by_ft = {
+        javascript = { 'biomejs', 'eslint' },
+        javascriptreact = { 'biomejs', 'eslint' },
+        typescript = { 'biomejs', 'eslint' },
+        typescriptreact = { 'biomejs', 'eslint' },
+        terraform = { 'tflint' },
+      }
+
+      vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
+        group = vim.api.nvim_create_augroup("nvim-lint", { clear = true }),
+        callback = function()
+          lint.try_lint(nil, { ignore_errors = true })
+        end,
+      })
     end,
   },
   {
