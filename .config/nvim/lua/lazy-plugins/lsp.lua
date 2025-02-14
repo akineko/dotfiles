@@ -18,6 +18,11 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     event = 'VeryLazy',
+    keys = {
+      { 'ge',         [[:lua vim.diagnostic.open_float({ scope = 'cursor', border = 'rounded' })<CR>]] },
+      { '<leader>lk', ':lua vim.diagnostic.goto_prev()<CR>' },
+      { '<leader>lj', ':lua vim.diagnostic.goto_next()<CR>' },
+    },
     config = function()
       require("mason").setup()
 
@@ -219,5 +224,53 @@ return {
 
       require('ufo').setup()
     end,
-  }
+  },
+  {
+    "saecki/live-rename.nvim",
+    event = "LspAttach",
+    keys = {
+      { '<leader>rn', function() require('live-rename').rename() end },
+    },
+    opts = {},
+  },
+  {
+    "rachartier/tiny-code-action.nvim",
+    dependencies = {
+      'prochri/telescope-all-recent.nvim',
+    },
+    event = "LspAttach",
+    keys = {
+      { '<leader>lca', function() require('tiny-code-action').code_action() end, mode = { 'n', 'v' } },
+    },
+    opts = {},
+  },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "LspAttach",
+    init = function()
+      vim.diagnostic.config({ virtual_text = false })
+    end,
+    opts = {
+      preset = 'ghost',
+      options = {
+        multilines = {
+          enabled = true,
+          always_show = false,
+        },
+      },
+    },
+  },
+  {
+    'kosayoda/nvim-lightbulb',
+    event = "LspAttach",
+    opts = {
+      autocmd = {
+        enabled = true,
+        updatetime = 200,
+      },
+      sign = {
+        enabled = true,
+      },
+    },
+  },
 }
