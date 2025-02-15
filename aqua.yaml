@@ -8,18 +8,20 @@
 #   - all
 registries:
 - type: standard
-  ref: v4.188.0 # renovate: depName=aquaproj/aqua-registry
+  ref: v4.310.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-- name: neovim/neovim@v0.10.0
-- name: starship/starship@v1.19.0
-- name: BurntSushi/ripgrep@14.1.0
+- name: neovim/neovim@v0.10.4
+- name: starship/starship@v1.22.1
+- name: BurntSushi/ripgrep@14.1.1
 - name: simonwhitaker/gibo@v3.0.12
 - name: jqlang/jq@jq-1.7.1
-- name: junegunn/fzf@0.53.0
+- name: junegunn/fzf@v0.59.0
 - name: peco/peco@v0.5.11
-- name: x-motemen/ghq@v1.6.1
-- name: direnv/direnv@v2.34.0
+- name: x-motemen/ghq@v1.7.1
+- name: direnv/direnv@v2.35.0
 - name: kyoshidajp/ghkw@v0.2.1
-- name: jesseduffield/lazygit@v0.42.0
-- name: ninja-build/ninja@v1.12.1
-- name: tree-sitter/tree-sitter@v0.22.6
+- name: jesseduffield/lazygit@v0.45.2
+- name: ninja-build/ninja@release-120715
+- name: tree-sitter/tree-sitter@v0.25.1
+- name: firebase/firebase-tools@v13.30.0
+- name: benbjohnson/litestream@v0.3.13
