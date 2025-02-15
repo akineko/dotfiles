@@ -2,9 +2,14 @@ return {
   {
     'jinh0/eyeliner.nvim',
     event = 'VeryLazy',
+    keys = {
+      { 'f', function() require('eyeliner').highlight({ forward = true }) end },
+      { 'F', function() require('eyeliner').highlight({ forward = false }) end },
+    },
     opts = {
       highlight_on_key = true,
       dim = true,
+      default_keymaps = false,
     },
   },
   {
