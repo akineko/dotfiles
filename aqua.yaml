@@ -21,7 +21,8 @@ packages:
 - name: direnv/direnv@v2.35.0
 - name: kyoshidajp/ghkw@v0.2.1
 - name: jesseduffield/lazygit@v0.45.2
-- name: ninja-build/ninja@release-120715
+- name: ninja-build/ninja
+  version: v1.12.1
 - name: tree-sitter/tree-sitter@v0.25.1
 - name: firebase/firebase-tools@v13.30.0
 - name: benbjohnson/litestream@v0.3.13
