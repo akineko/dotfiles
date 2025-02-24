@@ -8,8 +8,11 @@ return {
           enabled = false,
         },
         char = {
-          enabled = false,
+          enabled = true,
           keys = { 'f', 'F' },
+          multi_line = false,
+          jump_labels = true,
+          jump = { autojump = true },
         },
       },
     },
