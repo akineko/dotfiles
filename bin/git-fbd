@@ -1,8 +1,48 @@
 #!/bin/bash
 
-branches=$(git branch --format "%(refname:short)" --merged | grep -v 'master' | fzf -m --preview="git show --color {}")
-if [[ -n "$branches" ]]; then
-  echo $branches | xargs git branch -d
+PROTECTED_BRANCHES="master main develop staging production"
+
+find_merged_branches() {
+  local main_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo "master")
+
+  local normal_merged=$(git branch --format "%(refname:short)" --merged | grep -v "\(${PROTECTED_BRANCHES// /\\|}\)")
+
+  # 各ブランチの先端コミットメッセージをチェックして、それがmainブランチに含まれていればsquashマージされたとみなす
+  local squashed_merged=""
+  local all_local_branches=$(git for-each-ref --format='%(refname:short)' refs/heads/ | grep -v "\(${PROTECTED_BRANCHES// /\\|}\)")
+
+  for branch in $all_local_branches; do
+    if echo "$normal_merged" | grep -q "$branch"; then
+      continue
+    fi
+
+    local commit_msg=$(git log -1 --format=%s $branch)
+
+    # コミットメッセージに似たコミットがメインブランチに存在するか確認
+    # squashマージの一般的なパターンに対応
+    if git log $main_branch --grep="$commit_msg" --oneline | grep -q .; then
+      squashed_merged="$squashed_merged\n$branch"
+      continue
+    fi
+
+    # このブランチのすべての変更がメインブランチに含まれているかチェック
+    if [ -z "$(git cherry $main_branch $branch)" ]; then
+      squashed_merged="$squashed_merged\n$branch"
+    fi
+  done
+
+  echo -e "$normal_merged\n$squashed_merged" | sort | uniq
+}
+
+merged_branches=$(find_merged_branches)
+if [ -z "$merged_branches" ]; then
+  echo "マージ済みのブランチが見つかりませんでした。"
+  exit 0
+fi
+
+selected_branches=$(echo -e "$merged_branches" | fzf -m --preview="git show --color {}" --header="削除するブランチを選択 (Tab/Shift+Tabで複数選択可)")
+if [ -n "$selected_branches" ]; then
+  echo "$selected_branches" | xargs git branch -D
 fi
 
 # vim: ft=sh
