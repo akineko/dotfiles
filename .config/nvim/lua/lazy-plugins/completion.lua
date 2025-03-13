@@ -124,7 +124,9 @@ return {
       },
     },
     opts = {
-      model = 'claude-3.5-sonnet',
+      -- model = 'claude-3.7-sonnet',
+      -- model = 'gemini-2.0-flash-001',
+      model = 'o3-mini',
       prompts = {
         Explain = {
           prompt = '/COPILOT_EXPLAIN 選択したコードの説明を日本語で段落をつけて書いてください。',
@@ -203,7 +205,9 @@ return {
         model = 'claude-3-5-sonnet-20241022',
       },
       copilot = {
-        model = 'claude-3.5-sonnet',
+        model = 'claude-3.7-sonnet',
+        -- model = 'gemini-2.0-flash-001',
+        -- model = 'o3-mini',
       },
       openai = {
         model = 'gpt-4o',
@@ -212,6 +216,7 @@ return {
         auto_suggestions = false, -- copilot で有効にすると API の使用過多で BAN の可能性あり
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = true,
+        -- enable_cursor_planning_mode = false,
       },
       hints = {
         enabled = false,
