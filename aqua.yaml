@@ -26,3 +26,4 @@ packages:
 - name: tree-sitter/tree-sitter@v0.25.1
 - name: firebase/firebase-tools@v13.30.0
 - name: benbjohnson/litestream@v0.3.13
+- name: cli/cli@v2.68.1
