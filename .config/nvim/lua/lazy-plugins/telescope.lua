@@ -45,26 +45,29 @@ return {
       local custom_actions = {}
       function custom_actions._multiopen(prompt_bufnr, open_cmd)
         local picker = action_state.get_current_picker(prompt_bufnr)
-        local num_selections = #picker:get_multi_selection()
-        if not num_selections or num_selections <= 1 then
-          actions.add_selection(prompt_bufnr)
+        local selections = picker:get_multi_selection()
+
+        if #selections == 0 then
+          selections = { picker:get_selection() }
         end
-        actions.send_selected_to_qflist(prompt_bufnr)
 
-        local results = vim.fn.getqflist()
+        actions.close(prompt_bufnr)
 
-        for _, result in ipairs(results) do
+        for _, selection in ipairs(selections) do
           local current_file = vim.fn.bufname()
-          local next_file = vim.fn.bufname(result.bufnr)
-
           if current_file == "" then
-            vim.api.nvim_command("edit" .. " " .. next_file)
+            vim.cmd(string.format('edit %s', selection.filename))
           else
-            vim.api.nvim_command(open_cmd .. " " .. next_file)
+            vim.cmd(string.format('%s %s', open_cmd, selection.filename))
+          end
+
+          if selection.col then
+            local winnr = vim.api.nvim_get_current_win()
+            vim.api.nvim_win_set_cursor(winnr, { selection.lnum, selection.col - 1 })
+
+            vim.cmd('normal! zz')
           end
         end
-
-        vim.api.nvim_command("cd .")
       end
 
       function custom_actions.multi_selection_open_vsplit(prompt_bufnr)
@@ -172,8 +175,8 @@ return {
       { '<leader>fu', ':Telescope undo<CR>' },
       { '<leader>fy', ':Telescope neoclip<CR>' },
       -- lsp
-      { 'gr',         ':Telescope lsp_references jump_type=vsplit<CR>' },
-      { 'gd',         ':Telescope lsp_definitions jump_type=vsplit<CR>' },
+      { 'gr',         ':Telescope lsp_references jump_type=never<CR>' },
+      { 'gd',         ':Telescope lsp_definitions jump_type=never<CR>' },
       { '<leader>rf', ':Telescope lsp_references jump_type=vsplit<CR>' },
       { '<leader>df', ':Telescope lsp_definitions jump_type=vsplit<CR>' },
       { '<leader>ls', ':Telescope lsp_document_symbols<CR>' },
