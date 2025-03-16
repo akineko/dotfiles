@@ -1,5 +1,5 @@
 [tools]
-node = "20"
+node = "22"
 deno = "latest"
 terraform = "1.10.2"
 usage = "latest"
@@ -7,6 +7,7 @@ go = "latest"
 ruby = "latest"
 python = "latest"
 tmux = "latest"
+lua = "latest"
 
 [settings]
 experimental = true
