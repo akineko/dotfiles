@@ -258,16 +258,16 @@ return {
     },
   },
   {
-    'kosayoda/nvim-lightbulb',
-    event = "LspAttach",
-    opts = {
-      autocmd = {
-        enabled = true,
-        updatetime = 200,
-      },
-      sign = {
-        enabled = true,
-      },
+    "luckasRanarison/tailwind-tools.nvim",
+    name = "tailwind-tools",
+    build = ":UpdateRemotePlugins",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      -- "nvim-telescope/telescope.nvim",
+      'prochri/telescope-all-recent.nvim',
+      "neovim/nvim-lspconfig",
     },
+    event = "LspAttach",
+    opts = {} -- your configuration
   },
 }
