@@ -200,6 +200,7 @@ return {
     },
     opts = {
       provider = 'copilot',
+      -- cursor_applying_provier = 'copilot', -- nil なら provider の値を使用
       auto_suggestions_provider = 'claude',
       claude = {
         model = 'claude-3-5-sonnet-20241022',
@@ -216,7 +217,9 @@ return {
         auto_suggestions = false, -- copilot で有効にすると API の使用過多で BAN の可能性あり
         auto_set_keymaps = true,
         auto_apply_diff_after_generation = true,
-        -- enable_cursor_planning_mode = false,
+        enable_cursor_planning_mode = true,
+        enable_claude_text_editor_tool_mode = true,
+        use_cwd_as_project_root = true,
       },
       hints = {
         enabled = false,
