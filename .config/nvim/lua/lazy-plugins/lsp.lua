@@ -157,10 +157,14 @@ return {
       end
 
       local function js_formatters(bufnr)
-        return { 'biome-check', first(bufnr, 'dprint', 'biome', 'prettierd', 'prettier') }
+        return { 'biome-organize-imports', 'biome-check', first(bufnr, 'biome', 'dprint', 'prettierd', 'prettier') }
       end
 
       require('conform').setup({
+        format_on_save = {
+          lsp_format = 'fallback',
+          timeout_ms = 500,
+        },
         formatters_by_ft = {
           lua = { 'stylua' },
           javascript = js_formatters,
@@ -169,13 +173,6 @@ return {
           typescriptreact = js_formatters,
           terraform = { lsp_format = 'fallback' },
         },
-        -- format_on_save = { timeout_ms = 500, lsp_fallback = true },
-      })
-      -- NOTE: setup のオプションや args.buf を渡す形式だと dprint が動かない
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        callback = function()
-          require("conform").format({ timeout_ms = 500, lsp_fallback = true })
-        end,
       })
     end,
     init = function()
