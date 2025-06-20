@@ -228,5 +228,26 @@ return {
         provider = 'telescope',
       },
     },
+  },
+  {
+    "coder/claudecode.nvim",
+    dependencies = {
+      "folke/snacks.nvim",
+    },
+    event = 'VeryLazy',
+    config = true,
+    keys = {
+      { "<leader>ai", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
+      { "<leader>ac", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",              desc = "Send to Claude" },
+      {
+        "<leader>as",
+        "<cmd>ClaudeCodeTreeAdd<cr>",
+        desc = "Add file",
+        ft = { "NvimTree", "neo-tree" },
+      },
+    },
   }
 }
