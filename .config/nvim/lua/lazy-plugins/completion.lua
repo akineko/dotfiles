@@ -202,16 +202,18 @@ return {
       provider = 'copilot',
       -- cursor_applying_provier = 'copilot', -- nil なら provider の値を使用
       auto_suggestions_provider = 'claude',
-      claude = {
-        model = 'claude-3-5-sonnet-20241022',
-      },
-      copilot = {
-        model = 'claude-3.7-sonnet',
-        -- model = 'gemini-2.0-flash-001',
-        -- model = 'o3-mini',
-      },
-      openai = {
-        model = 'gpt-4o',
+      providers = {
+        claude = {
+          model = 'claude-3-5-sonnet-20241022',
+        },
+        copilot = {
+          model = 'claude-sonnet-4',
+          -- model = 'gemini-2.0-flash-001',
+          -- model = 'o3-mini',
+        },
+        openai = {
+          model = 'gpt-4o',
+        },
       },
       behaviour = {
         auto_suggestions = false, -- copilot で有効にすると API の使用過多で BAN の可能性あり
