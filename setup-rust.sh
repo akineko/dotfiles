@@ -7,9 +7,8 @@ fi
 
 tools=(
   "clippy"
-  "rls"
-  "rust-analysis"
   "rust-src"
+  "rust-analyzer"
   "rustfmt"
 )
 
