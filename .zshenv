@@ -15,3 +15,8 @@ if type mise &>/dev/null; then
   eval "$(mise activate --shims)"
   eval "$(mise completions zsh)"
 fi
+
+if [[ -f $HOME/.zshenv.local ]]; then
+  source $HOME/.zshenv.local
+fi
+
