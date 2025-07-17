@@ -6,14 +6,10 @@ return {
       'williamboman/mason.nvim',
       'ray-x/lsp_signature.nvim',
       'nvim-lua/lsp-status.nvim',
+      'nvim-lua/plenary.nvim',
       -- TypeScript
       'yioneko/nvim-vtsls',
       'jose-elias-alvarez/nvim-lsp-ts-utils',
-      -- none-ls
-      'nvim-lua/plenary.nvim',
-      -- 'nvimtools/none-ls.nvim',
-      -- 'nvimtools/none-ls-extras.nvim',
-      -- 'jay-babu/mason-null-ls.nvim',
       -- nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -97,37 +93,6 @@ return {
 
         lspconfig[server_name].setup(opts)
       end })
-
-      -- null-ls
-      -- local null_ls = require('null-ls')
-      --
-      -- require('mason-null-ls').setup({
-      --   ensure_installed = {
-      --     'bash-language-server',
-      --   },
-      --   automatic_installation = false,
-      --   handlers = {},
-      -- })
-      --
-      -- null_ls.setup {
-      --   debug = false,
-      --   on_attach = on_attach,
-      --   sources = {
-      --     -- JavaScript / TypeScript
-      --     -- null_ls.builtins.formatting.biome.with({
-      --     --     prefer_local = "node_modules/.bin",
-      --     -- }),
-      --     require('none-ls.code_actions.eslint').with({
-      --       only_local = 'node_modules/.bin',
-      --     }),
-      --     require('none-ls.diagnostics.eslint').with({
-      --       only_local = 'node_modules/.bin',
-      --     }),
-      --     require('none-ls.formatting.eslint').with({
-      --       only_local = 'node_modules/.bin',
-      --     }),
-      --   },
-      -- }
     end,
   },
   {
