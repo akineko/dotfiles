@@ -1,9 +1,9 @@
 return {
   {
-    'williamboman/mason-lspconfig.nvim',
+    'mason-org/mason-lspconfig.nvim',
     dependencies = {
       'neovim/nvim-lspconfig',
-      'williamboman/mason.nvim',
+      'mason-org/mason.nvim',
       'ray-x/lsp_signature.nvim',
       'nvim-lua/lsp-status.nvim',
       'nvim-lua/plenary.nvim',
@@ -50,37 +50,31 @@ return {
 
       local on_attach = function(client, bufnr)
         local opts = { buffer = bufnr, noremap = true, silent = true }
-
         require "lsp_signature".on_attach()
       end
 
-      local lspconfig = require("lspconfig")
-      lspconfig.configs.vtsls = require("vtsls").lspconfig
-
+      require("lspconfig").configs.vtsls = require("vtsls").lspconfig
       require("mason-lspconfig").setup()
-      require("mason-lspconfig").setup_handlers({ function(server_name)
-        local opts = {}
-        opts.on_attach = on_attach
-        opts.capabilities = capabilities
 
-        if server_name == "vtsls" then
-          opts.on_attach = function(client, bufnr)
-            local opts = { noremap = true, silent = true }
-            vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":VtsExec organize_imports<CR>", opts)
-            vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":VtsExec add_missing_imports<CR>", opts)
+      vim.lsp.config('*', {
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+      vim.lsp.config('vtsls', {
+        on_attach = function(client, bufnr)
+          local opts = { noremap = true, silent = true }
+          vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":VtsExec organize_imports<CR>", opts)
+          vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":VtsExec add_missing_imports<CR>", opts)
 
-            on_attach(client, bufnr)
-          end
+          on_attach(client, bufnr)
         end
-
-        lspconfig[server_name].setup(opts)
-      end })
+      })
     end,
   },
   {
     'stevearc/conform.nvim',
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason-lspconfig.nvim',
     },
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
@@ -129,7 +123,7 @@ return {
   {
     'mfussenegger/nvim-lint',
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason-lspconfig.nvim',
     },
     event = { 'BufReadPost', 'BufWritePost', 'BufNewFile' },
     config = function()

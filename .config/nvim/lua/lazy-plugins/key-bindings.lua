@@ -12,7 +12,7 @@ return {
     opts = {},
   },
   {
-    'anuvyklack/hydra.nvim',
+    'nvimtools/hydra.nvim',
     event = 'VeryLazy',
     config = function()
       local hydra = require('hydra')
