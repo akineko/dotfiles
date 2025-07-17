@@ -9,7 +9,6 @@ return {
       'nvim-lua/plenary.nvim',
       -- TypeScript
       'yioneko/nvim-vtsls',
-      'jose-elias-alvarez/nvim-lsp-ts-utils',
       -- nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -63,23 +62,6 @@ return {
         local opts = {}
         opts.on_attach = on_attach
         opts.capabilities = capabilities
-
-        if server_name == "tsserver" then
-          opts.on_attach = function(client, bufnr)
-            local ts_utils = require("nvim-lsp-ts-utils")
-            ts_utils.setup({
-              enable_import_on_completion = true,
-              always_organize_imports = true,
-            })
-            ts_utils.setup_client(client)
-
-            local opts = { noremap = true, silent = true }
-            vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":TSLspOrganize<CR>", opts)
-            vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>", opts)
-
-            on_attach(client, bufnr)
-          end
-        end
 
         if server_name == "vtsls" then
           opts.on_attach = function(client, bufnr)
