@@ -21,17 +21,29 @@ find_merged_branches() {
     # コミットメッセージに似たコミットがメインブランチに存在するか確認
     # squashマージの一般的なパターンに対応
     if git log $main_branch --grep="$commit_msg" --oneline | grep -q .; then
-      squashed_merged="$squashed_merged\n$branch"
+      if [ -z "$squashed_merged" ]; then
+        squashed_merged="$branch"
+      else
+        squashed_merged="$squashed_merged\n$branch"
+      fi
       continue
     fi
 
     # このブランチのすべての変更がメインブランチに含まれているかチェック
     if [ -z "$(git cherry $main_branch $branch)" ]; then
-      squashed_merged="$squashed_merged\n$branch"
+      if [ -z "$squashed_merged" ]; then
+        squashed_merged="$branch"
+      else
+        squashed_merged="$squashed_merged\n$branch"
+      fi
     fi
   done
 
-  echo -e "$normal_merged\n$squashed_merged" | sort | uniq
+  # 空の行を除去してソート
+  {
+    [ -n "$normal_merged" ] && echo "$normal_merged"
+    [ -n "$squashed_merged" ] && echo -e "$squashed_merged"
+  } | grep -v '^$' | sort | uniq
 }
 
 merged_branches=$(find_merged_branches)
