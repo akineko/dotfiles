@@ -26,6 +26,11 @@ ln -snf "$abspath/.config/mise" "$HOME/.config/mise"
 ln -snf "$abspath/.config/zsh" "$HOME/.config/zsh"
 ln -snf "$abspath/.config/sheldon" "$HOME/.config/sheldon"
 
+mkdir -p "$HOME/.claude"
+ln -snf "$abspath/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+ln -snf "$abspath/.claude/setttings.json" "$HOME/.claude/settings.json"
+ln -snf "$abspath/.claude/.mcp.json" "$HOME/.claude/.mcp.json"
+
 ln -snf "$abspath/.config/starship.toml" "$HOME/.config/starship.toml"
 
 mkdir -p "$HOME/.config/fish"

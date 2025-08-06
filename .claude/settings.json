@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [],
+    "deny": [],
+    "defaultMode": "acceptEdits"
+  },
+  "enabledMcpjsonServers": [
+    "context7",
+    "github"
+  ],
+  "$schema": "https://json.schemastore.org/claude-code-settings.json"
+}
