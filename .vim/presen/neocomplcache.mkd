@@ -409,10 +409,10 @@ let g:neocomplcache_auto_completion_start_length = 1
 if !exists('g:neocomplcache_plugin_completion_length')
 endif
 let g:neocomplcache_plugin_completion_length = {
-    \'snippets_complete' : 1, 
-    \'buffer_complete' : 2, 
-    \'syntax_complete' : 2, 
-    \'tags_complete' : 3, 
+    \'snippets_complete' : 1,
+    \'buffer_complete' : 2,
+    \'syntax_complete' : 2,
+    \'tags_complete' : 3,
 \}
 `
 
@@ -423,11 +423,11 @@ let g:neocomplcache_plugin_completion_length = {
 ## プラグインの無効化
 
 Ver.3.09より、プラグインや補完関数を無効化できるようになりました。
- 
+
 `
 let g:neocomplcache_plugin_disable = {
-    \'tags_complete' : 1, 
-    \'omni_complete' : 1, 
+    \'tags_complete' : 1,
+    \'omni_complete' : 1,
 \}
 `
 プラグインや補完関数名をキーにして、その値を1にすることで無効になります。
@@ -442,11 +442,11 @@ Ver.3.08で一度削除されましたが、Ver.3.11で復活しました。
 Ver.3.15より、ファイルタイプごとにクイックマッチリストを表示する入力パターンを制御できるようになりました。
 defaultを指定すると、通常時の入力パターンを設定できます。
 `
-let g:neocomplcache_quick_match_patterns['default'] = '\`'           
+let g:neocomplcache_quick_match_patterns['default'] = '\`'
 `
 とすると、'\`'入力時にクイックマッチリストを表示します。
 `
-let g:neocomplcache_quick_match_patterns['scheme'] = ';'           
+let g:neocomplcache_quick_match_patterns['scheme'] = ';'
 `
 とすれば、filetypeがschemeの時のみ';'を入力パターンとします。
 初期値の'-'では入力時に不便な場合、変更してください。

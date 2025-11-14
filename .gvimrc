@@ -234,7 +234,7 @@ nnoremap    gc          `[v`]
 " タブのラベル表示の設定 0:なし 1:2以上で表示 2:常に表示
 set showtabline=1
 
-" ***** タブ操作の設定 ***** 
+" ***** タブ操作の設定 *****
 nnoremap    [Tab]               <Nop>
 nmap        <C-t>               [Tab]
 nnoremap    <silent> [Tab]n     :<C-u>tabnew<CR>
@@ -246,7 +246,7 @@ nnoremap    [Tab]k              gT
 nnoremap    <C-Tab>     gt
 nnoremap    <C-S-Tab>   gT
 
-" ***** タグジャンプ操作の設定 ***** 
+" ***** タグジャンプ操作の設定 *****
 nnoremap    [Tag]               <Nop>
 nmap        t                   [Tag]
 nnoremap    [Tag]t              <C-]>
