@@ -53,6 +53,11 @@ github = 'ohmyzsh/ohmyzsh'
 use = ['plugins/docker/completions/_docker']
 apply = ['defer', 'fpath']
 
+[plugins.git-worktree-runner-completions]
+local = '~/.git-worktree-runner/completions'
+use = ['_git-gtr']
+apply = ['fpath']
+
 # [plugins.pnpm-shell-completion]
 # github = 'g-plane/pnpm-shell-completion'
 # apply = ['pnpm', 'source']
