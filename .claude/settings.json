@@ -8,8 +8,7 @@
     "defaultMode": "acceptEdits"
   },
   "enabledMcpjsonServers": [
-    "context7",
-    "github"
+    "context7"
   ],
   "statusLine": {
     "type": "command",

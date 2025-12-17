@@ -1,15 +1,8 @@
 {
 	"mcpServers": {
 		"context7": {
-			"type": "sse",
-			"url": "https://mcp.context7.com/sse"
-		},
-		"github": {
 			"type": "http",
-			"url": "https://api.githubcopilot.com/mcp",
-			"headers": {
-				"Authorization": "Bearer ${GITHUB_TOKEN}"
-			}
+			"url": "https://mcp.context7.com/mcp"
 		}
-  }
+	}
 }
