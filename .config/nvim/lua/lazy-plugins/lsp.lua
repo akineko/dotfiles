@@ -9,6 +9,7 @@ return {
       'nvim-lua/plenary.nvim',
       -- TypeScript
       'yioneko/nvim-vtsls',
+      'pmizio/typescript-tools.nvim',
       -- nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -54,7 +55,11 @@ return {
       end
 
       require("lspconfig").configs.vtsls = require("vtsls").lspconfig
-      require("mason-lspconfig").setup()
+      require("mason-lspconfig").setup({
+        automatic_enable = {
+          exclude = { "ts_ls" }
+        },
+      })
 
       vim.lsp.config('*', {
         capabilities = capabilities,
@@ -65,6 +70,15 @@ return {
           local opts = { noremap = true, silent = true }
           vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":VtsExec organize_imports<CR>", opts)
           vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":VtsExec add_missing_imports<CR>", opts)
+
+          on_attach(client, bufnr)
+        end
+      })
+      require('typescript-tools').setup({
+        on_attach = function(client, bufnr)
+          local opts = { noremap = true, silent = true }
+          vim.api.nvim_buf_set_keymap(bufnr, "n", "go", ":TSToolsOrganizeImports<CR>", opts)
+          vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSToolsAddMissingImports<CR>", opts)
 
           on_attach(client, bufnr)
         end
