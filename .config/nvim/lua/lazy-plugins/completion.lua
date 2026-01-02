@@ -161,77 +161,6 @@ return {
     },
   },
   {
-    'yetone/avante.nvim',
-    event = 'VeryLazy',
-    version = false, -- latest code changes
-    -- version = '*', -- latest release version
-    build = 'make',
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-    dependencies = {
-      'stevearc/dressing.nvim',
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      --- optional,
-      'hrsh7th/nvim-cmp',
-      'nvim-tree/nvim-web-devicons',
-      'zbirenbaum/copilot.lua',
-      {
-        'HakonHarnes/img-clip.nvim',
-        event = 'VeryLazy',
-        opts = {
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { 'markdown', 'Avante' },
-        },
-        ft = { 'markdown', 'Avante' },
-      },
-    },
-    opts = {
-      provider = 'copilot',
-      -- cursor_applying_provier = 'copilot', -- nil なら provider の値を使用
-      auto_suggestions_provider = 'claude',
-      providers = {
-        claude = {
-          model = 'claude-3-5-sonnet-20241022',
-        },
-        copilot = {
-          model = 'claude-sonnet-4',
-          -- model = 'gemini-2.0-flash-001',
-          -- model = 'o3-mini',
-        },
-        openai = {
-          model = 'gpt-4o',
-        },
-      },
-      behaviour = {
-        auto_suggestions = false, -- copilot で有効にすると API の使用過多で BAN の可能性あり
-        auto_set_keymaps = true,
-        auto_apply_diff_after_generation = true,
-        enable_cursor_planning_mode = true,
-        enable_claude_text_editor_tool_mode = true,
-        use_cwd_as_project_root = true,
-      },
-      hints = {
-        enabled = false,
-      },
-      file_selector = {
-        provider = 'telescope',
-      },
-    },
-  },
-  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
@@ -252,24 +181,82 @@ return {
     },
   },
   {
-    "coder/claudecode.nvim",
+    "folke/sidekick.nvim",
     dependencies = {
       "folke/snacks.nvim",
     },
     event = 'VeryLazy',
-    config = true,
+    opts = {
+      nes = {
+        enabled = false,
+      },
+      cli = {
+        mux = {
+          enabled = false,
+          backend = "tmux",
+          create = "split", -- "terminal" | "window" | "split"
+          split = {
+            size = 0.3,
+          },
+        },
+      },
+    },
     keys = {
-      { "<leader>ai", "<cmd>ClaudeCode<cr>",            desc = "Toggle Claude" },
-      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>",   desc = "Resume Claude" },
-      { "<leader>ac", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>",       desc = "Focus Claude" },
-      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>",       desc = "Add current buffer" },
-      { "<leader>as", "<cmd>ClaudeCodeSend<cr>",        mode = "v",                 desc = "Send to Claude" },
+      -- {
+      --   "<tab>",
+      --   function()
+      --     -- if there is a next edit, jump to it, otherwise apply it if any
+      --     if not require("sidekick").nes_jump_or_apply() then
+      --       return "<Tab>" -- fallback to normal tab
+      --     end
+      --   end,
+      --   expr = true,
+      --   desc = "Goto/Apply Next Edit Suggestion",
+      -- },
+      {
+        "<leader>aa",
+        function() require("sidekick.cli").toggle() end,
+        desc = "Sidekick Toggle CLI",
+      },
+      {
+        "<leader>ac",
+        function() require("sidekick.cli").toggle({ name = "claude", focus = true }) end,
+        desc = "Sidekick Toggle Claude",
+      },
       {
         "<leader>as",
-        "<cmd>ClaudeCodeTreeAdd<cr>",
-        desc = "Add file",
-        ft = { "NvimTree", "neo-tree", "oil" },
+        function() require("sidekick.cli").select() end,
+        -- Or to select only installed tools:
+        -- require("sidekick.cli").select({ filter = { installed = true } })
+        desc = "Select CLI",
+      },
+      {
+        "<leader>ad",
+        function() require("sidekick.cli").close() end,
+        desc = "Detach a CLI Session",
+      },
+      {
+        "<leader>at",
+        function() require("sidekick.cli").send({ msg = "{this}" }) end,
+        mode = { "x", "n" },
+        desc = "Send This",
+      },
+      {
+        "<leader>af",
+        function() require("sidekick.cli").send({ msg = "{file}" }) end,
+        desc = "Send File",
+      },
+      {
+        "<leader>av",
+        function() require("sidekick.cli").send({ msg = "{selection}" }) end,
+        mode = { "x" },
+        desc = "Send Visual Selection",
+      },
+      {
+        "<leader>ap",
+        function() require("sidekick.cli").prompt() end,
+        mode = { "n", "x" },
+        desc = "Sidekick Select Prompt",
       },
     },
   }
