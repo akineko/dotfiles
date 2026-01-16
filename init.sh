@@ -30,6 +30,7 @@ mkdir -p "$HOME/.claude"
 ln -snf "$abspath/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 ln -snf "$abspath/.claude/setttings.json" "$HOME/.claude/settings.json"
 ln -snf "$abspath/.claude/.mcp.json" "$HOME/.claude/.mcp.json"
+ln -snf "$abspath/.claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 
 ln -snf "$abspath/.config/starship.toml" "$HOME/.config/starship.toml"
 

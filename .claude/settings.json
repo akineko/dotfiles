@@ -12,7 +12,10 @@
   ],
   "statusLine": {
     "type": "command",
-    "command": "bunx ccusage@latest statusline"
+    "command": "~/.claude/statusline-command.sh"
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "env": {
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "1"
+  }
 }
