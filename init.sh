@@ -25,6 +25,7 @@ ln -snf "$abspath/.config/gitui" "$HOME/.config/gitui"
 ln -snf "$abspath/.config/mise" "$HOME/.config/mise"
 ln -snf "$abspath/.config/zsh" "$HOME/.config/zsh"
 ln -snf "$abspath/.config/sheldon" "$HOME/.config/sheldon"
+ln -snf "$abspath/.config/gwq" "$HOME/.config/gwq"
 
 mkdir -p "$HOME/.claude"
 ln -snf "$abspath/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"

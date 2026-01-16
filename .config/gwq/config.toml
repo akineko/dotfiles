@@ -1,0 +1,5 @@
+[worktree]
+basedir = '~/dev/src'
+
+[naming]
+template = '{{.Host}}/{{.Owner}}/{{.Repository}}-worktrees/{{.Branch}}'

@@ -18,3 +18,7 @@ if type gh &>/dev/null; then
   eval "$(gh completion -s zsh)"
 fi
 
+# gwq
+if type gwq &>/dev/null; then
+  eval "$(gwq completion zsh)"
+fi
