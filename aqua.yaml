@@ -28,4 +28,5 @@ packages:
 - name: benbjohnson/litestream@v0.3.13
 - name: cli/cli@v2.75.1
 - name: astral-sh/uv@0.8.4
+- name: carapace-sh/carapace-bin@v1.5.7
 - name: sxyazi/yazi@v26.1.4

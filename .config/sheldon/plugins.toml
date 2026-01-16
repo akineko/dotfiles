@@ -35,35 +35,14 @@ use = ['{{ name }}.zsh']
 github = 'knu/zsh-git-escape-magic'
 use = ['git-escape-magic']
 
-# Completions
-[plugins.zsh-completions]
-github = 'zsh-users/zsh-completions'
-apply = ['defer']
-
-[plugins.zsh-rustup-completion]
-github = 'pkulev/zsh-rustup-completion'
-apply = ['defer']
-
-[plugins.zsh-cargo-completion]
-github = 'MenkeTechnologies/zsh-cargo-completion'
-apply = ['defer']
-
-[plugins.docker]
-github = 'ohmyzsh/ohmyzsh'
-use = ['plugins/docker/completions/_docker']
-apply = ['defer', 'fpath']
-
 [plugins.git-worktree-runner-completions]
 local = '~/.git-worktree-runner/completions'
 use = ['_git-gtr']
 apply = ['fpath']
-
-# [plugins.pnpm-shell-completion]
-# github = 'g-plane/pnpm-shell-completion'
-# apply = ['pnpm', 'source']
 
 # async dotfiles
 # [plugins.async-files]
 # local = '~/.config/zsh/async'
 # use = ['*.zsh']
 # apply = ['defer']
+
