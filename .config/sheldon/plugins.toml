@@ -35,11 +35,6 @@ use = ['{{ name }}.zsh']
 github = 'knu/zsh-git-escape-magic'
 use = ['git-escape-magic']
 
-[plugins.git-worktree-runner-completions]
-local = '~/.git-worktree-runner/completions'
-use = ['_git-gtr']
-apply = ['fpath']
-
 # async dotfiles
 # [plugins.async-files]
 # local = '~/.config/zsh/async'

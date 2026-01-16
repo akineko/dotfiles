@@ -22,9 +22,3 @@ if [ ! -d ~/.fzf ]; then
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
   ~/.fzf/install
 fi
-
-if [ ! -d ~/.git-worktree-runner ]; then
-  git clone --depth 1 https://github.com/coderabbitai/git-worktree-runner.git ~/.git-worktree-runner
-  mkdir -p ~/.local/bin
-  ln -snf ~/.git-worktree-runner/bin/git-gtr ~/.local/bin/git-gtr
-fi
