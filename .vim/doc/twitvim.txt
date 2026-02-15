@@ -4,7 +4,7 @@
 		      TwitVim: A Twitter client for Vim
 		      ---------------------------------
 
-Author: Po Shan Cheah <morton@mortonfox.com> 
+Author: Po Shan Cheah <morton@mortonfox.com>
 	http://twitter.com/mortonfox
 
 License: The Vim License applies to twitvim.vim and twitvim.txt (see
@@ -185,7 +185,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 ==============================================================================
 3. Installation						*TwitVim-install*
 
-	
+
 	Note: These instructions are for configuring TwitVim for use with
 	Twitter. If you intend to use TwitVim only with identi.ca, see
 	|TwitVim-identica|.
@@ -198,7 +198,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	OpenSSL toolkit or call a HMAC-SHA1 digest function from one of the
 	above scripting interfaces.
 
-	
+
 							*TwitVim-OpenSSL*
 	If you are using a precompiled Vim executable and do not wish to
 	recompile Vim to add a scripting interface, then the OpenSSL approach
@@ -344,7 +344,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	display a 7-digit PIN. Copy the PIN and paste it to the TwitVim input
 	prompt "Enter Twitter OAuth PIN:".
 
-	
+
 	And now you are ready to use TwitVim.
 
 
@@ -367,7 +367,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 
 						*twitvim_disable_token_file*
-	If you are using TwitVim on an insecure system, you may prefer to 
+	If you are using TwitVim on an insecure system, you may prefer to
 	not save access tokens at all. To turn off the token file, add
 	the following to your vimrc:
 >
@@ -446,7 +446,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	authentication. Twitter uses OAuth, so you do not need to add Twitter
 	login info to your vimrc.
 
-	
+
 						*twitvim_proxy_login_b64*
 	If your HTTP proxy needs authentication, set the following:
 >
@@ -479,7 +479,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	TwitVim supports http networking through Vim's |Perl|, |Python|,
 	|Ruby|, and |Tcl| interfaces, so if you have any of those interfaces
 	compiled into your Vim program, you can use that instead of cURL.
-	
+
 	Generally, it is slightly faster to use one of those scripting
 	interfaces for networking because it avoids running an external
 	program. On Windows, it also avoids a brief taskbar flash when cURL
@@ -972,7 +972,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	If you prefer old-style retweets, add this to your vimrc:
 >
 		let twitvim_old_retweet = 1
-<	
+<
 	The difference is an old-style retweet does not use the retweet API.
 	Instead, it copies the current line to the command line so that you
 	can repost it as a new tweet and optionally edit it or add your own
@@ -1080,7 +1080,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	an @-reply tweet, it calls the Twitter API to retrieve the tweet to
 	which this one is replying. Then it will display that predecessor
 	tweet below the current one.
-	
+
 	If there is no in-reply-to information, it will show a warning and do
 	nothing.
 
@@ -1137,7 +1137,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	This mapping loads the next (older) page in the timeline.
 	See |:NextTwitter|.
 
-	
+
 							*TwitVim-previous*
 	Ctrl-PageUp					*TwitVim-C-PageUp*
 
@@ -1168,7 +1168,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PTweetburner					*:PTweetburner*
 	:PTweetburner {url}
-	
+
 	Same as :Tweetburner but prompts for a tweet on the command line with
 	the short URL already inserted.
 
@@ -1192,7 +1192,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PSnipurl					*:PSnipurl*
 	:PSnipurl {url}
-	
+
 	Same as :Snipurl but prompts for a tweet on the command line with
 	the short URL already inserted.
 
@@ -1216,7 +1216,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PMetamark					*:PMetamark*
 	:PMetamark {url}
-	
+
 	Same as :Metamark but prompts for a tweet on the command line with
 	the short URL already inserted.
 
@@ -1240,7 +1240,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PTinyURL					*:PTinyURL*
 	:PTinyURL {url}
-	
+
 	Same as :TinyURL but prompts for a tweet on the command line with
 	the short URL already inserted.
 
@@ -1281,7 +1281,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PBitLy						*:PBitLy*
 	:PBitLy {url}
-	
+
 	Same as :BitLy but prompts for a tweet on the command line with
 	the short URL already inserted.
 
@@ -1305,7 +1305,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PIsGd						*:PIsGd*
 	:PIsGd {url}
-	
+
 	Same as :IsGd but prompts for a tweet on the command line with the
 	short URL already inserted.
 
@@ -1341,7 +1341,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PUrlBorg					*:PUrlBorg*
 	:PUrlBorg {url}
-	
+
 	Same as :UrlBorg but prompts for a tweet on the command line with the
 	short URL already inserted.
 
@@ -1382,7 +1382,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PTrim						*:PTrim*
 	:PTrim {url}
-	
+
 	Same as :Trim but prompts for a tweet on the command line with the
 	short URL already inserted.
 
@@ -1415,7 +1415,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PCligs						*:PCligs*
 	:PCligs {url}
-	
+
 	Same as :Cligs but prompts for a tweet on the command line with the
 	short URL already inserted.
 
@@ -1438,14 +1438,14 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 	:PZima						*:PZima*
 	:PZima {url}
-	
+
 	Same as :Zima but prompts for a tweet on the command line with the
 	short URL already inserted.
 
 
 	:[count]SearchTwitter					*:SearchTwitter*
 	:[count]SearchTwitter {query}
-	
+
 	This command calls the Twitter Search API to search for {query}. If
 	{query} is not provided on the command line, the command will prompt
 	you for it. Search results are then displayed in the timeline buffer.
@@ -1500,7 +1500,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	on how to customize these highlighting groups.
 
 	twitterUser					*hl-twitterUser*
-	
+
 	The Twitter user name at the beginning of each line.
 
 	twitterTime					*hl-twitterTime*
@@ -1564,7 +1564,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 
 		command! ToIdentica1 :call Switch_to_identica_user1()
 		command! ToIdentica2 :call Switch_to_identica_user2()
-<	
+<
 	With that in place, you can use :ToIdentica1 and :ToIdentica2 to
 	switch between user accounts. There is a call to |:FriendsTwitter| at
 	the end of each function to refresh the timeline view after switching.
@@ -1581,7 +1581,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 	current line:
 >
 		%{strlen(getline('.'))}
-<	
+<
 	This is useful if you compose tweets in a separate buffer and post
 	them with |:CPosttoTwitter|. With the line length in your status line,
 	you will know when you've reached the 140-character boundary.
@@ -1612,7 +1612,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 			     out into other buffers.
 			   * Support Twitter SSL via Tcl interface.
 			     |TwitVim-ssl-tcl|
-	0.5.3 : 2010-06-23 * Improved error messages for most commands if 
+	0.5.3 : 2010-06-23 * Improved error messages for most commands if
 			     using Perl, Python, Ruby, or Tcl interfaces.
 			   * Added |:FollowTwitter|, |:UnfollowTwitter|,
 			     |:BlockTwitter|, |:UnblockTwitter|,
@@ -1623,7 +1623,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 			     to ask the user to visit it manually.
 			   * Fixed the |:PublicTwitter| invalid request error.
 			   * Include new-style retweets in user timeline.
-	0.5.0 : 2010-06-16 * Switched to OAuth for user authentication on 
+	0.5.0 : 2010-06-16 * Switched to OAuth for user authentication on
 			     Twitter. |TwitVim-OAuth|
 			   * Improved |:ProfileTwitter|.
 	0.4.7 : 2010-03-13 * Added |:MentionsTwitter| as an alias for
@@ -1799,7 +1799,7 @@ License: The Vim License applies to twitvim.vim and twitvim.txt (see
 			   * Changed Twitter window name to avoid unsafe
 			     special characters and clashes with file names.
 	0.2.0 : 2008-04-09 * Added views for public, friends, user timelines,
-			     replies, and direct messages. 
+			     replies, and direct messages.
 			   * Automatically insert user's posts into
 			     public, friends, or user timeline, if visible.
 			   * Added syntax highlighting for timeline view.

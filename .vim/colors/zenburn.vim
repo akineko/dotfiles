@@ -5,7 +5,7 @@
 " License:      GPL
 "
 " Nothing too fancy, just some alien fruit salad to keep you in the zone.
-" This syntax file was designed to be used with dark environments and 
+" This syntax file was designed to be used with dark environments and
 " low light situations. Of course, if it works during a daybright office, go
 " ahead :)
 "
@@ -51,7 +51,7 @@
 "
 "      let g:zenburn_high_Contrast = 1
 "
-" * For example, Vim help files uses the Ignore-group for the pipes in tags 
+" * For example, Vim help files uses the Ignore-group for the pipes in tags
 "   like "|somelink.txt|". By default, the pipes are not visible, as they
 "   map to Ignore group. If you wish to enable coloring of the Ignore group,
 "   set the following parameter to 1. Warning, it might make some syntax files
@@ -259,7 +259,7 @@ if &t_Co > 255
         hi warningmsg      ctermbg=236
         hi wildmenu        ctermbg=236
         hi NonText         ctermfg=240
-        
+
         if exists("g:zenburn_color_also_Ignore")
             hi Ignore          ctermfg=240
         endif
