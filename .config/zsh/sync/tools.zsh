@@ -12,3 +12,8 @@ fi
 if type gwq &>/dev/null; then
   eval "$(gwq completion zsh)"
 fi
+
+# git-wt
+if type git-wt &>/dev/null; then
+  eval "$(git wt --init zsh)"
+fi

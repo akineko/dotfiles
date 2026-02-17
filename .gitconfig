@@ -1,6 +1,8 @@
 [user]
   name = akineko
   email = akineko.mail@gmail.com
+[init]
+	defaultBranch = main
 [color]
   ui = auto
 [core]
@@ -29,5 +31,13 @@
   postBuffer = 524288000
 [ghq]
   root = ~/dev/src
+[wt]
+	basedir = .worktrees
+	nocd = create
+	hook = tmux neww -c \"$PWD\" -n \"$(git branch --show-current)\"
+  copyignored = true
+  copyuntracked = true
+  copymodified = true
+	nocopy = **/node_modules/
 
 # vim: set expandtab sw=2 ts=2:
