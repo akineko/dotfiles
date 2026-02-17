@@ -4,7 +4,6 @@ set -Ceux
 # common
 go install github.com/mattn/memo@latest
 go install github.com/aquaproj/aqua/v2/cmd/aqua@latest
-go install github.com/d-kuro/gwq/cmd/gwq@latest
 go install github.com/k1LoW/git-wt@latest
 
 # golang
