@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git show*)",
+      "Bash(git branch*)",
+      "Bash(git remote*)",
+      "Bash(git rev-parse*)",
+      "Bash(git ls-files*)",
+      "Bash(git fetch*)",
+      "Bash(git tag*)",
+      "Bash(ls*)",
+      "Bash(pwd)",
+      "Bash(which*)",
+      "Bash(date*)",
+      "Bash(mkdir*)",
+      "Bash(cp*)",
+      "Bash(wc*)",
+      "Bash(file*)",
+      "Bash(uname*)",
+      "Bash(tree*)"
+    ],
+    "ask": [
+      "Bash(git add*)",
+      "Bash(git commit*)",
+      "Bash(git stash*)",
+      "Bash(git checkout*)",
+      "Bash(git switch*)",
+      "Bash(git merge*)",
+      "Bash(git rebase*)",
+      "Bash(git push*)",
+      "Bash(rm*)",
+      "Bash(mv*)"
+    ],
+    "deny": [
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(git checkout .)",
+      "Bash(git restore .)",
+      "Bash(git branch -D*)",
+      "Bash(sudo*)",
+      "Bash(rm -rf /)"
+    ]
+  }
+}
