@@ -32,7 +32,7 @@
 [ghq]
   root = ~/dev/src
 [wt]
-	basedir = .worktrees
+	basedir = ../.worktrees
 	nocd = create
 	hook = tmux neww -c \"$PWD\" -n \"$(git branch --show-current)\"
   copyignored = true
