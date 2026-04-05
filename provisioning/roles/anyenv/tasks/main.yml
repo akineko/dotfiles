@@ -1,6 +1,0 @@
----
-
-- git:
-    repo: https://github.com/riywo/anyenv
-    dest: '{{ ansible_env.HOME }}/.anyenv'
-
