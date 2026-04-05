@@ -1,13 +1,17 @@
 #!/bin/bash
 set -Ceu
 
-source "setup-requirements.sh"
+# Docker
 source "setup-docker.sh"
-source "setup-gcloud.sh"
-source "setup-rust.sh"
-source "setup-rusttools.sh"
 
-mise install
-# aqua は go install でインストールしている
-source "setup-gotools.sh"
-aqua install
+# Google Cloud SDK
+source "setup-gcloud.sh"
+
+# Rust ツールチェイン（rustup は継続）
+source "setup-rust.sh"
+
+# Go ツール（nixpkgs に無いもののみ）
+source "setup-gotools-minimal.sh"
+
+# レガシーツール（git clone で管理）
+source "setup-legacy.sh"
