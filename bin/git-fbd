@@ -3,7 +3,7 @@
 PROTECTED_BRANCHES="master main develop staging production"
 
 find_merged_branches() {
-  local main_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo "master")
+  local main_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || echo "main")
 
   local normal_merged=$(git branch --format "%(refname:short)" --merged | grep -v "\(${PROTECTED_BRANCHES// /\\|}\)")
 
