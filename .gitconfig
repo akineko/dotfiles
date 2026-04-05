@@ -20,6 +20,9 @@
   autostash = true
 [rebase]
   autoStash = true
+[diff]
+  algorithm = histogram
+  colorMoved = default
 [alias]
   st = status
   ci = commit
