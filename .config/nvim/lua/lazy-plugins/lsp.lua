@@ -54,7 +54,7 @@ return {
         require "lsp_signature".on_attach()
       end
 
-      require("lspconfig").configs.vtsls = require("vtsls").lspconfig
+      require("lspconfig.configs").vtsls = require("vtsls").lspconfig
       require("mason-lspconfig").setup({
         automatic_enable = {
           exclude = { "ts_ls" }
@@ -223,6 +223,10 @@ return {
       "neovim/nvim-lspconfig",
     },
     event = "LspAttach",
-    opts = {} -- your configuration
+    opts = {
+      server = {
+        override = false,
+      },
+    }
   },
 }
