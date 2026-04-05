@@ -141,27 +141,11 @@ fpath=($fpath ~/.zfunc)
 # 重複した設定の自動削除
 typeset -U path cdpath fpath manpath
 
-# linuxbrew
-test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
-test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-
-if type brew &>/dev/null; then
-  export LD_LIBRARY_PATH="$HOME/.linuxbrew/lib:$LD_LIBRARY_PATH"
-  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-  compinit
-fi
-
 # mise
 if type mise &>/dev/null; then
   eval "$(mise activate zsh)"
   eval "$(mise activate --shims)"
   eval "$(mise completions zsh)"
-fi
-
-# aqua
-if type aqua &>/dev/null; then
-  export PATH="$(aqua root-dir)/bin:$PATH"
-  eval "$(aqua completion zsh)"
 fi
 
 # proto

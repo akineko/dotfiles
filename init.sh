@@ -3,48 +3,24 @@ set -Ceu
 
 abspath=$(cd "$(dirname "$0")" && pwd)
 
-ln -snf "$abspath/.vimrc" "$HOME/.vimrc"
-ln -snf "$abspath/.gvimrc" "$HOME/.gvimrc"
-ln -snf "$abspath/.zshrc" "$HOME/.zshrc"
-ln -snf "$abspath/.zshenv" "$HOME/.zshenv"
-ln -snf "$abspath/.zsh" "$HOME/.zsh"
-ln -snf "$abspath/.tmux.conf" "$HOME/.tmux.conf"
-ln -snf "$abspath/.gitconfig" "$HOME/.gitconfig"
-ln -snf "$abspath/.tigrc" "$HOME/.tigrc"
-ln -snf "$abspath/.hgrc" "$HOME/.hgrc"
-ln -snf "$abspath/.gdbinit" "$HOME/.gdbinit"
-ln -snf "$abspath/.bashrc" "$HOME/.bashrc"
-ln -snf "$abspath/bin" "$HOME/bin"
-ln -snf "$abspath/aqua.yaml" "$HOME/aqua.yaml"
+# Nix のインストール
+if ! (type nix &>/dev/null); then
+  curl -sSfL https://artifacts.nixos.org/nix-installer | sh -s -- install
+  # インストール直後のシェルセッションに Nix の PATH を反映
+  if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+  elif [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]; then
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+  fi
+fi
 
-mkdir -p "$HOME/.cache"
+# Home Manager 設定の配置
 mkdir -p "$HOME/.config"
-ln -snf "$abspath/.config/nvim" "$HOME/.config/nvim"
-ln -snf "$abspath/.config/git" "$HOME/.config/git"
-ln -snf "$abspath/.config/gitui" "$HOME/.config/gitui"
-ln -snf "$abspath/.config/mise" "$HOME/.config/mise"
-ln -snf "$abspath/.config/zsh" "$HOME/.config/zsh"
-ln -snf "$abspath/.config/sheldon" "$HOME/.config/sheldon"
+ln -snf "$abspath/nix" "$HOME/.config/home-manager"
 
-mkdir -p "$HOME/.claude"
-ln -snf "$abspath/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-ln -snf "$abspath/.claude/settings.json" "$HOME/.claude/settings.json"
-ln -snf "$abspath/.claude/.mcp.json" "$HOME/.claude/.mcp.json"
-ln -snf "$abspath/.claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
-
-ln -snf "$abspath/.config/starship.toml" "$HOME/.config/starship.toml"
-
-mkdir -p "$HOME/.config/fish"
-ln -snf "$abspath/.config/fish/config.fish" "$HOME/.config/fish/config.fish"
-ln -snf "$abspath/.config/fish/fishfile" "$HOME/.config/fish/fishfile"
-
-mkdir -p "$HOME/.config/fish/conf.d"
-ln -snf "$abspath/.config/fish/conf.d/000-env.fish" "$HOME/.config/fish/conf.d/000-env.fish"
-
-mkdir -p "$HOME/.config/fish/functions"
-ln -snf "$abspath/.config/fish/functions/fish_prompt.fish" "$HOME/.config/fish/functions/fish_prompt.fish"
-
-cp -r .vim "$HOME/"
-mkdir -p "$HOME/vimbackup"
-
-source "$abspath/init-tools.sh"
+# 全環境を適用（パッケージ + dotfiles）
+if type home-manager &>/dev/null; then
+  home-manager switch
+else
+  nix run home-manager/master -- switch
+fi
