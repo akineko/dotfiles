@@ -179,7 +179,7 @@ end
 -- .env.* も .env と同じ filetype にする
 vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile" }, {
   pattern = ".env*",
-  command = "set filetype=sh | lua vim.diagnostic.disable()",
+  command = "set filetype=sh | lua vim.diagnostic.enable(false)",
 })
 
 require('config.keymaps')
