@@ -1,6 +1,9 @@
 #!/bin/bash
 set -Ceu
 
+# devbox
+source "setup-devbox.sh"
+
 # Docker
 source "setup-docker.sh"
 
