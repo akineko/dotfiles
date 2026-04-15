@@ -144,7 +144,6 @@ typeset -U path cdpath fpath manpath
 # mise
 if type mise &>/dev/null; then
   eval "$(mise activate zsh)"
-  eval "$(mise activate --shims)"
   eval "$(mise completions zsh)"
 fi
 

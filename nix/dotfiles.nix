@@ -18,6 +18,7 @@ in {
     ".hgrc".source          = link ".hgrc";
     ".gdbinit".source       = link ".gdbinit";
     ".bashrc".source        = link ".bashrc";
+    ".npmrc".source         = link ".npmrc";
     "bin".source            = link "bin";
 
     # Vim ディレクトリ
