@@ -1,6 +1,3 @@
-# 変数定義をすると同時にexportされ環境変数としても設定する
-setopt all_export
-
 # ディレクトリ名のみで移動
 setopt auto_cd
 # cd時にディレクトリスタックにpushdする
