@@ -112,7 +112,7 @@ return {
       end
 
       local function js_formatters(bufnr)
-        return { 'biome-organize-imports', 'biome-check', first(bufnr, 'biome', 'dprint', 'prettierd', 'prettier') }
+        return { 'oxlint', 'oxfmt', 'biome-organize-imports', 'biome-check', first(bufnr, 'biome', 'dprint', 'prettierd', 'prettier') }
       end
 
       require('conform').setup({
@@ -143,10 +143,10 @@ return {
     config = function()
       local lint = require("lint")
       lint.linters_by_ft = {
-        javascript = { 'biomejs', 'eslint' },
-        javascriptreact = { 'biomejs', 'eslint' },
-        typescript = { 'biomejs', 'eslint' },
-        typescriptreact = { 'biomejs', 'eslint' },
+        javascript = { 'oxlint', 'biomejs', 'eslint' },
+        javascriptreact = { 'oxlint', 'biomejs', 'eslint' },
+        typescript = { 'oxlint', 'biomejs', 'eslint' },
+        typescriptreact = { 'oxlint', 'biomejs', 'eslint' },
         terraform = { 'tflint' },
       }
 
