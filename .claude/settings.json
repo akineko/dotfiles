@@ -24,5 +24,10 @@
   },
   "language": "Japanese",
   "alwaysThinkingEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "theme": "dark-daltonized",
+  "editorMode": "vim",
+  "teammateMode": "auto",
+  "remoteControlAtStartup": true,
+  "skipAutoPermissionPrompt": true,
+  "effortLevel": "xhigh"
 }
