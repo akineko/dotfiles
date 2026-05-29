@@ -9,6 +9,7 @@
     # ===== シェル・ターミナル =====
     zsh
     tmux
+    smug             # tmux セッションマネージャ
     zellij
     starship
     sheldon          # zsh プラグインマネージャ
