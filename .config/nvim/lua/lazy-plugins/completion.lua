@@ -80,6 +80,19 @@ return {
         })
       })
 
+      -- ソースコードでないテキストファイルでは fuzzy_buffer をやめて buffer を使う
+      -- （fuzzy_buffer は部分一致の候補が大量に出て、文章入力の邪魔になるため）
+      for _, ft in ipairs({ 'markdown', 'text' }) do
+        cmp.setup.filetype(ft, {
+          sources = cmp.config.sources({
+            { name = 'nvim_lsp' },
+            { name = 'vsnip' },
+          }, {
+            { name = 'buffer' },
+          })
+        })
+      end
+
       -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline({ '/', '?' }, {
         mapping = cmp.mapping.preset.cmdline(),
