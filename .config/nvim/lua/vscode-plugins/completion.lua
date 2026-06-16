@@ -61,7 +61,7 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
         }),
         sources = cmp.config.sources({
-            { name = 'copilot' },
+            -- { name = 'copilot' }, -- copilot-cmp 無効化中（再有効化時に戻す）
             { name = 'nvim_lsp' },
             -- { name = 'nvim_lsp_signature_help' },
             { name = 'vsnip' },

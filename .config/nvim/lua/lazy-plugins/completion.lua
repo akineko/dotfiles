@@ -31,6 +31,9 @@ return {
       },
       {
         'zbirenbaum/copilot-cmp',
+        -- Copilot の契約終了に伴い無効化（依存の copilot.lua もロードされず認証も走らない）。
+        -- 再契約時はこの enabled 行を削除すれば復活する。
+        enabled = false,
         dependencies = { 'zbirenbaum/copilot.lua' },
         config = function()
           require('copilot').setup({
@@ -61,7 +64,7 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = false }),
         }),
         sources = cmp.config.sources({
-            { name = 'copilot' },
+            -- { name = 'copilot' }, -- copilot-cmp 無効化中（再有効化時に戻す）
             { name = 'nvim_lsp' },
             -- { name = 'nvim_lsp_signature_help' },
             { name = 'vsnip' },
