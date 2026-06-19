@@ -6,7 +6,7 @@ return {
       'neovim/nvim-lspconfig',
       'MunifTanjim/nui.nvim',
       'rcarriga/nvim-notify',
-      'nvim-treesitter/nvim-treesitter',
+      'romus204/tree-sitter-manager.nvim',
     },
     opts = {
       views = {

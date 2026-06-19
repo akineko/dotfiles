@@ -12,7 +12,7 @@ return {
   {
     'HiPhish/rainbow-delimiters.nvim',
     event = 'BufEnter',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', },
+    dependencies = { 'romus204/tree-sitter-manager.nvim', },
     main = 'rainbow-delimiters.setup',
     opts = {
       highlight = {

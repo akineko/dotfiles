@@ -11,7 +11,7 @@ return {
   },
   {
     'Wansmer/treesj',
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    dependencies = { 'romus204/tree-sitter-manager.nvim' },
     keys = {
       { '<Leader>tj', ':TSJJoin<CR>' },
       { '<Leader>ts', ':TSJSplit<CR>' },

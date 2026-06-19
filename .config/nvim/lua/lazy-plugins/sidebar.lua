@@ -77,7 +77,7 @@ return {
   {
     'stevearc/aerial.nvim',
     dependencies = {
-      "nvim-treesitter/nvim-treesitter",
+      "romus204/tree-sitter-manager.nvim",
       "nvim-tree/nvim-web-devicons"
     },
     event = 'BufEnter',
