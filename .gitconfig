@@ -37,7 +37,8 @@
 [wt]
 	basedir = ../.worktrees
 	nocd = create
-	hook = tmux neww -c \"$PWD\" -n \"$(git branch --show-current)\"
+	# hook = tmux neww -c \"$PWD\" -n \"$(git branch --show-current)\"
+	hook = herdr tab create --cwd \"$PWD\" --label \"$(git branch --show-current)\" --focus
   copyignored = true
   copyuntracked = true
   copymodified = true

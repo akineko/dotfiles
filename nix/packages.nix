@@ -11,6 +11,7 @@
     tmux
     smug             # tmux セッションマネージャ
     zellij
+    herdr            # AIエージェント対応マルチプレクサ（tmux代替候補、試験運用中）
     starship
     sheldon          # zsh プラグインマネージャ
     fzf

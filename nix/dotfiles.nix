@@ -38,6 +38,7 @@ in {
     "nvim".source           = link ".config/nvim";
     "git".source            = link ".config/git";
     "gitui".source          = link ".config/gitui";
+    "herdr/config.toml".source = link ".config/herdr/config.toml";
     "zsh".source            = link ".config/zsh";
     "sheldon".source        = link ".config/sheldon";
     "starship.toml".source  = link ".config/starship.toml";

@@ -1,0 +1,69 @@
+onboarding = false
+
+[keys]
+# 公式ドキュメント注記: alt系のprefixは環境依存で不安定らしいので挙動が不安定ならctrl系に変更する
+prefix = "alt+h"
+
+# 設定リロード
+reload_config = "prefix+ctrl+r"
+
+# ペイン分割
+split_vertical = "prefix+|"        # 左右
+split_horizontal = "prefix+_"      # 上下
+
+# ペインフォーカス移動
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+# ペインリサイズ
+resize_mode = "prefix+r"
+
+# タブ(≒tmuxのwindow)切替
+next_tab = "prefix+alt+j"
+previous_tab = "prefix+alt+k"
+
+# 新規タブ作成 / タブ名変更
+new_tab = "prefix+n"
+rename_tab = "prefix+shift+r"
+
+# ワークスペース(≒tmuxのsession)一覧・切替
+workspace_picker = "prefix+alt+s"
+
+# workspace_pickerでサイドバーにフォーカスがある間の移動キー (navigate mode)。
+navigate_workspace_up = ["up", "k"]
+navigate_workspace_down = ["down", "j"]
+
+# デタッチ / ワークスペース終了
+detach = "prefix+ctrl+d"
+close_workspace = "prefix+q"
+
+# herdr標準の goto (デフォルト prefix+g、ワークスペース/タブのファジー検索)
+goto = "prefix+f"
+
+# ポップアップ起動
+# herdrは [terminal] new_cwd (デフォルト "follow") で新規ペインが呼び出し元のcwdを継承する。
+# gitui
+[[keys.command]]
+key = "prefix+g"
+type = "popup"
+command = "$SHELL -ic 'exec gitui'"
+width = "90%"
+height = "90%"
+
+# 汎用の一時利用シェル
+[[keys.command]]
+key = "prefix+t"
+type = "popup"
+command = "$SHELL -i"
+width = "90%"
+height = "90%"
+
+# nvim
+[[keys.command]]
+key = "prefix+v"
+type = "popup"
+command = "$SHELL -ic 'exec nvim'"
+width = "90%"
+height = "90%"
