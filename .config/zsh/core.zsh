@@ -79,8 +79,8 @@ setopt share_history
 # -------------------- 入出力の設定 --------------------
 # エイリアスの有効化
 setopt aliases
-# リダイレクトによる上書きを禁止
-unsetopt clobber
+# リダイレクトによる上書きを禁止（Claude Code のシェルでは許可: スナップショット経由で noclobber が持ち込まれ、mktemp 等への > が失敗するため）
+[[ -n "$CLAUDECODE" ]] || unsetopt clobber
 # コマンド名のスペル訂正
 setopt nocorrect
 # 引数のスペル訂正
