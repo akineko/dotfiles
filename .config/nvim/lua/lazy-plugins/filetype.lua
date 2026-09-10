@@ -23,4 +23,13 @@ return {
     'tpope/vim-rails',
     ft = 'ruby',
   },
+  -- Markdown
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = { 'markdown' },
+    dependencies = { 'romus204/tree-sitter-manager.nvim', 'nvim-tree/nvim-web-devicons' },
+    opts = {
+      completions = { lsp = { enabled = true } },
+    },
+  },
 }
