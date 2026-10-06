@@ -1,5 +1,9 @@
 onboarding = false
 
+# アクティブな行の背景色。デフォルトは藍色系(#1e1e2e)で識別しづらいため明るめのグレーに変更
+[theme.custom]
+active_row_bg = "#5c5c5c"
+
 [keys]
 # 公式ドキュメント注記: alt系のprefixは環境依存で不安定らしいので挙動が不安定ならctrl系に変更する
 prefix = "alt+h"
@@ -42,31 +46,27 @@ close_workspace = "prefix+q"
 # herdr標準の goto (デフォルト prefix+g、ワークスペース/タブのファジー検索)
 goto = "prefix+f"
 
-# ポップアップ起動
+# 一時ペイン起動
+# type="popup" だとポップアップ内のテキストをマウスで選択・コピーできない (herdr 0.9.3 時点) ため、
+# 通常ペインと同じく選択できる type="pane" (ズーム表示の一時ペイン。コマンド終了で閉じる) を使う。
 # herdrは [terminal] new_cwd (デフォルト "follow") で新規ペインが呼び出し元のcwdを継承する。
 # gitui
 [[keys.command]]
 key = "prefix+g"
-type = "popup"
+type = "pane"
 command = "$SHELL -ic 'exec gitui'"
-width = "90%"
-height = "90%"
 
 # 汎用の一時利用シェル
 [[keys.command]]
 key = "prefix+t"
-type = "popup"
+type = "pane"
 command = "$SHELL -i"
-width = "90%"
-height = "90%"
 
 # nvim
 [[keys.command]]
 key = "prefix+v"
-type = "popup"
+type = "pane"
 command = "$SHELL -ic 'exec nvim'"
-width = "90%"
-height = "90%"
 
 # エージェント一覧の表示
 [ui.sidebar.agents]
