@@ -28,6 +28,7 @@
   },
   "language": "Japanese",
   "alwaysThinkingEnabled": true,
+  "advisorModel": "fable",
   "theme": "dark-daltonized",
   "editorMode": "vim",
   "teammateMode": "auto",
