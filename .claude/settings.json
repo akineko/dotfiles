@@ -14,9 +14,7 @@
   "permissions": {
     "allow": [],
     "deny": [],
-    "ask": [
-      "Bash(rm -rf:*)"
-    ],
+    "ask": [],
     "defaultMode": "auto"
   },
   "enabledMcpjsonServers": [
@@ -34,5 +32,6 @@
   "teammateMode": "auto",
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
-  "effortLevel": "xhigh"
+  "effortLevel": "xhigh",
+  "idleCompaction": false
 }
